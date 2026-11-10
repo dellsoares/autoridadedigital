@@ -382,3 +382,41 @@ p {line-height:1.66;}
 .brand-shine{fill:none;stroke:#fff6d6;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:26 220;animation:brandLightSweep 9s linear infinite;opacity:.65;}
 @keyframes brandLightSweep{from{stroke-dashoffset:220}to{stroke-dashoffset:-220}}
 @media(prefers-reduced-motion:reduce){.brand-shine{animation:none;opacity:.2}}
+
+
+/* v06 overrides */
+.logo-animated{display:grid;place-items:center;width:58px;height:58px;overflow:hidden;}
+.logo-animated img{width:100%;height:100%;object-fit:contain;border-radius:50%;}
+.section-intro.intro-blue{background-color:var(--navy);background-image:radial-gradient(circle at 76% 24%,#174a82 0%,#0b2c55 21%,transparent 48%),radial-gradient(circle at 16% 76%,#152c51,transparent 46%),linear-gradient(140deg,#061327,#081c37 60%,#051327);color:var(--white);position:relative;isolation:isolate;overflow:hidden;}
+.section-intro.intro-blue:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.2px 1.2px at 7% 21%,#fff9 99%,transparent),radial-gradient(1.5px 1.5px at 12% 70%,#fff9 99%,transparent),radial-gradient(1px 1px at 26% 13%,#fff6 99%,transparent),radial-gradient(1px 1px at 33% 87%,#fff8 99%,transparent),radial-gradient(1.5px 1.5px at 58% 37%,#fff9 99%,transparent),radial-gradient(1px 1px at 71% 79%,#fff9 99%,transparent),radial-gradient(1px 1px at 89% 15%,#fff6 99%,transparent),radial-gradient(1.5px 1.5px at 93% 68%,#fff7 99%,transparent);background-size:400px 390px;opacity:.45;z-index:0;}
+.section-intro.intro-blue>.container{position:relative;z-index:1;}
+.section-intro.intro-blue .kicker,.section-intro.intro-blue h2 em{color:var(--gold);}
+.section-intro.intro-blue .intro-aside p,.section-intro.intro-blue .pillars p,.section-intro.intro-blue .pillar-top{color:#ccdaea;}
+.section-intro.intro-blue .intro-grid h2{color:#fff;}
+.section-intro.intro-blue .pillar{background:rgba(8,31,58,.72);border-color:rgba(255,255,255,.08);box-shadow:0 20px 55px rgba(0,0,0,.18);color:#fff;}
+.section-intro.intro-blue .pillar.featured-pillar{background:rgba(16,53,92,.9);border-color:rgba(255,255,255,.09);}
+.section-intro.intro-blue .performance-art{background:repeating-linear-gradient(90deg,transparent 0 37px,#ffffff10 38px);border-block:1px solid rgba(255,255,255,.08);}
+.section-intro.intro-blue .small-star{color:#f2c967;}
+.authority-slide-link{display:block;color:inherit;}
+.authority-slide-link:hover img,.authority-slide-link:focus-visible img{transform:scale(1.035);}
+.authority-slide-visual{padding:0;overflow:hidden;position:relative;}
+.authority-slide-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+.authority-chip{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:999px;background:rgba(6,25,49,.74);backdrop-filter:blur(10px);color:#fff;font-size:9px;letter-spacing:.12em;font-weight:800;}
+.authority-slide .slide-star,.authority-mobile-slide .slide-star{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,206,91,.92);color:#081a33;font-size:14px;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.2);}
+.authority-slide-body strong,.authority-mobile-slide .authority-slide-body strong{color:#173b63;}
+#briefing-result textarea{min-height:170px;}
+@media (max-width:700px){.section-intro.intro-blue .pillar{min-height:0;}.logo-animated{width:49px;height:49px;}}
+
+
+/* v07: actual photo in hero; approved astronaut symbol in header/about/footer/contact */
+.logo-lockup .logo-animated{flex:none;width:60px;height:60px;border-radius:50%;overflow:visible;position:relative;}
+.logo-lockup .logo-animated img{display:block;width:100%;height:100%;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 9px rgba(247,198,91,.12));animation:logo-soft-breathe 6.8s ease-in-out infinite;}
+.logo-lockup .logo-animated::after{content:'';pointer-events:none;position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(255,211,99,.27);opacity:0;animation:logo-soft-halo 8s ease-in-out infinite;}
+@keyframes logo-soft-breathe{0%,100%{filter:drop-shadow(0 0 7px rgba(247,198,91,.10));}50%{filter:drop-shadow(0 0 10px rgba(247,198,91,.33));}}
+@keyframes logo-soft-halo{0%,30%,100%{opacity:0;transform:scale(.99)}55%{opacity:.65;transform:scale(1.07)}77%{opacity:0;transform:scale(1.11)}}
+.hero-v5-person img.hero-cutout{width:min(100%,455px);height:auto;max-height:555px;object-fit:contain;object-position:center bottom;}
+.contact-celestial-logo{font-size:initial;line-height:normal;display:inline-block;margin-top:25px;opacity:1;text-shadow:none;}
+.contact-celestial-logo img{display:block;width:clamp(105px,13vw,170px);height:auto;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 0 23px rgba(247,198,91,.17));animation:logo-soft-breathe 7s ease-in-out infinite;}
+@media(max-width:1180px){.hero-v5-person img.hero-cutout{max-height:490px;}}
+@media(max-width:700px){.logo-lockup .logo-animated{width:49px;height:49px;}.hero-v5-person{height:auto;min-height:0;overflow:visible;}.hero-v5-person img.hero-cutout{width:min(100%,335px);height:auto;max-height:none;}.contact-left .contact-celestial-logo{display:flex;justify-content:center;margin:25px auto 0;}.contact-celestial-logo img{width:110px;}}
+@media(prefers-reduced-motion: reduce){.logo-lockup .logo-animated img,.logo-lockup .logo-animated::after,.contact-celestial-logo img{animation:none!important;}}
