@@ -420,3 +420,70 @@ p {line-height:1.66;}
 @media(max-width:1180px){.hero-v5-person img.hero-cutout{max-height:490px;}}
 @media(max-width:700px){.logo-lockup .logo-animated{width:49px;height:49px;}.hero-v5-person{height:auto;min-height:0;overflow:visible;}.hero-v5-person img.hero-cutout{width:min(100%,335px);height:auto;max-height:none;}.contact-left .contact-celestial-logo{display:flex;justify-content:center;margin:25px auto 0;}.contact-celestial-logo img{width:110px;}}
 @media(prefers-reduced-motion: reduce){.logo-lockup .logo-animated img,.logo-lockup .logo-animated::after,.contact-celestial-logo img{animation:none!important;}}
+
+
+/* V08 | microinteracoes e consentimento informativo */
+@keyframes titleAurora {0%,100%{text-shadow:0 0 0 rgba(255,216,110,0)}45%{text-shadow:0 0 14px rgba(255,220,139,.40),0 0 30px rgba(247,198,91,.13)}}
+.hero-v5-copy h1 em{animation:titleAurora 6.8s ease-in-out infinite;will-change:text-shadow}
+.hero-v5-copy h1 em:last-child{animation-delay:2.3s}
+
+/* Fibra optica discreta: percorre uma orbita fina atras da silhueta. */
+.hero-v5-person::before{
+ content:"";position:absolute;z-index:-1;
+ width:80%;height:79%;left:10%;bottom:1%;border-radius:49% 51% 43% 44%;
+ background:conic-gradient(from 0deg,transparent 0 48%,rgba(255,232,159,.05) 53%,rgba(255,227,131,.82) 56%,rgba(133,211,255,.8) 57%,rgba(97,178,242,.18) 59%,transparent 65% 100%);
+ -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));
+ mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 1px));
+ opacity:.78;filter:drop-shadow(0 0 4px rgba(135,208,255,.65));
+ transform:rotate(-15deg);animation:fiberOrbit 15s linear infinite;
+ pointer-events:none;
+}
+@keyframes fiberOrbit {to{transform:rotate(345deg)}}
+.hero-v5-person img.hero-cutout{animation:portraitFibre 7s ease-in-out infinite;}
+@keyframes portraitFibre{0%,100%{filter:drop-shadow(0 0 2px rgba(96,175,240,.27)) drop-shadow(0 15px 33px rgba(0,0,0,.54))}50%{filter:drop-shadow(0 0 2px rgba(252,220,143,.57)) drop-shadow(0 0 6px rgba(125,200,247,.19)) drop-shadow(0 15px 33px rgba(0,0,0,.54))}}
+
+/* Tres frequencias. */
+.signal-waves i{transform-origin:50% 50%;animation:equalizerWave 1.85s ease-in-out infinite alternate;background:#f8c95f;}
+.signal-waves i:nth-child(2n){animation-duration:1.35s;animation-delay:-.8s}
+.signal-waves i:nth-child(3n){animation-duration:2.15s;animation-delay:-1.1s}
+.signal-waves i:nth-child(4n){animation-duration:1.55s;animation-delay:-.35s}
+@keyframes equalizerWave{0%{transform:scaleY(.65);opacity:.65}100%{transform:scaleY(1.55);opacity:1}}
+.conversion-ring{animation:orbitingConversion 13s linear infinite;transform-origin:center center;}
+@keyframes orbitingConversion{from{transform:rotate(-30deg)}to{transform:rotate(330deg)}}
+.authority-sun{animation:pulseAuthority 4.3s ease-in-out infinite;}
+.authority-rays{animation:pulseAuthorityRays 4.3s ease-in-out infinite;}
+@keyframes pulseAuthority{0%,100%{transform:scale(.98);box-shadow:0 0 20px #edbf6e4a}50%{transform:scale(1.08);box-shadow:0 0 44px #edbf6e96}}
+@keyframes pulseAuthorityRays{0%,100%{opacity:.28;transform:scaleY(.75) rotate(-25deg)}50%{opacity:.85;transform:scaleY(.8) rotate(-25deg)}}
+
+/* Ampliação de cases sem abrir nova aba */
+.case-solo-open{display:block;padding:0;border:0;background:transparent;width:100%;cursor:zoom-in;border-radius:9px;overflow:hidden}
+.case-solo-open img{transition:filter .2s ease}
+.case-solo-open:hover img,.case-gallery-slide a:hover img{filter:brightness(1.08)}
+.case-lightbox[hidden]{display:none!important}
+.case-lightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,38px);background:rgba(1,7,18,.92);backdrop-filter:blur(10px);animation:lightboxAppear .22s ease both}
+@keyframes lightboxAppear{from{opacity:0}to{opacity:1}}
+.case-lightbox-panel{position:relative;max-width:min(94vw,1500px);width:max-content;margin:0 auto;text-align:center}
+.case-lightbox img{display:block;width:auto;max-width:100%;max-height:calc(100dvh - 110px);object-fit:contain;box-shadow:0 16px 65px #0008;border-radius:10px}
+.case-lightbox-close{position:absolute;right:0;top:-54px;width:43px;height:43px;border:1px solid #f6c75d7a;background:#0d2745;color:#fff;border-radius:12px;font-size:28px;line-height:1;cursor:pointer}
+#case-lightbox-caption{font-size:14px;color:#fff;margin:12px auto 0;max-width:900px;line-height:1.35}
+.case-lightbox-hint{font-size:11px;color:#a8bdd5;display:block;margin-top:6px}
+body.lightbox-open{overflow:hidden}
+
+/* Barrinha de cookies, somente preferencias essenciais. */
+.privacy-notice[hidden],.privacy-details[hidden]{display:none!important}
+.privacy-notice{position:fixed;z-index:700;bottom:18px;left:18px;width:min(390px,calc(100vw - 36px));padding:19px 20px;border-radius:15px;background:#f6f7f8;color:#0b2241;box-shadow:0 18px 65px #0009;border:1px solid rgba(8,31,58,.14);animation:lightboxAppear .32s ease both}
+.privacy-notice-title{display:flex;align-items:center;gap:9px;margin-bottom:8px;font-size:16px}
+.privacy-notice-title span{color:#aa7616;font-size:17px}
+.privacy-notice p{font-size:13px;line-height:1.55;margin:0 0 12px;color:#2b415b}
+.privacy-actions{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.privacy-actions button{padding:10px 15px;font-size:13px;font-weight:700;border-radius:10px}
+.privacy-more{background:transparent;border:1px solid #a8b6c8;color:#1e4268}
+.privacy-ack{background:#f7c65b;border:1px solid #ebae2f;color:#091e36}
+.privacy-ack:hover{background:#ffda85}
+.privacy-notice p.privacy-details{margin-top:14px;margin-bottom:0;border-top:1px solid #cbd6df;padding-top:12px;font-size:12px}
+.privacy-details a{text-decoration:underline;color:#064c8d}
+.footer-bottom .footer-credit{color:#b4c5d6;font-size:12px}
+.footer-privacy{background:transparent;border:0;border-bottom:1px solid #92b1c6;padding:4px 0;color:#bcd3e8;font:inherit;cursor:pointer}
+.footer-privacy:hover{color:#f7c65b;border-color:#f7c65b}
+@media(max-width:700px){.privacy-notice{bottom:12px;left:12px;width:calc(100vw - 24px);padding:15px 17px}.case-lightbox{padding:13px}.case-lightbox img{max-height:calc(100dvh - 140px)}.case-lightbox-close{top:-48px}.hero-v5-person::before{height:67%;bottom:0}}
+@media(prefers-reduced-motion:reduce){.hero-v5-copy h1 em,.hero-v5-person::before,.hero-v5-person img.hero-cutout,.signal-waves i,.conversion-ring,.authority-sun,.authority-rays{animation:none!important}.case-lightbox,.privacy-notice{animation:none!important}.authority-track{animation:none!important}}

@@ -9,3 +9,7 @@ Home estática em HTML, CSS e JavaScript. Esta versão corrige a troca entre o r
 - Abra `index.html` localmente ou publique os arquivos com caminhos relativos preservados.
 
 O repositório GitHub é um pacote de arquivos pronto para subir, ainda não publicado por esta ferramenta.
+
+
+## Versão 08
+Animações suaves no hero e nos três pilares, contorno luminoso da foto, visualização ampliada de cases em lightbox, rodapé revisado e aviso compacto de privacidade. O aviso usa somente armazenamento local para memorizar o reconhecimento; atualmente não carrega scripts de publicidade. O formulário utiliza o endpoint Formspree configurado pelo proprietário.

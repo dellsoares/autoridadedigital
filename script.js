@@ -207,3 +207,63 @@
   },{passive:true});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)wa?.classList.remove('is-scrolling')});
 })();
+
+
+/* V08: Lightbox interno e aviso curto de privacidade */
+(()=>{
+ 'use strict';
+ const layer=document.getElementById('case-lightbox');
+ const pic=document.getElementById('case-lightbox-img');
+ const caption=document.getElementById('case-lightbox-caption');
+ const closeButton=document.getElementById('case-lightbox-close');
+ let lastFocused=null;
+ function show(trigger){
+   const src=trigger.getAttribute('href')||trigger.querySelector('img')?.getAttribute('src');
+   if(!src||!layer||!pic)return;
+   const image=trigger.querySelector('img');
+   lastFocused=trigger;
+   pic.setAttribute('src',src);
+   pic.alt=image?.alt||'Imagem ampliada do projeto';
+   caption.textContent=trigger.closest('figure')?.querySelector('figcaption:not(.visually-hidden)')?.textContent?.trim()||trigger.closest('figure')?.dataset.caption||image?.alt||'';
+   layer.hidden=false;
+   document.body.classList.add('lightbox-open');
+   closeButton?.focus();
+ }
+ function close(){
+   if(!layer||layer.hidden)return;
+   layer.hidden=true;
+   document.body.classList.remove('lightbox-open');
+   pic.removeAttribute('src');
+   lastFocused?.focus();
+ }
+ document.addEventListener('click',event=>{
+   const trigger=event.target.closest('[data-case-lightbox]');
+   if(trigger){event.preventDefault();show(trigger);return;}
+   if(event.target===layer||event.target.closest('#case-lightbox-close'))close();
+ });
+ document.addEventListener('keydown',event=>{
+   if(event.key==='Escape'&&!layer?.hidden){event.preventDefault();close();}
+   if(event.key==='Tab'&&!layer?.hidden){event.preventDefault();closeButton?.focus();}
+ });
+ // banner does not inject any optional tracking technology.
+ const banner=document.getElementById('privacy-notice');
+ const more=document.getElementById('privacy-more');
+ const details=document.getElementById('privacy-details');
+ const consentKey='wendell_privacy_notice_v08';
+ let acknowledged=false;
+ try{acknowledged=localStorage.getItem(consentKey)==='acknowledged'}catch(_e){}
+ if(banner)banner.hidden=acknowledged;
+ document.getElementById('privacy-ack')?.addEventListener('click',()=>{
+   try{localStorage.setItem(consentKey,'acknowledged')}catch(_e){}
+   banner.hidden=true;
+ });
+ more?.addEventListener('click',()=>{
+   details.hidden=!details.hidden;
+   more.setAttribute('aria-expanded',String(!details.hidden));
+ });
+ document.getElementById('privacy-reopen')?.addEventListener('click',()=>{
+   banner.hidden=false;
+   banner.scrollIntoView?.({block:'nearest'});
+   document.getElementById('privacy-ack')?.focus();
+ });
+})();
