@@ -59,7 +59,7 @@
   }
   function renderSelection(){count();const root=$('#selected-list');if(!root)return;root.innerHTML=selection.length?selection.map(id=>{const s=services.find(x=>x.id===id);return `<div class="selected-item"><div><h3>${safe(s.name)}</h3><small>${safe(getGroup(s.group))}</small></div><button type="button" data-remove="${safe(id)}" aria-label="Remover ${safe(s.name)} da seleção">×</button></div>`}).join(''):'<p class="empty-shortlist">Sua rota ainda está vazia. Explore os serviços e use o botão + para escolher os que deseja conversar.</p>'}
   function toggle(id){if(!services.some(s=>s.id===id))return;selection=selection.includes(id)?selection.filter(x=>x!==id):[...selection,id];persist();renderServices();renderSelection();toast(selection.includes(id)?'Serviço adicionado à sua rota.':'Serviço removido da rota.');}
-  function open(type){if(activeOverlay)close(false);previousFocus=document.activeElement;activeOverlay=type;$('#overlay').hidden=false;document.body.classList.add('is-locked');const el=type==='selection'?$('#selection-drawer'):$('#detail-modal');el.setAttribute('aria-hidden','false');el.classList.add('is-open');setTimeout(()=>el.querySelector('[data-close]')?.focus(),0);if(type==='selection')renderSelection()}
+  function open(type){if(activeOverlay)close(false);if(window.matchMedia('(max-width:700px)').matches)menu(false);previousFocus=document.activeElement;activeOverlay=type;$('#overlay').hidden=false;document.body.classList.add('is-locked');const el=type==='selection'?$('#selection-drawer'):$('#detail-modal');el.setAttribute('aria-hidden','false');el.classList.add('is-open');setTimeout(()=>el.querySelector('[data-close]')?.focus(),0);if(type==='selection')renderSelection()}
   function close(returnFocus=true){if(!activeOverlay)return;$('#overlay').hidden=true;document.body.classList.remove('is-locked');$$('.drawer,.modal').forEach(el=>{el.classList.remove('is-open');el.setAttribute('aria-hidden','true')});activeOverlay='';if(returnFocus)previousFocus?.focus?.()}
   function details(id){const s=services.find(x=>x.id===id);if(!s)return;const added=selection.includes(id);$('#modal-body').innerHTML=`<div class="kicker">${safe(getGroup(s.group).toUpperCase())} / SOLUÇÃO</div><h2 id="modal-title">${safe(s.name)}</h2><p>${safe(s.full)}</p><h3>O que faz parte do trabalho</h3><ul>${s.items.map(i=>`<li>${safe(i)}</li>`).join('')}</ul>${s.note?`<p class="modal-notice">${safe(s.note)}</p>`:''}<div class="modal-footer"><button type="button" class="btn btn-gold" data-modal-add="${safe(id)}">${added?'Remover da minha rota':'Adicionar à minha rota'} ↗</button><button type="button" class="btn btn-outline" data-close>Voltar à lista</button></div>`;open('modal')}
   function copyRoute(){if(!selection.length){toast('Selecione pelo menos um serviço.');return}const names=selection.map(id=>services.find(s=>s.id===id)?.name).filter(Boolean);copy('Olá, Wendell! Quero conversar sobre as seguintes soluções:\n\n'+names.map((name,i)=>`${i+1}. ${name}`).join('\n')+'\n\nMeu objetivo é: ')}
@@ -266,4 +266,42 @@
    banner.scrollIntoView?.({block:'nearest'});
    document.getElementById('privacy-ack')?.focus();
  });
+})();
+
+
+/* v09: carrosséis independentes no celular; interação por swipe e botões.
+   Mantém os grids originais para desktop (>=701px). */
+(() => {
+  'use strict';
+  const mobile = window.matchMedia('(max-width:700px)');
+  for (const [selector, name] of [['.pillars','pillars'], ['.focus-grid','focus']]) {
+    const track = document.querySelector(selector);
+    const controls = document.querySelector(`[data-carousel-controls="${name}"]`);
+    if (!track || !controls) continue;
+    const slides = [...track.children];
+    const indicator = controls.querySelector('[data-carousel-counter]');
+    let active = 0;
+    const sync = () => {
+      if (!mobile.matches) return;
+      const width = track.clientWidth || 1;
+      active = Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft / width)));
+      indicator.textContent = `${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+    };
+    const go = target => {
+      if (!mobile.matches) return;
+      active = (target+slides.length)%slides.length;
+      track.scrollTo({left:slides[active].offsetLeft - slides[0].offsetLeft,
+        behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});
+      indicator.textContent = `${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+    };
+    controls.querySelector('[data-carousel-prev]').addEventListener('click',()=>go(active-1));
+    controls.querySelector('[data-carousel-next]').addEventListener('click',()=>go(active+1));
+    track.addEventListener('scroll',sync,{passive:true});
+    track.addEventListener('keydown',event=>{
+      if (!mobile.matches || !['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();go(active+(event.key==='ArrowRight'?1:-1));
+    });
+    window.addEventListener('resize',sync,{passive:true});
+    sync();
+  }
 })();

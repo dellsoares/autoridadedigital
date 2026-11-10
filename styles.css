@@ -487,3 +487,71 @@ body.lightbox-open{overflow:hidden}
 .footer-privacy:hover{color:#f7c65b;border-color:#f7c65b}
 @media(max-width:700px){.privacy-notice{bottom:12px;left:12px;width:calc(100vw - 24px);padding:15px 17px}.case-lightbox{padding:13px}.case-lightbox img{max-height:calc(100dvh - 140px)}.case-lightbox-close{top:-48px}.hero-v5-person::before{height:67%;bottom:0}}
 @media(prefers-reduced-motion:reduce){.hero-v5-copy h1 em,.hero-v5-person::before,.hero-v5-person img.hero-cutout,.signal-waves i,.conversion-ring,.authority-sun,.authority-rays{animation:none!important}.case-lightbox,.privacy-notice{animation:none!important}.authority-track{animation:none!important}}
+
+
+/* v09 - Correções exclusivamente da experiência mobile (<=700px).
+   O desktop conserva suas regras e sua aparência atuais. */
+.mobile-carousel-controls{display:none}
+@media (max-width:700px){
+  /* Modal de serviços: acima do cabeçalho sticky (80), bússola (86) e overlay. */
+  .overlay{z-index:110}
+  .drawer{z-index:111;inset:0 0 0 auto;width:100%;height:100vh;height:100dvh;max-height:100dvh;
+    border-radius:0;padding:calc(82px + env(safe-area-inset-top, 0px)) 20px calc(20px + env(safe-area-inset-bottom, 0px));
+    overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .modal{z-index:112}
+  .drawer-top{position:relative;gap:10px;align-items:flex-start;padding-bottom:18px}
+  .drawer-top>div{min-width:0}
+  .drawer-top .kicker{font-size:9px;line-height:1.5;max-width:290px}
+  .drawer h2{font-size:clamp(28px,8vw,34px);margin:10px 0 0;line-height:1.16}
+  .drawer-top .close{width:44px;height:44px;min-width:44px;flex:none;display:grid;place-items:center;
+    border:1px solid #f7c65b;color:#f7c65b;background:#143553;position:relative;z-index:2}
+  .drawer-description{margin:18px 0}
+  .drawer-actions{gap:12px}
+  .drawer-actions .btn{flex:1;min-width:190px}
+  body.is-locked .route-compass{pointer-events:none}
+
+  /* Deslizar um card por vez, sem empilhar os três. */
+  .pillars,.focus-grid{display:flex;align-items:stretch;gap:0;min-width:0;max-width:100%;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:0;
+    overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .pillars::-webkit-scrollbar,.focus-grid::-webkit-scrollbar{display:none}
+  .pillars>.pillar,.focus-grid>.focus-card{flex:0 0 100%;width:100%;min-width:0;
+    scroll-snap-align:start;scroll-snap-stop:always}
+  .pillars>.pillar{min-height:395px}
+  .focus-grid>.focus-card{min-height:345px}
+  .mobile-carousel-controls{display:flex;justify-content:center;align-items:center;gap:20px;
+    margin:18px 0 0;min-height:44px}
+  .mobile-carousel-controls button{display:grid;place-items:center;width:44px;height:44px;
+    background:#102e52;color:#f7c65b;border:1px solid #34577b;border-radius:10px;
+    font-size:24px;font-family:Arial,sans-serif;font-weight:700;line-height:1}
+  .mobile-carousel-controls button:active{background:#1e4c79}
+  .mobile-carousel-controls [data-carousel-counter]{font-size:12px;letter-spacing:.14em;
+    font-weight:850;font-variant-numeric:tabular-nums;color:#264b70;min-width:58px;text-align:center}
+  .section-intro.intro-blue .mobile-carousel-controls [data-carousel-counter]{color:#f7d47f}
+  .focus-section .mobile-carousel-controls [data-carousel-counter]{color:#244967}
+
+  /* Pastas: abas sem deslocamento vertical ou vão antes do painel. */
+  .cases-shell>.case-tabs,.cases-shell>.cases-file{transform:none!important;opacity:1!important;transition:none!important}
+  .case-tabs{align-items:stretch;gap:3px;padding:0;margin-bottom:-1px;scrollbar-width:none;
+    scroll-snap-type:x proximity;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .case-tabs::-webkit-scrollbar{display:none}
+  .case-tab,.case-tab:hover,.case-tab[aria-selected="true"]{transform:none;
+    margin:0;box-shadow:none;scroll-snap-align:start}
+  .case-tab{min-height:66px;border-radius:11px 11px 0 0;padding:13px 10px 12px}
+  .case-tab[aria-selected="true"]{position:relative;z-index:3}
+  .case-tab[aria-selected="true"]::after{content:"";position:absolute;bottom:-2px;left:0;
+    right:0;height:3px;background:#fae9be;pointer-events:none}
+  .cases-file{position:relative;margin-top:0;border-top-left-radius:0}
+
+  /* Símbolos de ação ganham contraste e herdam a cor aprovada para o controle. */
+  .btn span[aria-hidden="true"],.btn-hero span,.form-bottom .btn span,
+  .case-visit span,.journal-all span,.hero-value b{opacity:1;color:inherit;
+    font-family:Arial,Helvetica,sans-serif;font-variant-emoji:text;font-weight:800}
+  .hero-value b{color:var(--gold)}
+  .service-more{color:#f7c65b;font-family:Arial,Helvetica,sans-serif;font-variant-emoji:text;font-weight:850}
+  .focus-card a,.journal-body a,.case-visit,.underlink{font-variant-emoji:text}
+
+  /* Pedidos de limpeza do rodapé e botão de contato flutuante. */
+  .footer-nav .footer-contact-link{display:none}
+  .whatsapp-float{display:none!important}
+}
