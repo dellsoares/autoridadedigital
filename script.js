@@ -5,12 +5,12 @@
   const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
   const groups = [
     { id:'todos', label:'Todos' },
-    { id:'presenca', label:'Presença digital' },
-    { id:'conteudo', label:'Conteúdo' },
-    { id:'identidade', label:'Identidade' },
-    { id:'visibilidade', label:'Buscas & IA' },
-    { id:'reputacao', label:'Reputação' },
-    { id:'interacao', label:'Interação' },
+    { id:'presenca', label:'Presença digital', icon:'▣' },
+    { id:'conteudo', label:'Conteúdo que conecta', icon:'▤' },
+    { id:'identidade', label:'Identidade em movimento', icon:'◉' },
+    { id:'visibilidade', label:'Busca e IA', icon:'⌕' },
+    { id:'reputacao', label:'Reputação e posicionamento', icon:'◇' },
+    { id:'interacao', label:'Experiências interativas', icon:'✧' },
   ];
   const services = [
     {id:'sites',group:'presenca',name:'Criação de sites',short:'Sites claros, bonitos e fáceis de usar no celular, feitos para apresentar seu negócio.',full:'Planejamento e desenvolvimento de sites que organizam sua história, serviços e diferenciais. O objetivo é unir visual profissional, boa navegação e conteúdo acessível.',items:['Estrutura e organização das páginas','Design adaptado a celulares','Textos claros e chamadas para contato','Ajustes básicos de velocidade e busca']},
@@ -39,23 +39,31 @@
   const strip = s => String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   let selection = [];
   try { selection=JSON.parse(localStorage.getItem(STORAGE)||'[]'); if(!Array.isArray(selection)) selection=[]; selection=selection.filter(id=>services.some(s=>s.id===id)); } catch {selection=[]}
-  let currentFilter='todos', currentSearch='', activeOverlay='', previousFocus=null, toastTimer;
+  let currentFilter='presenca', currentSearch='', activeOverlay='', previousFocus=null, toastTimer;
   function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(selection))}catch{}}
   function count(){ $$('[data-selected-count]').forEach(n=>n.textContent=selection.length); }
   function toast(s){ const e=$('#toast'); if(!e)return; e.textContent=s; e.classList.add('visible'); clearTimeout(toastTimer);toastTimer=setTimeout(()=>e.classList.remove('visible'),2900); }
   async function copy(s){try{await navigator.clipboard.writeText(s);toast('Texto copiado.');return}catch{} const n=document.createElement('textarea');n.value=s;n.style.position='fixed';n.style.left='-9999px';document.body.append(n);n.select();try{const ok=document.execCommand('copy');toast(ok?'Texto copiado.':'Selecione o texto para copiar.')}catch{toast('Selecione o texto para copiar.')}n.remove()}
   function getGroup(id){return groups.find(g=>g.id===id)?.label || 'Solução'}
-  function renderFilters(){const e=$('#filters');if(!e)return;e.innerHTML=groups.map(g=>`<button type="button" class="filter ${currentFilter===g.id?'is-active':''}" data-filter="${safe(g.id)}" aria-pressed="${currentFilter===g.id}">${safe(g.label)}</button>`).join('')}
+  function renderFilters(){
+    const el=$('#filters'); if(!el) return;
+    el.innerHTML=groups.filter(g=>g.id!=='todos').map(g=>`<button type="button" class="folder-tab" role="tab" data-filter="${safe(g.id)}" aria-selected="${currentFilter===g.id}" aria-controls="services-list" tabindex="${currentFilter===g.id?'0':'-1'}"><span class="folder-icon" aria-hidden="true">${safe(g.icon)}</span><span class="folder-title">${safe(g.label)}</span></button>`).join('');
+    const current=groups.find(g=>g.id===currentFilter);
+    const title=$('#folder-current-title');if(title) title.textContent=current?.label || 'Resultados da busca';
+  }
   function filtered(){return services.filter(s=>(currentFilter==='todos'||s.group===currentFilter)&&(!currentSearch||strip([s.name,s.short,s.full,s.group,...s.items].join(' ')).includes(strip(currentSearch))))}
-  function renderServices(){const root=$('#services-list');if(!root)return;const items=filtered();root.innerHTML=items.length?items.map(s=>{const i=services.indexOf(s);const added=selection.includes(s.id);return `<article class="service-card"><span class="service-number">${String(i+1).padStart(2,'0')}</span><div><div class="service-meta">${safe(getGroup(s.group))}</div><h3>${safe(s.name)}</h3><p>${safe(s.short)}</p></div><div class="service-actions"><button type="button" class="service-more" data-service="${safe(s.id)}" title="Detalhes: ${safe(s.name)}" aria-label="Ver detalhes de ${safe(s.name)}">↗</button><button type="button" class="service-add ${added?'is-added':''}" data-add="${safe(s.id)}" title="${added?'Remover da minha rota':'Adicionar à minha rota'}" aria-label="${added?'Remover':'Adicionar'} ${safe(s.name)} ${added?'da':'à'} minha rota">${added?'✓':'+'}</button></div></article>`}).join(''):'<div class="empty-state">Nenhuma solução encontrada. Experimente outra palavra ou limpe os filtros.</div>';
-    $('#result-count').textContent=`${items.length} ${items.length===1?'serviço disponível':'serviços disponíveis'}`;renderFilters();}
+  function renderServices(){const root=$('#services-list');if(!root)return;
+    const items=filtered();root.innerHTML=items.length?items.map(s=>{const i=services.indexOf(s);const added=selection.includes(s.id);
+      return `<article class="service-card ${added?'is-selected':''}" aria-label="${safe(s.name)}${added?' selecionado':''}"><span class="service-number">${String(i+1).padStart(2,'0')}</span><button class="service-title-btn" type="button" data-service="${safe(s.id)}" aria-label="Ver detalhes de ${safe(s.name)}"><h3>${safe(s.name)}</h3></button><div class="service-actions"><button type="button" class="service-more" data-service="${safe(s.id)}" title="Entender ${safe(s.name)}" aria-label="Ver detalhes de ${safe(s.name)}">↗</button><button type="button" class="service-add ${added?'is-added':''}" data-add="${safe(s.id)}" title="${added?'Remover da minha rota':'Adicionar à minha rota'}" aria-pressed="${added}" aria-label="${added?'Remover':'Adicionar'} ${safe(s.name)} ${added?'da':'à'} minha rota">${added?'✓':'+'}</button></div></article>`}).join(''):'<div class="empty-state">Nada encontrado nesta pasta. Tente outra busca.</div>';
+    $('#result-count').textContent=`${items.length} ${items.length===1?'solução nesta pasta':'soluções nesta pasta'}`;renderFilters();
+  }
   function renderSelection(){count();const root=$('#selected-list');if(!root)return;root.innerHTML=selection.length?selection.map(id=>{const s=services.find(x=>x.id===id);return `<div class="selected-item"><div><h3>${safe(s.name)}</h3><small>${safe(getGroup(s.group))}</small></div><button type="button" data-remove="${safe(id)}" aria-label="Remover ${safe(s.name)} da seleção">×</button></div>`}).join(''):'<p class="empty-shortlist">Sua rota ainda está vazia. Explore os serviços e use o botão + para escolher os que deseja conversar.</p>'}
   function toggle(id){if(!services.some(s=>s.id===id))return;selection=selection.includes(id)?selection.filter(x=>x!==id):[...selection,id];persist();renderServices();renderSelection();toast(selection.includes(id)?'Serviço adicionado à sua rota.':'Serviço removido da rota.');}
   function open(type){if(activeOverlay)close(false);previousFocus=document.activeElement;activeOverlay=type;$('#overlay').hidden=false;document.body.classList.add('is-locked');const el=type==='selection'?$('#selection-drawer'):$('#detail-modal');el.setAttribute('aria-hidden','false');el.classList.add('is-open');setTimeout(()=>el.querySelector('[data-close]')?.focus(),0);if(type==='selection')renderSelection()}
   function close(returnFocus=true){if(!activeOverlay)return;$('#overlay').hidden=true;document.body.classList.remove('is-locked');$$('.drawer,.modal').forEach(el=>{el.classList.remove('is-open');el.setAttribute('aria-hidden','true')});activeOverlay='';if(returnFocus)previousFocus?.focus?.()}
   function details(id){const s=services.find(x=>x.id===id);if(!s)return;const added=selection.includes(id);$('#modal-body').innerHTML=`<div class="kicker">${safe(getGroup(s.group).toUpperCase())} / SOLUÇÃO</div><h2 id="modal-title">${safe(s.name)}</h2><p>${safe(s.full)}</p><h3>O que faz parte do trabalho</h3><ul>${s.items.map(i=>`<li>${safe(i)}</li>`).join('')}</ul>${s.note?`<p class="modal-notice">${safe(s.note)}</p>`:''}<div class="modal-footer"><button type="button" class="btn btn-gold" data-modal-add="${safe(id)}">${added?'Remover da minha rota':'Adicionar à minha rota'} ↗</button><button type="button" class="btn btn-outline" data-close>Voltar à lista</button></div>`;open('modal')}
   function copyRoute(){if(!selection.length){toast('Selecione pelo menos um serviço.');return}const names=selection.map(id=>services.find(s=>s.id===id)?.name).filter(Boolean);copy('Olá, Wendell! Quero conversar sobre as seguintes soluções:\n\n'+names.map((name,i)=>`${i+1}. ${name}`).join('\n')+'\n\nMeu objetivo é: ')}
-  function setFilter(cat){const actual=cat==='conversao'?'conteudo':cat;currentFilter=groups.some(g=>g.id===actual)?actual:'todos';currentSearch='';if($('#service-search'))$('#service-search').value='';renderServices()}
+  function setFilter(cat){const actual=cat==='conversao'?'conteudo':cat;currentFilter=groups.some(g=>g.id===actual)?actual:'presenca';currentSearch='';if($('#service-search'))$('#service-search').value='';renderServices()}
   function prepareBriefing(event){event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;const data=new FormData(form);const name=String(data.get('nome')||'').trim();const email=String(data.get('email')||'').trim();const goal=String(data.get('objetivo')||'').trim();const msg=String(data.get('mensagem')||'').trim();const names=selection.map(id=>services.find(s=>s.id===id)?.name).filter(Boolean);const briefing=`Olá, Wendell!\n\nMeu nome: ${name}\nE-mail: ${email||'Não informado'}\nPrincipal objetivo: ${goal||'Ainda estou definindo'}\nO que quero melhorar: ${msg||'Quero conversar sobre possibilidades.'}${names.length?'\n\nServiços selecionados:\n'+names.map(x=>'- '+x).join('\n'):''}\n\nGostaria de conversar sobre uma proposta.`;$('#briefing-output').value=briefing;$('#briefing-result').hidden=false;$('#briefing-result').scrollIntoView({behavior:'smooth',block:'nearest'});toast('Briefing preparado. Nada foi enviado.')}
   function menu(open){const e=$('#mobile-menu'),button=$('#menu-toggle');if(!e||!button)return;e.hidden=!open;button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')}
   document.addEventListener('click',e=>{
@@ -68,14 +76,14 @@
     if(e.target.closest('[data-open-selection]')){open('selection');return}
     if(e.target.closest('[data-close]')||e.target.closest('#overlay')){close();return}
     if(e.target.closest('#menu-toggle')){menu($('#mobile-menu').hidden);return}
-    if(e.target.closest('#reset-filters')){setFilter('todos');return}
+    if(e.target.closest('#reset-filters')){setFilter('presenca');return}
     if(e.target.closest('#clear-selection')){selection=[];persist();renderSelection();renderServices();toast('Sua rota foi limpa.');return}
     if(e.target.closest('#copy-selection')){copyRoute();return}
     if(e.target.closest('#copy-briefing')){copy($('#briefing-output').value);return}
     if(e.target.closest('.mobile-menu a')){menu(false)}
   });
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();menu(false)}if(e.key==='Tab'&&activeOverlay){const pane=activeOverlay==='selection'?$('#selection-drawer'):$('#detail-modal');const focusable=$$('button,a[href],input,textarea,select,[tabindex]:not([tabindex="-1"])',pane).filter(x=>!x.disabled);if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
-  if($('#service-search'))$('#service-search').addEventListener('input',e=>{currentSearch=e.target.value;renderServices()});
+  if($('#service-search'))$('#service-search').addEventListener('input',e=>{currentSearch=e.target.value;currentFilter=currentSearch?'todos':'presenca';renderServices()});
   if($('#contact-form'))$('#contact-form').addEventListener('submit',prepareBriefing);
   if($('#year'))$('#year').textContent=new Date().getFullYear();
   renderServices();renderSelection();
@@ -171,4 +179,31 @@
     }, {passive:true});
     goTo(0);
   });
+})();
+
+/* V05: movimentos discretos em blocos, animação reduzida quando solicitada e botão WhatsApp escondido durante rolagem. */
+(() => {
+  'use strict';
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targeted=[...document.querySelectorAll('.section > .container > *, .statement .container > *, .cases-shell > *, .pillars > *, .focus-grid > *, .case-panel-grid > *, .brand-intro, .journal, .journal-card, .catalog-folders-grid > *')];
+  targeted.forEach((el,i)=>{
+    if(el.classList.contains('reveal') || el.closest('[hidden]') || el.classList.contains('filter-bar') || el.matches('form')) return;
+    if(el.closest('.authority-track'))return;
+    el.classList.add('reveal');
+    if(i%4===0)el.dataset.motion='left';
+    if(i%4===3)el.dataset.motion='right';
+  });
+  if(!reduce && 'IntersectionObserver' in window){
+    document.documentElement.classList.add('motion-ready');
+    const obs=new IntersectionObserver(entries=>entries.forEach(item=>{if(item.isIntersecting){item.target.classList.add('is-visible');obs.unobserve(item.target);}}),{threshold:.06,rootMargin:'0px 0px -5% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.addEventListener('click',e=>{if(e.target.closest('[data-case],[data-filter]'))setTimeout(()=>document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>{if(el.getBoundingClientRect().height>0)obs.observe(el)}),70)});
+  }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));}
+  const wa=document.querySelector('.whatsapp-float');let scrollEnd=0;let lastY=window.scrollY;
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;if(Math.abs(y-lastY)<1)return;lastY=y;
+    wa?.classList.add('is-scrolling');window.clearTimeout(scrollEnd);
+    scrollEnd=window.setTimeout(()=>wa?.classList.remove('is-scrolling'),240);
+  },{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)wa?.classList.remove('is-scrolling')});
 })();
