@@ -181,7 +181,7 @@
   });
 })();
 
-/* V05: movimentos discretos em blocos, animação reduzida quando solicitada e botão WhatsApp escondido durante rolagem. */
+/* V05: movimentos discretos em blocos e animação reduzida quando solicitada. */
 (() => {
   'use strict';
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -199,13 +199,6 @@
     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     document.addEventListener('click',e=>{if(e.target.closest('[data-case],[data-filter]'))setTimeout(()=>document.querySelectorAll('.reveal:not(.is-visible)').forEach(el=>{if(el.getBoundingClientRect().height>0)obs.observe(el)}),70)});
   }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));}
-  const wa=document.querySelector('.whatsapp-float');let scrollEnd=0;let lastY=window.scrollY;
-  window.addEventListener('scroll',()=>{
-    const y=window.scrollY;if(Math.abs(y-lastY)<1)return;lastY=y;
-    wa?.classList.add('is-scrolling');window.clearTimeout(scrollEnd);
-    scrollEnd=window.setTimeout(()=>wa?.classList.remove('is-scrolling'),240);
-  },{passive:true});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)wa?.classList.remove('is-scrolling')});
 })();
 
 

@@ -555,3 +555,13 @@ body.lightbox-open{overflow:hidden}
   .footer-nav .footer-contact-link{display:none}
   .whatsapp-float{display:none!important}
 }
+
+
+/* V10 | Desktop: a lateral Minha rota fica acima do header fixo e da bússola.
+   Mobile (até 700px) conserva integralmente os ajustes da V09. */
+@media (min-width:701px){
+  .overlay{z-index:110}
+  .drawer{z-index:111;padding-top:100px}
+  .modal{z-index:112}
+  body.is-locked .route-compass{pointer-events:none}
+}
