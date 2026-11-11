@@ -409,3 +409,22 @@
   syncFromScroll();
   startAutoplay();
 })();
+
+
+/* Corporativo na Home: cards reaparecem com movimento ao entrar na tela, nos dois sentidos. */
+(() => {
+  'use strict';
+  const cards = [...document.querySelectorAll('.home-corporate-card')];
+  if (!cards.length) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    cards.forEach(card => card.classList.add('is-visible'));
+    return;
+  }
+  cards.forEach((card, index) => card.style.setProperty('--home-corp-delay', `${(index % 4) * 65}ms`));
+  document.documentElement.classList.add('home-corp-motion-ready');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+  }, { threshold: 0.14, rootMargin: '-4% 0px -4% 0px' });
+  cards.forEach(card => observer.observe(card));
+})();
