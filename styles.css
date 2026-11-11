@@ -805,3 +805,7 @@ body.lightbox-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .home-corporate-card{transition:none!important;opacity:1!important;transform:none!important}
 }
+
+/* Âncoras compartilháveis: mantém os destinos visíveis abaixo dos cabeçalhos fixos. */
+body:not(.about-page) main :is(section[id], article[id], .corp-audience-block[id], .case-panel[id], #blog, .faq-area[id], .faq-topic[id], .faq-question[id]) { scroll-margin-top: 100px; }
+body.about-page main section[id] { scroll-margin-top: 24px; }

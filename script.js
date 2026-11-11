@@ -93,7 +93,7 @@
 (() => {
   'use strict';
   const tabs = [...document.querySelectorAll('[data-case]')];
-  const chooseTab = (id, focus = false) => {
+  const chooseTab = (id, focus = false, updateHash = false) => {
     tabs.forEach(tab => {
       const selected = tab.dataset.case === id;
       tab.setAttribute('aria-selected', String(selected));
@@ -102,17 +102,29 @@
       if (panel) panel.hidden = !selected;
       if (selected && focus) tab.focus();
     });
+    if (updateHash && tabs.some(tab => tab.dataset.case === id)) {
+      history.replaceState(null, '', `${location.pathname}${location.search}#case-${id}`);
+    }
+  };
+  const openCaseFromHash = () => {
+    const match = /^#case-(.+)$/.exec(location.hash);
+    if (!match || !tabs.some(tab => tab.dataset.case === match[1])) return;
+    chooseTab(match[1]);
+    const panel = document.getElementById('case-' + match[1]);
+    window.setTimeout(() => panel?.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'}), 80);
   };
   tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => chooseTab(tab.dataset.case));
+    tab.addEventListener('click', () => chooseTab(tab.dataset.case, false, true));
     tab.addEventListener('keydown', event => {
       const key = event.key;
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(key)) return;
       event.preventDefault();
       const next = key === 'Home' ? 0 : key === 'End' ? tabs.length - 1 : (index + (key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-      chooseTab(tabs[next].dataset.case, true);
+      chooseTab(tabs[next].dataset.case, true, true);
     });
   });
+  window.addEventListener('hashchange', openCaseFromHash);
+  openCaseFromHash();
   const range = document.getElementById('comparison-range');
   if (range) range.addEventListener('input', () => range.closest('.case-comparator').style.setProperty('--split', range.value + '%'));
   const slides = [...document.querySelectorAll('.authority-mobile-slide')];
