@@ -1,10 +1,10 @@
 /* Corporativo | estilos exclusivos da landing page */
-.corporate-page{overflow-x:hidden;background:var(--navy)}
+.corporate-page{overflow-x:clip;background:var(--navy)}
 .corporate-page .corp-svg-library{position:absolute;width:0;height:0;overflow:hidden}
 .corporate-page .corp-icon{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .corporate-page .corp-nav-active{color:var(--gold);position:relative}
 .corporate-page .corp-nav-active:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:var(--gold)}
-.corporate-page .header{position:relative}
+.corporate-page .header{position:sticky;top:0;z-index:80}
 .corp-hero{min-height:690px;padding:92px 0 75px;isolation:isolate}
 .corp-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:4%;position:relative;z-index:1}
 .corp-hero-copy{padding:25px 0 30px}
@@ -25,7 +25,7 @@
 .corp-hero-stamp strong,.corp-hero-stamp small{display:block}
 .corp-hero-stamp strong{font-size:11px;color:#fff;letter-spacing:.04em}
 .corp-hero-stamp small{font-size:10px;color:#9eb2c9;margin-top:3px}
-.corp-ticker{background:var(--gold);color:#10233d}
+.corp-ticker{background:var(--gold);color:#10233d;padding:24px 0 22px}
 .corp-ticker .ticker-track{font-size:10px;font-weight:900;letter-spacing:.17em}
 
 .corp-section{padding:105px 0}
@@ -110,7 +110,7 @@
 .corp-about{padding:90px 0;background:radial-gradient(circle at 20% 50%,#143c65,transparent 42%),#0a2140;color:#f7f9fc}
 .corp-about-grid{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:40px}
 .corp-about-symbol{width:155px;height:155px;border-radius:50%;border:1px solid #f7c65b58;display:grid;place-items:center;box-shadow:0 0 0 16px #ffffff05,0 0 45px #f7c65b12}
-.corp-about-symbol img{width:125px;height:125px;object-fit:contain}
+.corp-about-symbol img{width:125px;height:125px;object-fit:cover;border-radius:50%}
 .corp-about h2{font-size:clamp(35px,4.6vw,57px);line-height:1.08;letter-spacing:-.07em;margin:16px 0}
 .corp-about h2 em{color:var(--gold);font-style:normal}
 .corp-about p{font-size:13px;color:#bdcddd;max-width:790px;line-height:1.8;margin-bottom:10px}
@@ -340,4 +340,37 @@
 @media(prefers-reduced-motion:reduce){
   .corp-logo-light{animation:none}
   .corp-scroll-card{transition:none!important;opacity:1!important;transform:none!important;will-change:auto}
+}
+
+
+/* Portfólios: biblioteca de PDFs com acesso direto. */
+.corp-portfolios{background:linear-gradient(135deg,#0c2a4e,#06172e 78%);color:#f8f9fb}
+.corp-portfolios .corp-section-head>p{color:#b5c7da}
+.corp-portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.corp-portfolio-card{min-height:220px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;background:linear-gradient(145deg,#12365d,#0a2140);border:1px solid #ffffff20;box-shadow:0 18px 38px #020d1c35;transition:transform .22s,border-color .22s,box-shadow .22s}
+.corp-portfolio-card:hover{transform:translateY(-4px);border-color:#f7c65b80;box-shadow:0 24px 42px #020d1c50}
+.corp-portfolio-card .corp-card-number{color:#d6b76c}
+.corp-portfolio-card h3{font-size:clamp(19px,2vw,25px);line-height:1.15;letter-spacing:-.045em;margin:13px 0 8px;color:#fff}
+.corp-portfolio-card p{font-size:11px;line-height:1.7;color:#bdcddd;margin:0 0 20px}
+.corp-portfolio-download{margin-top:auto;font-size:10px;padding:13px 16px;gap:16px;white-space:nowrap}
+.corp-portfolio-card-general{grid-column:1/-1;min-height:0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;padding:27px 30px;background:linear-gradient(115deg,#17436f,#0b2545);border-color:#f7c65b58}
+.corp-portfolio-card-general h3{font-size:clamp(24px,3vw,34px);margin:10px 0 7px}
+.corp-portfolio-card-general p{max-width:700px;margin:0}
+.corp-portfolio-card-general .corp-portfolio-download{margin:0}
+.corporate-page .mobile-menu{position:fixed;top:80px;z-index:79}
+@media(max-width:700px){
+  .corp-ticker{padding:18px 0}
+  .corp-portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .corp-portfolio-card{min-height:205px;padding:17px 15px}
+  .corp-portfolio-card h3{font-size:18px}
+  .corp-portfolio-card p{font-size:10px}
+  .corp-portfolio-download{width:100%;justify-content:space-between;padding:12px 13px;font-size:9px;white-space:normal}
+  .corp-portfolio-card-general{grid-column:1/-1;display:flex;align-items:flex-start;gap:16px;padding:21px}
+  .corp-portfolio-card-general .corp-portfolio-download{width:100%;margin-top:0}
+  .corporate-page .mobile-menu{top:70px}
+}
+@media(max-width:430px){
+  .corp-portfolio-grid{grid-template-columns:1fr}
+  .corp-portfolio-card-general{grid-column:auto}
+  .corp-portfolio-card{min-height:0}
 }
