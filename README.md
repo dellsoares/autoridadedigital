@@ -33,3 +33,15 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - Retirado **Contato** da lista de navegação do rodapé. O botão de contato no cabeçalho, a seção de contato e o formulário continuam intactos.
 - Adicionado o link **FAQ** no rodapé, com destino `https://maestriageo.com.br/faq`, em desktop e mobile.
 - Layout e componentes da V09 no mobile mantidos, exceto pela alteração de navegação do rodapé solicitada.
+
+
+## Versão 11 — Central de Inteligência Digital
+
+- Novo item **Widgets** no menu desktop e mobile, com âncora para a seção de ferramentas.
+- Nova seção **Central de Inteligência Digital**, posicionada depois da apresentação e do blog e antes das perguntas frequentes.
+- Quatro cards com as capas oficiais e links diretos para as ferramentas 01 a 04.
+- Desktop: quatro cards em uma linha; tablet: grade 2 × 2.
+- Mobile: carrossel cíclico automático e navegável para as três primeiras ferramentas; a ferramenta 04 aparece abaixo, sozinha.
+- O carrossel pausa durante foco/interação e respeita a preferência do sistema por movimento reduzido.
+- As capas são carregadas dos arquivos originais nos repositórios GitHub, usando URLs `raw.githubusercontent.com` fixadas nos commits informados.
+- O Scanner WS aponta para o endereço `workers.dev` fornecido, mantendo o acesso funcional enquanto o domínio personalizado é finalizado.

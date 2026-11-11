@@ -298,3 +298,114 @@
     sync();
   }
 })();
+
+
+/* V11 | Carrossel automático das três primeiras ferramentas no celular.
+   O quarto card permanece fora do carrossel, em posição própria. */
+(() => {
+  'use strict';
+  const root = document.querySelector('[data-widgets-carousel]');
+  if (!root) return;
+  const track = root.querySelector('.widgets-carousel-track');
+  const slides = [...track.querySelectorAll('.widget-card')];
+  const previous = root.querySelector('[data-widgets-prev]');
+  const next = root.querySelector('[data-widgets-next]');
+  const counter = root.querySelector('[data-widgets-count]');
+  const mobile = window.matchMedia('(max-width:700px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!track || slides.length < 2) return;
+
+  let active = 0;
+  let paused = false;
+  let inView = true;
+  let timer = null;
+  let resumeTimer = null;
+  let raf = 0;
+
+  const updateCounter = () => {
+    if (counter) counter.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+  };
+
+  const goTo = (index) => {
+    if (!mobile.matches) return;
+    active = (index + slides.length) % slides.length;
+    track.scrollTo({ left: slides[active].offsetLeft, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    updateCounter();
+  };
+
+  const syncFromScroll = () => {
+    if (!mobile.matches) {
+      active = 0;
+      updateCounter();
+      return;
+    }
+    const currentLeft = track.scrollLeft;
+    let nearest = 0;
+    let nearestDistance = Infinity;
+    slides.forEach((slide, index) => {
+      const distance = Math.abs(slide.offsetLeft - currentLeft);
+      if (distance < nearestDistance) {
+        nearest = index;
+        nearestDistance = distance;
+      }
+    });
+    active = nearest;
+    updateCounter();
+  };
+
+  const pauseBriefly = () => {
+    paused = true;
+    window.clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(() => { paused = false; }, 6500);
+  };
+
+  const stopAutoplay = () => {
+    if (timer) window.clearInterval(timer);
+    timer = null;
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    if (!mobile.matches || reducedMotion.matches) return;
+    timer = window.setInterval(() => {
+      if (!paused && inView && !document.hidden) goTo(active + 1);
+    }, 5200);
+  };
+
+  previous?.addEventListener('click', () => { pauseBriefly(); goTo(active - 1); });
+  next?.addEventListener('click', () => { pauseBriefly(); goTo(active + 1); });
+  track.addEventListener('scroll', () => {
+    if (raf) window.cancelAnimationFrame(raf);
+    raf = window.requestAnimationFrame(syncFromScroll);
+  }, { passive: true });
+  track.addEventListener('touchstart', pauseBriefly, { passive: true });
+  track.addEventListener('touchend', pauseBriefly, { passive: true });
+  root.addEventListener('pointerenter', () => { paused = true; });
+  root.addEventListener('pointerleave', () => { paused = false; });
+  root.addEventListener('focusin', () => { paused = true; });
+  root.addEventListener('focusout', event => {
+    if (!root.contains(event.relatedTarget)) paused = false;
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) syncFromScroll();
+  });
+  window.addEventListener('resize', () => {
+    if (!mobile.matches) track.scrollTo({ left: 0, behavior: 'auto' });
+    syncFromScroll();
+    startAutoplay();
+  }, { passive: true });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      inView = Boolean(entries[0]?.isIntersecting);
+    }, { threshold: 0.15 });
+    observer.observe(root);
+  }
+  reducedMotion.addEventListener?.('change', startAutoplay);
+  mobile.addEventListener?.('change', () => {
+    if (!mobile.matches) track.scrollTo({ left: 0, behavior: 'auto' });
+    syncFromScroll();
+    startAutoplay();
+  });
+  syncFromScroll();
+  startAutoplay();
+})();
