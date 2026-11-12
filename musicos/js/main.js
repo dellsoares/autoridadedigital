@@ -52,11 +52,39 @@
 
   if (tabs.length) activateTab("musica");
 
+  const mobileVideo = document.querySelector(".mobile-preview-device video");
+  const audioToggle = document.querySelector(".video-audio-toggle");
+
+  if (mobileVideo && audioToggle) {
+    const audioLabel = audioToggle.querySelector(".video-audio-label");
+
+    const syncAudioToggle = () => {
+      const audioEnabled = !mobileVideo.muted;
+      audioToggle.classList.toggle("is-unmuted", audioEnabled);
+      audioToggle.setAttribute("aria-pressed", String(audioEnabled));
+      audioToggle.setAttribute("aria-label", audioEnabled ? "Silenciar áudio do vídeo" : "Ativar áudio do vídeo");
+      if (audioLabel) audioLabel.textContent = audioEnabled ? "Silenciar áudio" : "Ativar áudio";
+    };
+
+    // O vídeo sempre começa sem som; o visitante decide quando ouvir.
+    mobileVideo.muted = true;
+    mobileVideo.defaultMuted = true;
+    syncAudioToggle();
+
+    audioToggle.addEventListener("click", () => {
+      mobileVideo.muted = !mobileVideo.muted;
+      syncAudioToggle();
+    });
+
+    // Mantém o botão sincronizado caso o visitante use o controle nativo do vídeo.
+    mobileVideo.addEventListener("volumechange", syncAudioToggle);
+  }
+
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
 
   const revealTargets = document.querySelectorAll(
-    ".hero-copy, .hero-art, .point-heading, .point-copy, .point-portrait, .statement, .map-heading, .folder-interface, .frequency-card, .case-intro-grid, .case-mosaic, .case-details, .testimonial-grid, .fit-grid, .cta-grid"
+    ".hero-copy, .hero-art, .point-heading, .point-copy, .point-portrait, .statement, .map-heading, .folder-interface, .frequency-card, .case-intro-grid, .mobile-preview, .case-mosaic, .case-details, .testimonial-grid, .fit-grid, .fit-audience, .cta-grid"
   );
   revealTargets.forEach((element) => element.classList.add("reveal"));
 

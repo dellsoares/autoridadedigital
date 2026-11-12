@@ -56,3 +56,11 @@ Antes de publicar, confirme se essa rota está livre e se o host publica o conte
 ## Integração com o site principal
 
 O header e o footer são gerados a partir dos arquivos compartilhados em `../shared/`. Para sincronizar alterações globais, execute `python ../scripts/sync-shared.py` na raiz do repositório.
+
+
+## Mídia do case Ció Balbino
+
+- As fotografias novas indicadas para hero, abas, três frentes artísticas e depoimento usam URLs versionadas do repositório GitHub, fixadas nos commits correspondentes.
+- O vídeo vertical 9:16 da experiência mobile usa o arquivo `video_cio-smaller.mp4`, hospedado no repositório GitHub em uma URL versionada.
+- A imagem de capa do player fica em `musicos/assets/ciobalbino-mobile-poster.jpg`.
+- O player usa controles nativos, `playsinline` e carregamento de metadados. Não há reprodução automática. O áudio começa desligado e pode ser ligado/desligado pelo botão próprio, sincronizado com os controles nativos.
