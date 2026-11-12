@@ -84,7 +84,7 @@
   if (year) year.textContent = new Date().getFullYear();
 
   const revealTargets = document.querySelectorAll(
-    ".hero-copy, .hero-art, .point-heading, .point-copy, .point-portrait, .statement, .map-heading, .folder-interface, .frequency-card, .case-intro-grid, .mobile-preview, .case-mosaic, .case-details, .testimonial-grid, .fit-grid, .fit-audience, .cta-grid"
+    ".hero-copy, .hero-art, .point-heading, .point-copy, .point-portrait, .statement, .map-heading, .folder-interface, .frequency-card, .case-intro-grid, .mobile-preview, .case-mosaic, .case-details, .testimonial-grid, .fit-grid, .audience-ticker, .cta-grid"
   );
   revealTargets.forEach((element) => element.classList.add("reveal"));
 

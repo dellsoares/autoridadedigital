@@ -783,3 +783,542 @@
 @media (max-width: 900px) {
   .musicos-page .menu-toggle { display: flex; }
 }
+
+
+/* V2 | Direção visual aproximada à home: escala tipográfica, alternância de fundos e faixas contínuas. */
+.musicos-page {
+  font-size: 17px;
+  line-height: 1.62;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(75,155,232,.12), transparent 34%),
+    linear-gradient(180deg, #07162f 0%, #081831 48%, #050f22 100%);
+}
+
+/* Escala do H1 alinhada ao hero da home (43-64px, com ajuste para telas menores). */
+.musicos-page .hero-copy h1 {
+  max-width: 675px;
+  font-size: clamp(43px, 4vw, 64px);
+  line-height: 1.13;
+  letter-spacing: -.062em;
+  margin-bottom: 19px;
+}
+
+.musicos-page .hero-lead {
+  max-width: 550px;
+  margin-bottom: 14px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.musicos-page .hero-audience {
+  max-width: 570px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #c6d2e2;
+}
+
+.musicos-page .hero-actions {
+  gap: 22px;
+  margin: 30px 0 8px;
+}
+
+.musicos-page .section {
+  padding-block: 92px;
+}
+
+.musicos-page .section h2,
+.musicos-page .testimonial-content h2,
+.musicos-page .cta-copy h2 {
+  font-size: clamp(39px, 4.2vw, 61px);
+  line-height: 1.09;
+  letter-spacing: -.055em;
+}
+
+.musicos-page .section-kicker {
+  margin-bottom: 38px;
+  font-size: 11px;
+  letter-spacing: .15em;
+}
+
+.musicos-page .point-copy,
+.musicos-page .map-heading > p,
+.musicos-page .panel-copy p,
+.musicos-page .frequency-card p,
+.musicos-page .case-description,
+.musicos-page .testimonial-content blockquote,
+.musicos-page .mobile-preview-copy p,
+.musicos-page .fit-copy > p:not(.fit-emphasis),
+.musicos-page .cta-copy > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.musicos-page .point-copy .point-question {
+  font-size: 19px;
+  line-height: 1.48;
+}
+
+.musicos-page .button {
+  min-height: 50px;
+  padding-inline: 22px;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.musicos-page .button-large {
+  min-height: 56px;
+  padding-inline: 24px;
+}
+
+.musicos-page .text-link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* Hero: mantém os três benefícios em tipografia editorial, sem os ícones antigos. */
+.musicos-page .hero-signals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 680px;
+  margin-top: 34px;
+}
+
+.musicos-page .signal-card {
+  display: block;
+  min-width: 0;
+  padding: 13px 0 0;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,.28);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.musicos-page .signal-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #f4c35e;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+.musicos-page .signal-card small {
+  display: block;
+  color: #d3deec;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* Faixa principal: mesmo papel, inclinação, contraste e ritmo do ticker da home. */
+.musicos-page .ticker-diagonal {
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+  margin: 10px 0 -8px;
+  padding: 20px 0 18px;
+  transform: skewY(-2deg);
+  border: 0;
+  border-bottom: 2px solid #e2ac37;
+  background: #f7f8fb;
+  color: #0b2050;
+  box-shadow: 0 10px 40px rgba(2,27,56,.22);
+  font-size: clamp(14px, 1.42vw, 19px);
+  letter-spacing: .17em;
+}
+
+.musicos-page .ticker-diagonal .ticker-track {
+  gap: 36px;
+  animation-duration: 64s;
+}
+
+.musicos-page .ticker-diagonal .ticker-track span {
+  padding: 0;
+  color: #0b2050;
+  font-size: inherit;
+  font-weight: 900;
+  letter-spacing: inherit;
+}
+
+.musicos-page .audience-ticker {
+  margin: 52px 0 -8px;
+}
+
+/* 01. Ponto de partida: papel quente, com luz e profundidade em vez de azul chapado. */
+.musicos-page .section-point {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 12%, rgba(255,255,255,.78) 0%, transparent 37%),
+    radial-gradient(circle at 8% 88%, rgba(226,171,64,.22) 0%, transparent 39%),
+    linear-gradient(135deg, #fbf2d7 0%, #f5e6c1 54%, #f8f4e9 100%);
+  color: #10294a;
+}
+
+.musicos-page .section-point .shell { position: relative; z-index: 1; }
+.musicos-page .section-point .section-kicker { color: #765a25; }
+.musicos-page .section-point .section-kicker i { background: rgba(118,90,37,.28); }
+.musicos-page .section-point .section-index { color: #9a6d17; }
+.musicos-page .section-point h2 { color: #10294a; }
+.musicos-page .section-point .point-copy { color: #4c5c6e; }
+.musicos-page .section-point .point-copy .point-question { color: #10294a; }
+.musicos-page .section-point .portrait-frame {
+  border-color: rgba(124,93,38,.22);
+  background: #e8ddc4;
+  box-shadow: 0 20px 50px rgba(72,54,20,.13);
+}
+.musicos-page .section-point .portrait-caption { color: #735f3d; }
+.musicos-page .section-point .statement { border-color: rgba(118,90,37,.32); }
+.musicos-page .section-point .statement-mark { color: #9b6d16; }
+.musicos-page .section-point .statement p { color: #354b61; }
+.musicos-page .section-point .statement strong { color: #96640c; }
+
+/* 02. Mapa: azul profundo com luzes e textura sutil. */
+.musicos-page .section-map {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 88% 8%, rgba(34,91,151,.42), transparent 37%),
+    radial-gradient(ellipse at 7% 92%, rgba(231,187,85,.09), transparent 32%),
+    linear-gradient(135deg, #071831 0%, #0a2344 55%, #06152d 100%);
+}
+
+.musicos-page .section-map::before,
+.musicos-page .section-case::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: .42;
+  background-image:
+    radial-gradient(1px 1px at 8% 18%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 21% 73%, #fff 99%, transparent),
+    radial-gradient(1.2px 1.2px at 49% 28%, #ffe7b0 99%, transparent),
+    radial-gradient(1px 1px at 73% 81%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 91% 39%, #fff 99%, transparent);
+  background-size: 360px 310px;
+}
+
+.musicos-page .section-map > .shell,
+.musicos-page .section-case > .shell { position: relative; z-index: 1; }
+
+/* Abas mais legíveis e com estado selecionado evidente. */
+.musicos-page .folder-interface {
+  overflow: hidden;
+  border: 1px solid rgba(223,232,247,.18);
+  border-radius: 20px;
+  background: rgba(3,14,31,.34);
+  box-shadow: 0 22px 60px rgba(0,0,0,.18);
+}
+
+.musicos-page .folder-tabs {
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid rgba(223,232,247,.13);
+  background: rgba(255,255,255,.025);
+}
+
+.musicos-page .folder-tab,
+.musicos-page .folder-tab:last-child {
+  position: relative;
+  min-height: 88px;
+  justify-content: flex-start;
+  padding: 18px 22px;
+  border: 1px solid rgba(223,232,247,.16);
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(20,48,82,.94), rgba(9,27,52,.94));
+  color: #d6e1ef;
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  transition: transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.musicos-page .folder-tab strong {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.musicos-page .folder-tab.is-active {
+  transform: translateY(-3px);
+  border-color: #f4c35e;
+  background: linear-gradient(135deg, #ffe5a0 0%, #f4c35e 100%);
+  color: #10294a;
+  box-shadow: 0 14px 30px rgba(0,0,0,.2), inset 0 -3px 0 rgba(126,83,9,.16);
+}
+
+.musicos-page .folder-tab:hover:not(.is-active) {
+  transform: translateY(-2px);
+  border-color: rgba(244,195,94,.58);
+  background: linear-gradient(135deg, rgba(29,65,105,.98), rgba(12,34,63,.98));
+}
+
+.musicos-page .folder-tab:focus-visible {
+  outline: 3px solid #f4c35e;
+  outline-offset: 3px;
+}
+
+.musicos-page .folder-panel { padding: clamp(28px, 4vw, 50px); }
+.musicos-page .panel-label { margin-bottom: 16px; font-size: 10px; font-weight: 850; letter-spacing: .15em; }
+.musicos-page .panel-copy h3 { font-size: clamp(26px, 2.45vw, 36px); line-height: 1.12; }
+.musicos-page .panel-copy p { max-width: 610px; }
+.musicos-page .panel-copy li { font-size: 14px; line-height: 1.55; }
+.musicos-page .visual-caption { font-size: 11px; letter-spacing: .13em; }
+.musicos-page .map-footnote { font-size: 16px; }
+
+/* 03. Três frequências: fundo claro com cartões de superfície, como as áreas claras da home. */
+.musicos-page .section-frequencies {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(255,229,168,.76), transparent 42%),
+    radial-gradient(ellipse at 92% 90%, rgba(150,190,220,.34), transparent 44%),
+    linear-gradient(130deg, #edf3f7 0%, #e5edf4 54%, #f7f2e7 100%);
+  color: #10294a;
+}
+
+.musicos-page .section-frequencies .section-kicker { color: #765a25; }
+.musicos-page .section-frequencies .section-kicker i { background: rgba(118,90,37,.28); }
+.musicos-page .frequency-grid { gap: 18px; }
+.musicos-page .frequency-card,
+.musicos-page .frequency-card:nth-child(2),
+.musicos-page .frequency-card:nth-child(3) {
+  min-height: 285px;
+  padding: 29px;
+  border-color: rgba(111,133,154,.24);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(244,195,94,.18), transparent 43%),
+    linear-gradient(145deg, rgba(255,255,255,.9), rgba(255,255,255,.68));
+  box-shadow: 0 18px 42px rgba(37,55,76,.09);
+}
+
+.musicos-page .frequency-card:nth-child(2) {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(75,155,232,.16), transparent 43%),
+    linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.7));
+}
+
+.musicos-page .frequency-card:nth-child(3) {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(231,187,85,.2), transparent 43%),
+    linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.7));
+}
+
+.musicos-page .frequency-icon {
+  border-color: rgba(154,109,23,.24);
+  background: linear-gradient(145deg, #fff8e8, #f3e5c4);
+  color: #9b6d16;
+}
+
+.musicos-page .frequency-number { color: #82652f; font-size: 11px; }
+.musicos-page .frequency-card h3 { color: #10294a; font-size: 27px; }
+.musicos-page .frequency-card p { color: #53647a; }
+.musicos-page .frequency-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(183,137,47,.55);
+  box-shadow: 0 24px 48px rgba(37,55,76,.14);
+}
+
+/* Depoimento: superfície clara para variar a cadência visual da página. */
+.musicos-page .section-testimonial {
+  background:
+    radial-gradient(ellipse at 8% 50%, rgba(255,218,127,.38), transparent 35%),
+    radial-gradient(ellipse at 92% 16%, rgba(189,216,237,.65), transparent 34%),
+    linear-gradient(135deg, #f8f5ed 0%, #eef2f5 55%, #f8f0df 100%);
+  border-block: 1px solid rgba(16,41,74,.1);
+  color: #10294a;
+}
+
+.musicos-page .section-testimonial .section-kicker { color: #765a25; }
+.musicos-page .section-testimonial .section-kicker i { background: rgba(118,90,37,.28); }
+.musicos-page .testimonial-photo {
+  border-color: rgba(16,41,74,.16);
+  background:
+    radial-gradient(ellipse at 50% 72%, rgba(75,155,232,.24), transparent 56%),
+    linear-gradient(145deg, #16385d, #07162f 72%);
+  box-shadow: 0 22px 50px rgba(24,46,72,.16);
+}
+.musicos-page .testimonial-caption strong { color: #10294a; font-size: 16px; }
+.musicos-page .testimonial-caption span { color: #5d6d80; font-size: 13px; }
+.musicos-page .testimonial-content {
+  border-color: rgba(16,41,74,.12);
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 22px 55px rgba(24,46,72,.1);
+}
+.musicos-page .testimonial-content h2 { color: #10294a; }
+.musicos-page .testimonial-content .eyebrow { color: #765a25; }
+.musicos-page .testimonial-content blockquote { color: #4d5f72; }
+.musicos-page .testimonial-content blockquote strong { color: #936512; }
+.musicos-page .testimonial-rule { background: #c28b24; }
+.musicos-page .testimonial-note { color: #6c7b8d; }
+.musicos-page .quote-mark { color: #c28b24; }
+
+/* 04. Case: azul noturno com profundidade, pontos de luz e áreas de vidro. */
+.musicos-page .section-case {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 84% 8%, rgba(34,91,151,.4), transparent 35%),
+    radial-gradient(ellipse at 7% 94%, rgba(231,187,85,.1), transparent 32%),
+    linear-gradient(135deg, #050f22 0%, #081b36 55%, #050f22 100%);
+  border-block: 1px solid rgba(223,232,247,.13);
+}
+
+.musicos-page .section-case::before { opacity: .32; }
+.musicos-page .case-details {
+  border-color: rgba(223,232,247,.18);
+  background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  box-shadow: 0 20px 52px rgba(0,0,0,.16);
+}
+.musicos-page .case-detail-list p { font-size: 14px; line-height: 1.6; }
+.musicos-page .case-detail-list strong { font-size: 15px; }
+.musicos-page .case-photo { box-shadow: 0 16px 38px rgba(0,0,0,.2); }
+
+/* 05. Cada projeto, uma identidade: bege editorial e imagem do site de Ció. */
+.musicos-page .section-fit {
+  position: relative;
+  overflow: hidden;
+  padding-top: 92px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(255,216,108,.42), transparent 37%),
+    radial-gradient(circle at 6% 90%, rgba(196,221,239,.68), transparent 39%),
+    linear-gradient(135deg, #fbf5e7 0%, #f3e9d1 54%, #edf3f8 100%);
+  color: #10294a;
+}
+
+.musicos-page .section-fit .section-kicker { color: #765a25; }
+.musicos-page .section-fit .section-kicker i { background: rgba(118,90,37,.28); }
+.musicos-page .fit-copy h2 { color: #10294a; }
+.musicos-page .fit-copy > p:not(.fit-emphasis) { color: #4e6074; }
+.musicos-page .fit-copy .fit-emphasis { color: #10294a; font-size: 19px; }
+.musicos-page .fit-copy .fit-emphasis strong { color: #936512; }
+.musicos-page .fit-visual { min-height: 420px; }
+.musicos-page .fit-pointing {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-color: rgba(16,41,74,.13);
+  border-radius: 20px 20px 86px 20px;
+  background: linear-gradient(145deg, #fff 0%, #f3f5f7 100%);
+  box-shadow: 0 24px 60px rgba(39,56,74,.14);
+}
+.musicos-page .fit-pointing img {
+  object-fit: contain;
+  object-position: center;
+}
+.musicos-page .fit-ring { border-color: rgba(175,129,39,.26); }
+.musicos-page .fit-note {
+  border-color: rgba(231,187,85,.42);
+  background: linear-gradient(145deg, rgba(8,29,55,.97), rgba(5,15,34,.98));
+  box-shadow: 0 20px 48px rgba(25,39,56,.22);
+}
+.musicos-page .fit-note .note-kicker { color: #f4c35e; }
+.musicos-page .fit-note p { color: #e0e8f2; font-size: 14px; }
+
+/* Público-alvo em uma segunda faixa contínua, com a mesma assinatura da home. */
+.musicos-page .audience-ticker .ticker-track { animation-duration: 64s; }
+
+/* CTA com profundidade e luz quente, sem virar um bloco azul chapado. */
+.musicos-page .section-cta {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 12% 22%, rgba(26,75,126,.48), transparent 38%),
+    radial-gradient(ellipse at 92% 88%, rgba(231,187,85,.12), transparent 34%),
+    linear-gradient(135deg, #06152c 0%, #0a2141 58%, #050f22 100%);
+}
+
+.musicos-page .cta-grid {
+  border-color: rgba(223,232,247,.2);
+  background:
+    radial-gradient(ellipse at 0% 100%, rgba(75,155,232,.18), transparent 46%),
+    radial-gradient(ellipse at 100% 0%, rgba(231,187,85,.09), transparent 38%),
+    linear-gradient(130deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+  box-shadow: 0 24px 70px rgba(0,0,0,.16);
+}
+
+@media (max-width: 1350px) {
+  .musicos-page .hero-copy h1 { font-size: clamp(40px, 4vw, 57px); }
+}
+
+@media (max-width: 1000px) {
+  .musicos-page .hero-copy h1 { font-size: clamp(40px, 4vw, 57px); }
+  .musicos-page .section h2,
+  .musicos-page .testimonial-content h2,
+  .musicos-page .cta-copy h2 { font-size: clamp(39px, 4.2vw, 61px); }
+  .musicos-page .folder-tab strong { font-size: 16px; }
+}
+
+@media (max-width: 760px) {
+  .musicos-page .hero-signals { grid-template-columns: 1fr; gap: 12px; margin-top: 26px; }
+  .musicos-page .signal-card { padding-top: 10px; }
+  .musicos-page .signal-card strong { font-size: 15px; }
+  .musicos-page .signal-card small { font-size: 13px; }
+
+  .musicos-page { font-size: 16px; }
+  .musicos-page .section { padding-block: 72px; }
+  .musicos-page .hero-copy h1 { font-size: clamp(40px, 4vw, 57px); }
+  .musicos-page .hero-lead { font-size: 16px; }
+  .musicos-page .hero-audience { font-size: 14px; }
+  .musicos-page .section h2,
+  .musicos-page .testimonial-content h2,
+  .musicos-page .cta-copy h2 { font-size: clamp(39px, 4.2vw, 61px); }
+  .musicos-page .section-kicker { font-size: 9px; line-height: 1.55; gap: 9px; }
+  .musicos-page .ticker-diagonal { margin: 4px 0 -6px; padding: 15px 0; transform: skewY(-1.6deg); font-size: 14px; }
+  .musicos-page .ticker-diagonal .ticker-track { animation-duration: 42s; gap: 24px; }
+  .musicos-page .audience-ticker { margin-top: 38px; }
+  .musicos-page .folder-tabs { grid-template-columns: 1fr; gap: 8px; padding: 12px; }
+  .musicos-page .folder-tab,
+  .musicos-page .folder-tab:last-child { min-height: 62px; padding: 14px 17px; }
+  .musicos-page .folder-tab strong { font-size: 16px; }
+  .musicos-page .folder-tab.is-active { transform: none; }
+  .musicos-page .folder-panel { padding: 24px; }
+  .musicos-page .panel-copy h3 { font-size: clamp(24px, 6.5vw, 31px); }
+  .musicos-page .panel-copy p,
+  .musicos-page .frequency-card p,
+  .musicos-page .case-description,
+  .musicos-page .testimonial-content blockquote,
+  .musicos-page .mobile-preview-copy p,
+  .musicos-page .fit-copy > p:not(.fit-emphasis),
+  .musicos-page .cta-copy > p:not(.eyebrow) { font-size: 15px; }
+  .musicos-page .frequency-card,
+  .musicos-page .frequency-card:nth-child(2),
+  .musicos-page .frequency-card:nth-child(3) { min-height: 0; padding: 24px; }
+  .musicos-page .testimonial-grid { grid-template-columns: 1fr; }
+  .musicos-page .testimonial-content { padding: 25px; }
+  .musicos-page .fit-visual { min-height: 360px; }
+  .musicos-page .fit-pointing { width: 100%; height: auto; aspect-ratio: 16 / 10; }
+  .musicos-page .fit-note { right: 0; bottom: 8px; width: 185px; }
+  .musicos-page .cta-grid { padding: 25px; }
+}
+
+@media (max-width: 700px) {
+  .musicos-page .hero-copy h1 { font-size: clamp(38px, 9vw, 56px); }
+  .musicos-page .section h2,
+  .musicos-page .testimonial-content h2,
+  .musicos-page .cta-copy h2 { font-size: 42px; }
+}
+
+@media (max-width: 480px) {
+  .musicos-page .hero-copy h1 { font-size: clamp(38px, 9vw, 56px); }
+  .musicos-page .fit-visual { min-height: 330px; }
+  .musicos-page .fit-pointing { width: 100%; height: auto; aspect-ratio: 16 / 10; }
+  .musicos-page .fit-note { width: 170px; }
+}
+
+@media (max-width: 390px) {
+  .musicos-page .hero-copy h1 { font-size: 37px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .musicos-page .ticker-diagonal .ticker-track { animation: none !important; }
+}
