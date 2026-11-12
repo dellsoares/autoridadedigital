@@ -58,6 +58,7 @@ Há ainda um ponto sensível. As regras da Wikidata **restringem criar itens sob
 6. **Anexe referência a cada declaração.** Dado sem fonte é o primeiro a ser questionado.
 7. **Adicione identificadores externos.** Perfis em bases independentes ajudam a distinguir a entidade. Itens precisam ter **identificação clara em até 24 horas** da criação.
 8. **Conecte com o seu site.** Use o mesmo nome, endereço e dados no Schema Markup, no Google Business Profile e nas redes. **Consistência entre canais** é o que consolida a entidade.
+9. 
 
 ![](/assets/posts/7-erros-wikidata-para-empresas.webp)
 
