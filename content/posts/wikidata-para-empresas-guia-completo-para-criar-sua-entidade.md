@@ -11,8 +11,6 @@ published: true
 cover: /assets/posts/wikidata-para-empresascapa-1.webp
 cover_alt: redes neurais representando a wikidata para empresas
 ---
-# Wikidata para empresas: como criar a entidade da sua marca sem erro (guia 2026)
-
 **Wikidata para empresas** é o cadastro público e estruturado que diz a buscadores e IAs quem é a sua marca, em formato que as máquinas leem direto. É gratuito e aberto, mas **só aceita fatos que as fontes independentes comprovam**. Marca que tenta usar a base como vitrine é barrada ou revertida.
 
 ## O que é a Wikidata e por que ela pesa na sua marca
@@ -46,13 +44,17 @@ Há ainda um ponto sensível. As regras da Wikidata **restringem criar itens sob
 7. **Adicione identificadores externos.** Perfis em bases independentes ajudam a distinguir a entidade. Itens precisam ter **identificação clara em até 24 horas** da criação.
 8. **Conecte com o seu site.** Use o mesmo nome, endereço e dados no Schema Markup, no Google Business Profile e nas redes. **Consistência entre canais** é o que consolida a entidade.
 
+![](/assets/posts/7-erros-wikidata-para-empresas.webp)
+
 ## O que fazer se sua empresa ainda não se qualifica
 
 Se hoje você não tem fontes independentes suficientes, **o trabalho vem antes da Wikidata**. Construa a base de provas: matérias em veículos regionais e setoriais, participação em eventos documentados, menções em entidades de classe, estudos de caso publicados por terceiros.
 
 Em paralelo, deixe sua casa organizada: dados estruturados no site, Google Business Profile completo e informações idênticas em todos os canais. Quando as fontes existirem, **o cadastro vira consequência, não aposta.**
 
-## Perguntas frequentes
+
+
+```
 <!-- FAQ ACCORDION - Psicólogo Ângelo Oliveira -->
 <style>
   #pao-faq-wrap,
@@ -244,3 +246,5 @@ Em paralelo, deixe sua casa organizada: dados estruturados no site, Google Busin
   });
 })();
 </script>
+```
+
