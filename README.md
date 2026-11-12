@@ -21,6 +21,7 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - Setas de ação com cor e contraste consistentes com os controles existentes.
 - **O ponto de partida** e **Algumas missões em destaque** agora exibem um card por vez no celular, com deslize horizontal, botões anterior/próximo e contador.
 - Abas de **Arquivo de missões** passam a ficar encostadas no painel sem deslocamento vertical animado no celular.
+- A prévia editorial da home direciona os temas para as categorias locais do blog e para a página Corporativo.
 - No celular, a lista do rodapé não exibe **Contato** e o atalho flutuante do WhatsApp está oculto. As versões desktop desses elementos continuam como antes.
 - O layout é modificado apenas na faixa até **700px**. Não houve remoção de serviços, projetos ou formulários.
 
@@ -30,6 +31,7 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - Corrigida a sobreposição do cabeçalho no painel lateral **Minha rota** em telas desktop (acima de 700px), elevando a camada da gaveta e do fundo escurecido.
 - Removido definitivamente o botão flutuante do WhatsApp em todos os tamanhos de tela, inclusive código JavaScript associado à rolagem.
 - Retirado **Contato** da lista de navegação do rodapé. O botão de contato no cabeçalho, a seção de contato e o formulário continuam intactos.
+- A navegação do Blog aponta para `/blog/` e o FAQ aponta para `/faq/`, ambos no domínio próprio.
 - Layout e componentes da V09 no mobile mantidos, exceto pela alteração de navegação do rodapé solicitada.
 
 
@@ -45,6 +47,15 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - O Scanner WS aponta para o endereço `workers.dev` fornecido, mantendo o acesso funcional enquanto o domínio personalizado é finalizado.
 
 
-## Blog estático
+## Versão 12 — ajustes técnicos de SEO
 
-O blog é publicado em `/blog/`, com oito páginas de categorias independentes. Os links da navegação principal e do rodapé apontam para o novo endereço no próprio domínio Wendell Soares. As páginas internas compartilham a estrutura de cabeçalho e rodapé da home.
+- Adicionado texto alternativo inicial à imagem dinâmica do lightbox; o JavaScript continua atualizando o alt conforme a imagem aberta.
+- Marcas visuais repetidas acompanhadas de texto foram explicitamente identificadas como decorativas (`role="presentation"`), mantendo `alt=""` para evitar anúncios redundantes em leitores de tela.
+- Adicionado JSON-LD `Person`, `WebSite` e `WebPage` à home.
+- Adicionado JSON-LD `ProfilePage` e entidade `Person` à página Sobre.
+- Adicionado JSON-LD `CollectionPage` e `ItemList` de serviços à página Corporativo.
+- Criados `sitemap.xml` com as 13 páginas HTML canônicas existentes e `robots.txt` com referência ao sitemap.
+- A navegação Blog e os links antigos da prévia editorial foram direcionados para páginas do domínio atual, sem dependência do Maestria GEO.
+- A checagem local do pacote encontrou zero links internos apontando para arquivos inexistentes.
+
+Observação: o relatório resumido do scanner informa nove URLs não analisáveis, mas não apresenta os endereços. Para corrigir esse item com precisão, é necessário conferir a lista detalhada dessas nove URLs; PDFs, destinos externos e redirecionamentos não devem ser tratados automaticamente como páginas HTML quebradas.

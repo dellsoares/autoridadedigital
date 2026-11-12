@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wendellsoares.jor.br/sitemap.xml
