@@ -36,7 +36,12 @@ Este ZIP é uma **atualização incremental** do repositório `dellsoares/autori
 
 ## Links externos da seção Toró de ideias
 
-O card Amazon já abre uma busca pelos livros Anamorismo. Os endereços diretos do Substack e da coluna Pop UP no Jornal Voz Ativa não estavam no repositório e não puderam ser confirmados com segurança. Por isso, os dois cards estão diagramados, mas exibem um aviso de endereço a inserir. Envie esses dois links exatos para substituir os avisos por links diretos.
+Os três cards estão com links clicáveis:
+- Substack: https://wendellsoares.substack.com/
+- Amazon: busca pelos livros Anamorismo.
+- Pop UP / Jornal Voz Ativa: https://jornalvozativa.com/categoria/colunas/popup/
+
+Os links externos abrem em nova aba, com proteção `noopener noreferrer`.
 
 ## Observação
 
