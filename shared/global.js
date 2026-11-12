@@ -3,31 +3,53 @@
 
   const menu = document.getElementById('mobile-menu');
   const menuButton = document.getElementById('menu-toggle');
-  const submenu = document.getElementById('mobile-blog-submenu');
-  const submenuButton = document.querySelector('[data-mobile-submenu-toggle]');
+  const submenuButtons = [...document.querySelectorAll('[data-mobile-submenu-toggle]')];
 
-  function setSubmenu(open) {
-    if (!submenu || !submenuButton) return;
-    submenu.hidden = !open;
-    submenuButton.setAttribute('aria-expanded', String(open));
+  function getSubmenu(button) {
+    const submenuId = button?.getAttribute('aria-controls');
+    return submenuId ? document.getElementById(submenuId) : null;
   }
 
-  const hasActiveCategory = Boolean(submenu?.querySelector('[aria-current="page"]'));
+  function setSubmenu(button, open) {
+    const submenu = getSubmenu(button);
+    if (!submenu || !button) return;
+    submenu.hidden = !open;
+    button.setAttribute('aria-expanded', String(open));
+  }
+
+  function closeSubmenus() {
+    submenuButtons.forEach(button => setSubmenu(button, false));
+  }
+
+  function submenuHasActivePage(button) {
+    return Boolean(getSubmenu(button)?.querySelector('[aria-current="page"]'));
+  }
 
   function setMenu(open) {
     if (!menu || !menuButton) return;
     menu.hidden = !open;
     menuButton.setAttribute('aria-expanded', String(open));
     menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    if (!open) setSubmenu(false);
-    else if (hasActiveCategory) setSubmenu(true);
+
+    if (!open) {
+      closeSubmenus();
+      return;
+    }
+
+    submenuButtons.forEach(button => {
+      setSubmenu(button, submenuHasActivePage(button));
+    });
   }
 
   window.WSMenu = { setOpen: setMenu, close: () => setMenu(false) };
 
   menuButton?.addEventListener('click', () => setMenu(menu.hidden));
-  submenuButton?.addEventListener('click', () => {
-    setSubmenu(submenu.hidden);
+
+  submenuButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const submenu = getSubmenu(button);
+      if (submenu) setSubmenu(button, submenu.hidden);
+    });
   });
 
   menu?.addEventListener('click', event => {

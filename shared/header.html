@@ -7,8 +7,14 @@
   <nav aria-label="Navegação principal" class="desktop-nav">
     <a data-nav-key="home" href="/#inicio">Início</a>
     <a data-nav-key="about" href="/#sobre">Sobre</a>
-    <a data-nav-key="services" href="/#servicos">Serviços</a>
-    <a data-nav-key="cases" href="/#cases">Cases</a>
+    <a data-nav-key="services" href="/#servicos">Soluções</a>
+    <div class="nav-dropdown">
+      <a data-nav-key="cases" href="/#cases" aria-haspopup="true">Cases <span aria-hidden="true" class="nav-chevron">⌄</span></a>
+      <div class="nav-submenu" aria-label="Cases">
+        <span class="nav-submenu-heading">Explorar cases</span>
+        <a data-nav-key="musicians" href="/musicos/">Músicos</a>
+      </div>
+    </div>
     <div class="nav-dropdown">
       <a data-nav-key="blog" href="/blog/" aria-haspopup="true">Blog <span aria-hidden="true" class="nav-chevron">⌄</span></a>
       <div class="nav-submenu" aria-label="Categorias do Blog">
@@ -23,7 +29,6 @@
         <a data-nav-key="category:radar-de-novidades" href="/radar-de-novidades/">Radar de novidades</a>
       </div>
     </div>
-    <a data-nav-key="musicians" href="/musicos/">Músicos</a>
     <a data-nav-key="widgets" href="/#widgets">Widgets</a>
     <a data-nav-key="corporate" href="/corporativo/">Corporativo</a>
     <a data-nav-key="faq" href="/faq/">FAQ</a>
@@ -36,8 +41,14 @@
 <nav aria-label="Menu para celular" class="mobile-menu" hidden id="mobile-menu">
   <a data-nav-key="home" href="/#inicio">Início <span>01</span></a>
   <a data-nav-key="about" href="/#sobre">Sobre <span>02</span></a>
-  <a data-nav-key="services" href="/#servicos">Serviços <span>03</span></a>
-  <a data-nav-key="cases" href="/#cases">Cases <span>04</span></a>
+  <a data-nav-key="services" href="/#servicos">Soluções <span>03</span></a>
+  <div class="mobile-nav-group">
+    <a data-nav-key="cases" href="/#cases">Cases <span>04</span></a>
+    <button aria-controls="mobile-cases-submenu" aria-expanded="false" class="mobile-submenu-toggle" data-mobile-submenu-toggle type="button">Explorar cases <span aria-hidden="true">⌄</span></button>
+    <div class="mobile-submenu" hidden id="mobile-cases-submenu">
+      <a data-nav-key="musicians" href="/musicos/">Músicos</a>
+    </div>
+  </div>
   <div class="mobile-nav-group">
     <a data-nav-key="blog" href="/blog/">Blog <span>05</span></a>
     <button aria-controls="mobile-blog-submenu" aria-expanded="false" class="mobile-submenu-toggle" data-mobile-submenu-toggle type="button">Categorias do Blog <span aria-hidden="true">⌄</span></button>
@@ -52,9 +63,8 @@
       <a data-nav-key="category:radar-de-novidades" href="/radar-de-novidades/">Radar de novidades</a>
     </div>
   </div>
-  <a data-nav-key="musicians" href="/musicos/">Músicos <span>06</span></a>
-  <a data-nav-key="widgets" href="/#widgets">Widgets <span>07</span></a>
-  <a data-nav-key="corporate" href="/corporativo/">Corporativo <span>08</span></a>
-  <a data-nav-key="faq" href="/faq/">FAQ <span>09</span></a>
-  <a data-nav-key="contact" href="/#contato">Contato <span>10</span></a>
+  <a data-nav-key="widgets" href="/#widgets">Widgets <span>06</span></a>
+  <a data-nav-key="corporate" href="/corporativo/">Corporativo <span>07</span></a>
+  <a data-nav-key="faq" href="/faq/">FAQ <span>08</span></a>
+  <a data-nav-key="contact" href="/#contato">Contato <span>09</span></a>
 </nav>

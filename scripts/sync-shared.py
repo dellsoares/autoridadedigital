@@ -44,6 +44,8 @@ def mark_active(header: str, active: str) -> str:
             opening = opening[:-1] + ' aria-current="page">'
         elif active.startswith("category:") and key == "blog":
             opening = opening[:-1] + ' aria-current="location">'
+        elif active == "musicians" and key == "cases":
+            opening = opening[:-1] + ' aria-current="location">'
         return re.sub(r'\sdata-nav-key="[^"]+"', "", opening)
     return re.sub(
         r'(<a\b[^>]*\bdata-nav-key="([^"]+)"[^>]*>)',
