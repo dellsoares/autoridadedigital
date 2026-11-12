@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+<title id="title">Entre pixels e pessoas</title><desc id="desc">Rosto humano abstrato conectado por pixels, pontos e linhas digitais.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06152c"/><stop offset=".52" stop-color="#0c3157"/><stop offset="1" stop-color="#071126"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#44b3eb" stop-opacity=".55"/><stop offset="1" stop-color="#44b3eb" stop-opacity="0"/></radialGradient>
+ <linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d3ecf5"/><stop offset=".55" stop-color="#6aa7ca"/><stop offset="1" stop-color="#24547a"/></linearGradient>
+</defs>
+<rect width="1000" height="1000" fill="url(#bg)"/><circle cx="500" cy="455" r="445" fill="url(#glow)"/>
+<g fill="none" stroke="#4db8ee" stroke-width="2" opacity=".38"><path d="M95 190 H285 L365 270"/><path d="M905 210 H750 L665 300"/><path d="M85 760 H265 L355 665"/><path d="M915 750 H745 L660 660"/><circle cx="95" cy="190" r="8"/><circle cx="905" cy="210" r="8"/><circle cx="85" cy="760" r="8"/><circle cx="915" cy="750" r="8"/></g>
+<g transform="translate(500 480)">
+ <path d="M-190 330 C-180 175 -115 100 -45 75 C25 50 105 72 155 140 C185 180 195 250 205 330Z" fill="#123d62" stroke="#6db9e5" stroke-width="5"/>
+ <path d="M-125 -115 C-112 -238 8 -280 110 -220 C195 -170 210 -62 175 38 C155 95 100 140 25 145 C-65 150 -132 65 -138 -25Z" fill="url(#face)" stroke="#d0edf6" stroke-width="5"/>
+ <path d="M-72 -15 Q-30 -45 12 -15" stroke="#0b3156" stroke-width="10" fill="none" stroke-linecap="round"/>
+ <path d="M45 30 Q82 53 112 20" stroke="#0b3156" stroke-width="9" fill="none" stroke-linecap="round"/>
+ <path d="M-30 130 L-52 220 M65 130 L84 220" stroke="#d9b76d" stroke-width="5" opacity=".8"/>
+</g>
+<g fill="#e9d091"><rect x="250" y="300" width="18" height="18"/><rect x="285" y="270" width="12" height="12"/><rect x="710" y="360" width="18" height="18"/><rect x="748" y="325" width="11" height="11"/><rect x="270" y="700" width="15" height="15"/><rect x="710" y="700" width="13" height="13"/></g>
+<g fill="none" stroke="#d9b76d" stroke-width="3" opacity=".65"><path d="M265 309 L365 309 L415 370"/><path d="M719 369 L650 369 L610 425"/><path d="M278 708 L375 708 L425 660"/><path d="M716 707 L625 707 L590 655"/></g>
+<circle cx="500" cy="480" r="355" stroke="#d9b76d" stroke-width="2" opacity=".35" fill="none" stroke-dasharray="4 18"/>
+</svg>

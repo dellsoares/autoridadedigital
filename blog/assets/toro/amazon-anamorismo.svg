@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+<title id="title">Anamorismo, romance sobre anti-amor</title><desc id="desc">Duas formas humanas abstratas em lados opostos de uma página rasgada, em azul e vinho.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080e22"/><stop offset=".5" stop-color="#1b203d"/><stop offset="1" stop-color="#070b18"/></linearGradient>
+ <radialGradient id="wine"><stop stop-color="#a95560" stop-opacity=".5"/><stop offset="1" stop-color="#a95560" stop-opacity="0"/></radialGradient>
+ <linearGradient id="left" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c77c78"/><stop offset="1" stop-color="#482b43"/></linearGradient>
+ <linearGradient id="right" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7ab2d0"/><stop offset="1" stop-color="#183654"/></linearGradient>
+</defs>
+<rect width="1000" height="1000" fill="url(#bg)"/><circle cx="500" cy="470" r="460" fill="url(#wine)"/>
+<g fill="none" stroke="#d9b76d" opacity=".35"><circle cx="500" cy="500" r="360"/><circle cx="500" cy="500" r="285"/><path d="M125 500 Q500 155 875 500" stroke-width="2"/></g>
+<g transform="translate(0 15)">
+ <path d="M130 730 C150 590 170 440 250 330 C305 250 400 235 455 300 C515 370 475 485 405 560 C350 620 330 680 325 750Z" fill="url(#left)" stroke="#e0b07a" stroke-width="5"/>
+ <path d="M870 730 C850 590 830 440 750 330 C695 250 600 235 545 300 C485 370 525 485 595 560 C650 620 670 680 675 750Z" fill="url(#right)" stroke="#8fc4df" stroke-width="5"/>
+ <path d="M250 330 C315 225 405 235 455 300 C485 345 490 405 460 455" fill="none" stroke="#f4d49b" stroke-width="5" opacity=".65"/>
+ <path d="M750 330 C685 225 595 235 545 300 C515 345 510 405 540 455" fill="none" stroke="#b9e1f2" stroke-width="5" opacity=".65"/>
+</g>
+<path d="M500 170 L475 300 L515 390 L482 480 L520 575 L488 690 L500 830" fill="none" stroke="#f0d39b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#f2d99e"><circle cx="500" cy="170" r="6"/><circle cx="500" cy="830" r="6"/></g>
+<path d="M175 805 Q335 740 500 805 Q665 870 825 805" fill="none" stroke="#d9b76d" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+<g fill="#f4dca5" opacity=".7"><circle cx="150" cy="200" r="3"/><circle cx="835" cy="190" r="3"/><circle cx="130" cy="650" r="2"/><circle cx="875" cy="650" r="2"/></g>
+</svg>

@@ -42,3 +42,8 @@ Observação: a animação foi feita com uma camada SVG sobre a imagem raster da
 - Dados anonimizados mostra somente o painel de resultado agregado; **o comparador antes/depois foi retirado**, conforme solicitado.
 - A sexta aba, Conteúdos de autoridade, continua demonstrativa até o recebimento dos seis cards reais.
 - Capturas de sites, pesquisas e dados de terceiros devem ser publicadas com as permissões e cuidados de privacidade cabíveis.
+
+
+## Blog estático
+
+O blog é publicado em `/blog/`, com oito páginas de categorias independentes. Os links da navegação principal e do rodapé apontam para o novo endereço no próprio domínio Wendell Soares. As páginas internas compartilham a estrutura de cabeçalho e rodapé da home.

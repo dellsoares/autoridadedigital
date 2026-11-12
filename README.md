@@ -21,7 +21,6 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - Setas de ação com cor e contraste consistentes com os controles existentes.
 - **O ponto de partida** e **Algumas missões em destaque** agora exibem um card por vez no celular, com deslize horizontal, botões anterior/próximo e contador.
 - Abas de **Arquivo de missões** passam a ficar encostadas no painel sem deslocamento vertical animado no celular.
-- Terceiro artigo do blog aponta para `https://maestriageo.com.br/politica-online/` (link corrigido em todas as telas).
 - No celular, a lista do rodapé não exibe **Contato** e o atalho flutuante do WhatsApp está oculto. As versões desktop desses elementos continuam como antes.
 - O layout é modificado apenas na faixa até **700px**. Não houve remoção de serviços, projetos ou formulários.
 
@@ -31,7 +30,6 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - Corrigida a sobreposição do cabeçalho no painel lateral **Minha rota** em telas desktop (acima de 700px), elevando a camada da gaveta e do fundo escurecido.
 - Removido definitivamente o botão flutuante do WhatsApp em todos os tamanhos de tela, inclusive código JavaScript associado à rolagem.
 - Retirado **Contato** da lista de navegação do rodapé. O botão de contato no cabeçalho, a seção de contato e o formulário continuam intactos.
-- Adicionado o link **FAQ** no rodapé, com destino `https://maestriageo.com.br/faq`, em desktop e mobile.
 - Layout e componentes da V09 no mobile mantidos, exceto pela alteração de navegação do rodapé solicitada.
 
 
@@ -45,3 +43,8 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - O carrossel pausa durante foco/interação e respeita a preferência do sistema por movimento reduzido.
 - As capas são carregadas dos arquivos originais nos repositórios GitHub, usando URLs `raw.githubusercontent.com` fixadas nos commits informados.
 - O Scanner WS aponta para o endereço `workers.dev` fornecido, mantendo o acesso funcional enquanto o domínio personalizado é finalizado.
+
+
+## Blog estático
+
+O blog é publicado em `/blog/`, com oito páginas de categorias independentes. Os links da navegação principal e do rodapé apontam para o novo endereço no próprio domínio Wendell Soares. As páginas internas compartilham a estrutura de cabeçalho e rodapé da home.

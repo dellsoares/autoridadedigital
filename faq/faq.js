@@ -2,19 +2,6 @@
   'use strict';
   const $ = (selector, root=document) => root.querySelector(selector);
   const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
-  const menuButton = $('#faq-menu-toggle');
-  const mobileMenu = $('#faq-mobile-menu');
-  if (menuButton && mobileMenu) {
-    const setMenu = open => {
-      mobileMenu.hidden = !open;
-      menuButton.setAttribute('aria-expanded', String(open));
-      menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    };
-    menuButton.addEventListener('click', () => setMenu(mobileMenu.hidden));
-    $$('.faq-mobile-menu a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
-  }
-
   const search = $('#faq-search');
   const clear = $('#faq-search-clear');
   const count = $('#faq-results-count');

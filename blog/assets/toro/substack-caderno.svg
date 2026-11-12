@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+<title id="title">Caderno de ideias</title><desc id="desc">Caderno aberto e caneta sob luz quente, com céu estrelado ao fundo.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050c20"/><stop offset=".55" stop-color="#102b4a"/><stop offset="1" stop-color="#07152c"/></linearGradient>
+ <radialGradient id="lamp"><stop stop-color="#e8c87e" stop-opacity=".55"/><stop offset="1" stop-color="#e8c87e" stop-opacity="0"/></radialGradient>
+ <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff1d1"/><stop offset="1" stop-color="#b8a47d"/></linearGradient>
+ <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1e4a70"/><stop offset="1" stop-color="#09182d"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1000" height="1000" fill="url(#bg)"/>
+<circle cx="510" cy="390" r="430" fill="url(#lamp)"/>
+<g fill="#f6dfaa" opacity=".75"><circle cx="120" cy="150" r="3"/><circle cx="230" cy="280" r="2"/><circle cx="790" cy="145" r="3"/><circle cx="865" cy="360" r="2"/><circle cx="740" cy="730" r="3"/><circle cx="160" cy="780" r="2"/></g>
+<g fill="none" stroke="#d9b76d" opacity=".45"><circle cx="500" cy="430" r="345"/><ellipse cx="500" cy="430" rx="420" ry="175" transform="rotate(-22 500 430)"/><path d="M125 250 Q490 75 870 260"/></g>
+<ellipse cx="505" cy="805" rx="340" ry="58" fill="#000" opacity=".42" filter="url(#blur)"/>
+<g transform="translate(155 340) rotate(-7 345 260)">
+ <path d="M48 125 Q210 65 360 112 L360 575 Q210 515 48 590Z" fill="url(#cover)" stroke="#d9b76d" stroke-width="7"/>
+ <path d="M360 112 Q535 65 680 125 L680 590 Q525 515 360 575Z" fill="url(#paper)" stroke="#eadbb8" stroke-width="7"/>
+ <path d="M360 112 L360 575" stroke="#a58b5e" stroke-width="9"/>
+ <path d="M70 148 Q220 95 340 133 L340 540 Q215 500 70 555Z" fill="url(#paper)" opacity=".97"/>
+ <g stroke="#a38e67" stroke-width="3" opacity=".55"><path d="M105 215 Q220 175 310 196"/><path d="M105 260 Q220 220 310 241"/><path d="M105 305 Q220 265 310 286"/><path d="M105 350 Q220 310 310 331"/><path d="M405 210 Q535 170 630 195"/><path d="M405 255 Q535 215 630 240"/><path d="M405 300 Q535 260 630 285"/><path d="M405 345 Q535 305 630 330"/><path d="M405 390 Q535 350 630 375"/></g>
+ <path d="M470 440 C520 390 565 430 610 405" fill="none" stroke="#9d4e45" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g transform="translate(740 220) rotate(25)"><rect x="-12" y="0" width="26" height="330" rx="12" fill="#d9b76d"/><path d="M-12 0 L1 -55 L14 0Z" fill="#f6e6c0"/><rect x="-10" y="255" width="22" height="46" fill="#795b35"/></g>
+<path d="M685 255 Q760 190 820 245" fill="none" stroke="#d9b76d" stroke-width="2" opacity=".55"/>
+<circle cx="815" cy="245" r="7" fill="#f6dfaa"/>
+</svg>
