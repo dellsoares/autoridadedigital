@@ -26,6 +26,8 @@ faq:
     answer: Razão social, site oficial, data de fundação, setor e localização, todos
       com fonte.
 ---
+# Wikidata para empresas: como criar a entidade da sua marca sem erro
+
 **Wikidata para empresas** é o cadastro público e estruturado que diz a buscadores e IAs quem é a sua marca, em formato que as máquinas leem direto. É gratuito e aberto, mas **só aceita fatos que as fontes independentes comprovam**. Marca que tenta usar a base como vitrine é barrada ou revertida.
 
 ## O que é a Wikidata e por que ela pesa na sua marca
