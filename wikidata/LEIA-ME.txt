@@ -1,0 +1,12 @@
+PUBLICAÇÃO — /wikidata/
+
+Copie a pasta wikidata para a raiz do site. A home não precisa ser modificada.
+A página usa /styles.css, /shared/global.css, /shared/global.js e /privacy.js existentes.
+Imagens e logos usam /assets/..., os mesmos caminhos da home, normalizados para a raiz.
+Os arquivos compartilhados e as imagens não estão incluídos neste pacote: permanecem no site existente.
+O header e o rodapé foram reaproveitados. Não foi criado link para Wikidata no menu.
+O formulário mantém o endpoint Formspree da home; sua origem e assunto identificam /wikidata.
+Antes da publicação: confira o carregamento de recursos compartilhados, a navegação mobile e faça um envio de teste autorizado do formulário.
+O endereço canônico é https://wendellsoares.jor.br/wikidata/.
+Animações locais seguem entrada suave e órbitas; respeitam movimento reduzido.
+Esta entrega foi validada estruturalmente, sem teste em navegador ou publicação no servidor.
