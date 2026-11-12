@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07162f"/><stop offset="1" stop-color="#050f22"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e7bb55"/><stop offset="1" stop-color="#4b9be8"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g opacity=".22" fill="none" stroke="#4b9be8">
+  <ellipse cx="950" cy="315" rx="360" ry="155" transform="rotate(-22 950 315)"/>
+  <ellipse cx="950" cy="315" rx="400" ry="210" transform="rotate(27 950 315)" stroke="#e7bb55"/>
+</g>
+<text x="82" y="92" fill="#aab8ce" font-family="Arial,sans-serif" font-size="19" letter-spacing="4">WENDELL SOARES · PRESENÇA DIGITAL PARA ARTISTAS</text>
+<text x="82" y="250" fill="#f5f7fb" font-family="Arial,sans-serif" font-size="77" font-weight="700">Sua música não</text>
+<text x="82" y="340" fill="#f5f7fb" font-family="Arial,sans-serif" font-size="77" font-weight="700">precisa caber</text>
+<text x="82" y="430" fill="url(#gold)" font-family="Arial,sans-serif" font-size="77" font-weight="700">só no feed.</text>
+<text x="84" y="550" fill="#8d9ab2" font-family="Arial,sans-serif" font-size="20">Instagram aproxima. Seu site apresenta.</text>
+</svg>

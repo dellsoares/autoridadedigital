@@ -2,28 +2,6 @@
 (() => {
   'use strict';
 
-  const menuButton = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  function setMenu(open) {
-    if (!menuButton || !mobileMenu) return;
-    mobileMenu.hidden = !open;
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-  }
-
-  menuButton?.addEventListener('click', () => {
-    setMenu(mobileMenu.hidden);
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => setMenu(false));
-  });
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') setMenu(false);
-  });
-
   const form = document.getElementById('corporate-form');
   const status = document.getElementById('corporate-form-status');
 

@@ -4,7 +4,6 @@
 .corporate-page .corp-icon{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 .corporate-page .corp-nav-active{color:var(--gold);position:relative}
 .corporate-page .corp-nav-active:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:1px;background:var(--gold)}
-.corporate-page .header{position:sticky;top:0;z-index:80}
 .corp-hero{min-height:690px;padding:92px 0 75px;isolation:isolate}
 .corp-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:4%;position:relative;z-index:1}
 .corp-hero-copy{padding:25px 0 30px}
@@ -357,7 +356,6 @@
 .corp-portfolio-card-general h3{font-size:clamp(24px,3vw,34px);margin:10px 0 7px}
 .corp-portfolio-card-general p{max-width:700px;margin:0}
 .corp-portfolio-card-general .corp-portfolio-download{margin:0}
-.corporate-page .mobile-menu{position:fixed;top:80px;z-index:79}
 @media(max-width:700px){
   .corp-ticker{padding:18px 0}
   .corp-portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
@@ -367,7 +365,6 @@
   .corp-portfolio-download{width:100%;justify-content:space-between;padding:12px 13px;font-size:9px;white-space:normal}
   .corp-portfolio-card-general{grid-column:1/-1;display:flex;align-items:flex-start;gap:16px;padding:21px}
   .corp-portfolio-card-general .corp-portfolio-download{width:100%;margin-top:0}
-  .corporate-page .mobile-menu{top:70px}
 }
 @media(max-width:430px){
   .corp-portfolio-grid{grid-template-columns:1fr}

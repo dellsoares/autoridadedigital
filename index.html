@@ -14,6 +14,7 @@
 <title>Wendell Soares | Estratégia Digital, SEO, GEO e Autoridade</title>
 <link href="assets/simbolo-astronauta.webp" rel="icon" type="image/webp"/>
 <link href="styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/shared/global.css">
 <script defer="" src="script.js"></script>
 <script type="application/ld+json">
 {
@@ -72,15 +73,86 @@
   ]
 }
 </script>
+  <script src="/shared/global.js" defer></script>
+  <script src="/privacy.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 <header class="header" id="topo">
-<a aria-label="Wendell Soares, início" class="logo-lockup" href="#topo"><span aria-hidden="true" class="logo-animated"><img role="presentation" alt="" height="58" src="assets/simbolo-astronauta.webp" width="58"/></span><span class="brand-name"><strong>Wendell Soares</strong><small>AUTORIDADE DIGITAL</small></span></a>
-<nav aria-label="Navegação principal" class="desktop-nav"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#cases">Cases</a><a href="/blog/">Blog</a><a href="#widgets">Widgets</a><a href="corporativo/">Corporativo</a><a href="faq/">FAQ</a></nav>
-<div class="header-actions"><a class="btn btn-gold header-contact" href="#contato">Fale comigo<span aria-hidden="true">↗</span></a><button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" id="menu-toggle"><span></span><span></span></button></div>
+  <a aria-label="Wendell Soares, página inicial" class="logo-lockup" href="/#topo">
+    <span aria-hidden="true" class="logo-animated"><img role="presentation" alt="" height="58" src="/assets/simbolo-astronauta.webp" width="58"/></span>
+    <span class="brand-name"><strong>Wendell Soares</strong><small>AUTORIDADE DIGITAL</small></span>
+  </a>
+  <nav aria-label="Navegação principal" class="desktop-nav">
+    <a href="/#inicio" aria-current="page">Início</a>
+    <a href="/#sobre">Sobre</a>
+    <a href="/#servicos">Serviços</a>
+    <a href="/#cases">Cases</a>
+    <div class="nav-dropdown">
+      <a href="/blog/" aria-haspopup="true">Blog <span aria-hidden="true" class="nav-chevron">⌄</span></a>
+      <div class="nav-submenu" aria-label="Categorias do Blog">
+        <span class="nav-submenu-heading">Explorar categorias</span>
+        <a href="/autoridade-digital/">Autoridade digital</a>
+        <a href="/experiencia-e-dados/">Experiência e dados</a>
+        <a href="/fora-de-orbita/">Fora de órbita</a>
+        <a href="/ia-na-pratica/">IA na prática</a>
+        <a href="/manual-de-sobrevivencia/">Manual de sobrevivência</a>
+        <a href="/mergulho-profundo/">Mergulho profundo</a>
+        <a href="/pitacos-digitais/">Pitacos digitais</a>
+        <a href="/radar-de-novidades/">Radar de novidades</a>
+      </div>
+    </div>
+    <a href="/musicos/">Músicos</a>
+    <a href="/#widgets">Widgets</a>
+    <a href="/corporativo/">Corporativo</a>
+    <a href="/faq/">FAQ</a>
+  </nav>
+  <div class="header-actions">
+    <a class="btn btn-gold header-contact" href="/#contato">Fale comigo<span aria-hidden="true">↗</span></a>
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="menu-toggle" id="menu-toggle" type="button"><span></span><span></span></button>
+  </div>
 </header>
-<nav aria-label="Menu para celular" class="mobile-menu" hidden="" id="mobile-menu"><a href="#inicio">Início <span>01</span></a><a href="#sobre">Sobre <span>02</span></a><a href="#servicos">Serviços <span>03</span></a><a href="#cases">Cases <span>04</span></a><a href="/blog/">Blog <span>05</span></a><a href="#widgets">Widgets <span>06</span></a><a href="corporativo/">Corporativo <span>07</span></a><a href="faq/">FAQ <span>08</span></a><a href="#contato">Contato <span>09</span></a></nav>
+<nav aria-label="Menu para celular" class="mobile-menu" hidden id="mobile-menu">
+  <a href="/#inicio" aria-current="page">Início <span>01</span></a>
+  <a href="/#sobre">Sobre <span>02</span></a>
+  <a href="/#servicos">Serviços <span>03</span></a>
+  <a href="/#cases">Cases <span>04</span></a>
+  <div class="mobile-nav-group">
+    <a href="/blog/">Blog <span>05</span></a>
+    <button aria-controls="mobile-blog-submenu" aria-expanded="false" class="mobile-submenu-toggle" data-mobile-submenu-toggle type="button">Categorias do Blog <span aria-hidden="true">⌄</span></button>
+    <div class="mobile-submenu" hidden id="mobile-blog-submenu">
+      <a href="/autoridade-digital/">Autoridade digital</a>
+      <a href="/experiencia-e-dados/">Experiência e dados</a>
+      <a href="/fora-de-orbita/">Fora de órbita</a>
+      <a href="/ia-na-pratica/">IA na prática</a>
+      <a href="/manual-de-sobrevivencia/">Manual de sobrevivência</a>
+      <a href="/mergulho-profundo/">Mergulho profundo</a>
+      <a href="/pitacos-digitais/">Pitacos digitais</a>
+      <a href="/radar-de-novidades/">Radar de novidades</a>
+    </div>
+  </div>
+  <a href="/musicos/">Músicos <span>06</span></a>
+  <a href="/#widgets">Widgets <span>07</span></a>
+  <a href="/corporativo/">Corporativo <span>08</span></a>
+  <a href="/faq/">FAQ <span>09</span></a>
+  <a href="/#contato">Contato <span>10</span></a>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <main id="conteudo">
 <section aria-labelledby="hero-title" class="hero galaxy" id="inicio">
 <div aria-hidden="true" class="cosmic-planet"></div><div aria-hidden="true" class="cosmic-flare"></div><div aria-hidden="true" class="cosmic-stars"></div>
@@ -105,7 +177,7 @@
 <div aria-hidden="true" class="ticker ticker-diagonal"><div class="ticker-track"><span>ESTRATÉGIA ✧ CONTEÚDO ✧ EXPERIÊNCIA ✧ REPUTAÇÃO ✧ IA ✧ POSICIONAMENTO ✧ ESTRATÉGIA ✧ CONTEÚDO ✧ EXPERIÊNCIA ✧ REPUTAÇÃO ✧ IA ✧ POSICIONAMENTO ✧</span><span>ESTRATÉGIA ✧ CONTEÚDO ✧ EXPERIÊNCIA ✧ REPUTAÇÃO ✧ IA ✧ POSICIONAMENTO ✧ ESTRATÉGIA ✧ CONTEÚDO ✧ EXPERIÊNCIA ✧ REPUTAÇÃO ✧ IA ✧ POSICIONAMENTO ✧</span></div></div>
 <section aria-labelledby="services-title" class="section catalog-section" id="servicos"><div class="container catalog-folders-grid">
 <div class="catalog-heading reveal"><div class="kicker">02 / MAPA DE SOLUÇÕES</div><h2 id="services-title">Mapa de <em>soluções.</em></h2><p>Escolha a frente que combina com seu momento. Abra uma pasta para explorar serviços sem se perder numa lista infinita.</p><p class="catalog-hint">SELECIONE UMA PASTA PARA COMEÇAR ↗</p></div>
-<div class="catalog-folder-region reveal"><div aria-label="Pastas de serviços" class="folder-filter-grid" id="filters" role="tablist"></div><div class="folder-contents"><div class="folder-contents-top"><div><span class="folder-contents-kicker">PASTA ABERTA</span><h3 id="folder-current-title">Presença digital</h3></div><label class="search"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg><input aria-label="Buscar serviços" autocomplete="off" id="service-search" placeholder="Buscar solução..." type="search"/></label></div><div aria-live="polite" class="service-list" id="services-list"></div><div class="list-footer"><span id="result-count"></span><button class="underlink" id="reset-filters" type="button">Ver primeira pasta ↗</button></div></div></div>
+<div class="catalog-folder-region reveal"><div aria-label="Pastas de serviços" class="folder-filter-grid" id="filters" role="tablist"></div><div class="folder-contents"><div class="folder-contents-top"><div><span class="folder-contents-kicker">PASTA ABERTA</span><h3 id="folder-current-title">Presença digital</h3></div><label class="search"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg><input aria-label="Buscar serviços" autocomplete="off" id="service-search" placeholder="Buscar solução..." type="search"/></label></div><div aria-live="polite" class="service-list" id="services-list"></div><div class="list-footer"><span id="result-count"></span><button class="underlink" id="reset-filters" type="button">Ver primeira pasta ↗</button></div></div><a class="btn btn-outline catalog-detail-link" href="/corporativo/">Conheça as soluções corporativas <span aria-hidden="true">↗</span></a></div>
 </div></section><section aria-labelledby="visao-title" class="section section-intro galaxy intro-blue" id="visao">
 <div class="container">
 <div class="kicker">01 / O PONTO DE PARTIDA</div>
@@ -180,7 +252,7 @@
 <ul class="authority-bullets"><li>Tutoriais, comparativos, guias, artigos culturais e conteúdos técnicos.</li><li>Páginas criadas para responder intenções reais de busca com clareza.</li><li>Exemplos com posições orgânicas documentadas em contextos competitivos.</li><li>Imagens clicáveis levando direto ao conteúdo publicado.</li></ul>
 <div aria-label="Seis amostras de conteúdos de autoridade passando continuamente" class="authority-desktop-carousel" role="region"><div class="authority-track"><article class="authority-slide"><a aria-label="Abrir artigo Reembolso de terapia para bancários" class="authority-slide-link" href="https://psiangelooliveira.com.br/reembolso-de-psicologo-para-bancarios/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Reembolso de terapia para bancários" decoding="async" loading="lazy" src="assets/cases/authority-1.jpg"/><span class="authority-chip">ARQUIVO / 01</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo tutorial</small><h4>Reembolso de terapia para bancários</h4><p>KW: Reembolso de terapia para bancários<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Areia comum x areia de quartzo" class="authority-slide-link" href="https://dibloco.com.br/blog/areia-de-quartzo-para-concreto-x-areia-comum/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Areia comum x areia de quartzo" decoding="async" loading="lazy" src="assets/cases/authority-2.jpg"/><span class="authority-chip">ARQUIVO / 02</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo comparativo</small><h4>Areia comum x areia de quartzo</h4><p>KW: areia comum e areia de quartzo<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Wikidata para empresas" class="authority-slide-link" href="https://jornalvozativa.com/colunas/wikidata-para-empresas-7-dicas-para-inserir-dados/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Wikidata para empresas" decoding="async" loading="lazy" src="assets/cases/authority-3.jpg"/><span class="authority-chip">ARQUIVO / 03</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo informativo</small><h4>Wikidata para empresas</h4><p>KW: wikidata para empresas<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Lendas de Ouro Preto" class="authority-slide-link" href="https://www.abraceomundo.com/lendas-de-ouro-preto/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Lendas de Ouro Preto" decoding="async" loading="lazy" src="assets/cases/authority-4.jpg"/><span class="authority-chip">ARQUIVO / 04</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo cultural</small><h4>Lendas de Ouro Preto</h4><p>KW: lendas de Ouro Preto<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Guia completo Estrada Real" class="authority-slide-link" href="https://www.abraceomundo.com/estrada-real/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Guia completo Estrada Real" decoding="async" loading="lazy" src="assets/cases/authority-5.jpg"/><span class="authority-chip">ARQUIVO / 05</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo guia</small><h4>Guia completo Estrada Real</h4><p>KW: guia completo Estrada Real<br/><strong>Posição 2</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Recall de carro usado" class="authority-slide-link" href="https://marinhoveiculos.com.br/consultar-recall-de-carro-usado/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Recall de carro usado" decoding="async" loading="lazy" src="assets/cases/authority-6.jpg"/><span class="authority-chip">ARQUIVO / 06</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo técnico</small><h4>Recall de carro usado</h4><p>KW: recall de carro usado<br/><strong>Posição 2</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Reembolso de terapia para bancários" class="authority-slide-link" href="https://psiangelooliveira.com.br/reembolso-de-psicologo-para-bancarios/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Reembolso de terapia para bancários" decoding="async" loading="lazy" src="assets/cases/authority-1.jpg"/><span class="authority-chip">ARQUIVO / 01</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo tutorial</small><h4>Reembolso de terapia para bancários</h4><p>KW: Reembolso de terapia para bancários<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Areia comum x areia de quartzo" class="authority-slide-link" href="https://dibloco.com.br/blog/areia-de-quartzo-para-concreto-x-areia-comum/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Areia comum x areia de quartzo" decoding="async" loading="lazy" src="assets/cases/authority-2.jpg"/><span class="authority-chip">ARQUIVO / 02</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo comparativo</small><h4>Areia comum x areia de quartzo</h4><p>KW: areia comum e areia de quartzo<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Wikidata para empresas" class="authority-slide-link" href="https://jornalvozativa.com/colunas/wikidata-para-empresas-7-dicas-para-inserir-dados/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Wikidata para empresas" decoding="async" loading="lazy" src="assets/cases/authority-3.jpg"/><span class="authority-chip">ARQUIVO / 03</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo informativo</small><h4>Wikidata para empresas</h4><p>KW: wikidata para empresas<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Lendas de Ouro Preto" class="authority-slide-link" href="https://www.abraceomundo.com/lendas-de-ouro-preto/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Lendas de Ouro Preto" decoding="async" loading="lazy" src="assets/cases/authority-4.jpg"/><span class="authority-chip">ARQUIVO / 04</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo cultural</small><h4>Lendas de Ouro Preto</h4><p>KW: lendas de Ouro Preto<br/><strong>Posição 1</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Guia completo Estrada Real" class="authority-slide-link" href="https://www.abraceomundo.com/estrada-real/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Guia completo Estrada Real" decoding="async" loading="lazy" src="assets/cases/authority-5.jpg"/><span class="authority-chip">ARQUIVO / 05</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo guia</small><h4>Guia completo Estrada Real</h4><p>KW: guia completo Estrada Real<br/><strong>Posição 2</strong></p></div></article><article class="authority-slide"><a aria-label="Abrir artigo Recall de carro usado" class="authority-slide-link" href="https://marinhoveiculos.com.br/consultar-recall-de-carro-usado/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Recall de carro usado" decoding="async" loading="lazy" src="assets/cases/authority-6.jpg"/><span class="authority-chip">ARQUIVO / 06</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo técnico</small><h4>Recall de carro usado</h4><p>KW: recall de carro usado<br/><strong>Posição 2</strong></p></div></article></div></div>
 <div aria-label="Seis amostras de conteúdos de autoridade, uma por vez" aria-roledescription="carrossel" class="authority-mobile-carousel" role="region"><div class="authority-mobile-frame"><article class="authority-mobile-slide" data-mobile-slide="0"><a aria-label="Abrir artigo Reembolso de terapia para bancários" class="authority-slide-link" href="https://psiangelooliveira.com.br/reembolso-de-psicologo-para-bancarios/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Reembolso de terapia para bancários" decoding="async" loading="lazy" src="assets/cases/authority-1.jpg"/><span class="authority-chip">ARQUIVO / 01</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo tutorial</small><h4>Reembolso de terapia para bancários</h4><p>KW: Reembolso de terapia para bancários<br/><strong>Posição 1</strong></p></div></article><article class="authority-mobile-slide" data-mobile-slide="1" hidden=""><a aria-label="Abrir artigo Areia comum x areia de quartzo" class="authority-slide-link" href="https://dibloco.com.br/blog/areia-de-quartzo-para-concreto-x-areia-comum/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Areia comum x areia de quartzo" decoding="async" loading="lazy" src="assets/cases/authority-2.jpg"/><span class="authority-chip">ARQUIVO / 02</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo comparativo</small><h4>Areia comum x areia de quartzo</h4><p>KW: areia comum e areia de quartzo<br/><strong>Posição 1</strong></p></div></article><article class="authority-mobile-slide" data-mobile-slide="2" hidden=""><a aria-label="Abrir artigo Wikidata para empresas" class="authority-slide-link" href="https://jornalvozativa.com/colunas/wikidata-para-empresas-7-dicas-para-inserir-dados/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Wikidata para empresas" decoding="async" loading="lazy" src="assets/cases/authority-3.jpg"/><span class="authority-chip">ARQUIVO / 03</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo informativo</small><h4>Wikidata para empresas</h4><p>KW: wikidata para empresas<br/><strong>Posição 1</strong></p></div></article><article class="authority-mobile-slide" data-mobile-slide="3" hidden=""><a aria-label="Abrir artigo Lendas de Ouro Preto" class="authority-slide-link" href="https://www.abraceomundo.com/lendas-de-ouro-preto/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Lendas de Ouro Preto" decoding="async" loading="lazy" src="assets/cases/authority-4.jpg"/><span class="authority-chip">ARQUIVO / 04</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo cultural</small><h4>Lendas de Ouro Preto</h4><p>KW: lendas de Ouro Preto<br/><strong>Posição 1</strong></p></div></article><article class="authority-mobile-slide" data-mobile-slide="4" hidden=""><a aria-label="Abrir artigo Guia completo Estrada Real" class="authority-slide-link" href="https://www.abraceomundo.com/estrada-real/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Guia completo Estrada Real" decoding="async" loading="lazy" src="assets/cases/authority-5.jpg"/><span class="authority-chip">ARQUIVO / 05</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo guia</small><h4>Guia completo Estrada Real</h4><p>KW: guia completo Estrada Real<br/><strong>Posição 2</strong></p></div></article><article class="authority-mobile-slide" data-mobile-slide="5" hidden=""><a aria-label="Abrir artigo Recall de carro usado" class="authority-slide-link" href="https://marinhoveiculos.com.br/consultar-recall-de-carro-usado/" rel="noopener noreferrer" target="_blank"><div class="authority-slide-visual"><img alt="Imagem de capa do artigo Recall de carro usado" decoding="async" loading="lazy" src="assets/cases/authority-6.jpg"/><span class="authority-chip">ARQUIVO / 06</span><span class="slide-star">↗</span></div></a><div class="authority-slide-body"><small>Artigo técnico</small><h4>Recall de carro usado</h4><p>KW: recall de carro usado<br/><strong>Posição 2</strong></p></div></article></div><div class="authority-controls"><button aria-label="Mostrar conteúdo anterior" id="authority-prev" type="button">←</button><span id="authority-counter">01 / 06</span><button aria-label="Mostrar próximo conteúdo" id="authority-next" type="button">→</button></div></div>
-</div></div><div class="case-file-footer"><span>WS / ARQUIVOS ESTRATÉGICOS</span><span>ALGUNS PERCURSOS MERECEM SER DOCUMENTADOS. ✦</span></div></div>
+</div></div><div class="case-file-footer"><span>WS / ARQUIVOS ESTRATÉGICOS</span><span>ALGUNS PERCURSOS MERECEM SER DOCUMENTADOS. ✦</span></div><a class="btn btn-outline cases-detail-link" href="/musicos/">Conheça a solução para músicos e bandas <span aria-hidden="true">↗</span></a></div>
 </section>
 <section aria-labelledby="corporate-teaser-title" class="section corporate-teaser-section" id="corporativo">
 <div class="container">
@@ -247,6 +319,7 @@
 <article class="journal-card"><div aria-label="Ilustração de microfone e comunicação pública" class="journal-art journal-politics"><svg aria-hidden="true" viewbox="0 0 160 90"><rect fill="#15395f" height="39" rx="10" stroke="#f6cd73" stroke-width="2" width="20" x="70" y="17"></rect><path d="M58 43 Q58 75 80 75 Q102 75 102 43 M80 75 v10 M63 86 h34" fill="none" stroke="#ffe7ad" stroke-width="2"></path><circle cx="132" cy="20" fill="#d4a646" r="6"></circle></svg></div><div class="journal-body"><span>COMUNICAÇÃO</span><h3>Campanha política online</h3><a aria-label="Ler campanha política online" href="/corporativo/">Explorar tema ↗</a></div></article>
 </div>
 <a class="journal-all" href="/blog/">Acesse o blog completo <span>↗</span></a>
+<a class="btn btn-outline about-detail-link" href="/sobre.html">Conheça minha trajetória <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 </section>
@@ -303,7 +376,7 @@
 </div></div></section>
 <section class="section contact-section galaxy" id="contato"><div class="container contact-layout"><div class="contact-left"><div class="kicker"><span class="dot"></span> 09 / INÍCIO DE UMA CONVERSA</div><h2>Seu próximo movimento <em>começa aqui.</em></h2><p>Conte qual sinal sua marca precisa emitir com mais clareza. A gente começa com um problema concreto, não com uma lista interminável de promessas.</p><div class="contact-small"><span>CONVERSA ESTRATÉGICA</span><i></i><span>ESCOPO SOB MEDIDA</span></div><div aria-hidden="true" class="contact-celestial contact-celestial-logo"><img role="presentation" alt="" decoding="async" height="190" loading="lazy" src="assets/simbolo-astronauta.webp" width="190"/></div></div><form accept-charset="UTF-8" action="https://formspree.io/f/xkjjdrae" class="contact-form" id="contact-form" method="POST"><input name="_subject" type="hidden" value="Novo contato pelo site de Wendell Soares"/><input name="origem" type="hidden" value="Home Wendell Soares"/><div class="form-top"><span>FORMULÁRIO DE CONTATO / 01</span><h3>Qual é sua próxima missão?</h3></div><label>Como posso chamar você?<input autocomplete="name" maxlength="90" name="nome" placeholder="Seu nome" required=""/></label><div class="form-two"><label>E-mail para retorno<input autocomplete="email" maxlength="150" name="email" placeholder="seu@email.com" type="email"/></label><label>Principal objetivo<select name="objetivo"><option value="">Escolha uma área</option><option>Melhorar meu site</option><option>Ser encontrado em buscas e IAs</option><option>Criar conteúdo que converte</option><option>Fortalecer minha reputação</option><option>Renovar minha marca</option><option>Quero ajuda para definir</option></select></label></div><label>O que você quer melhorar?<textarea maxlength="1500" name="mensagem" placeholder="Em poucas linhas: seu desafio, seu público e o que espera alcançar." rows="4"></textarea></label><div class="form-bottom"><span>Seu formulário será enviado direto para o e-mail dell.soares@gmail.com</span><button class="btn btn-gold" type="submit">Enviar mensagem <span>↗</span></button></div><div class="briefing-result" hidden="" id="briefing-result"><h4>Mensagem enviada</h4><p>Seu contato foi encaminhado com sucesso. Se quiser, guarde também o resumo abaixo.</p><textarea aria-label="Briefing gerado" id="briefing-output" readonly="" rows="7"></textarea><button class="btn btn-outline" id="copy-briefing" type="button">Copiar briefing ↗</button></div></form></div></section>
 </main>
-<footer class="footer"><div class="container"><div class="footer-main"><div class="footer-identity"><a class="footer-logo" href="#topo"><img role="presentation" alt="" height="58" src="assets/simbolo-astronauta.webp" width="58"/><span>WENDELL<br/><b>SOARES</b></span></a><p>Autoridade digital para pessoas.<br/>Clareza para algoritmos.</p></div><div class="footer-motto">Uma boa ideia não precisa ocupar o universo.<br/><em>Precisa encontrar sua órbita.</em></div><div class="footer-nav"><a href="#inicio">Início ↗</a><a href="#servicos">Serviços ↗</a><a href="#cases">Cases ↗</a><a href="#sobre">Sobre ↗</a><a href="/blog/">Blog ↗</a><a href="faq/">FAQ ↗</a></div></div><div class="footer-bottom"><span class="footer-credit">Site criado por Wendell Soares @2026 Todos os direitos reservados</span><a href="#topo">Voltar ao topo ↑</a><button aria-label="Abrir aviso de privacidade e cookies" class="footer-privacy" id="privacy-reopen" type="button">Privacidade e cookies</button></div></div></footer>
+
 <button aria-label="Abrir Minha rota, lista de serviços selecionados" class="route-float route-compass" data-open-selection="" type="button"><span aria-hidden="true" class="compass-rose">✦</span><span class="compass-text">MINHA<br/>ROTA</span><span class="route-float-count" data-selected-count="">0</span></button>
 
 <div class="overlay" hidden="" id="overlay"></div>
@@ -320,14 +393,50 @@
 </div>
 </div>
 
-<section aria-label="Aviso de privacidade e cookies" class="privacy-notice" hidden="" id="privacy-notice">
-<div class="privacy-notice-title"><span aria-hidden="true">✦</span><strong>Privacidade e cookies</strong></div>
-<p>Usamos apenas armazenamento local para lembrar sua rota e suas preferências. Sem cookies de publicidade. O formulário envia dados pelo Formspree.</p>
-<div class="privacy-actions">
-<button aria-controls="privacy-details" aria-expanded="false" class="privacy-more" id="privacy-more" type="button">Detalhes</button>
-<button class="privacy-ack" id="privacy-ack" type="button">Entendi</button>
-</div>
-<p class="privacy-details" hidden="" id="privacy-details">Ao enviar o formulário, você compartilha nome, e-mail (se informado), objetivo e mensagem. As informações são processadas pelo Formspree e encaminhadas ao e-mail configurado. Para dúvidas ou solicitações relacionadas aos seus dados: <a href="mailto:dell.soares@gmail.com">dell.soares@gmail.com</a>. Você pode reabrir este aviso pelo rodapé.</p>
+
+
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-identity">
+        <a class="footer-logo" href="/#topo">
+          <img role="presentation" alt="" height="58" src="/assets/simbolo-astronauta.webp" width="58"/>
+          <span>WENDELL<br/><b>SOARES</b></span>
+        </a>
+        <p>Autoridade digital para pessoas.<br/>Clareza para algoritmos.</p>
+      </div>
+      <div class="footer-motto">Uma boa ideia não precisa ocupar o universo.<br/><em>Precisa encontrar sua órbita.</em></div>
+      <nav aria-label="Navegação do rodapé" class="footer-nav">
+        <a href="/#inicio">Início ↗</a>
+        <a href="/#servicos">Serviços ↗</a>
+        <a href="/#cases">Cases ↗</a>
+        <a href="/#sobre">Sobre ↗</a>
+        <a href="/blog/">Blog ↗</a>
+        <a href="/musicos/">Músicos ↗</a>
+        <a href="/corporativo/">Corporativo ↗</a>
+        <a href="/faq/">FAQ ↗</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-credit">Site criado por Wendell Soares · © 2026 Todos os direitos reservados</span>
+      <a href="#topo">Voltar ao topo ↑</a>
+      <button aria-label="Abrir aviso de privacidade e cookies" class="footer-privacy" id="privacy-reopen" type="button">Privacidade e cookies</button>
+    </div>
+  </div>
+</footer>
+<section aria-label="Aviso de privacidade e cookies" class="privacy-notice" hidden id="privacy-notice">
+  <div class="privacy-notice-title"><span aria-hidden="true">✦</span><strong>Privacidade e cookies</strong></div>
+  <p>Usamos apenas armazenamento local para lembrar sua rota e suas preferências. Sem cookies de publicidade. O formulário de contato envia os dados pelo serviço de processamento configurado.</p>
+  <div class="privacy-actions">
+    <button aria-controls="privacy-details" aria-expanded="false" class="privacy-more" id="privacy-more" type="button">Detalhes</button>
+    <button class="privacy-ack" id="privacy-ack" type="button">Entendi</button>
+  </div>
+  <p class="privacy-details" hidden id="privacy-details">Ao enviar o formulário, você compartilha nome, e-mail (se informado), objetivo e mensagem. As informações são processadas pelo serviço de formulário configurado e encaminhadas ao e-mail indicado. Para dúvidas ou solicitações relacionadas aos seus dados: <a href="mailto:dell.soares@gmail.com">dell.soares@gmail.com</a>. Você pode reabrir este aviso pelo rodapé.</p>
 </section>
 </body>
 </html>

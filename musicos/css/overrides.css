@@ -1,0 +1,141 @@
+/* Refinamento visual da landing page Músicos: escala editorial e movimento discreto */
+.musicos-page {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.musicos-page .hero-copy h1 {
+  font-size: clamp(42px, 5.35vw, 72px);
+  line-height: 1.04;
+}
+.musicos-page .hero-lead {
+  font-size: 15px;
+  line-height: 1.78;
+}
+.musicos-page .hero-audience {
+  font-size: 12px;
+  line-height: 1.65;
+}
+.musicos-page .section h2,
+.musicos-page .testimonial-content h2,
+.musicos-page .cta-copy h2 {
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+.musicos-page .section h3 {
+  font-size: clamp(20px, 2.1vw, 29px);
+  line-height: 1.15;
+}
+.musicos-page .point-copy,
+.musicos-page .map-heading > p,
+.musicos-page .case-description,
+.musicos-page .testimonial-content blockquote,
+.musicos-page .cta-copy > p:not(.eyebrow) {
+  font-size: 14px;
+  line-height: 1.78;
+}
+.musicos-page .point-copy .point-question {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.musicos-page .panel-copy h3 {
+  font-size: clamp(21px, 2.35vw, 30px);
+  line-height: 1.12;
+}
+.musicos-page .panel-copy p,
+.musicos-page .case-detail-list p,
+.musicos-page .testimonial-content blockquote p {
+  font-size: 13px;
+  line-height: 1.75;
+}
+.musicos-page .section-kicker { margin-bottom: 36px; }
+.musicos-page .section { padding-block: 88px; }
+.musicos-page .section-point { padding-top: 96px; }
+
+/* Camadas orbitais e cartões com movimento leve, sem competir com o conteúdo. */
+@keyframes ws-orbit-drift {
+  from { transform: rotate(-24deg); }
+  to { transform: rotate(336deg); }
+}
+@keyframes ws-orbit-drift-reverse {
+  from { transform: rotate(28deg); }
+  to { transform: rotate(-332deg); }
+}
+@keyframes ws-note-float {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,-8px,0); }
+}
+@keyframes ws-portrait-float {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,7px,0); }
+}
+@keyframes ws-glow-pulse {
+  0%, 100% { opacity: .34; }
+  50% { opacity: .68; }
+}
+.hero-art::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 12% 8%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(75,155,232,.15), transparent 68%);
+  filter: blur(16px);
+  animation: ws-glow-pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.orbit-one { animation: ws-orbit-drift 48s linear infinite; }
+.orbit-two { animation: ws-orbit-drift-reverse 62s linear infinite; }
+.hero-floating-note { animation: ws-note-float 7.5s ease-in-out infinite; }
+.hero-floating-portrait { animation: ws-portrait-float 9s ease-in-out infinite; }
+.hero-image-frame img,
+.case-photo img,
+.panel-visual img,
+.testimonial-photo img {
+  transition: transform .9s cubic-bezier(.2,.7,.25,1), filter .9s ease;
+}
+.hero-art:hover .hero-image-frame img,
+.case-photo:hover img,
+.panel-visual:hover img,
+.testimonial-photo:hover img {
+  transform: scale(1.035);
+}
+.signal-card {
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.signal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(231,187,85,.42);
+  background: rgba(255,255,255,.055);
+}
+.folder-tab:hover { color: var(--ink); }
+.case-photo { overflow: hidden; }
+.case-photo img { will-change: transform; }
+.button, .text-link { transition: transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease; }
+.button:hover { transform: translateY(-2px); }
+.reveal { transition-duration: .8s; }
+
+@media (max-width: 760px) {
+  .musicos-page .section { padding-block: 70px; }
+  .musicos-page .section-point { padding-top: 76px; }
+  .musicos-page .section h2,
+  .musicos-page .testimonial-content h2,
+  .musicos-page .cta-copy h2 {
+    font-size: clamp(31px, 8vw, 43px);
+  }
+  .musicos-page .hero-copy h1 { font-size: clamp(39px, 10vw, 58px); }
+  .hero-floating-note { animation-duration: 9s; }
+  .hero-floating-portrait { animation-duration: 11s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .musicos-page *,
+  .musicos-page *::before,
+  .musicos-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 900px) { .musicos-page .menu-toggle { display: flex; } }

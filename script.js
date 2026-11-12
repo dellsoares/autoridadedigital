@@ -65,7 +65,7 @@
   function copyRoute(){if(!selection.length){toast('Selecione pelo menos um serviço.');return}const names=selection.map(id=>services.find(s=>s.id===id)?.name).filter(Boolean);copy('Olá, Wendell! Quero conversar sobre as seguintes soluções:\n\n'+names.map((name,i)=>`${i+1}. ${name}`).join('\n')+'\n\nMeu objetivo é: ')}
   function setFilter(cat){const actual=cat==='conversao'?'conteudo':cat;currentFilter=groups.some(g=>g.id===actual)?actual:'presenca';currentSearch='';if($('#service-search'))$('#service-search').value='';renderServices()}
   function prepareBriefing(event){event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;const data=new FormData(form);const name=String(data.get('nome')||'').trim();const email=String(data.get('email')||'').trim();const goal=String(data.get('objetivo')||'').trim();const msg=String(data.get('mensagem')||'').trim();const names=selection.map(id=>services.find(s=>s.id===id)?.name).filter(Boolean);const lines=['Olá, Wendell!','',`Meu nome: ${name}`,`E-mail: ${email||'Não informado'}`,`Principal objetivo: ${goal||'Ainda estou definindo'}`,`O que quero melhorar: ${msg||'Quero conversar sobre possibilidades.'}`];if(names.length){lines.push('','Serviços selecionados:');names.forEach(x=>lines.push('- '+x));}lines.push('','Gostaria de conversar sobre uma proposta.');const briefing=lines.join('\n');data.append('briefing_resumido',briefing);if(names.length)data.append('servicos_selecionados',names.join(', '));const submit=form.querySelector('button[type="submit"]');const original=submit?.innerHTML||'';if(submit){submit.disabled=true;submit.innerHTML='Enviando… <span>↗</span>';}fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(response=>{if(!response.ok)throw new Error('formspree');return response.json().catch(()=>({ok:true}))}).then(()=>{$('#briefing-output').value=briefing;$('#briefing-result').hidden=false;$('#briefing-result').scrollIntoView({behavior:'smooth',block:'nearest'});form.reset();selection=[];persist();renderSelection();toast('Mensagem enviada com sucesso.');}).catch(()=>{toast('Não foi possível enviar agora. Tente novamente em instantes.');}).finally(()=>{if(submit){submit.disabled=false;submit.innerHTML=original;}})}
-  function menu(open){const e=$('#mobile-menu'),button=$('#menu-toggle');if(!e||!button)return;e.hidden=!open;button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')}
+  function menu(open){if(window.WSMenu?.setOpen){window.WSMenu.setOpen(open);return}const e=$('#mobile-menu'),button=$('#menu-toggle');if(!e||!button)return;e.hidden=!open;button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')}
   document.addEventListener('click',e=>{
     const filter=e.target.closest('[data-filter]');if(filter){setFilter(filter.dataset.filter);return}
     const service=e.target.closest('[data-service]');if(service){details(service.dataset.service);return}
@@ -75,12 +75,10 @@
     const category=e.target.closest('[data-category-link]');if(category){setFilter(category.dataset.categoryLink);return}
     if(e.target.closest('[data-open-selection]')){open('selection');return}
     if(e.target.closest('[data-close]')||e.target.closest('#overlay')){close();return}
-    if(e.target.closest('#menu-toggle')){menu($('#mobile-menu').hidden);return}
     if(e.target.closest('#reset-filters')){setFilter('presenca');return}
     if(e.target.closest('#clear-selection')){selection=[];persist();renderSelection();renderServices();toast('Sua rota foi limpa.');return}
     if(e.target.closest('#copy-selection')){copyRoute();return}
     if(e.target.closest('#copy-briefing')){copy($('#briefing-output').value);return}
-    if(e.target.closest('.mobile-menu a')){menu(false)}
   });
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();menu(false)}if(e.key==='Tab'&&activeOverlay){const pane=activeOverlay==='selection'?$('#selection-drawer'):$('#detail-modal');const focusable=$$('button,a[href],input,textarea,select,[tabindex]:not([tabindex="-1"])',pane).filter(x=>!x.disabled);if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
   if($('#service-search'))$('#service-search').addEventListener('input',e=>{currentSearch=e.target.value;currentFilter=currentSearch?'todos':'presenca';renderServices()});
@@ -249,27 +247,6 @@
  document.addEventListener('keydown',event=>{
    if(event.key==='Escape'&&!layer?.hidden){event.preventDefault();close();}
    if(event.key==='Tab'&&!layer?.hidden){event.preventDefault();closeButton?.focus();}
- });
- // banner does not inject any optional tracking technology.
- const banner=document.getElementById('privacy-notice');
- const more=document.getElementById('privacy-more');
- const details=document.getElementById('privacy-details');
- const consentKey='wendell_privacy_notice_v08';
- let acknowledged=false;
- try{acknowledged=localStorage.getItem(consentKey)==='acknowledged'}catch(_e){}
- if(banner)banner.hidden=acknowledged;
- document.getElementById('privacy-ack')?.addEventListener('click',()=>{
-   try{localStorage.setItem(consentKey,'acknowledged')}catch(_e){}
-   banner.hidden=true;
- });
- more?.addEventListener('click',()=>{
-   details.hidden=!details.hidden;
-   more.setAttribute('aria-expanded',String(!details.hidden));
- });
- document.getElementById('privacy-reopen')?.addEventListener('click',()=>{
-   banner.hidden=false;
-   banner.scrollIntoView?.({block:'nearest'});
-   document.getElementById('privacy-ack')?.focus();
  });
 })();
 

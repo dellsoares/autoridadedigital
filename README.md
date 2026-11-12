@@ -59,3 +59,25 @@ Animações suaves no hero e nos três pilares, contorno luminoso da foto, visua
 - A checagem local do pacote encontrou zero links internos apontando para arquivos inexistentes.
 
 Observação: o relatório resumido do scanner informa nove URLs não analisáveis, mas não apresenta os endereços. Para corrigir esse item com precisão, é necessário conferir a lista detalhada dessas nove URLs; PDFs, destinos externos e redirecionamentos não devem ser tratados automaticamente como páginas HTML quebradas.
+
+
+## Versão 10 - navegação global e landing page Músicos
+
+- Header fixo e footer padronizados nas páginas do domínio principal.
+- Menu Blog com submenu para as oito categorias existentes.
+- Entrada própria **Músicos**, publicada em `/musicos/`.
+- Landing page Músicos integrada ao repositório, com escala tipográfica aproximada à home e animações discretas, respeitando `prefers-reduced-motion`.
+- Links de aprofundamento adicionados às apresentações de Sobre, Serviços e ao case de música.
+- Sitemap atualizado com `/musicos/`.
+
+### Componentes compartilhados
+
+Os arquivos-mestre ficam em `shared/header.html` e `shared/footer.html`. O CSS e o comportamento do menu ficam em `shared/global.css` e `shared/global.js`.
+
+Quando editar o header ou o footer, execute:
+
+```bash
+python scripts/sync-shared.py
+```
+
+A rotina replica os componentes no HTML estático de cada página. Assim, o site continua compatível com GitHub Pages, sem depender de inclusão de HTML por JavaScript no navegador. Para futuros subdomínios com repositórios independentes, será necessário incorporar também a pasta `shared/` e a rotina de sincronização.
