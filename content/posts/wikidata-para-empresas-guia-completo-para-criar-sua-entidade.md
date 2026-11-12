@@ -46,16 +46,6 @@ Há ainda um ponto sensível. As regras da Wikidata **restringem criar itens sob
 7. **Adicione identificadores externos.** Perfis em bases independentes ajudam a distinguir a entidade. Itens precisam ter **identificação clara em até 24 horas** da criação.
 8. **Conecte com o seu site.** Use o mesmo nome, endereço e dados no Schema Markup, no Google Business Profile e nas redes. **Consistência entre canais** é o que consolida a entidade.
 
-## Os 7 erros que derrubam o cadastro
-
-- **Inserir dado sem prova.** Se não dá para comprovar com facilidade, não entra.
-- **Usar release como fonte neutra.** Comunicação institucional não é validação independente.
-- **Misturar empresa, marca e pessoas.** Sócio, executivo e porta-voz são entidades separadas. Dados pessoais exigem cuidado extra por causa da LGPD.
-- **Copiar texto de terceiros.** Dado é livre. A redação de quem o escreveu, não.
-- **Escrever em tom promocional.** Adjetivo e slogan não têm lugar em dado estruturado.
-- **Forçar relevância.** Autoridade vem de cobertura confiável e consistência. Fabricá-la costuma ser invalidado pelas plataformas e pode ter consequências legais.
-- **Cadastrar e esquecer.** Cargos, endereço e site mudam. **Revise a cada trimestre.**
-
 ## O que fazer se sua empresa ainda não se qualifica
 
 Se hoje você não tem fontes independentes suficientes, **o trabalho vem antes da Wikidata**. Construa a base de provas: matérias em veículos regionais e setoriais, participação em eventos documentados, menções em entidades de classe, estudos de caso publicados por terceiros.
