@@ -1,0 +1,103 @@
+media:
+  input: assets/posts
+  output: /assets/posts
+  rename: safe
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+content:
+- name: artigos
+  label: Artigos do blog
+  type: collection
+  path: content/posts
+  format: yaml-frontmatter
+  filename: '{primary}.md'
+  subfolders: false
+  view:
+    primary: title
+    fields:
+    - title
+    - category
+    - published
+    - date
+    sort: date
+    order: desc
+  fields:
+  - name: title
+    label: Título
+    type: string
+    required: true
+  - name: slug
+    label: 'Endereço: palavras-sem-acentos (não altere após publicar)'
+    type: string
+    required: true
+  - name: description
+    label: Resumo / descrição SEO
+    type: text
+    required: true
+  - name: category
+    label: Categoria
+    type: select
+    required: true
+    options:
+      values:
+      - name: autoridade-digital
+        label: Autoridade digital
+      - name: experiencia-e-dados
+        label: Experiência e dados
+      - name: fora-de-orbita
+        label: Fora de órbita
+      - name: ia-na-pratica
+        label: IA na prática
+      - name: manual-de-sobrevivencia
+        label: Manual de sobrevivência
+      - name: mergulho-profundo
+        label: Mergulho profundo
+      - name: pitacos-digitais
+        label: Pitacos digitais
+      - name: radar-de-novidades
+        label: Radar de novidades
+  - name: date
+    label: Data de publicação (AAAA-MM-DD)
+    type: date
+    required: true
+  - name: updated
+    label: Data de atualização (opcional)
+    type: date
+  - name: published
+    label: Publicado (desmarcado = rascunho)
+    type: boolean
+    default: false
+  - name: cover
+    label: Imagem de capa (1600 × 900 recomendado)
+    type: image
+    required: true
+  - name: cover_alt
+    label: Descrição da capa para acessibilidade
+    type: string
+    required: true
+  - name: cover_caption
+    label: Legenda / crédito da capa
+    type: string
+  - name: body
+    label: Conteúdo do artigo
+    type: rich-text
+    required: true
+    options:
+      format: markdown
+      switcher: true
+  - name: faq
+    label: 'Accordion: perguntas e respostas (opcional)'
+    type: object
+    list: true
+    fields:
+    - name: question
+      label: Pergunta
+      type: string
+      required: true
+    - name: answer
+      label: Resposta
+      type: text
+      required: true
