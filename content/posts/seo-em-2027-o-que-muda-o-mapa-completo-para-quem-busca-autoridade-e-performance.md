@@ -10,7 +10,7 @@ category: autoridade-digital
 date: 2026-11-16
 updated: 2026-11-16
 published: true
-cover: /assets/posts/seo-em-2027.webp
+cover: /assets/posts/seo-em-2027-1.webp
 cover_alt: imagem ilustrativa do seo em 2027
 cover_caption: SEO em 2027 exige atenção ao E-E-A-T
 ---
