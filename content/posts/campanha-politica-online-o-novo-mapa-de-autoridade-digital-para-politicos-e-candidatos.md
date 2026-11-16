@@ -135,23 +135,35 @@ Uma presença organizada começa com cinco componentes: **site com domínio pró
 
 É útil definir quem assina, quem verifica, quem pode editar e quando cada página precisa ser revista. A [Maestria GEO](https://maestriageo.com.br/) apresenta serviços de **criação e organização de sites, conteúdo, SEO, presença em busca e reputação digital**. Esses recursos podem apoiar a estrutura informativa de profissionais públicos, respeitando as normas específicas da comunicação política e eleitoral.
 
+</>Markdown
+
 ## Perguntas frequentes sobre política online
+
+</>Markdown
 
 ###**Um candidato pode ter site próprio?**
 
 Sim, observadas as regras eleitorais. Em campanhas brasileiras, a resolução do TSE prevê site de candidata ou candidato com endereço comunicado à Justiça Eleitoral e hospedagem conforme as exigências legais. Os detalhes devem ser verificados para cada eleição.
 
+</>Markdown
+
 ###**Um político pode usar o site da Câmara para campanha?**
 
 Não. **Sites oficiais de órgãos públicos não são canais de propaganda eleitoral.** A comunicação institucional precisa observar sua finalidade pública e as restrições legais. 
+
+</>Markdown
 
 ###**A política online dispensa a imprensa?**
 
 Não. Imprensa independente e canais próprios têm funções distintas. Um site pessoal pode disponibilizar fontes e documentos; jornalistas devem manter autonomia para apurar, contraditar e contextualizar informações.
 
+</>Markdown
+
 **### Um site próprio garante aparecer no Google ou nas IAs?**
 
 Não. SEO técnico e conteúdo verificável facilitam descoberta e compreensão, mas não asseguram indexação, posições, citações automatizadas ou reconhecimento público.
+
+</>Markdown
 
 ###**Qual é a diferença entre propaganda e prestação de contas?**
 
