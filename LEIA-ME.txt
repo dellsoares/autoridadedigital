@@ -1,0 +1,5 @@
+REMOVER MINHA ROTA — SEM ALTERAR O MAJOR H
+
+Substitua apenas index.html e script.js na raiz do repositório.
+O botão flutuante Minha Rota, a gaveta de seleção e os controles de adicionar/remover serviços foram retirados. A abertura dos detalhes dos serviços e o formulário de contato continuam funcionando.
+Não substitua nem altere shared/global.js, shared/major-h-widget.js, nem a pasta assets/major-h/.
