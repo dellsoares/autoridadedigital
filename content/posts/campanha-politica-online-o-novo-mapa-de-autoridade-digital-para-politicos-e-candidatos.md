@@ -137,7 +137,7 @@ Uma presença organizada começa com cinco componentes: **site com domínio pró
 
 </>Markdown
 
-## Perguntas frequentes sobre política online
+## Perguntas frequentes
 
 </>Markdown
 
