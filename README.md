@@ -81,3 +81,8 @@ python scripts/sync-shared.py
 ```
 
 A rotina replica os componentes no HTML estático de cada página. Assim, o site continua compatível com GitHub Pages, sem depender de inclusão de HTML por JavaScript no navegador. Para futuros subdomínios com repositórios independentes, será necessário incorporar também a pasta `shared/` e a rotina de sincronização.
+
+
+## Publicação de artigos
+
+Consulte [`BLOG-PUBLICACAO.md`](BLOG-PUBLICACAO.md) para criar artigos em HTML, inserir imagens internas e publicar automaticamente nas categorias do blog. O modelo copiável fica em `content/posts/_MODELO-ARTIGO.html`.

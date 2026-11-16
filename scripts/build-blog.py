@@ -36,11 +36,13 @@ TEMPLATE = r"""<!doctype html><html lang="pt-BR"><head>
 <section class="ap-hero galaxy"><div class="container"><nav class="ap-crumbs" aria-label="Caminho de navegação"><a href="/">Início</a><span>/</span><a href="/blog/">Blog</a><span>/</span><a href="/{{ p.category }}/">{{ p.category_name }}</a></nav>
 <div class="ap-title-wrap"><p class="ap-kicker">{{ p.category_name|upper }}</p><h1>{{ p.title }}</h1><p class="ap-deck">{{ p.description }}</p><div class="ap-meta"><span class="ap-avatar">WS</span><span>Por <a href="#autor">Wendell Soares</a><small>Publicado em {{ p.display_date }}{% if p.updated %} · Atualizado em {{ p.display_updated }}{% endif %}</small></span><span class="ap-meta-time">{{ p.minutes }} min de leitura</span><button id="copy-link" type="button">Copiar link ↗</button></div></div>
 <figure class="ap-cover"><img src="{{ p.cover }}" alt="{{ p.cover_alt }}" width="{{ p.cover_width }}" height="{{ p.cover_height }}" fetchpriority="high">{% if p.cover_caption %}<figcaption>{{ p.cover_caption }}</figcaption>{% endif %}</figure></div></section>
-<div class="ap-paper"><div class="container ap-layout"><article class="ap-article">{{ p.body_html|safe }}
+<div class="ap-paper"><div class="container ap-layout"><article class="ap-article">
+{% if p.toc %}<details class="ap-inline-toc"><summary><span>Navegue pelo artigo</span><span class="ap-inline-toc-icon" aria-hidden="true">⌄</span></summary><nav aria-label="Sumário do artigo">{% for item in p.toc %}<a href="#{{ item.id }}">{{ item.text }}</a>{% endfor %}</nav></details>{% endif %}
+{{ p.body_html|safe }}
 {% if p.faq %}<h2 id="perguntas-frequentes">Perguntas frequentes</h2><div class="ap-accordion">{% for item in p.faq %}<details><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><div><p>{{ item.answer }}</p></div></details>{% endfor %}</div>{% endif %}
 <div class="ap-end-links"><a href="/{{ p.category }}/">← Mais em {{ p.category_name }}</a><button class="ap-print" id="print-article" type="button">Imprimir artigo ↗</button></div>
 <section class="ap-author" id="autor" aria-labelledby="author-name"><div class="ap-author-photo"><img src="/assets/wendell-recortado.png" alt="Wendell Soares" loading="lazy" width="120" height="150"><span aria-hidden="true">WS</span></div><div><p class="ap-kicker">QUEM ASSINA</p><h2 id="author-name">Wendell Soares</h2><p>Conecto conteúdo, experiência e tecnologia para construir presença digital com contexto, clareza e personalidade.</p><div class="ap-author-links"><a href="/#sobre">Conheça meu trabalho ↗</a><a href="/#contato">Vamos conversar ↗</a></div></div></section></article>
-<aside class="ap-sidebar" aria-label="Navegação complementar"><div class="ap-sticky">{% if p.toc %}<details class="ap-side-panel" open><summary>Nesta leitura <span aria-hidden="true">⌄</span></summary><nav aria-label="Sumário do artigo">{% for item in p.toc %}<a href="#{{ item.id }}">{{ item.text }}</a>{% endfor %}</nav></details>{% endif %}
+<aside class="ap-sidebar" aria-label="Navegação complementar"><div class="ap-sticky">{% if p.toc %}<details class="ap-side-panel ap-side-toc" open><summary>Nesta leitura <span aria-hidden="true">⌄</span></summary><nav aria-label="Sumário do artigo">{% for item in p.toc %}<a href="#{{ item.id }}">{{ item.text }}</a>{% endfor %}</nav></details>{% endif %}
 <section class="ap-side-panel"><p class="ap-side-label">CONTINUE EXPLORANDO</p><h2>Outras frequências.</h2>{% for other in related %}<a class="ap-side-card" href="{{ other.url }}"><small>{{ other.category_name|upper }}</small><span>{{ other.title }}</span><b aria-hidden="true">↗</b></a>{% else %}<a class="ap-side-card" href="/blog/"><small>ARQUIVO EDITORIAL</small><span>Explore as categorias do blog.</span><b aria-hidden="true">↗</b></a>{% endfor %}</section>
 <section class="ap-side-panel ap-side-cta"><p class="ap-side-label">LINKS ÚTEIS</p><h2>Conteúdo que vira direção.</h2><p>Conheça as frentes que conectam presença, estratégia e autoridade.</p><a href="/#servicos">Explorar soluções ↗</a><a href="/wikidata/">Wikidata para empresas ↗</a></section></div></aside></div></div></main>{{ footer|safe }}<div class="ap-toast" role="status" id="copy-status"></div></body></html>"""
 
@@ -91,9 +93,24 @@ def image_url(url):
     IMAGE_CACHE[url] = result
     return result
 
-def body_html(body):
-    allowed = set(bleach.sanitizer.ALLOWED_TAGS) | {'p','h2','h3','h4','h5','h6','img','figure','figcaption','table','thead','tbody','tr','th','td','hr','br','pre','div','span','details','summary','del','cite'}
-    safe = bleach.clean(RENDER(body),tags=allowed,attributes={'a':['href','title'], 'img':['src','alt','title','width','height'], 'th':['colspan','rowspan'], 'td':['colspan','rowspan'], 'details':['open']},protocols=['http','https','mailto','tel'],strip=True)
+def body_html(body, html_source=False):
+    # Markdown continua aceito nos artigos antigos; arquivos .html entram sem conversão.
+    source = body if html_source else RENDER(body)
+    allowed = set(bleach.sanitizer.ALLOWED_TAGS) | {
+        'p','h2','h3','h4','h5','h6','img','figure','figcaption','picture','source',
+        'table','thead','tbody','tr','th','td','hr','br','pre','div','span',
+        'details','summary','del','cite','section','sup','sub'
+    }
+    attributes = {
+        'a':['href','title','target','rel','class'],
+        'img':['src','alt','title','width','height','loading','decoding','class'],
+        'figure':['class'], 'figcaption':['class'], 'picture':['class'], 'source':['src','srcset','type','media'],
+        'p':['class'], 'h2':['class'], 'h3':['class'], 'h4':['class'], 'h5':['class'], 'h6':['class'],
+        'div':['class'], 'span':['class'], 'section':['class'],
+        'th':['colspan','rowspan'], 'td':['colspan','rowspan'],
+        'details':['open','class'], 'summary':['class']
+    }
+    safe = bleach.clean(source,tags=allowed,attributes=attributes,protocols=['http','https','mailto','tel'],strip=True)
     soup = BeautifulSoup(safe,'html.parser')
     used = {'autor','author-name','perguntas-frequentes','conteudo','topo','reading-progress','copy-link','copy-status','print-article','mobile-menu','menu-toggle'}
     toc = []
@@ -104,6 +121,10 @@ def body_html(body):
         heading['id']=ident; used.add(ident)
         if heading.name=='h2':
             toc.append({'id':ident,'text':heading.get_text(' ',strip=True)})
+    for link in soup.select('a[target="_blank"]'):
+        rel = set(link.get('rel', []))
+        rel.update({'noopener','noreferrer'})
+        link['rel'] = sorted(rel)
     for image in soup.select('img'):
         src=image.get('src','')
         if not src:
@@ -119,7 +140,10 @@ def body_html(body):
 
 def load_posts():
     posts=[]; slugs=set()
-    for path in sorted((ROOT/'content/posts').glob('*.md')):
+    post_files = sorted([* (ROOT/'content/posts').glob('*.md'), * (ROOT/'content/posts').glob('*.html')])
+    for path in post_files:
+        if path.name.startswith('_'):
+            continue
         text=path.read_text(encoding='utf-8-sig')
         parts=re.split(r'^---\s*$',text,maxsplit=2,flags=re.M)
         if len(parts)!=3 or parts[0].strip():
@@ -146,7 +170,7 @@ def load_posts():
         if updated and updated<date:
             raise ValueError(f'{path.name}: atualização anterior à publicação')
         if not parts[2].strip(): raise ValueError(f'{path.name}: texto vazio')
-        rendered,toc,words=body_html(parts[2])
+        rendered,toc,words=body_html(parts[2], html_source=path.suffix.lower()=='.html')
         faq=data.get('faq') or []
         if not isinstance(faq,list): raise ValueError('faq precisa ser uma lista')
         for item in faq:
@@ -234,7 +258,7 @@ def sitemap(posts):
 
 def build():
     if OUT.exists():shutil.rmtree(OUT)
-    ignore=shutil.ignore_patterns('.git','.github','.pages.yml','_site','content','scripts','__pycache__','node_modules','.venv','integracao-blog','LEIA-ME-INTEGRACAO.txt')
+    ignore=shutil.ignore_patterns('.git','.github','.pages.yml','_site','content','scripts','__pycache__','node_modules','.venv','integracao-blog','LEIA-ME-INTEGRACAO.txt','BLOG-PUBLICACAO.md')
     shutil.copytree(ROOT,OUT,ignore=ignore)
     posts=load_posts();make_articles(posts);update_listings(posts);sitemap(posts)
     (OUT/'.nojekyll').touch()

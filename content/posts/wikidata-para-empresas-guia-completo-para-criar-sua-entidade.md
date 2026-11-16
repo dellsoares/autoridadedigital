@@ -8,7 +8,7 @@ category: mergulho-profundo
 date: 2026-11-12
 updated: 2026-11-12
 published: true
-cover: /assets/posts/wikidata-para-empresascapa-1.webp
+cover: /assets/posts/wikidata-para-empresascapa.webp
 cover_alt: redes neurais representando a wikidata para empresas
 faq:
   - question: Wikidata para empresas é gratuita?
@@ -62,7 +62,7 @@ Há ainda um ponto sensível. As regras da Wikidata **restringem criar itens sob
 8. **Conecte com o seu site.** Use o mesmo nome, endereço e dados no Schema Markup, no Google Business Profile e nas redes. **Consistência entre canais** é o que consolida a entidade.
 9. 
 
-![](/assets/posts/7-erros-wikidata-para-empresas.webp)
+![Infográfico com sete erros comuns ao criar uma entidade de empresa na Wikidata](/assets/posts/7-erros-wikidata-para-empresas.webp)
 
 ## O que fazer se sua empresa ainda não se qualifica
 
