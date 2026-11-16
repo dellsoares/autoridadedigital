@@ -135,6 +135,18 @@ Uma presença organizada começa com cinco componentes: **site com domínio pró
 
 É útil definir quem assina, quem verifica, quem pode editar e quando cada página precisa ser revista. A [Maestria GEO](https://maestriageo.com.br/) apresenta serviços de **criação e organização de sites, conteúdo, SEO, presença em busca e reputação digital**. Esses recursos podem apoiar a estrutura informativa de profissionais públicos, respeitando as normas específicas da comunicação política e eleitoral.
 
+## **Conclusão: não construa apenas alcance; construa um registro público confiável**
+
+A transformação da **política online** não está em substituir a política presencial por telas. Está em reconhecer que informações sobre agentes públicos circulam e são consultadas muito depois da publicação inicial.
+
+Redes sociais servem para distribuir conteúdos. A imprensa investiga e contextualiza. Sites institucionais prestam informações oficiais. **Um site próprio, mantido dentro da lei, pode reunir e preservar a trajetória informativa de uma pessoa pública sem confundir essas funções.**
+
+Para políticos e candidatos, a pergunta mais útil deixa de ser “como apareço mais hoje?” e passa a ser **“o que alguém poderá verificar sobre minha atuação daqui a dois anos?”**.
+
+Esse é um ponto de partida consistente para a **política online**: menos dependência de postagens isoladas, mais clareza documental e mais responsabilidade sobre o que se publica.
+
+
+
 ## Perguntas frequentes
 
 ### Um candidato pode ter site próprio?
@@ -156,15 +168,5 @@ Não. SEO técnico e conteúdo verificável facilitam descoberta e compreensão,
 ### Qual é a diferença entre propaganda e prestação de contas?
 
 Depende do conteúdo, da finalidade, do momento e do meio utilizado. **Política online não elimina as fronteiras jurídicas entre comunicação institucional, divulgação pessoal, pré-campanha e propaganda eleitoral.** A análise precisa considerar o caso concreto.
-
-## **Conclusão: não construa apenas alcance; construa um registro público confiável**
-
-A transformação da **política online** não está em substituir a política presencial por telas. Está em reconhecer que informações sobre agentes públicos circulam e são consultadas muito depois da publicação inicial.
-
-Redes sociais servem para distribuir conteúdos. A imprensa investiga e contextualiza. Sites institucionais prestam informações oficiais. **Um site próprio, mantido dentro da lei, pode reunir e preservar a trajetória informativa de uma pessoa pública sem confundir essas funções.**
-
-Para políticos e candidatos, a pergunta mais útil deixa de ser “como apareço mais hoje?” e passa a ser **“o que alguém poderá verificar sobre minha atuação daqui a dois anos?”**.
-
-Esse é um ponto de partida consistente para a **política online**: menos dependência de postagens isoladas, mais clareza documental e mais responsabilidade sobre o que se publica.
 
 **Fontes principais:** [IBGE, PNAD TIC 2025](https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/47410-internet-chega-a-95-de-domicilios-do-pais-em-2025) · [IBGE, usuários de internet 2025](https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/47408-proporcao-de-usuarios-da-internet-no-pais-ultrapassou-90-da-populacao-de-10-anos-ou-mais-em-2025) · [Reuters Institute, Brasil, 2026](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/how-brazilians-get-their-news) · [TSE, Resolução nº 23.610/2019 e alterações de 2026](https://www.tse.jus.br/legislacao/compilada/res/2019/resolucao-no-23-610-de-18-de-dezembro-de-2019).
