@@ -1,9 +1,8 @@
 ---
 title: "27 Dicas para autoridade digital: estratégias usuais sem mágica ou milagre"
+seo_title: "27 dicas para construir autoridade digital"
 slug: dicas-para-autoridade-digital
-description: Imagine a internet como uma mesa de jogos. Há quem jogue xadrez,
-  quem aposte tudo numa carta e quem só queira tirar 6 no dado. Então, que tal
-  dicas para autoridade digital?
+description: "Conheça 27 dicas práticas para fortalecer sua autoridade digital, organizar sua presença online e construir reconhecimento sem fórmulas milagrosas."
 category: manual-de-sobrevivencia
 date: 2026-11-16
 updated: 2026-11-16

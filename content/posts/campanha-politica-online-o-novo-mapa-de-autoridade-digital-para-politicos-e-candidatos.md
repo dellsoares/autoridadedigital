@@ -1,6 +1,7 @@
 ---
 title: "Campanha política online: o novo mapa de autoridade digital para
   políticos e candidatos"
+seo_title: "Campanha política online: presença digital"
 slug: politica-online
 description: "Política online mudou: veja dados, regras e estratégias de site
   próprio, SEO e presença digital para políticos, candidatos e mandatos."

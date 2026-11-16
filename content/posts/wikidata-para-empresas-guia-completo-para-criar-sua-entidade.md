@@ -1,5 +1,6 @@
 ---
 title: "Wikidata para empresas: Guia completo para criar sua entidade"
+seo_title: "Wikidata para empresas: guia prático"
 slug: wikidata-para-empresas
 description: "Wikidata para empresas: veja quem pode cadastrar, o passo a passo,
   os 7 erros que derrubam o item e como fortalecer sua marca no Google e nas

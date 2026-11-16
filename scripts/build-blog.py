@@ -26,7 +26,7 @@ RENDER = mistune.create_markdown(escape=False, plugins=['table', 'strikethrough'
 ENV = Environment(autoescape=select_autoescape(default=True))
 TEMPLATE = r"""<!doctype html><html lang="pt-BR"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071831">
-<title>{{ p.title }} | Wendell Soares</title><meta name="description" content="{{ p.description }}"><link rel="canonical" href="{{ domain }}{{ p.url }}">
+<title>{{ p.seo_title or p.title }} | Wendell Soares</title><meta name="description" content="{{ p.description }}"><link rel="canonical" href="{{ domain }}{{ p.url }}">
 <meta property="og:type" content="article"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Wendell Soares"><meta property="og:title" content="{{ p.title }}"><meta property="og:description" content="{{ p.description }}"><meta property="og:url" content="{{ domain }}{{ p.url }}"><meta property="og:image" content="{{ p.cover_absolute }}"><meta property="og:image:alt" content="{{ p.cover_alt }}"><meta property="article:published_time" content="{{ p.date }}"><meta property="article:modified_time" content="{{ p.modified }}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/simbolo-astronauta.webp"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/shared/global.css"><link rel="stylesheet" href="/blog/artigo.css">

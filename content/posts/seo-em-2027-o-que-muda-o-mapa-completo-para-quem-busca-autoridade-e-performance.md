@@ -1,11 +1,9 @@
 ---
 title: "SEO em 2027: O que muda? O mapa completo para quem busca autoridade e
   performance"
+seo_title: "SEO em 2027: tendências, IA e autoridade"
 slug: seo-em-2027
-description: >
-  O SEO em 2027 não se concentra mais em colocar empresas nas ruas mais
-  movimentadas. Agora, os assistentes de IA também ajudam as pessoas a decidir
-  quais portas merecem ser abertas.
+description: "SEO em 2027: entenda o impacto da IA nas buscas, as novas jornadas de descoberta e como fortalecer a autoridade digital da sua marca."
 category: autoridade-digital
 date: 2026-11-16
 updated: 2026-11-16
