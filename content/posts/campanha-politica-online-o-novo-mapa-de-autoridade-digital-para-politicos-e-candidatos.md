@@ -139,9 +139,7 @@ Uma presença organizada começa com cinco componentes: **site com domínio pró
 
 ## Perguntas frequentes
 
-</>Markdown 
-
-### **Um candidato pode ter site próprio?**
+### Um candidato pode ter site próprio?
 
 Sim, observadas as regras eleitorais. Em campanhas brasileiras, a resolução do TSE prevê site de candidata ou candidato com endereço comunicado à Justiça Eleitoral e hospedagem conforme as exigências legais. Os detalhes devem ser verificados para cada eleição.
 
