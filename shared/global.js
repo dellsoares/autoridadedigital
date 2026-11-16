@@ -68,4 +68,20 @@
       menuButton?.focus();
     }
   });
+
+  // Major H — consultor digital (carrega somente na página inicial).
+  const isMajorHHome = window.location.pathname === '/' ||
+    window.location.pathname === '/index.html';
+
+  if (isMajorHHome && !document.querySelector('script[data-major-h-widget]')) {
+    const majorHScript = document.createElement('script');
+    majorHScript.src = '/shared/major-h-widget.js?v=1';
+    majorHScript.async = true;
+    majorHScript.dataset.majorHWidget = 'true';
+    majorHScript.dataset.apiUrl = 'https://major-h-api-staging.dell-soares.workers.dev/chat';
+    majorHScript.dataset.assetsBase = '/assets/major-h/';
+    majorHScript.dataset.mode = 'production';
+    document.head.appendChild(majorHScript);
+  }
+
 })();
