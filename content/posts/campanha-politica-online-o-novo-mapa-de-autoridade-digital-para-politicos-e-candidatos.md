@@ -5,7 +5,7 @@ slug: politica-online
 description: "Política online mudou: veja dados, regras e estratégias de site
   próprio, SEO e presença digital para políticos, candidatos e mandatos."
 category: radar-de-novidades
-date: 2026-11-16
+date: 2026-11-11
 updated: 2026-11-04
 published: true
 cover: /assets/posts/poliica-online.webp
