@@ -1,7 +1,7 @@
 ---
 title: "SEO em 2027: O que muda? O mapa completo para quem busca autoridade e
   performance"
-slug: seo em 2027
+slug: seo-em-2027
 description: >
   O SEO em 2027 não se concentra mais em colocar empresas nas ruas mais
   movimentadas. Agora, os assistentes de IA também ajudam as pessoas a decidir
