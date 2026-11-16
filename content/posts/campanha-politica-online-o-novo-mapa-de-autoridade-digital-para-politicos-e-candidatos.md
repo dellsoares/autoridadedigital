@@ -6,6 +6,7 @@ description: "Política online mudou: veja dados, regras e estratégias de site
   próprio, SEO e presença digital para políticos, candidatos e mandatos."
 category: radar-de-novidades
 date: 2026-11-16
+updated: 2026-11-16
 published: true
 cover: /assets/posts/poliica-online.webp
 cover_alt: redes neurais representando política online
@@ -136,15 +137,15 @@ Uma presença organizada começa com cinco componentes: **site com domínio pró
 
 ## Perguntas frequentes sobre política online
 
-### **Um candidato pode ter site próprio?**
+###**Um candidato pode ter site próprio?**
 
 Sim, observadas as regras eleitorais. Em campanhas brasileiras, a resolução do TSE prevê site de candidata ou candidato com endereço comunicado à Justiça Eleitoral e hospedagem conforme as exigências legais. Os detalhes devem ser verificados para cada eleição.
 
-### **Um político pode usar o site da Câmara para campanha?**
+###**Um político pode usar o site da Câmara para campanha?**
 
 Não. **Sites oficiais de órgãos públicos não são canais de propaganda eleitoral.** A comunicação institucional precisa observar sua finalidade pública e as restrições legais. 
 
-### **A política online dispensa a imprensa?**
+###**A política online dispensa a imprensa?**
 
 Não. Imprensa independente e canais próprios têm funções distintas. Um site pessoal pode disponibilizar fontes e documentos; jornalistas devem manter autonomia para apurar, contraditar e contextualizar informações.
 
