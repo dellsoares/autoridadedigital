@@ -197,6 +197,7 @@
   let isOpen = false;
   let profile = 'indefinido';
   let history = [];
+  let diagnosticQuestions = 0;
   let busy = false;
 
   function setExpression(expression = 'welcome') {
@@ -296,6 +297,37 @@
       scrollBottom();
     }
   }
+  function addActionCard(container, action) {
+    if (!action || typeof action.url !== 'string') return;
+    try {
+      const url = new URL(action.url);
+      const allowedHosts = new Set(['scanner-ws.dell-soares.workers.dev', 'wa.me']);
+      if (url.protocol !== 'https:' || !allowedHosts.has(url.hostname)) return;
+
+      const list = document.createElement('div');
+      list.className = 'mh-card-list';
+      const card = document.createElement('a');
+      card.className = 'mh-card';
+      card.href = url.href;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+
+      const title = document.createElement('strong');
+      title.textContent = action.title || 'Próximo passo';
+      const description = document.createElement('span');
+      description.textContent = action.description || '';
+      const label = document.createElement('em');
+      label.textContent = action.label || 'Acessar ↗';
+
+      card.append(title, description, label);
+      list.appendChild(card);
+      container.appendChild(list);
+      scrollBottom();
+    } catch (_) {
+      // Ignora ações com URL inválida.
+    }
+  }
+
   function addAssistantResponse(data) {
     const reply = typeof data.reply === 'string' && data.reply.trim()
       ? data.reply.trim()
@@ -303,13 +335,18 @@
     const expression = assets[data.expression] ? data.expression : 'thinking';
     appendMessage('assistant', reply, expression);
     history.push({ role: 'assistant', content: reply });
+    if (/[?？]/.test(reply)) {
+      diagnosticQuestions = Math.min(4, diagnosticQuestions + 1);
+    }
     addCards(body, data.recommendations, 'service');
     addCards(body, data.articles, 'article');
+    addActionCard(body, data.action);
     setExpression(expression);
   }
   function resetConversation() {
     profile = 'indefinido';
     history = [];
+    diagnosticQuestions = 0;
     busy = false;
     body.innerHTML = `
       <div class="mh-intro">
@@ -404,6 +441,7 @@
           body: JSON.stringify({
             message,
             profile,
+            question_count: diagnosticQuestions,
             history: history.slice(0, -1).slice(-6)
           }),
           signal: AbortSignal.timeout(25000)
@@ -465,6 +503,7 @@
       clearQuickReplies();
       appendMessage('assistant', 'Perfeito. O que você gostaria de melhorar ou resolver primeiro?', 'happy');
       history.push({ role: 'assistant', content: 'Perfeito. O que você gostaria de melhorar ou resolver primeiro?' });
+      diagnosticQuestions = 1;
       setQuickReplies('Escolha uma opção ou escreva sua situação', profiles[profile]?.options || profiles.indefinido.options, 'intent');
       return;
     }
