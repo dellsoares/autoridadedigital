@@ -1,5 +1,21 @@
-REMOVER MINHA ROTA — SEM ALTERAR O MAJOR H
+PÁGINA /BELEZA/ — WENDELL SOARES
 
-Substitua apenas index.html e script.js na raiz do repositório.
-O botão flutuante Minha Rota, a gaveta de seleção e os controles de adicionar/remover serviços foram retirados. A abertura dos detalhes dos serviços e o formulário de contato continuam funcionando.
-Não substitua nem altere shared/global.js, shared/major-h-widget.js, nem a pasta assets/major-h/.
+Esta versão ajusta a escala dos títulos, o contraste da seção Ponto de Partida e as perguntas frequentes com dados estruturados FAQPage.
+
+COMO PUBLICAR
+1. Extraia a pasta 'beleza' na raiz do repositório do site.
+2. O arquivo principal ficará em /beleza/index.html.
+3. Publique normalmente pelo fluxo já utilizado no site.
+
+ARQUIVOS COMPARTILHADOS REUTILIZADOS
+- /styles.css
+- /shared/global.css
+- /shared/global.js
+- /privacy.js
+- /assets/simbolo-astronauta.webp
+
+Não substitua os arquivos compartilhados. O CSS e o JavaScript próprios da página ficam em /beleza/css/ e /beleza/js/.
+O header e o footer internos da página foram preservados.
+
+ATENÇÃO — MENU DA PÁGINA INICIAL
+O item Beleza ainda precisa ser inserido no index.html da raiz do site, pois esse arquivo não está neste pacote. O menu da página inicial é independente do header interno de /beleza/. Para aplicar a inclusão exata no menu desktop, menu mobile e mapa de navegação do rodapé da home, é necessário editar somente o /index.html da raiz.
