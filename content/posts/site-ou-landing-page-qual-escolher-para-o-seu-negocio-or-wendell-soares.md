@@ -52,7 +52,7 @@ Isso não significa que uma opção seja necessariamente melhor do que a outra. 
 
 Neste guia, você vai entender as diferenças entre site e landing page, conhecer as vantagens de cada formato e descobrir qual deles faz mais sentido para a realidade do seu negócio.
 
-![](</assets/posts/site ou landing/site-ou-landing-pagr.webp>)
+![site ou landing page](</assets/posts/site ou landing/site-ou-landing-pagr.webp>)
 
 ## O que é um site e para que ele serve?
 
@@ -116,8 +116,7 @@ O visitante não precisa procurar onde solicitar atendimento. O caminho já est�
 
 Esse modelo é especialmente útil em campanhas de anúncios, divulgações nas redes sociais, lançamentos e ações comerciais com prazo determinado.
 
-[INSERIR IMAGEM 2 — infográfico das principais diferenças]  
-Alt text: Comparativo entre site e landing page, mostrando objetivos, estrutura e aplicações de cada formato.
+![principais diferenças site ou landing page](</assets/posts/site ou landing/princpais-diferencas-entre-site-e-landing-page.webp>)
 
 ## Site ou landing page: quais são as principais diferenças?
 
@@ -172,8 +171,7 @@ A publicação regular de conteúdos relevantes pode transformar o site em uma r
 
 Novos serviços, áreas de atendimento, profissionais, funcionalidades e conteúdos podem ser incorporados conforme as necessidades mudam.
 
-[INSERIR IMAGEM 3 — infográfico sobre quando escolher cada formato]  
-Alt text: Quando escolher um site ou uma landing page conforme os objetivos da empresa.
+![Quando escolher um site ou uma landing page conforme os objetivos da empresa](</assets/posts/site ou landing/quando-escolher-site-ou-landing-page.webp>)
 
 ## Quando uma landing page é a melhor escolha?
 
@@ -255,8 +253,7 @@ O site continua sendo o endereço principal da empresa, enquanto a landing page 
 
 Essa combinação permite trabalhar duas frentes importantes: construção de autoridade e geração de oportunidades.
 
-[INSERIR IMAGEM 4 — infográfico de objetivos e vantagens]  
-Alt text: Vantagens de um site e de uma landing page na construção da presença digital e na conversão de clientes.
+![Vantagens de um site e de uma landing page na construção da presença digital e na conversão de clientes.](</assets/posts/site ou landing/04-infografico-vantagens-de-cada-solucao.webp>)
 
 ## Quanto custa criar um site ou uma landing page?
 
@@ -314,8 +311,7 @@ Para empresas que já possuem uma presença digital estruturada, combinar os doi
 
 O site oferece uma base permanente para o relacionamento com o público, enquanto as landing pages permitem desenvolver ações direcionadas para diferentes produtos, serviços e campanhas.
 
-[INSERIR IMAGEM 5 — infográfico de decisão e uso complementar]  
-Alt text: Como decidir entre site e landing page e quando utilizar as duas soluções em conjunto.
+![Como decidir entre site e landing page e quando utilizar as duas soluções em conjunto.](</assets/posts/site ou landing/decisao-final-entre-site-ou-lasnding-page.webp>)
 
 ## Conclusão: escolha a estrutura que acompanha seus objetivos
 
