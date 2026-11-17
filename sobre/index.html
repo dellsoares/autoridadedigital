@@ -39,6 +39,8 @@
   </script>
   <style id="about-page-styles">
     .about-page { background: #071831; color: #f7f9fc; }
+
+    /* HERO — preservado */
     .about-page-hero { position: relative; overflow: hidden; padding: clamp(76px, 9vw, 124px) 0 clamp(72px, 8vw, 108px); }
     .about-page-hero::after { content: ""; position: absolute; width: min(54vw, 720px); aspect-ratio: 1; right: -10%; top: -28%; border: 1px solid rgba(247,198,91,.13); border-radius: 50%; box-shadow: 0 0 0 55px rgba(150,190,230,.025), 0 0 0 115px rgba(150,190,230,.018); pointer-events: none; }
     .about-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr); gap: clamp(28px, 6vw, 90px); align-items: center; }
@@ -56,62 +58,104 @@
     .about-hero-mark::after { width: 105%; border-color: rgba(164,205,244,.14); transform: scaleY(.72) rotate(29deg); }
     .about-hero-mark img { position: relative; z-index: 1; width: min(72%, 250px); aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 15px 38px rgba(0,0,0,.28)); animation: aboutFloat 7s ease-in-out infinite; }
     .about-hero-mark span { position: absolute; z-index: 2; bottom: 2px; right: 0; color: #91a9c4; font-size: 9px; letter-spacing: .2em; font-weight: 800; }
+
     .about-route-strip { overflow: hidden; border-block: 1px solid rgba(222,235,250,.12); background: #0a2342; padding: 13px 0; }
     .about-route-strip-track { display: flex; width: max-content; gap: 34px; animation: aboutMarquee 42s linear infinite; color: #a8bfd8; font-size: 9px; font-weight: 850; letter-spacing: .2em; white-space: nowrap; }
     .about-route-strip-track span { display: inline-flex; align-items: center; gap: 34px; }
     .about-route-strip-track b { color: #f7c65b; font-weight: 500; }
-    .about-timeline-section { padding: clamp(72px, 8vw, 112px) 0; background: #eaf0f6; color: #0d213c; }
-    .about-section-head { max-width: 880px; margin-bottom: 36px; }
-    .about-section-head .kicker { color: #326398; margin-bottom: 18px; }
-    .about-section-head h2 { margin: 0 0 18px; color: #0d213c; font-size: clamp(34px, 4.8vw, 58px); line-height: 1.08; letter-spacing: -.065em; }
+
+    /* LINHA DO TEMPO — cards compactos e alternados */
+    .about-timeline-section { position: relative; overflow: hidden; padding: clamp(68px, 7vw, 96px) 0 clamp(76px, 8vw, 108px); background: #eaf0f6; color: #0d213c; }
+    .about-timeline-section::before { content: ""; position: absolute; width: 520px; height: 520px; left: -360px; top: 18%; border: 1px solid rgba(50,99,152,.08); border-radius: 50%; box-shadow: 0 0 0 55px rgba(50,99,152,.025), 0 0 0 110px rgba(50,99,152,.018); pointer-events: none; }
+    .about-section-head { position: relative; z-index: 1; max-width: 850px; margin: 0 auto 28px; text-align: center; }
+    .about-section-head .kicker { color: #326398; margin-bottom: 16px; }
+    .about-section-head h2 { margin: 0 0 15px; color: #0d213c; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.08; letter-spacing: -.065em; }
     .about-section-head h2 em { color: #356ca5; font-style: normal; }
-    .about-section-head > p { max-width: 720px; margin: 0; color: #52657a; font-size: 15px; line-height: 1.8; }
-    .timeline-overlap-note { display: flex; align-items: flex-start; gap: 15px; max-width: 880px; margin: 0 0 36px; padding: 17px 19px; border-left: 3px solid #d4a53d; background: rgba(255,255,255,.66); }
-    .timeline-overlap-note strong { flex: 0 0 auto; color: #234e78; font-size: 9px; line-height: 1.7; letter-spacing: .13em; }
-    .timeline-overlap-note p { margin: 0; color: #5c6d80; font-size: 12px; line-height: 1.7; }
-    .about-timeline { position: relative; display: grid; gap: 22px; padding-left: 30px; }
-    .about-timeline::before { content: ""; position: absolute; left: 8px; top: 25px; bottom: 25px; width: 1px; background: linear-gradient(180deg, #d6a944, #7ea2c3 55%, rgba(126,162,195,.2)); }
-    .about-timeline-item { position: relative; min-width: 0; }
-    .about-timeline-item::before { content: ""; position: absolute; z-index: 2; left: -28px; top: 27px; width: 11px; height: 11px; border: 2px solid #d3a33e; border-radius: 50%; background: #eaf0f6; box-shadow: 0 0 0 5px rgba(211,163,62,.13); }
-    .timeline-card { display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr); gap: clamp(22px, 3vw, 38px); align-items: stretch; padding: 18px; border: 1px solid rgba(16,53,89,.13); border-radius: 12px; background: #fff; box-shadow: 0 13px 34px rgba(10,36,65,.055); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-    .timeline-card:hover { transform: translateY(-3px); border-color: rgba(211,163,62,.55); box-shadow: 0 20px 42px rgba(10,36,65,.10); }
-    .timeline-media { position: relative; min-width: 0; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; display: grid; place-items: center; border-radius: 7px; background: #071831; }
-    .timeline-media img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; margin: 0; padding: 0; filter: none; }
-    .timeline-media-caption { position: absolute; left: 10px; bottom: 10px; padding: 6px 8px; background: rgba(4,15,33,.82); color: #f3d58b; font-size: 8px; font-weight: 800; letter-spacing: .12em; }
-    .timeline-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 4px 4px 4px 0; }
-    .timeline-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 9px 13px; margin-bottom: 12px; }
-    .timeline-period { color: #0e345a; font-size: 13px; font-weight: 900; letter-spacing: .035em; }
-    .timeline-category { color: #52718f; font-size: 8px; font-weight: 850; letter-spacing: .14em; }
-    .timeline-content h3 { margin: 0 0 11px; color: #102c4b; font-size: clamp(20px, 2vw, 27px); line-height: 1.15; letter-spacing: -.045em; }
-    .timeline-content > p { margin: 0; color: #596b7f; font-size: 12px; line-height: 1.78; }
-    .timeline-takeaway { margin-top: 17px; padding: 12px 14px; border-left: 2px solid #d4a53d; background: #f2f6fa; }
-    .timeline-takeaway span { display: block; margin-bottom: 4px; color: #3b648c; font-size: 8px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
-    .timeline-takeaway p { margin: 0; color: #294866; font-size: 11px; font-weight: 650; line-height: 1.65; }
-    .about-offer-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 112px) 0; background: #071831; color: #fff; }
+    .about-section-head > p { max-width: 700px; margin: 0 auto; color: #52657a; font-size: 15px; line-height: 1.75; }
+    .timeline-overlap-note { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px 12px; width: fit-content; max-width: 100%; margin: 0 auto 42px; padding: 10px 16px; border: 1px solid rgba(50,99,152,.13); border-radius: 999px; background: rgba(255,255,255,.72); box-shadow: 0 8px 22px rgba(10,36,65,.035); }
+    .timeline-overlap-note strong { color: #234e78; font-size: 9px; letter-spacing: .12em; }
+    .timeline-overlap-note p { margin: 0; color: #64758a; font-size: 11px; line-height: 1.5; }
+    .timeline-instruction { margin: -22px auto 28px; color: #6d7d90; text-align: center; font-size: 11px; letter-spacing: .025em; }
+
+    .about-timeline { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: clamp(48px, 7vw, 92px); row-gap: 22px; max-width: 1120px; margin: 0 auto; }
+    .about-timeline::before { content: ""; position: absolute; z-index: -1; top: 18px; bottom: 18px; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(180deg, rgba(212,165,61,.15), #d4a53d 12%, #83a6c7 52%, #d4a53d 88%, rgba(212,165,61,.15)); }
+    .about-timeline-item { position: relative; min-width: 0; align-self: center; }
+    .about-timeline-item:nth-child(odd) { grid-column: 1; }
+    .about-timeline-item:nth-child(even) { grid-column: 2; }
+    .about-timeline-item::before { content: ""; position: absolute; z-index: 3; top: 50%; width: 10px; height: 10px; margin-top: -5px; border: 2px solid #d1a13d; border-radius: 50%; background: #eaf0f6; box-shadow: 0 0 0 5px rgba(211,163,62,.13); }
+    .about-timeline-item:nth-child(odd)::before { right: calc(clamp(48px, 7vw, 92px) / -2 - 5px); }
+    .about-timeline-item:nth-child(even)::before { left: calc(clamp(48px, 7vw, 92px) / -2 - 5px); }
+    .timeline-card { display: grid; grid-template-columns: 116px minmax(0,1fr); gap: 16px; align-items: center; min-height: 160px; padding: 13px; border: 1px solid rgba(16,53,89,.10); border-radius: 13px; background: rgba(255,255,255,.94); box-shadow: 0 10px 28px rgba(10,36,65,.055); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+    .timeline-card:hover { transform: translateY(-4px); border-color: rgba(211,163,62,.52); box-shadow: 0 17px 36px rgba(10,36,65,.10); }
+    .timeline-media { position: relative; display: grid; place-items: center; width: 116px; height: 126px; min-width: 0; margin: 0; overflow: hidden; border-radius: 9px; background: #071831; }
+    .timeline-media img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; margin: 0; padding: 0; }
+    .timeline-media-caption { position: absolute; left: 6px; right: 6px; bottom: 6px; overflow: hidden; padding: 5px 6px; border-radius: 4px; background: rgba(4,15,33,.82); color: #f3d58b; font-size: 7px; font-weight: 800; letter-spacing: .08em; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+    .timeline-content { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 3px 2px 3px 0; }
+    .timeline-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 9px; margin-bottom: 8px; }
+    .timeline-period { color: #0e345a; font-size: 12px; font-weight: 900; letter-spacing: .025em; }
+    .timeline-category { color: #66809a; font-size: 7px; font-weight: 850; letter-spacing: .10em; }
+    .timeline-content h3 { margin: 0 0 7px; color: #102c4b; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.15; letter-spacing: -.04em; }
+    .timeline-content > p { display: -webkit-box; overflow: hidden; margin: 0; color: #5a6d81; font-size: 12px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+    .timeline-open { display: inline-flex; align-items: center; gap: 9px; margin-top: 11px; padding: 0; border: 0; background: transparent; color: #1e5a91; cursor: pointer; font: inherit; font-size: 10px; font-weight: 850; letter-spacing: .025em; transition: color .2s ease, gap .2s ease; }
+    .timeline-open span { color: #c08d27; font-size: 15px; line-height: 1; }
+    .timeline-open:hover { gap: 13px; color: #a97716; }
+    .timeline-open:focus-visible { outline: 2px solid #c08d27; outline-offset: 4px; border-radius: 3px; }
+
+    /* JANELA DE APROFUNDAMENTO */
+    .timeline-dialog { width: min(700px, calc(100% - 32px)); max-width: 700px; max-height: min(82vh, 760px); padding: 0; overflow: auto; border: 1px solid rgba(255,255,255,.25); border-radius: 18px; background: #fff; color: #18324e; box-shadow: 0 30px 90px rgba(0,0,0,.32); }
+    .timeline-dialog::backdrop { background: rgba(3,13,29,.76); backdrop-filter: blur(5px); }
+    .timeline-dialog[open] { animation: timelineDialogIn .24s ease both; }
+    .timeline-dialog-head { position: relative; padding: 30px 34px 27px; background: radial-gradient(circle at 100% 0%, rgba(247,198,91,.16), transparent 38%), #071831; color: #fff; }
+    .timeline-dialog-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin: 0 42px 10px 0; color: #f0c76b; font-size: 9px; font-weight: 850; letter-spacing: .12em; }
+    .timeline-dialog-meta span + span::before { content: "·"; margin-right: 10px; color: #7894b2; }
+    .timeline-dialog-head h2 { max-width: 570px; margin: 0; color: #fff; font-size: clamp(25px, 4vw, 36px); line-height: 1.1; letter-spacing: -.045em; }
+    .timeline-dialog-close { position: absolute; top: 19px; right: 19px; display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; cursor: pointer; font-size: 22px; line-height: 1; transition: background .2s ease, transform .2s ease; }
+    .timeline-dialog-close:hover { transform: rotate(90deg); background: rgba(255,255,255,.18); }
+    .timeline-dialog-body { padding: 28px 34px 32px; }
+    .timeline-dialog-body p { margin: 0 0 15px; color: #4c6177; font-size: 15px; line-height: 1.85; }
+    .timeline-dialog-body p:last-of-type { margin-bottom: 0; }
+    .timeline-dialog-takeaway { margin-top: 24px; padding: 18px 20px; border-left: 3px solid #d4a53d; border-radius: 0 10px 10px 0; background: #f0f5fa; }
+    .timeline-dialog-takeaway strong { display: block; margin-bottom: 7px; color: #326398; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+    .timeline-dialog-takeaway p { margin: 0; color: #244766; font-size: 14px; font-weight: 650; line-height: 1.65; }
+
+    /* O QUE A TRAJETÓRIA ENTREGA HOJE */
+    .about-offer-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 108px) 0; background: #071831; color: #fff; }
     .about-offer-section::before { content: ""; position: absolute; width: 600px; height: 600px; top: -300px; right: -180px; border: 1px solid rgba(247,198,91,.12); border-radius: 50%; box-shadow: 0 0 0 50px rgba(160,196,235,.025), 0 0 0 105px rgba(160,196,235,.018); pointer-events: none; }
-    .about-offer-head { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .8fr; gap: 8%; align-items: end; margin-bottom: 38px; }
+    .about-offer-head { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .8fr; gap: 8%; align-items: end; margin-bottom: 36px; }
     .about-offer-head .kicker { margin-bottom: 18px; }
     .about-offer-head h2 { max-width: 700px; margin: 0; color: #fff; font-size: clamp(34px, 4.5vw, 56px); line-height: 1.08; letter-spacing: -.065em; }
     .about-offer-head h2 em { color: #f7c65b; font-style: normal; }
-    .about-offer-head > p { max-width: 430px; margin: 0; color: #b9cbe0; font-size: 13px; line-height: 1.85; }
-    .about-offer-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 13px; }
-    .about-offer-card { min-width: 0; padding: 22px 19px 20px; border: 1px solid rgba(214,231,250,.17); border-radius: 9px; background: rgba(255,255,255,.045); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
-    .about-offer-card:hover { transform: translateY(-4px); border-color: rgba(247,198,91,.55); background: rgba(255,255,255,.075); }
-    .about-offer-number { display: block; margin-bottom: 25px; color: #e5bd62; font-size: 9px; font-weight: 900; letter-spacing: .16em; }
-    .about-offer-card h3 { margin: 0 0 10px; color: #fff; font-size: 17px; line-height: 1.2; letter-spacing: -.025em; }
-    .about-offer-card p { margin: 0; color: #b9cbe0; font-size: 11px; line-height: 1.75; }
+    .about-offer-head > p { max-width: 450px; margin: 0; color: #b9cbe0; font-size: 14px; line-height: 1.85; }
+    .about-offer-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .about-offer-card { position: relative; min-width: 0; min-height: 205px; padding: 23px 20px 21px; overflow: hidden; border: 1px solid rgba(214,231,250,.17); border-radius: 10px; background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025)); transition: transform .28s ease, border-color .28s ease, background .28s ease; }
+    .about-offer-card::before { content: ""; position: absolute; top: 0; left: 20px; width: 42px; height: 2px; background: #e5bd62; }
+    .about-offer-card:hover { transform: translateY(-5px); border-color: rgba(247,198,91,.55); background: rgba(255,255,255,.075); }
+    .about-offer-number { display: block; margin-bottom: 28px; color: #e5bd62; font-size: 9px; font-weight: 900; letter-spacing: .16em; }
+    .about-offer-card h3 { margin: 0 0 11px; color: #fff; font-size: 18px; line-height: 1.2; letter-spacing: -.025em; }
+    .about-offer-card p { margin: 0; color: #b9cbe0; font-size: 13px; line-height: 1.7; }
     .about-contact-band { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 42px; padding-top: 25px; border-top: 1px solid rgba(222,235,250,.17); }
     .about-contact-band h3 { margin: 0 0 7px; color: #fff; font-size: clamp(22px, 2.7vw, 32px); letter-spacing: -.045em; }
-    .about-contact-band p { max-width: 620px; margin: 0; color: #b7c9dd; font-size: 12px; line-height: 1.7; }
+    .about-contact-band p { max-width: 620px; margin: 0; color: #b7c9dd; font-size: 13px; line-height: 1.7; }
     .about-contact-band .btn { flex: 0 0 auto; }
+
     .about-page .footer { position: relative; }
     [data-about-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
     [data-about-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    .about-timeline-item:nth-child(2n) { transition-delay: .06s; }
+    .about-timeline-item:nth-child(3n) { transition-delay: .11s; }
     @keyframes aboutFloat { 50% { transform: translateY(-9px); } }
     @keyframes aboutMarquee { to { transform: translateX(-50%); } }
-    @media (max-width: 1050px) {
+    @keyframes timelineDialogIn { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+    @media (max-width: 1100px) {
       .about-hero-grid { grid-template-columns: minmax(0,1fr) 260px; gap: 25px; }
-      .timeline-card { grid-template-columns: minmax(205px,.7fr) minmax(0,1.3fr); }
+      .about-timeline { column-gap: 54px; }
+      .about-timeline-item:nth-child(odd)::before { right: -32px; }
+      .about-timeline-item:nth-child(even)::before { left: -32px; }
+      .timeline-card { grid-template-columns: 96px minmax(0,1fr); gap: 12px; min-height: 150px; padding: 11px; }
+      .timeline-media { width: 96px; height: 112px; }
+      .timeline-content h3 { font-size: 17px; }
+      .timeline-content > p { font-size: 11px; }
       .about-offer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
     }
     @media (max-width: 760px) {
@@ -123,31 +167,52 @@
       .about-hero-mark span { right: 8px; bottom: 0; }
       .about-hero-actions { gap: 15px; }
       .about-hero-actions .btn { width: 100%; max-width: 330px; }
-      .about-timeline-section { padding: 68px 0; }
-      .about-section-head h2 { font-size: clamp(33px, 9vw, 45px); }
-      .timeline-overlap-note { display: block; padding: 15px; }
-      .timeline-overlap-note strong { display: block; margin-bottom: 6px; }
-      .about-timeline { gap: 17px; padding-left: 22px; }
-      .about-timeline::before { left: 5px; }
-      .about-timeline-item::before { left: -22px; top: 25px; width: 10px; height: 10px; }
-      .timeline-card { grid-template-columns: 1fr; gap: 17px; padding: 12px; }
-      .timeline-media { aspect-ratio: 4 / 3; }
-      .timeline-content { padding: 0 4px 5px; }
-      .timeline-content h3 { font-size: 23px; }
-      .timeline-content > p { font-size: 13px; }
-      .timeline-takeaway p { font-size: 12px; }
+      .about-timeline-section { padding: 66px 0 76px; }
+      .about-section-head { margin-bottom: 22px; text-align: left; }
+      .about-section-head h2 { font-size: clamp(32px, 9vw, 45px); }
+      .about-section-head > p { font-size: 14px; }
+      .timeline-overlap-note { justify-content: flex-start; width: 100%; margin-bottom: 30px; padding: 12px 14px; border-radius: 10px; }
+      .timeline-overlap-note strong { display: block; width: 100%; }
+      .timeline-instruction { margin: -14px 0 22px; text-align: left; }
+      .about-timeline { display: grid; grid-template-columns: 1fr; gap: 15px; padding-left: 23px; }
+      .about-timeline::before { left: 5px; transform: none; }
+      .about-timeline-item:nth-child(odd), .about-timeline-item:nth-child(even) { grid-column: 1; }
+      .about-timeline-item::before { left: -23px !important; right: auto !important; top: 27px; width: 9px; height: 9px; }
+      .timeline-card { grid-template-columns: 92px minmax(0,1fr); gap: 12px; min-height: 132px; padding: 10px; border-radius: 11px; }
+      .timeline-media { width: 92px; height: 108px; }
+      .timeline-media-caption { font-size: 6px; }
+      .timeline-meta { gap: 4px 7px; margin-bottom: 6px; }
+      .timeline-period { font-size: 11px; }
+      .timeline-category { font-size: 6px; }
+      .timeline-content h3 { margin-bottom: 5px; font-size: 16px; }
+      .timeline-content > p { font-size: 11px; line-height: 1.45; -webkit-line-clamp: 2; }
+      .timeline-open { margin-top: 8px; font-size: 9px; }
+      .timeline-dialog-head { padding: 27px 23px 23px; }
+      .timeline-dialog-body { padding: 23px; }
+      .timeline-dialog-body p { font-size: 14px; line-height: 1.75; }
       .about-offer-section { padding: 68px 0; }
       .about-offer-head { grid-template-columns: 1fr; gap: 17px; }
       .about-offer-head h2 { font-size: clamp(33px, 9vw, 45px); }
-      .about-offer-grid { grid-template-columns: 1fr; gap: 10px; }
-      .about-offer-card { padding: 20px; }
-      .about-offer-number { margin-bottom: 15px; }
+      .about-offer-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .about-offer-card { min-height: 190px; padding: 19px 16px; }
+      .about-offer-number { margin-bottom: 20px; }
+      .about-offer-card h3 { font-size: 16px; }
+      .about-offer-card p { font-size: 12px; }
       .about-contact-band { align-items: flex-start; flex-direction: column; }
       .about-contact-band .btn { width: 100%; }
     }
+    @media (max-width: 430px) {
+      .timeline-card { grid-template-columns: 78px minmax(0,1fr); gap: 10px; }
+      .timeline-media { width: 78px; height: 100px; }
+      .timeline-content h3 { font-size: 15px; }
+      .timeline-content > p { font-size: 10px; }
+      .timeline-category { letter-spacing: .06em; }
+      .about-offer-grid { grid-template-columns: 1fr; }
+      .about-offer-card { min-height: 0; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .about-hero-mark img, .about-route-strip-track { animation: none; }
-      .timeline-card, .about-offer-card, [data-about-reveal] { transition: none; transform: none; opacity: 1; }
+      .timeline-card, .about-offer-card, [data-about-reveal], .timeline-dialog[open] { transition: none; animation: none; transform: none; opacity: 1; }
     }
   </style>
 </head>
@@ -244,7 +309,6 @@
       </div>
     </div>
   </section>
-
   <div class="about-route-strip" aria-hidden="true">
     <div class="about-route-strip-track">
       <span>VENDAS <b>✦</b> COMUNICAÇÃO <b>✦</b> SETOR PÚBLICO <b>✦</b> PROJETOS SOCIAIS <b>✦</b> MARKETING DIGITAL <b>✦</b> SEO / GEO <b>✦</b> INTELIGÊNCIA ARTIFICIAL <b>✦</b></span>
@@ -257,13 +321,13 @@
       <div class="about-section-head" data-about-reveal>
         <div class="kicker">01 / LINHA DO TEMPO</div>
         <h2 id="timeline-title">O que cada etapa me ensinou — e o que levo para <em>cada projeto.</em></h2>
-        <p>Não é uma sequência de cargos ou certificados. É um conjunto de experiências que moldou a forma como escuto, planejo, comunico e desenvolvo soluções.</p>
+        <p>Uma trajetória feita de experiências que se cruzam. Veja o que cada fase acrescentou ao meu jeito de pensar, comunicar e criar soluções.</p>
       </div>
-
       <aside class="timeline-overlap-note" data-about-reveal>
         <strong>PERÍODOS QUE SE CRUZAM</strong>
-        <p>Algumas experiências aconteceram em paralelo. A linha do tempo mostra como estudo e trabalho foram se complementando — sem forçar uma trajetória que nunca foi linear.</p>
+        <p>Estudo e trabalho aconteceram em paralelo — e uma experiência foi alimentando a outra.</p>
       </aside>
+      <p class="timeline-instruction" data-about-reveal>Escolha uma etapa para conhecer a história completa e o que ela acrescenta ao meu trabalho hoje.</p>
 
       <div class="about-timeline">
         <article class="about-timeline-item" data-about-reveal>
@@ -275,10 +339,17 @@
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2007–2017</span><span class="timeline-category">VENDAS E GESTÃO COMERCIAL</span></div>
               <h3>Antes de tudo, vendedor.</h3>
-              <p>Antes de trabalhar com estratégia digital, estive diretamente ligado a vendas e à gestão de equipes comerciais. Comercializei produtos e serviços e aprendi que uma boa oferta começa pela escuta: entender a necessidade, ajustar a abordagem e mostrar o valor da solução. Essa vivência me ajuda hoje a enxergar sites, conteúdos e atendimentos como partes de uma jornada — e a identificar onde o interesse pode se perder antes da conversão.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Escuta comercial, personalização da oferta e atenção aos pontos que influenciam a conversão.</p></div>
+              <p>Aprendi a ajustar a oferta à necessidade real — e a reconhecer onde uma venda pode se perder.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2007–2017" data-category="VENDAS E GESTÃO COMERCIAL" data-title="Antes de tudo, vendedor.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Antes de trabalhar com estratégia digital, estive diretamente ligado a vendas e à gestão de equipes comerciais. Comercializei produtos e serviços e aprendi que uma boa oferta começa pela escuta: entender a necessidade de cada pessoa, ajustar a abordagem e mostrar o valor da solução.</p>
+              <p>Essa vivência me ajuda hoje a enxergar sites, conteúdos e atendimentos como partes de uma jornada — e a identificar onde o interesse pode se perder antes da conversão.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Escuta comercial, personalização da oferta e atenção aos pontos que influenciam a conversão.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
@@ -289,11 +360,18 @@
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2012–2017</span><span class="timeline-category">GRADUAÇÃO</span></div>
-              <h3>Conhecimento que precisa encontrar a prática.</h3>
-              <p>A graduação me deu fundamentos teóricos e repertório para compreender a comunicação. Também me mostrou que existe uma distância entre o que se estuda e o que a rotina permite aplicar. Isso não diminui o valor do conhecimento acadêmico; ensinou-me a traduzi-lo para cada contexto, sem abandonar o rigor nem recorrer a fórmulas prontas.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Capacidade de organizar informação, compreender contexto e adaptar conhecimento à realidade de cada projeto.</p></div>
+              <h3>Conhecimento que encontra a prática.</h3>
+              <p>A teoria ganhou sentido quando aprendi a traduzi-la para a realidade de cada contexto.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2012–2017" data-category="FORMAÇÃO ACADÊMICA" data-title="Conhecimento que encontra a prática.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>A graduação me deu fundamentos teóricos e repertório para compreender a comunicação. Também me mostrou que existe um distanciamento entre o que se estuda e o que se consegue aplicar no dia a dia.</p>
+              <p>Isso não diminui o valor do conhecimento acadêmico. Ensinou-me a adaptar o aprendizado à realidade, sem abandonar o rigor e sem aplicar fórmulas prontas onde elas não fazem sentido.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Capacidade de organizar informação, compreender contexto e transformar conhecimento em decisões aplicáveis.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
@@ -304,11 +382,19 @@
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2015–2020</span><span class="timeline-category">COMUNICAÇÃO INSTITUCIONAL</span></div>
-              <h3>Um laboratório prático perto de quem empreende.</h3>
-              <p>Como assessor de comunicação da Associação Comercial e Empresarial de Ouro Preto (ACEOP), acompanhei de perto a rotina de pequenas e médias empresas e de quem as administra. Em uma equipe enxuta, atuei em diferentes frentes: fotografia, organização de eventos, palestras e treinamentos. Também criei e gerenciei um aplicativo comercial que chegou a cerca de 9 mil usuários enquanto esteve sob minha gestão. Foi uma experiência decisiva para entender as necessidades de quem precisa divulgar, atrair e manter clientes.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Proximidade com pequenos negócios e soluções de comunicação conectadas à rotina comercial.</p></div>
+              <h3>Perto de quem empreende.</h3>
+              <p>Pequenos negócios, equipe enxuta e um aplicativo comercial que chegou a cerca de 9 mil usuários.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2015–2020" data-category="ACEOP · COMUNICAÇÃO INSTITUCIONAL" data-title="Perto de quem empreende.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Como assessor de comunicação da Associação Comercial e Empresarial de Ouro Preto (ACEOP), acompanhei de perto a realidade de pequenas e médias empresas e de quem as administra. Essa convivência me aproximou das dificuldades, das oportunidades e das decisões de quem toca um negócio no dia a dia.</p>
+              <p>Em uma equipe muito pequena, não pude me limitar ao básico. Atuei com registro fotográfico, organização de eventos, estruturação de palestras e treinamentos e também criei e gerenciei um aplicativo comercial que chegou a cerca de 9 mil usuários enquanto esteve sob minha gestão.</p>
+              <p>Foi meu primeiro grande laboratório prático: pude aplicar comunicação, organização e tecnologia dentro de uma instituição e perto de quem empreende.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Proximidade com pequenos e médios negócios, visão de operação e soluções de comunicação conectadas à rotina de quem administra.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
@@ -319,26 +405,41 @@
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2015–2021</span><span class="timeline-category">COMUNICAÇÃO PÚBLICA E POLÍTICA</span></div>
-              <h3>Comunicar também é saber estabelecer limites.</h3>
-              <p>Atuei primeiro como assessor parlamentar e, depois, em eventos e comunicação na Câmara Municipal de Ouro Preto. Ali compreendi as particularidades da comunicação pública e política: estratégia precisa caminhar com clareza, contexto e responsabilidade. Aprendi a distinguir o que uma liderança deseja comunicar daquilo que é adequado comunicar, considerando o interesse público e critérios éticos.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Leitura de contexto, responsabilidade editorial e posicionamento sem perder de vista os limites éticos.</p></div>
+              <h3>Comunicar com responsabilidade.</h3>
+              <p>Aprendi a equilibrar o que uma liderança deseja dizer com o que é adequado comunicar.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2015–2021" data-category="CÂMARA MUNICIPAL DE OURO PRETO" data-title="Comunicar com responsabilidade.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Na Câmara Municipal de Ouro Preto, atuei primeiro como assessor parlamentar e, depois, como assessor de eventos e comunicação. Foi onde aprendi a aplicar a comunicação à realidade de agentes públicos e políticos.</p>
+              <p>A experiência também desenvolveu minha percepção sobre os limites da comunicação institucional: nem tudo o que se pede para dizer deve ser dito daquela forma. É preciso considerar contexto, interesse público, responsabilidade e critérios éticos.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Leitura de contexto, responsabilidade editorial e posicionamento sem perder de vista os limites éticos.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
           <div class="timeline-card">
             <figure class="timeline-media">
               <img src="/assets/sobre/marketing-digital-site.webp" alt="Captura de tela do site institucional desenvolvido para o psicólogo Ângelo Oliveira" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">SITE INSTITUCIONAL / ÂNGELO OLIVEIRA</figcaption>
+              <figcaption class="timeline-media-caption">MARKETING DIGITAL</figcaption>
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2020</span><span class="timeline-category">PÓS-GRADUAÇÃO EM MARKETING DIGITAL</span></div>
-              <h3>Marketing, SEO e conteúdo com objetivo.</h3>
-              <p>Durante a pandemia, direcionei meus estudos para o marketing digital e complementei a formação com cursos de SEO, copywriting e performance. Nesse período, consolidei um portfólio de conteúdo para segmentos diversos: precatórios, seguros de viagem, cannabis medicinal, gestão, veículos, mercado imobiliário e financeiro, pets, óticas e música. Entre os clientes atendidos estão Precato, Marinho Veículos, Direcional, Riva Incorporadora, Universal Music, WeCann e Assistente de Viagem. A diversidade me ensinou a adaptar linguagem, profundidade e intenção ao público e ao objetivo de cada negócio.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Conteúdo, SEO e copywriting alinhados ao público, à intenção de busca e ao objetivo de negócio.</p></div>
+              <h3>Conteúdo com intenção.</h3>
+              <p>SEO, copywriting e conteúdo para diferentes mercados, públicos e objetivos.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2020" data-category="MARKETING DIGITAL" data-title="Conteúdo com intenção.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Em 2020, durante a pandemia, direcionei meus estudos para o marketing digital e complementei a formação com cursos livres de SEO, copywriting e outros temas ligados a posicionamento e performance.</p>
+              <p>Nesse período, consolidei um portfólio de produção de conteúdo para segmentos diversos, como precatórios, seguros de viagem, cannabis medicinal, programas de gestão, veículos, mercado imobiliário e financeiro, pets, óticas e música. Entre os clientes atendidos estão Precato, Marinho Veículos, Direcional, Riva Incorporadora, Universal Music, WeCann e Assistente de Viagem.</p>
+              <p>A diversidade de projetos me ensinou a ajustar linguagem, profundidade e intenção ao público e ao objetivo de cada negócio.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Conteúdo, SEO e copywriting alinhados ao público, à intenção de busca e ao objetivo de negócio.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
@@ -349,11 +450,18 @@
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2021–2025</span><span class="timeline-category">COMUNICAÇÃO E SOCIAL MEDIA · CVB-MG</span></div>
-              <h3>Informar sem transformar histórias em espetáculo.</h3>
-              <p>Na Cruz Vermelha Brasileira em Minas Gerais, atuei na comunicação e na gestão de redes sociais. O desafio era dar visibilidade às ações de forma humanizada, sem espetacularizar a realidade das pessoas atendidas — gerando engajamento, respeito e aproximação com possíveis doadores. Produzi conteúdo, fiz captação de imagens em campo, editei vídeos e contribuí para a otimização do site. Também elaborei materiais de treinamento, ministrei palestras para jovens aprendizes sobre comunicação digital, IA e posicionamento virtual e trabalhei na criação de um marketplace.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Comunicação sensível, produção multimídia e capacidade de mobilizar sem perder o respeito pelo contexto.</p></div>
+              <h3>Informar sem espetacularizar.</h3>
+              <p>Comunicação humanizada, produção multimídia e mobilização social com respeito às pessoas.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2021–2025" data-category="CRUZ VERMELHA BRASILEIRA · MINAS GERAIS" data-title="Informar sem espetacularizar.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Na Cruz Vermelha Brasileira em Minas Gerais, atuei como assessor de comunicação e social media. Vivi na prática o desafio de dar visibilidade a ações sociais sem transformar a realidade das pessoas atendidas em espetáculo — buscando informar de forma humanizada, gerar engajamento, respeito e aproximar possíveis doadores.</p>
+              <p>Fiz a gestão de redes sociais e a produção de conteúdo, com captação de imagens em ações, edição de vídeos e otimização do site institucional. Também elaborei materiais de treinamento, ministrei palestras para jovens aprendizes sobre comunicação digital, inteligência artificial e posicionamento virtual e participei da criação de um marketplace.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Comunicação sensível, produção multimídia e capacidade de mobilizar sem perder o respeito pelo contexto e pelas pessoas.</p></div>
+          </template>
         </article>
 
         <article class="about-timeline-item" data-about-reveal>
@@ -364,11 +472,18 @@
             </figure>
             <div class="timeline-content">
               <div class="timeline-meta"><span class="timeline-period">2025</span><span class="timeline-category">PÓS-GRADUAÇÃO EM IA E AUTORIDADE DIGITAL</span></div>
-              <h3>Entender como as pessoas buscam — e como as marcas são compreendidas.</h3>
-              <p>Fui estudar como a inteligência artificial mudou as formas de pesquisa e o posicionamento digital. Hoje, aplico esse conhecimento em projetos que combinam conteúdo e tecnologia: soluções SaaS, quizzes, games, experiências interativas, assistentes virtuais e FAQs estruturadas para buscas e sistemas de IA. O foco não é usar tecnologia por novidade, mas criar caminhos úteis para informar, orientar, engajar e gerar oportunidades.</p>
-              <div class="timeline-takeaway"><span>O que levo para hoje</span><p>Estratégia digital conectada à IA, com tecnologia aplicada a problemas e objetivos concretos.</p></div>
+              <h3>Tecnologia com propósito.</h3>
+              <p>IA, SEO/GEO e experiências digitais para orientar, engajar e gerar oportunidades.</p>
+              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2025" data-category="IA E AUTORIDADE DIGITAL" data-title="Tecnologia com propósito.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
             </div>
           </div>
+          <template class="timeline-detail-template">
+            <div class="timeline-detail-copy">
+              <p>Em 2025, fui aprofundar meus estudos sobre como a inteligência artificial mudou as formas de pesquisa, descoberta e posicionamento digital. A pós-graduação em IA e Autoridade Digital ampliou minha compreensão sobre como marcas, profissionais e instituições podem ser encontrados e compreendidos nesse novo cenário.</p>
+              <p>Hoje aplico esse conhecimento em projetos que combinam conteúdo e tecnologia: soluções SaaS, quizzes, games, experiências interativas, assistentes virtuais e FAQs estruturadas para buscas e sistemas de IA. O foco não é usar tecnologia por novidade, mas criar caminhos úteis para informar, orientar, engajar e gerar oportunidades.</p>
+            </div>
+            <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Estratégia digital conectada à IA, com tecnologia aplicada a problemas e objetivos concretos.</p></div>
+          </template>
         </article>
       </div>
     </div>
@@ -379,7 +494,7 @@
       <div class="about-offer-head" data-about-reveal>
         <div>
           <div class="kicker">02 / O QUE ESSA TRAJETÓRIA COLOCA EM PRÁTICA</div>
-          <h2>Experiência que se transforma em <em>solução.</em></h2>
+          <h2 id="about-offer-title">Experiência que se transforma em <em>solução.</em></h2>
         </div>
         <p>É dessa combinação de vivências que parte meu trabalho hoje. Não começo por uma ferramenta ou pacote fechado: começo entendendo o que precisa funcionar melhor para cada pessoa, negócio ou instituição.</p>
       </div>
@@ -416,6 +531,15 @@
   </section>
 </main>
 
+<dialog class="timeline-dialog" id="timeline-dialog" aria-labelledby="timeline-dialog-title">
+  <div class="timeline-dialog-head">
+    <div class="timeline-dialog-meta"><span id="timeline-dialog-period"></span><span id="timeline-dialog-category"></span></div>
+    <h2 id="timeline-dialog-title">Conheça essa etapa</h2>
+    <button class="timeline-dialog-close" type="button" aria-label="Fechar janela">×</button>
+  </div>
+  <div class="timeline-dialog-body" id="timeline-dialog-body"></div>
+</dialog>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-main">
@@ -428,7 +552,6 @@
       </div>
       <div class="footer-motto">Uma boa ideia não precisa ocupar o universo.<br/><em>Precisa encontrar sua órbita.</em></div>
     </div>
-
     <nav aria-labelledby="footer-map-title" class="footer-map">
       <div class="footer-map-heading">
         <div>
@@ -441,7 +564,6 @@
           <i></i><b></b><small></small>
         </div>
       </div>
-
       <div class="footer-map-grid">
         <details class="footer-map-node">
           <summary>
@@ -458,7 +580,6 @@
             <a href="/#contato">Contato <span>↗</span></a>
           </div>
         </details>
-
         <details class="footer-map-node">
           <summary>
             <span aria-hidden="true" class="footer-map-symbol">✧</span>
@@ -472,7 +593,6 @@
             <a href="/wikidata/">Wikidata para empresas <span>↗</span></a>
           </div>
         </details>
-
         <details class="footer-map-node">
           <summary>
             <span aria-hidden="true" class="footer-map-symbol">⌘</span>
@@ -492,7 +612,6 @@
             <a href="/radar-de-novidades/">Radar de novidades <span>↗</span></a>
           </div>
         </details>
-
         <details class="footer-map-node">
           <summary>
             <span aria-hidden="true" class="footer-map-symbol">✦</span>
@@ -506,7 +625,6 @@
             <a href="/blog/wikidata-para-empresas/">Wikidata para empresas <span>↗</span></a>
           </div>
         </details>
-
         <details class="footer-map-node">
           <summary>
             <span aria-hidden="true" class="footer-map-symbol">↗</span>
@@ -522,7 +640,6 @@
         </details>
       </div>
     </nav>
-
     <div class="footer-bottom">
       <span class="footer-credit">Site criado por Wendell Soares · © 2026 Todos os direitos reservados</span>
       <a href="/#topo">Voltar ao topo ↑</a>
@@ -539,23 +656,60 @@
   </div>
   <p class="privacy-details" hidden id="privacy-details">Ao enviar o formulário, você compartilha nome, e-mail (se informado), objetivo e mensagem. As informações são processadas pelo serviço de formulário configurado e encaminhadas ao e-mail indicado. Para dúvidas ou solicitações relacionadas aos seus dados: <a href="mailto:dell.soares@gmail.com">dell.soares@gmail.com</a>. Você pode reabrir este aviso pelo rodapé.</p>
 </section>
-
 <script>
   (() => {
-    const items = document.querySelectorAll('[data-about-reveal]');
+    const revealItems = document.querySelectorAll('[data-about-reveal]');
     if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      items.forEach(item => item.classList.add('is-visible'));
-      return;
+      revealItems.forEach(item => item.classList.add('is-visible'));
+    } else {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+      revealItems.forEach(item => observer.observe(item));
     }
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        }
+
+    const dialog = document.getElementById('timeline-dialog');
+    const dialogPeriod = document.getElementById('timeline-dialog-period');
+    const dialogCategory = document.getElementById('timeline-dialog-category');
+    const dialogTitle = document.getElementById('timeline-dialog-title');
+    const dialogBody = document.getElementById('timeline-dialog-body');
+    const closeButton = dialog?.querySelector('.timeline-dialog-close');
+    let lastTrigger = null;
+
+    document.querySelectorAll('[data-timeline-open]').forEach(button => {
+      button.addEventListener('click', () => {
+        if (!dialog) return;
+        const card = button.closest('.about-timeline-item');
+        const template = card?.querySelector('.timeline-detail-template');
+        if (!template) return;
+        lastTrigger = button;
+        dialogPeriod.textContent = button.dataset.period || '';
+        dialogCategory.textContent = button.dataset.category || '';
+        dialogTitle.textContent = button.dataset.title || 'Conheça essa etapa';
+        dialogBody.replaceChildren(template.content.cloneNode(true));
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-    items.forEach(item => observer.observe(item));
+    });
+
+    closeButton?.addEventListener('click', () => {
+      if (typeof dialog.close === 'function') dialog.close();
+      else dialog.removeAttribute('open');
+    });
+
+    dialog?.addEventListener('click', event => {
+      if (event.target === dialog) {
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+      }
+    });
+
+    dialog?.addEventListener('close', () => lastTrigger?.focus());
   })();
 </script>
 </body>
