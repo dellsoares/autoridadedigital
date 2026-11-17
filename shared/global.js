@@ -101,7 +101,7 @@
   // Major H — consultor digital global, disponível em todas as páginas que carregam este arquivo.
   if (!document.querySelector('script[data-major-h-widget]')) {
     const majorHScript = document.createElement('script');
-    majorHScript.src = '/shared/major-h-widget.js?v=4';
+    majorHScript.src = '/shared/major-h-widget.js?v=5';
     majorHScript.async = true;
     majorHScript.dataset.majorHWidget = 'true';
     majorHScript.dataset.apiUrl = 'https://major-h-api-staging.dell-soares.workers.dev/chat';

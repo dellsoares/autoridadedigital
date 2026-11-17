@@ -219,6 +219,12 @@
     launcher.setAttribute('aria-expanded', 'false');
     launcher.focus();
   }
+
+  window.WSMajorH = window.WSMajorH || {};
+  window.WSMajorH.open = openPanel;
+  window.WSMajorH.close = closePanel;
+  window.dispatchEvent(new Event('ws:major-h-ready'));
+
   function scrollBottom() {
     body.scrollTop = body.scrollHeight;
   }
