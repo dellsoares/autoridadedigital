@@ -72,6 +72,8 @@ Um site institucional, por exemplo, pode reunir:
 
 A estrutura pode ser ampliada conforme a empresa cresce e passa a oferecer novos serviços, atender outros públicos ou explorar novos mercados.
 
+**Entenda como vai ser | [SEO em 2027](https://wendellsoares.jor.br/blog/seo-em-2027/)**
+
 ### Por que um site é importante para a presença digital?
 
 Uma das principais vantagens de um site é a possibilidade de construir uma presença digital consistente ao longo do tempo.
@@ -103,6 +105,8 @@ Esse objetivo pode ser:
 Uma landing page pode conter várias seções, imagens, depoimentos, explicações e informações sobre a oferta. A diferença está na maneira como esses elementos são organizados: todos devem contribuir para a mesma ação.
 
 Por isso, normalmente apresenta menos caminhos de navegação e utiliza chamadas para ação (CTAs) em pontos estratégicos.
+
+**O que saber sobre | [Politica online](https://wendellsoares.jor.br/blog/politica-online/)**
 
 ### Como uma landing page funciona na prática?
 
@@ -170,6 +174,8 @@ A publicação regular de conteúdos relevantes pode transformar o site em uma r
 **5. Precisa de uma estrutura que acompanhe o crescimento**
 
 Novos serviços, áreas de atendimento, profissionais, funcionalidades e conteúdos podem ser incorporados conforme as necessidades mudam.
+
+**Confira | [Dicas para autoridade digital](https://wendellsoares.jor.br/blog/dicas-para-autoridade-digital/)**
 
 ![Quando escolher um site ou uma landing page conforme os objetivos da empresa](</assets/posts/site ou landing/quando-escolher-site-ou-landing-page.webp>)
 
@@ -270,6 +276,8 @@ Antes de comparar orçamentos, observe o que está incluído em cada proposta.
 Uma página barata, mas sem planejamento, conteúdo adequado ou experiência de navegação, pode não atender ao objetivo comercial. Da mesma forma, um site com muitas páginas não representa necessariamente um bom investimento se não houver uma estratégia para utilizá-lo.
 
 O melhor projeto não é obrigatoriamente o mais caro ou o mais completo. É aquele cuja estrutura corresponde às necessidades reais do negócio.
+
+**Explore também | [Wikidata para empresas](https://wendellsoares.jor.br/blog/wikidata-para-empresas/)**
 
 ## Os erros mais comuns na escolha entre site e landing page
 
