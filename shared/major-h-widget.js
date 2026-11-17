@@ -328,6 +328,29 @@
     }
   }
 
+  function showWhatsAppFallback(kind = 'general') {
+    const messages = {
+      credits: 'Nossa conexão está limitada neste momento, mas você não precisa ficar sem orientação! 😊 Converse diretamente com o Wendell pelo WhatsApp e tire suas dúvidas. Ele terá prazer em ajudar.',
+      busy: 'Nossa central está recebendo muitas solicitações neste momento. Para não deixar você esperando, converse diretamente com o Wendell pelo WhatsApp. 😊',
+      general: 'Tive uma dificuldade técnica momentânea ao consultar minha central de orientação. Mas você não precisa ficar sem ajuda: converse diretamente com o Wendell pelo WhatsApp e explique o que precisa.'
+    };
+    const topics = {
+      credits: 'tirar minhas dúvidas e conversar sobre meu projeto',
+      busy: 'continuar a conversa sobre meu projeto',
+      general: 'tirar minhas dúvidas sobre meu projeto'
+    };
+    const text = `Olá, Wendell! Conversei com o Major H e gostaria de ${topics[kind] || topics.general}.`;
+    appendMessage('assistant', messages[kind] || messages.general, 'thinking');
+    history.push({ role: 'assistant', content: messages[kind] || messages.general });
+    addActionCard(body, {
+      title: 'Converse diretamente com Wendell',
+      description: 'Tire suas dúvidas e encontre o melhor caminho para seu projeto.',
+      label: 'Conversar pelo WhatsApp ↗',
+      url: `https://wa.me/5531983073854?text=${encodeURIComponent(text)}`
+    });
+    setExpression('thinking');
+  }
+
   function addAssistantResponse(data) {
     const reply = typeof data.reply === 'string' && data.reply.trim()
       ? data.reply.trim()
@@ -454,12 +477,8 @@
       addAssistantResponse(data);
     } catch (error) {
       typing.remove();
-      const messageText = error.message === 'LIMIT'
-        ? 'Recebi muitas mensagens em pouco tempo. Vamos aguardar um instante e tentar novamente.'
-        : 'Tive uma dificuldade momentânea para consultar minha central de orientação. Você pode tentar novamente ou falar diretamente com o Wendell pelo formulário de contato.';
-      appendMessage('assistant', messageText, 'thinking');
-      history.push({ role: 'assistant', content: messageText });
-      setExpression('thinking');
+      console.error('Major H chat request failed:', error);
+      showWhatsAppFallback(error.message === 'LIMIT' ? 'busy' : 'general');
     } finally {
       busy = false;
       input.disabled = false;

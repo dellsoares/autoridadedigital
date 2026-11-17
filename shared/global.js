@@ -75,7 +75,7 @@
 
   if (isMajorHHome && !document.querySelector('script[data-major-h-widget]')) {
     const majorHScript = document.createElement('script');
-    majorHScript.src = '/shared/major-h-widget.js?v=2';
+    majorHScript.src = '/shared/major-h-widget.js?v=4';
     majorHScript.async = true;
     majorHScript.dataset.majorHWidget = 'true';
     majorHScript.dataset.apiUrl = 'https://major-h-api-staging.dell-soares.workers.dev/chat';
