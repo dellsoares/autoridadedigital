@@ -1,6 +1,35 @@
 (() => {
   'use strict';
 
+  // Mantém os menus sincronizados e acrescenta Beleza aos Cases em todas as páginas compartilhadas.
+  function ensureBeautyLinks() {
+    const beautyPath = '/beleza/';
+    const currentPath = window.location.pathname.replace(/index\.html$/, '');
+    const isBeautyPage = currentPath === '/beleza' || currentPath === '/beleza/';
+
+    const addLink = (container, className = '') => {
+      if (!container || container.querySelector(`a[href="${beautyPath}"]`)) return;
+      const link = document.createElement('a');
+      link.href = beautyPath;
+      link.textContent = 'Beleza';
+      if (className) link.className = className;
+      if (isBeautyPage) link.setAttribute('aria-current', 'page');
+      const musiciansLink = container.querySelector('a[href="/musicos/"]');
+      if (musiciansLink) musiciansLink.insertAdjacentElement('afterend', link);
+      else container.appendChild(link);
+    };
+
+    addLink(document.querySelector('.desktop-nav .nav-submenu[aria-label="Cases"]'));
+    addLink(document.getElementById('mobile-cases-submenu'));
+
+    const projectNode = [...document.querySelectorAll('.footer-map-node')].find((node) =>
+      node.querySelector('.footer-map-copy strong')?.textContent.trim().toLowerCase() === 'projetos'
+    );
+    addLink(projectNode?.querySelector('.footer-map-links'));
+  }
+
+  ensureBeautyLinks();
+
   const menu = document.getElementById('mobile-menu');
   const menuButton = document.getElementById('menu-toggle');
   const submenuButtons = [...document.querySelectorAll('[data-mobile-submenu-toggle]')];
@@ -69,11 +98,8 @@
     }
   });
 
-  // Major H — consultor digital (carrega somente na página inicial).
-  const isMajorHHome = window.location.pathname === '/' ||
-    window.location.pathname === '/index.html';
-
-  if (isMajorHHome && !document.querySelector('script[data-major-h-widget]')) {
+  // Major H — consultor digital global, disponível em todas as páginas que carregam este arquivo.
+  if (!document.querySelector('script[data-major-h-widget]')) {
     const majorHScript = document.createElement('script');
     majorHScript.src = '/shared/major-h-widget.js?v=4';
     majorHScript.async = true;
@@ -83,5 +109,4 @@
     majorHScript.dataset.mode = 'production';
     document.head.appendChild(majorHScript);
   }
-
 })();
