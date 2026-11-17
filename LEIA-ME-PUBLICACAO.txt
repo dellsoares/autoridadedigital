@@ -1,0 +1,25 @@
+PUBLICAÇÃO — HOME / EXPERIÊNCIAS INTERATIVAS
+
+Conteúdo do pacote:
+- index.html
+- assets/experiencias/major-h.webp
+- assets/experiencias/al-capone-agendamento.webp
+- assets/experiencias/5o-dia-util.webp
+- assets/experiencias/na-rota-na-boa.webp
+
+As quatro imagens foram preparadas em 1024 × 1024 px.
+O CSS mantém o mesmo quadro quadrado para todos os cards em desktop, tablet e celular.
+As imagens usam object-fit: contain; portanto, o conteúdo inteiro é mostrado sem corte, zoom ou distorção.
+
+Como publicar:
+1. Substitua o index.html da raiz do repositório pelo index.html deste pacote.
+2. Envie a pasta assets/experiencias/ para a pasta assets/ já existente na raiz.
+3. Não substitua styles.css, script.js, shared/, privacy.js nem as outras páginas.
+
+Os links das experiências foram preservados:
+- Al Capone: https://alcapone.site/
+- 5º Dia Útil — O Jogo: https://dellsoares.github.io/modo-aviao/
+- Na Rota, Na Boa: https://portalnaboa.github.io/voluntariado/
+- Major H: https://wendellsoares.jor.br/
+
+Os três primeiros continuam abrindo no quadro/modal com alternativa para nova aba; Major H abre o site em nova aba.

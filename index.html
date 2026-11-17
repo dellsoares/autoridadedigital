@@ -84,10 +84,10 @@
   .experience-section .experience-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
   .experience-section .experience-card { min-width: 0; min-height: 0; padding: 0; display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden; border: 1px solid rgba(14, 45, 82, .14); border-radius: 13px; background: #092647; color: #fff; box-shadow: 0 14px 34px rgba(8, 30, 55, .10); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
   .experience-section .experience-card:hover { transform: translateY(-5px); border-color: rgba(231, 187, 85, .65); box-shadow: 0 22px 46px rgba(8, 30, 55, .18); }
-  .experience-visual { height: 194px; flex: 0 0 194px; position: relative; overflow: hidden; isolation: isolate; background: #071831; }
-  .experience-poster-visual { display: grid; place-items: center; background: linear-gradient(145deg, #102f52, #071831); }
-  .experience-backdrop { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); max-width: none; object-fit: cover; filter: blur(17px) saturate(.8); opacity: .48; transform: scale(1.08); }
-  .experience-poster { position: relative; z-index: 1; width: 100%; height: 100%; max-width: none; object-fit: contain; padding: 8px 0; filter: drop-shadow(0 7px 16px rgba(0,0,0,.3)); }
+  .experience-visual { position: relative; width: 100%; aspect-ratio: 1 / 1; height: auto; flex: 0 0 auto; overflow: hidden; isolation: isolate; display: grid; place-items: center; padding: 0; background: #071831; }
+  .experience-poster-visual { background: #071831; }
+  /* Os quatro arquivos têm exatamente 1024 × 1024 px. O enquadramento é integral, sem corte ou zoom. */
+  .experience-section .experience-card .experience-poster { display: block; position: relative; z-index: 1; width: 100% !important; height: 100% !important; max-width: 100% !important; max-height: 100%; object-fit: contain !important; object-position: center; margin: 0; padding: 0; filter: none; }
   .experience-visual-index { position: absolute; z-index: 3; left: 13px; top: 12px; padding: 6px 8px; border: 1px solid rgba(255,255,255,.25); background: rgba(4,15,33,.72); color: #f4d17d; font-size: 8px; font-weight: 800; letter-spacing: .13em; }
   .experience-copy { display: flex; flex: 1; flex-direction: column; padding: 19px 18px 18px; }
   .experience-client { display: block; margin-bottom: 10px; color: #b9cde2; font-size: 8px; font-weight: 800; letter-spacing: .13em; line-height: 1.5; }
@@ -122,14 +122,12 @@
   @media (max-width: 1100px) and (min-width: 701px) {
     .experience-section .experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .experience-section .experience-card { min-height: 440px; }
-    .experience-visual { height: 220px; flex-basis: 220px; }
   }
   @media (max-width: 700px) {
     .experience-section .section-head { margin-bottom: 25px; }
     .experience-section .experience-grid { display: flex; align-items: stretch; gap: 0; min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; overscroll-behavior-x: contain; }
     .experience-section .experience-grid::-webkit-scrollbar { display: none; }
     .experience-section .experience-grid > .experience-card { flex: 0 0 88%; width: 88%; min-width: 0; min-height: 0; margin-right: 12px; scroll-snap-align: center; }
-    .experience-visual { height: 225px; flex-basis: 225px; }
     .experience-copy { padding: 20px; }
     .experience-copy h3 { min-height: 0; font-size: 25px; }
     .experience-copy p { font-size: 13px; }
@@ -287,9 +285,7 @@
     <div class="focus-grid experience-grid" role="region" aria-label="Experiências digitais interativas" aria-roledescription="carrossel" tabindex="0">
       <article class="focus-card experience-card" id="experiencia-agendamento">
         <div class="experience-visual experience-poster-visual">
-          <img class="experience-backdrop" src="/beleza/assets/agendamento-servicos.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="experience-poster" src="/beleza/assets/agendamento-servicos.webp" alt="Tela do sistema de agendamento online da Al Capone Barbearia" loading="lazy" decoding="async">
-          <span class="experience-visual-index">01 / SISTEMA</span>
+          <img class="experience-poster" src="assets/experiencias/al-capone-agendamento.webp" alt="Tela do sistema de agendamento online da Al Capone Barbearia" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="experience-copy">
           <span class="experience-client">AL CAPONE BARBEARIA</span>
@@ -301,46 +297,31 @@
 
       <article class="focus-card experience-card" id="experiencia-quinto-dia">
         <div class="experience-visual experience-poster-visual">
-          <img class="experience-backdrop" src="assets/experiencias/5o-dia-util.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="experience-poster" src="assets/experiencias/5o-dia-util.jpg" alt="Arte do jogo O 5º Dia Útil, com personagem em frente à entrada de uma agência" loading="lazy" decoding="async">
-          <span class="experience-visual-index">02 / SIMULAÇÃO</span>
+          <img class="experience-poster" src="assets/experiencias/5o-dia-util.webp" alt="Arte do jogo 5º Dia Útil, com personagem em frente à entrada de uma agência" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="experience-copy">
           <span class="experience-client">PSICÓLOGO ÂNGELO OLIVEIRA</span>
-          <h3>O 5º Dia Útil — O Jogo.</h3>
+          <h3>5º Dia Útil — O Jogo</h3>
           <p>Uma simulação gamificada que coloca o visitante em uma rotina de agência, com situações, tarefas e decisões para experimentar.</p>
-          <button class="experience-action" type="button" data-experience-open data-experience-title="O 5º Dia Útil — O Jogo" data-experience-url="https://dellsoares.github.io/modo-aviao/">Experimentar o jogo <span aria-hidden="true">↗</span></button>
+          <button class="experience-action" type="button" data-experience-open data-experience-title="5º Dia Útil — O Jogo" data-experience-url="https://dellsoares.github.io/modo-aviao/">Experimentar o jogo <span aria-hidden="true">↗</span></button>
         </div>
       </article>
 
       <article class="focus-card experience-card" id="experiencia-naboa">
         <div class="experience-visual experience-poster-visual">
-          <img class="experience-backdrop" src="assets/experiencias/na-rota-na-boa.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="experience-poster" src="assets/experiencias/na-rota-na-boa.webp" alt="Arte do quiz Na Rota, Na Boa, com personagem da Naboa em uma paisagem urbana" loading="lazy" decoding="async">
-          <span class="experience-visual-index">03 / DESCOBERTA</span>
+          <img class="experience-poster" src="assets/experiencias/na-rota-na-boa.webp" alt="Arte do quiz Na Rota, Na Boa, com personagem da Naboa em uma paisagem urbana" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="experience-copy">
           <span class="experience-client">NABOA</span>
-          <h3>Na Rota, Na Boa.</h3>
+          <h3>Na Rota, Na Boa</h3>
           <p>Um quiz interativo que ajuda cada pessoa a reconhecer afinidades e descobrir possibilidades de participação voluntária.</p>
           <button class="experience-action" type="button" data-experience-open data-experience-title="Na Rota, Na Boa · Naboa" data-experience-url="https://portalnaboa.github.io/voluntariado/">Descobrir meu caminho <span aria-hidden="true">↗</span></button>
         </div>
       </article>
 
       <article class="focus-card experience-card" id="experiencia-major-h">
-        <div class="experience-visual assistant-visual" aria-label="Prévia ilustrativa de uma conversa com o assistente Major H">
-          <div class="assistant-orbit assistant-orbit-one"></div>
-          <div class="assistant-orbit assistant-orbit-two"></div>
-          <div class="assistant-preview">
-            <div class="assistant-preview-head">
-              <img src="/assets/simbolo-astronauta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
-              <span><strong>MAJOR H</strong><small>ASSISTENTE DIGITAL</small></span>
-              <i aria-hidden="true"></i>
-            </div>
-            <div class="assistant-bubble assistant-bubble-user">Quero conhecer as soluções.</div>
-            <div class="assistant-bubble assistant-bubble-bot">Vamos encontrar o melhor caminho para o seu projeto.</div>
-          </div>
-          <span class="experience-visual-index">04 / IA CONVERSACIONAL</span>
+        <div class="experience-visual experience-poster-visual">
+          <img class="experience-poster" src="assets/experiencias/major-h.webp" alt="Ilustração do Major H, mascote astronauta que representa o assistente digital com inteligência artificial" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="experience-copy">
           <span class="experience-client">ASSISTENTE DIGITAL · WENDELL SOARES</span>
