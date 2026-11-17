@@ -75,6 +75,78 @@
 </script>
   <script src="/shared/global.js" defer></script>
   <script src="/privacy.js" defer></script>
+
+<style id="experience-section-styles">
+  .experience-section { background: #eaf0f6; color: #0d213c; }
+  .experience-section .kicker { color: #326398; }
+  .experience-section .section-head { margin-top: 20px; margin-bottom: 38px; }
+  .experience-section .section-head h2 em { color: #356ca5; }
+  .experience-section .experience-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+  .experience-section .experience-card { min-width: 0; min-height: 0; padding: 0; display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden; border: 1px solid rgba(14, 45, 82, .14); border-radius: 13px; background: #092647; color: #fff; box-shadow: 0 14px 34px rgba(8, 30, 55, .10); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+  .experience-section .experience-card:hover { transform: translateY(-5px); border-color: rgba(231, 187, 85, .65); box-shadow: 0 22px 46px rgba(8, 30, 55, .18); }
+  .experience-visual { height: 194px; flex: 0 0 194px; position: relative; overflow: hidden; isolation: isolate; background: #071831; }
+  .experience-poster-visual { display: grid; place-items: center; background: linear-gradient(145deg, #102f52, #071831); }
+  .experience-backdrop { position: absolute; inset: -12px; width: calc(100% + 24px); height: calc(100% + 24px); max-width: none; object-fit: cover; filter: blur(17px) saturate(.8); opacity: .48; transform: scale(1.08); }
+  .experience-poster { position: relative; z-index: 1; width: 100%; height: 100%; max-width: none; object-fit: contain; padding: 8px 0; filter: drop-shadow(0 7px 16px rgba(0,0,0,.3)); }
+  .experience-visual-index { position: absolute; z-index: 3; left: 13px; top: 12px; padding: 6px 8px; border: 1px solid rgba(255,255,255,.25); background: rgba(4,15,33,.72); color: #f4d17d; font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+  .experience-copy { display: flex; flex: 1; flex-direction: column; padding: 19px 18px 18px; }
+  .experience-client { display: block; margin-bottom: 10px; color: #b9cde2; font-size: 8px; font-weight: 800; letter-spacing: .13em; line-height: 1.5; }
+  .experience-copy h3 { position: static; max-width: none; min-height: 2.35em; margin: 0 0 10px; color: #fff; font-size: clamp(19px, 1.55vw, 23px); line-height: 1.14; letter-spacing: -.035em; }
+  .experience-copy p { flex: 1; margin: 0 0 17px; color: #bed0e2; font-size: 11px; line-height: 1.7; }
+  .experience-action { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 0 0; border: 0; border-top: 1px solid rgba(255,255,255,.28); background: transparent; color: #f2c75d; text-align: left; font-size: 10px; font-weight: 850; letter-spacing: .015em; cursor: pointer; text-decoration: none; }
+  .experience-action span { font-size: 16px; transition: transform .2s ease; }
+  .experience-action:hover span { transform: translate(3px, -2px); }
+  .assistant-visual { display: grid; place-items: center; padding: 17px; background: radial-gradient(circle at 50% 35%, #174b79, transparent 62%), linear-gradient(145deg, #0a2544, #06152b); }
+  .assistant-orbit { position: absolute; width: 230px; height: 125px; border: 1px solid rgba(231,187,85,.26); border-radius: 50%; transform: rotate(-22deg); }
+  .assistant-orbit-two { width: 260px; height: 160px; border-color: rgba(103,176,232,.2); transform: rotate(28deg); }
+  .assistant-preview { position: relative; z-index: 2; width: min(100%, 250px); padding: 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 10px; background: rgba(5,18,36,.9); box-shadow: 0 12px 28px rgba(0,0,0,.28); }
+  .assistant-preview-head { display: flex; align-items: center; gap: 9px; padding-bottom: 9px; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .assistant-preview-head img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: #fff; padding: 2px; }
+  .assistant-preview-head span { display: grid; gap: 2px; }
+  .assistant-preview-head strong { color: #fff; font-size: 9px; letter-spacing: .12em; }
+  .assistant-preview-head small { color: #a8c0d9; font-size: 7px; letter-spacing: .1em; }
+  .assistant-preview-head i { width: 7px; height: 7px; margin-left: auto; border-radius: 50%; background: #65d49a; box-shadow: 0 0 9px #65d49a88; }
+  .assistant-bubble { max-width: 90%; margin-top: 9px; padding: 8px 10px; border-radius: 8px; font-size: 8px; line-height: 1.45; }
+  .assistant-bubble-user { margin-left: auto; background: #173d64; color: #e7f2ff; }
+  .assistant-bubble-bot { background: #f0f4f8; color: #17314e; }
+  .experience-section .mobile-carousel-controls { margin-top: 22px; }
+  .experience-dialog { width: min(1120px, calc(100vw - 28px)); max-width: 1120px; max-height: 92dvh; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 16px; background: #071831; color: #fff; box-shadow: 0 30px 100px rgba(0,0,0,.62); }
+  .experience-dialog::backdrop { background: rgba(2,8,18,.84); backdrop-filter: blur(7px); }
+  .experience-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 18px; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .experience-dialog-head h2 { margin: 0; color: #fff; font-size: 17px; line-height: 1.3; letter-spacing: -.02em; }
+  .experience-dialog-tools { display: flex; align-items: center; gap: 15px; }
+  .experience-dialog-fallback { color: #f2c75d; font-size: 11px; font-weight: 750; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+  .experience-dialog-close { width: 36px; height: 36px; flex: 0 0 36px; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; background: transparent; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+  .experience-dialog-frame { height: min(78dvh, 790px); min-height: 430px; background: #050d1b; }
+  .experience-dialog-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: #050d1b; }
+  @media (max-width: 1100px) and (min-width: 701px) {
+    .experience-section .experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .experience-section .experience-card { min-height: 440px; }
+    .experience-visual { height: 220px; flex-basis: 220px; }
+  }
+  @media (max-width: 700px) {
+    .experience-section .section-head { margin-bottom: 25px; }
+    .experience-section .experience-grid { display: flex; align-items: stretch; gap: 0; min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; overscroll-behavior-x: contain; }
+    .experience-section .experience-grid::-webkit-scrollbar { display: none; }
+    .experience-section .experience-grid > .experience-card { flex: 0 0 88%; width: 88%; min-width: 0; min-height: 0; margin-right: 12px; scroll-snap-align: center; }
+    .experience-visual { height: 225px; flex-basis: 225px; }
+    .experience-copy { padding: 20px; }
+    .experience-copy h3 { min-height: 0; font-size: 25px; }
+    .experience-copy p { font-size: 13px; }
+    .experience-action { font-size: 11px; }
+    .experience-dialog { width: 100vw; max-width: none; max-height: 100dvh; height: 100dvh; border-radius: 0; border-inline: 0; }
+    .experience-dialog-head { padding: 12px 14px; }
+    .experience-dialog-head h2 { font-size: 14px; }
+    .experience-dialog-tools { gap: 9px; }
+    .experience-dialog-fallback { font-size: 9px; white-space: normal; text-align: right; }
+    .experience-dialog-frame { height: calc(100dvh - 66px); min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .experience-section .experience-card, .experience-action span { transition: none; }
+    .experience-section .experience-card:hover { transform: none; }
+  }
+</style>
+
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -205,11 +277,86 @@
 </div><div class="mobile-carousel-controls" data-carousel-controls="pillars" aria-label="Navegar pelos cards de ponto de partida"><button type="button" data-carousel-prev aria-label="Card anterior de ponto de partida">←</button><span data-carousel-counter aria-live="polite">01 / 03</span><button type="button" data-carousel-next aria-label="Próximo card de ponto de partida">→</button></div>
 </div>
 </section>
-<section aria-labelledby="focus-title" class="section focus-section" id="destaques"><div class="container"><div class="kicker">03 / ALGUMAS MISSÕES EM DESTAQUE</div><div class="section-head"><h2 id="focus-title">O que muda quando <em>tudo entra no mesmo compasso?</em></h2><p>Três caminhos comuns para quem quer transformar presença digital em oportunidades reais.</p></div><div class="focus-grid" role="region" aria-label="Três missões em destaque" aria-roledescription="carrossel" tabindex="0">
-<article class="focus-card focus-one" id="rota-presenca-digital"><span class="focus-no">ROTA 01 / ESTRUTURA</span><div aria-hidden="true" class="focus-geometry"></div><h3>Seu site é a base. Não o ponto final.</h3><p>Site, páginas de campanha, velocidade, imagens e organização para buscadores e sistemas de IA.</p><a data-category-link="presenca" href="#servicos">Ver soluções de presença ↗</a></article>
-<article class="focus-card focus-two" id="rota-conteudo"><span class="focus-no">ROTA 02 / CONTEÚDO</span><div aria-hidden="true" class="focus-geometry"></div><h3>Conteúdo que encontra a frequência certa.</h3><p>Textos de vendas, artigos, LinkedIn, blog e redes sociais feitos para informar, convencer e gerar reconhecimento.</p><a data-category-link="conteudo" href="#servicos">Ver soluções de conteúdo ↗</a></article>
-<article class="focus-card focus-three" id="rota-reputacao"><span class="focus-no">ROTA 03 / REPUTAÇÃO</span><div aria-hidden="true" class="focus-geometry"></div><h3>O que dizem sobre você é parte da sua marca.</h3><p>Presença pública, informações verificáveis e análise responsável de resultados antigos ou sensíveis nas buscas.</p><a data-category-link="reputacao" href="#servicos">Ver soluções de reputação ↗</a></article>
-</div><div class="mobile-carousel-controls" data-carousel-controls="focus" aria-label="Navegar pelos cards de missões em destaque"><button type="button" data-carousel-prev aria-label="Card anterior de missões em destaque">←</button><span data-carousel-counter aria-live="polite">01 / 03</span><button type="button" data-carousel-next aria-label="Próximo card de missões em destaque">→</button></div></div></section>
+<section aria-labelledby="focus-title" class="section focus-section experience-section" id="destaques">
+  <div class="container">
+    <div class="kicker">03 / EXPERIÊNCIAS QUE CONVIDAM À INTERAÇÃO</div>
+    <div class="section-head">
+      <h2 id="focus-title">Presença digital precisa gerar <em>interação.</em></h2>
+      <p>Mais do que aparecer, uma presença digital forte cria caminhos para o público participar, experimentar e avançar. Veja experiências que transformam visitantes em participantes.</p>
+    </div>
+    <div class="focus-grid experience-grid" role="region" aria-label="Experiências digitais interativas" aria-roledescription="carrossel" tabindex="0">
+      <article class="focus-card experience-card" id="experiencia-agendamento">
+        <div class="experience-visual experience-poster-visual">
+          <img class="experience-backdrop" src="/beleza/assets/agendamento-servicos.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="experience-poster" src="/beleza/assets/agendamento-servicos.webp" alt="Tela do sistema de agendamento online da Al Capone Barbearia" loading="lazy" decoding="async">
+          <span class="experience-visual-index">01 / SISTEMA</span>
+        </div>
+        <div class="experience-copy">
+          <span class="experience-client">AL CAPONE BARBEARIA</span>
+          <h3>Agendamento que organiza o atendimento.</h3>
+          <p>Um sistema próprio para o cliente escolher serviço, profissional e horário, enquanto a equipe acompanha a agenda e a gestão em um só ambiente.</p>
+          <button class="experience-action" type="button" data-experience-open data-experience-title="Agendamento online · Al Capone" data-experience-url="https://alcapone.site/">Conhecer o sistema <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+
+      <article class="focus-card experience-card" id="experiencia-quinto-dia">
+        <div class="experience-visual experience-poster-visual">
+          <img class="experience-backdrop" src="assets/experiencias/5o-dia-util.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="experience-poster" src="assets/experiencias/5o-dia-util.jpg" alt="Arte do jogo O 5º Dia Útil, com personagem em frente à entrada de uma agência" loading="lazy" decoding="async">
+          <span class="experience-visual-index">02 / SIMULAÇÃO</span>
+        </div>
+        <div class="experience-copy">
+          <span class="experience-client">PSICÓLOGO ÂNGELO OLIVEIRA</span>
+          <h3>O 5º Dia Útil — O Jogo.</h3>
+          <p>Uma simulação gamificada que coloca o visitante em uma rotina de agência, com situações, tarefas e decisões para experimentar.</p>
+          <button class="experience-action" type="button" data-experience-open data-experience-title="O 5º Dia Útil — O Jogo" data-experience-url="https://dellsoares.github.io/modo-aviao/">Experimentar o jogo <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+
+      <article class="focus-card experience-card" id="experiencia-naboa">
+        <div class="experience-visual experience-poster-visual">
+          <img class="experience-backdrop" src="assets/experiencias/na-rota-na-boa.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <img class="experience-poster" src="assets/experiencias/na-rota-na-boa.webp" alt="Arte do quiz Na Rota, Na Boa, com personagem da Naboa em uma paisagem urbana" loading="lazy" decoding="async">
+          <span class="experience-visual-index">03 / DESCOBERTA</span>
+        </div>
+        <div class="experience-copy">
+          <span class="experience-client">NABOA</span>
+          <h3>Na Rota, Na Boa.</h3>
+          <p>Um quiz interativo que ajuda cada pessoa a reconhecer afinidades e descobrir possibilidades de participação voluntária.</p>
+          <button class="experience-action" type="button" data-experience-open data-experience-title="Na Rota, Na Boa · Naboa" data-experience-url="https://portalnaboa.github.io/voluntariado/">Descobrir meu caminho <span aria-hidden="true">↗</span></button>
+        </div>
+      </article>
+
+      <article class="focus-card experience-card" id="experiencia-major-h">
+        <div class="experience-visual assistant-visual" aria-label="Prévia ilustrativa de uma conversa com o assistente Major H">
+          <div class="assistant-orbit assistant-orbit-one"></div>
+          <div class="assistant-orbit assistant-orbit-two"></div>
+          <div class="assistant-preview">
+            <div class="assistant-preview-head">
+              <img src="/assets/simbolo-astronauta.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+              <span><strong>MAJOR H</strong><small>ASSISTENTE DIGITAL</small></span>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="assistant-bubble assistant-bubble-user">Quero conhecer as soluções.</div>
+            <div class="assistant-bubble assistant-bubble-bot">Vamos encontrar o melhor caminho para o seu projeto.</div>
+          </div>
+          <span class="experience-visual-index">04 / IA CONVERSACIONAL</span>
+        </div>
+        <div class="experience-copy">
+          <span class="experience-client">ASSISTENTE DIGITAL · WENDELL SOARES</span>
+          <h3>Major H: conversa que orienta.</h3>
+          <p>Um chatbot com inteligência artificial que responde dúvidas, apresenta caminhos e ajuda o visitante a encontrar a informação certa.</p>
+          <a class="experience-action" href="https://wendellsoares.jor.br/" target="_blank" rel="noopener noreferrer">Abrir o site e conversar <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+    <div class="mobile-carousel-controls" data-carousel-controls="focus" aria-label="Navegar pelas experiências interativas">
+      <button type="button" data-carousel-prev aria-label="Experiência anterior">←</button>
+      <span data-carousel-counter aria-live="polite">01 / 04</span>
+      <button type="button" data-carousel-next aria-label="Próxima experiência">→</button>
+    </div>
+  </div>
+</section>
 <section aria-labelledby="cases-title" class="section cases-section" id="cases">
 <div class="container"><div class="kicker">04 / ARQUIVO DE MISSÕES</div><div class="section-head cases-head"><h2 id="cases-title">Cases de <em>estratégia consolidada.</em></h2><div><p>Um projeto não é só o que aparece na tela. É o percurso que conecta problema, escolha e execução. Abra os arquivos e examine cada peça da estratégia.</p></div></div></div>
 <div class="container cases-shell"><div aria-label="Explorar arquivos de projetos" class="case-tabs" role="tablist"><button aria-controls="case-site-completo" aria-selected="true" class="case-tab" data-case="site-completo" id="tab-site-completo" role="tab" tabindex="0" type="button"><span>Site completo</span></button><button aria-controls="case-landing-page" aria-selected="false" class="case-tab" data-case="landing-page" id="tab-landing-page" role="tab" tabindex="-1" type="button"><span>Landing page</span></button><button aria-controls="case-faq-para-ias" aria-selected="false" class="case-tab" data-case="faq-para-ias" id="tab-faq-para-ias" role="tab" tabindex="-1" type="button"><span>FAQ para IAs</span></button><button aria-controls="case-wikidata" aria-selected="false" class="case-tab" data-case="wikidata" id="tab-wikidata" role="tab" tabindex="-1" type="button"><span>Wikidata</span></button><button aria-controls="case-dados-anonimizados" aria-selected="false" class="case-tab" data-case="dados-anonimizados" id="tab-dados-anonimizados" role="tab" tabindex="-1" type="button"><span>Dados anonimizados</span></button><button aria-controls="case-conteudos" aria-selected="false" class="case-tab" data-case="conteudos" id="tab-conteudos" role="tab" tabindex="-1" type="button"><span>Conteúdos de autoridade</span></button></div><div class="cases-file"><div aria-labelledby="tab-site-completo" class="case-panel" id="case-site-completo" role="tabpanel" tabindex="0">
@@ -541,5 +688,47 @@
   </div>
   <p class="privacy-details" hidden id="privacy-details">Ao enviar o formulário, você compartilha nome, e-mail (se informado), objetivo e mensagem. As informações são processadas pelo serviço de formulário configurado e encaminhadas ao e-mail indicado. Para dúvidas ou solicitações relacionadas aos seus dados: <a href="mailto:dell.soares@gmail.com">dell.soares@gmail.com</a>. Você pode reabrir este aviso pelo rodapé.</p>
 </section>
+
+<dialog class="experience-dialog" id="experience-dialog" aria-labelledby="experience-dialog-title">
+  <div class="experience-dialog-head">
+    <h2 id="experience-dialog-title">Experiência interativa</h2>
+    <div class="experience-dialog-tools">
+      <a class="experience-dialog-fallback" id="experience-dialog-fallback" href="#" target="_blank" rel="noopener noreferrer">Se não abrir aqui, abrir em nova aba ↗</a>
+      <button class="experience-dialog-close" type="button" id="experience-dialog-close" aria-label="Fechar experiência">×</button>
+    </div>
+  </div>
+  <div class="experience-dialog-frame">
+    <iframe id="experience-dialog-iframe" title="Experiência interativa" src="about:blank" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; gamepad; pointer-lock" allowfullscreen></iframe>
+  </div>
+</dialog>
+<script id="experience-section-script">
+(() => {
+  const dialog = document.getElementById('experience-dialog');
+  const frame = document.getElementById('experience-dialog-iframe');
+  const title = document.getElementById('experience-dialog-title');
+  const fallback = document.getElementById('experience-dialog-fallback');
+  const close = document.getElementById('experience-dialog-close');
+  if (!dialog || !frame || !title || !fallback || !close) return;
+
+  document.querySelectorAll('[data-experience-open]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const url = trigger.getAttribute('data-experience-url');
+      if (!url) return;
+      title.textContent = trigger.getAttribute('data-experience-title') || 'Experiência interativa';
+      fallback.href = url;
+      frame.src = url;
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      } else {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
+    });
+  });
+
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => { frame.src = 'about:blank'; });
+})();
+</script>
+
 </body>
 </html>
