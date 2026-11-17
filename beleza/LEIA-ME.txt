@@ -1,21 +1,22 @@
 PÁGINA /BELEZA/ — WENDELL SOARES
 
-COMO PUBLICAR
-1. Extraia a pasta "beleza" na raiz do repositório do site.
-2. O arquivo principal ficará em /beleza/index.html.
-3. Publique normalmente pelo fluxo já utilizado no site.
+A página utiliza o layout e a identidade visual do site Wendell Soares, com header, menu, footer e aviso de privacidade preservados.
 
-ARQUIVOS DO SITE PRINCIPAL QUE A PÁGINA REUTILIZA
+A versão inclui:
+- Seção Ponto de Partida com título branco e destaque amarelo.
+- Escala de títulos ajustada.
+- FAQ com nove perguntas e dados estruturados FAQPage.
+- Pergunta sobre sistema de agendamento para salão de beleza sem mensalidade.
+- Demonstração do projeto Al Capone como case de agendamento próprio.
+
+PUBLICAÇÃO
+O arquivo principal fica em /beleza/index.html.
+Os estilos e scripts próprios ficam em /beleza/css/ e /beleza/js/.
+As imagens ficam em /beleza/assets/.
+
+A página reutiliza arquivos compartilhados da raiz do site. Não substitua:
 - /styles.css
 - /shared/global.css
 - /shared/global.js
 - /privacy.js
 - /assets/simbolo-astronauta.webp
-
-IMPORTANTE
-Não substitua os arquivos compartilhados acima. A página possui CSS e JavaScript próprios em:
-- /beleza/css/styles.css
-- /beleza/js/main.js
-
-O header, o menu mobile, o footer e o aviso de privacidade foram reaproveitados do HTML original enviado.
-A página inclui imagens do projeto Al Capone apenas como demonstração de um case real.

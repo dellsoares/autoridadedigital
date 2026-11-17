@@ -1532,3 +1532,72 @@
     transition: none;
   }
 }
+
+
+/* V2 — escala tipográfica alinhada à proporção da página inicial */
+.beauty-page .beauty-hero h1 {
+  font-size: clamp(40px, 4.2vw, 58px);
+  line-height: 1.06;
+}
+
+.beauty-page .beauty-section h2,
+.beauty-page .beauty-faq-intro h2 {
+  font-size: clamp(34px, 3.5vw, 44px);
+  line-height: 1.1;
+}
+
+.beauty-page .beauty-final-cta h2 {
+  font-size: clamp(38px, 4vw, 52px);
+  line-height: 1.08;
+}
+
+.beauty-page .beauty-pillar h3,
+.beauty-page .beauty-path-card h3,
+.beauty-page .beauty-process-grid h3 {
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.2;
+}
+
+.beauty-page .beauty-no-monthly h3 {
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.2;
+}
+
+.beauty-page .beauty-segment-grid h3 {
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+/* Contraste solicitado para o título do ponto de partida */
+.beauty-page .beauty-point-section .beauty-section-title h2 {
+  color: #fff;
+}
+
+.beauty-page .beauty-point-section .beauty-section-title h2 em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+@media (max-width: 800px) {
+  .beauty-page .beauty-hero h1 {
+    font-size: clamp(36px, 9vw, 46px);
+    line-height: 1.08;
+  }
+
+  .beauty-page .beauty-section h2,
+  .beauty-page .beauty-faq-intro h2 {
+    font-size: clamp(31px, 8vw, 39px);
+    line-height: 1.1;
+  }
+
+  .beauty-page .beauty-final-cta h2 {
+    font-size: clamp(34px, 8.5vw, 42px);
+    line-height: 1.08;
+  }
+
+  .beauty-page .beauty-pillar h3,
+  .beauty-page .beauty-path-card h3,
+  .beauty-page .beauty-process-grid h3 {
+    font-size: 20px;
+  }
+}
