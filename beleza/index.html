@@ -138,6 +138,348 @@
         padding: 21px;
       }
     }
+  
+
+    /* Ajustes de interação: cards flip, carrossel mobile e timeline compacta. */
+    .beauty-page .beauty-segment-carousel { position: relative; }
+    .beauty-page .beauty-segment-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+    .beauty-page .beauty-segment-card {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      height: 242px;
+      padding: 0;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      perspective: 1000px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .beauty-page .beauty-segment-card:focus-visible {
+      outline: 3px solid #bd8d2e;
+      outline-offset: 4px;
+    }
+    .beauty-page .beauty-segment-card-inner {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform .62s cubic-bezier(.2,.72,.2,1);
+    }
+    .beauty-page .beauty-segment-card.is-flipped .beauty-segment-card-inner { transform: rotateY(180deg); }
+    .beauty-page .beauty-segment-face {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      overflow: hidden;
+      border: 1px solid #dbe3eb;
+      border-radius: 10px;
+      padding: 19px 16px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .beauty-page .beauty-segment-front {
+      background: linear-gradient(155deg, #fff 0%, #f7f9fc 100%);
+      color: #163b60;
+    }
+    .beauty-page .beauty-segment-icon {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border: 1px solid #e9d9ad;
+      border-radius: 50%;
+      background: #fbf5e7;
+      color: #a7791d;
+    }
+    .beauty-page .beauty-segment-icon svg {
+      width: 29px;
+      height: 29px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .beauty-page .beauty-segment-title {
+      display: block;
+      max-width: 100%;
+      color: #163b60;
+      font-size: clamp(14px, 1.1vw, 17px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -.035em;
+      overflow-wrap: anywhere;
+    }
+    .beauty-page .beauty-segment-hint,
+    .beauty-page .beauty-segment-back-action {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: #74869a;
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .beauty-page .beauty-segment-hint b,
+    .beauty-page .beauty-segment-back-action b { color: #a7791d; font-size: 16px; }
+    .beauty-page .beauty-segment-back {
+      transform: rotateY(180deg);
+      border-color: #294e75;
+      background: linear-gradient(145deg, #153b62, #071a32);
+      color: #fff;
+    }
+    .beauty-page .beauty-segment-back-kicker {
+      color: #f2c760;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .14em;
+    }
+    .beauty-page .beauty-segment-back-copy {
+      color: #e0e9f2;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .beauty-page .beauty-segment-back-action { color: #f2c760; }
+    .beauty-page .beauty-segment-back-action b { color: #f2c760; }
+    .beauty-page .beauty-segment-controls { display: none; }
+    .beauty-page .beauty-segment-instruction {
+      margin: 13px 0 0;
+      color: #73849a;
+      font-size: 10px;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .beauty-page .beauty-timeline { margin-top: 34px; }
+    .beauty-page .beauty-timeline-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0 0 24px;
+      --timeline-progress: 0%;
+    }
+    .beauty-page .beauty-timeline-track::before,
+    .beauty-page .beauty-timeline-track::after {
+      position: absolute;
+      top: 19px;
+      right: 8%;
+      left: 8%;
+      height: 2px;
+      content: "";
+      pointer-events: none;
+    }
+    .beauty-page .beauty-timeline-track::before { background: #ffffff26; }
+    .beauty-page .beauty-timeline-track::after {
+      right: auto;
+      width: var(--timeline-progress);
+      background: #f2c760;
+      box-shadow: 0 0 12px #f2c76055;
+      transition: width .4s ease;
+    }
+    .beauty-page .beauty-timeline-step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 11px;
+      padding: 0 4px;
+      border: 0;
+      background: transparent;
+      color: #b9c9d9;
+      cursor: pointer;
+      text-align: center;
+    }
+    .beauty-page .beauty-timeline-step:focus-visible {
+      outline: 2px solid #f2c760;
+      outline-offset: 5px;
+      border-radius: 6px;
+    }
+    .beauty-page .beauty-timeline-node {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid #7890aa77;
+      border-radius: 50%;
+      background: #0a203b;
+      color: #c5d3e2;
+      font-size: 11px;
+      font-weight: 850;
+      transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+    }
+    .beauty-page .beauty-timeline-label {
+      color: #b9c9d9;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .02em;
+      transition: color .25s ease;
+    }
+    .beauty-page .beauty-timeline-step.is-active .beauty-timeline-node {
+      transform: scale(1.08);
+      border-color: #f2c760;
+      background: #f2c760;
+      color: #0b1d34;
+      box-shadow: 0 0 0 5px #f2c76020;
+    }
+    .beauty-page .beauty-timeline-step.is-active .beauty-timeline-label { color: #f2c760; }
+    .beauty-page .beauty-timeline-detail {
+      display: grid;
+      grid-template-columns: 135px minmax(0, .75fr) minmax(0, 1.25fr);
+      align-items: center;
+      gap: 18px;
+      border: 1px solid #a8c7e233;
+      border-radius: 8px;
+      padding: 17px 20px;
+      background: #ffffff08;
+    }
+    .beauty-page .beauty-timeline-detail-kicker {
+      color: #f2c760;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .13em;
+    }
+    .beauty-page .beauty-timeline-detail h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+    .beauty-page .beauty-timeline-detail p {
+      margin: 0;
+      color: #b9c9d9;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    /* O símbolo circular substitui as letras WS na seção 08. */
+    .beauty-page .beauty-final-orbit {
+      width: min(100%, 280px);
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid #f5cb6b63;
+      border-radius: 50%;
+      background: #fff;
+      transform: none;
+      box-shadow: 0 0 0 12px #f5cb6b0b, 0 22px 70px #0004;
+    }
+    .beauty-page .beauty-final-orbit::before,
+    .beauty-page .beauty-final-orbit::after,
+    .beauty-page .beauty-final-orbit i,
+    .beauty-page .beauty-final-orbit b { display: none; }
+    .beauty-page .beauty-final-orbit img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1100px) {
+      .beauty-page .beauty-segment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .beauty-page .beauty-segment-title { font-size: 16px; }
+    }
+    @media (max-width: 700px) {
+      .beauty-page .beauty-segment-grid {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 3px 2px 10px;
+      }
+      .beauty-page .beauty-segment-grid::-webkit-scrollbar { display: none; }
+      .beauty-page .beauty-segment-card {
+        flex: 0 0 84%;
+        height: 238px;
+        scroll-snap-align: center;
+      }
+      .beauty-page .beauty-segment-face { padding: 22px; }
+      .beauty-page .beauty-segment-title { max-width: 250px; font-size: 21px; }
+      .beauty-page .beauty-segment-icon { width: 58px; height: 58px; }
+      .beauty-page .beauty-segment-icon svg { width: 32px; height: 32px; }
+      .beauty-page .beauty-segment-back-copy { max-width: 310px; font-size: 13px; }
+      .beauty-page .beauty-segment-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 7px;
+      }
+      .beauty-page .beauty-carousel-arrow {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid #d6e0e9;
+        border-radius: 50%;
+        background: #fff;
+        color: #173d63;
+        font-size: 17px;
+        cursor: pointer;
+      }
+      .beauty-page .beauty-segment-dots { display: flex; align-items: center; gap: 6px; }
+      .beauty-page .beauty-segment-dot {
+        width: 6px;
+        height: 6px;
+        padding: 0;
+        border: 0;
+        border-radius: 99px;
+        background: #c4cfda;
+        cursor: pointer;
+        transition: width .2s ease, background .2s ease;
+      }
+      .beauty-page .beauty-segment-dot.is-active { width: 20px; background: #a7791d; }
+      .beauty-page .beauty-segment-instruction { text-align: center; font-size: 9px; }
+      .beauty-page .beauty-timeline { margin-top: 25px; }
+      .beauty-page .beauty-timeline-track { gap: 2px; padding-bottom: 18px; }
+      .beauty-page .beauty-timeline-track::before,
+      .beauty-page .beauty-timeline-track::after { top: 16px; right: 7%; left: 7%; }
+      .beauty-page .beauty-timeline-track::after { width: var(--timeline-progress); }
+      .beauty-page .beauty-timeline-step { gap: 8px; }
+      .beauty-page .beauty-timeline-node { width: 34px; height: 34px; font-size: 10px; }
+      .beauty-page .beauty-timeline-label { font-size: 9px; }
+      .beauty-page .beauty-timeline-detail {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 15px 16px;
+      }
+      .beauty-page .beauty-timeline-detail h3 { font-size: 16px; }
+      .beauty-page .beauty-timeline-detail p { font-size: 11px; }
+      .beauty-page .beauty-final-orbit { width: 180px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .beauty-page .beauty-segment-card-inner,
+      .beauty-page .beauty-timeline-node,
+      .beauty-page .beauty-timeline-label,
+      .beauty-page .beauty-timeline-track::after,
+      .beauty-page .beauty-segment-dot { transition: none !important; }
+      .beauty-page .beauty-segment-grid { scroll-behavior: auto; }
+    }
+
   </style>
 
 </head>
@@ -496,17 +838,109 @@
       <div class="beauty-section-heading">
         <div>
           <span class="beauty-kicker">05 / PARA QUEM É</span>
-          <h2>Não existe uma agenda igual para todo mundo. <em>Seu site também não precisa.</em></h2>
+          <h2>Uma agenda que respeita <em>o jeito do seu negócio.</em></h2>
         </div>
-        <p>A Al Capone é um exemplo real de barbearia. Para outros segmentos, a estrutura nasce dos serviços, da equipe, da duração dos atendimentos e da rotina de cada profissional.</p>
+        <p>Escolha seu segmento para conhecer exemplos de como o site e o agendamento podem ser organizados. Cada projeto é configurado conforme os serviços, a equipe e a rotina de atendimento.</p>
       </div>
-      <div class="beauty-segment-grid">
-        <article><span>01</span><h3>Barbearias</h3><p>Cortes, barba, serviços combinados, profissionais e agenda por barbeiro.</p></article>
-        <article><span>02</span><h3>Salões de beleza</h3><p>Procedimentos, especialidades, equipe, duração e informações para clientes.</p></article>
-        <article><span>03</span><h3>Manicures e nail designers</h3><p>Técnicas, serviços, valores, opções de atendimento e disponibilidade.</p></article>
-        <article><span>04</span><h3>Estética</h3><p>Procedimentos, especialidades, profissionais e orientações pré-atendimento.</p></article>
-        <article><span>05</span><h3>Sobrancelhas e cílios</h3><p>Apresentação de técnicas, resultados, serviços e horários de atendimento.</p></article>
-        <article><span>06</span><h3>Profissionais autônomos</h3><p>Um endereço próprio para apresentar o trabalho e facilitar os agendamentos.</p></article>
+
+      <div class="beauty-segment-carousel" data-segment-carousel aria-label="Segmentos atendidos">
+        <div class="beauty-segment-grid" data-segment-track>
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Barbearias. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 9l30 30M39 9L9 39M15 15l-5-5m23 23 5 5M33 15l5-5M15 33l-5 5"/><circle cx="9" cy="9" r="4"/><circle cx="39" cy="9" r="4"/><circle cx="9" cy="39" r="4"/><circle cx="39" cy="39" r="4"/></svg></span>
+                <span class="beauty-segment-title">Barbearias</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">01 / BARBEARIAS</span>
+                <span class="beauty-segment-back-copy">Cortes, barba, serviços combinados, escolha de barbeiro e horários organizados por profissional.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Salões de beleza. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 40h32M12 40V12h24v28M17 12V8h14v4M18 19h12M18 25h12M18 31h12"/><path d="M24 8c-4-4-1-7 0-7 1 0 4 3 0 7"/></svg></span>
+                <span class="beauty-segment-title">Salões de beleza</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">02 / SALÕES</span>
+                <span class="beauty-segment-back-copy">Cabelo, coloração, tratamentos e outros procedimentos com duração, equipe e disponibilidade configuradas.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Manicures e nail designers. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M17 8h14l3 31H14l3-31zM19 8V5h10v3M19 15h10M20 22h8"/><path d="M24 29c-4 0-6 3-6 6h12c0-3-2-6-6-6z"/></svg></span>
+                <span class="beauty-segment-title">Manicures e nail designers</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">03 / UNHAS</span>
+                <span class="beauty-segment-back-copy">Manicure, pedicure, alongamento e nail art, com serviços, tempos de atendimento e agenda sob medida.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Profissionais de estética. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 41C8 33 8 17 17 10c4-3 7-1 7 4 0-5 4-7 8-4 9 7 8 23-8 31z"/><path d="M24 37c0-10 2-17 8-23M18 23l6 5"/></svg></span>
+                <span class="beauty-segment-title">Estética</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">04 / ESTÉTICA</span>
+                <span class="beauty-segment-back-copy">Procedimentos, avaliações e sessões com orientações, profissionais e intervalos específicos para cada serviço.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Sobrancelhas e cílios. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 24s7-12 19-12 19 12 19 12-7 12-19 12S5 24 5 24z"/><circle cx="24" cy="24" r="6"/><path d="M12 15l-3-4M19 12l-1-5M29 12l1-5M36 15l3-4"/></svg></span>
+                <span class="beauty-segment-title">Sobrancelhas e cílios</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">05 / OLHAR</span>
+                <span class="beauty-segment-back-copy">Design, extensão, lifting e outros cuidados apresentados com detalhes e horários por profissional.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+
+          <button class="beauty-segment-card" type="button" aria-pressed="false" aria-label="Profissionais autônomos. Clique para ver detalhes.">
+            <span class="beauty-segment-card-inner">
+              <span class="beauty-segment-face beauty-segment-front">
+                <span class="beauty-segment-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="8"/><path d="M8 42c1-10 7-16 16-16s15 6 16 16M18 29l6 6 6-6"/></svg></span>
+                <span class="beauty-segment-title">Profissionais autônomos</span>
+                <span class="beauty-segment-hint">Clique para conhecer <b>↗</b></span>
+              </span>
+              <span class="beauty-segment-face beauty-segment-back">
+                <span class="beauty-segment-back-kicker">06 / AUTÔNOMOS</span>
+                <span class="beauty-segment-back-copy">Um endereço próprio para divulgar seu trabalho, explicar seus serviços e receber agendamentos sem depender de uma equipe grande.</span>
+                <span class="beauty-segment-back-action">Voltar <b>↻</b></span>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div class="beauty-segment-controls" aria-label="Controles do carrossel de segmentos">
+          <button class="beauty-carousel-arrow" type="button" data-segment-prev aria-label="Segmento anterior">←</button>
+          <div class="beauty-segment-dots" data-segment-dots aria-label="Selecionar segmento"></div>
+          <button class="beauty-carousel-arrow" type="button" data-segment-next aria-label="Próximo segmento">→</button>
+        </div>
+        <p class="beauty-segment-instruction">No celular, deslize para explorar os segmentos. Toque em um card para virar e ver os detalhes.</p>
       </div>
     </div>
   </section>
@@ -518,13 +952,32 @@
           <span class="beauty-kicker">06 / COMO O PROJETO ACONTECE</span>
           <h2>Da sua rotina para <em>uma solução digital.</em></h2>
         </div>
-        <p>O projeto começa pelo funcionamento real do negócio. A tecnologia deve se adaptar ao atendimento — não o contrário.</p>
+        <p>Um caminho claro, com etapas conectadas e decisões alinhadas ao funcionamento do seu negócio.</p>
       </div>
-      <div class="beauty-process-grid">
-        <article><span>01 <i>↗</i></span><h3>Entender</h3><p>Conhecer serviços, equipe, horários, diferenciais e necessidades.</p></article>
-        <article><span>02 <i>↗</i></span><h3>Estruturar</h3><p>Organizar conteúdo, identidade visual e apresentação do site.</p></article>
-        <article><span>03 <i>↗</i></span><h3>Configurar</h3><p>Planejar serviços, profissionais, horários e fluxo de agendamento.</p></article>
-        <article><span>04 <i>↗</i></span><h3>Publicar</h3><p>Testar navegação e agendamento antes de colocar o projeto no ar.</p></article>
+      <div class="beauty-timeline" data-project-timeline style="--timeline-progress: 0%">
+        <div class="beauty-timeline-track" role="group" aria-label="Etapas do desenvolvimento">
+          <button class="beauty-timeline-step is-active" type="button" data-timeline-step aria-pressed="true"
+            data-title="Entender o negócio" data-copy="Mapeamos serviços, profissionais, horários, diferenciais e a forma como os clientes chegam até o negócio.">
+            <span class="beauty-timeline-node">01</span><span class="beauty-timeline-label">Entender</span>
+          </button>
+          <button class="beauty-timeline-step" type="button" data-timeline-step aria-pressed="false"
+            data-title="Estruturar o conteúdo" data-copy="Organizamos as informações, os serviços, a identidade visual e a apresentação do negócio no site.">
+            <span class="beauty-timeline-node">02</span><span class="beauty-timeline-label">Estruturar</span>
+          </button>
+          <button class="beauty-timeline-step" type="button" data-timeline-step aria-pressed="false"
+            data-title="Configurar o sistema" data-copy="Configuramos serviços, duração dos atendimentos, profissionais, horários, permissões e os recursos definidos para a agenda.">
+            <span class="beauty-timeline-node">03</span><span class="beauty-timeline-label">Configurar</span>
+          </button>
+          <button class="beauty-timeline-step" type="button" data-timeline-step aria-pressed="false"
+            data-title="Testar e publicar" data-copy="Validamos a navegação e o fluxo de agendamento em diferentes telas, fazemos os ajustes finais e publicamos o projeto.">
+            <span class="beauty-timeline-node">04</span><span class="beauty-timeline-label">Publicar</span>
+          </button>
+        </div>
+        <div class="beauty-timeline-detail" aria-live="polite" aria-atomic="true">
+          <span class="beauty-timeline-detail-kicker" data-timeline-kicker>ETAPA 01 / 04</span>
+          <h3 data-timeline-title>Entender o negócio</h3>
+          <p data-timeline-copy>Mapeamos serviços, profissionais, horários, diferenciais e a forma como os clientes chegam até o negócio.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -591,7 +1044,7 @@
         <a class="btn btn-gold" href="/#contato" data-track="beauty_cta_final">Quero conversar sobre meu sistema de agendamento <span aria-hidden="true">↗</span></a>
       </div>
       <div class="beauty-final-orbit" aria-hidden="true">
-        <span>WS</span><i></i><b></b>
+        <img src="https://wendellsoares.jor.br/assets/simbolo-astronauta.webp" alt="" loading="lazy" width="280" height="280">
       </div>
     </div>
   </section>
@@ -728,6 +1181,107 @@
   </div>
   <p class="privacy-details" hidden id="privacy-details">Ao enviar o formulário, você compartilha nome, e-mail (se informado), objetivo e mensagem. As informações são processadas pelo serviço de formulário configurado e encaminhadas ao e-mail indicado. Para dúvidas ou solicitações relacionadas aos seus dados: <a href="mailto:dell.soares@gmail.com">dell.soares@gmail.com</a>. Você pode reabrir este aviso pelo rodapé.</p>
 </section>
+
+
+<script>
+(() => {
+  "use strict";
+
+  const carousel = document.querySelector("[data-segment-carousel]");
+  if (carousel) {
+    const track = carousel.querySelector("[data-segment-track]");
+    const cards = Array.from(track.querySelectorAll(".beauty-segment-card"));
+    const dotsHost = carousel.querySelector("[data-segment-dots]");
+    const previous = carousel.querySelector("[data-segment-prev]");
+    const next = carousel.querySelector("[data-segment-next]");
+    let activeIndex = 0;
+    let scrollFrame = 0;
+
+    const dots = cards.map((card, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "beauty-segment-dot";
+      dot.setAttribute("aria-label", `Mostrar segmento ${index + 1}`);
+      dot.addEventListener("click", () => goTo(index));
+      dotsHost.appendChild(dot);
+      return dot;
+    });
+
+    function updateCarouselState(index) {
+      activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === activeIndex);
+        dot.setAttribute("aria-current", i === activeIndex ? "true" : "false");
+      });
+      if (previous) previous.disabled = activeIndex === 0;
+      if (next) next.disabled = activeIndex === cards.length - 1;
+    }
+
+    function goTo(index) {
+      const target = Math.max(0, Math.min(cards.length - 1, index));
+      cards[target].scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "nearest",
+        inline: "center"
+      });
+      updateCarouselState(target);
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const flipped = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", flipped ? "true" : "false");
+      });
+    });
+
+    previous?.addEventListener("click", () => goTo(activeIndex - 1));
+    next?.addEventListener("click", () => goTo(activeIndex + 1));
+
+    track.addEventListener("scroll", () => {
+      if (scrollFrame) cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(() => {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let nearest = 0;
+        let distance = Infinity;
+        cards.forEach((card, index) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const nextDistance = Math.abs(cardCenter - center);
+          if (nextDistance < distance) {
+            distance = nextDistance;
+            nearest = index;
+          }
+        });
+        updateCarouselState(nearest);
+        scrollFrame = 0;
+      });
+    }, { passive: true });
+
+    updateCarouselState(0);
+  }
+
+  const timeline = document.querySelector("[data-project-timeline]");
+  if (timeline) {
+    const steps = Array.from(timeline.querySelectorAll("[data-timeline-step]"));
+    const kicker = timeline.querySelector("[data-timeline-kicker]");
+    const title = timeline.querySelector("[data-timeline-title]");
+    const copy = timeline.querySelector("[data-timeline-copy]");
+
+    steps.forEach((step, index) => {
+      step.addEventListener("click", () => {
+        steps.forEach((item, itemIndex) => {
+          const selected = itemIndex === index;
+          item.classList.toggle("is-active", selected);
+          item.setAttribute("aria-pressed", selected ? "true" : "false");
+        });
+        timeline.style.setProperty("--timeline-progress", `${(index / (steps.length - 1)) * 84}%`);
+        kicker.textContent = `ETAPA 0${index + 1} / 0${steps.length}`;
+        title.textContent = step.dataset.title;
+        copy.textContent = step.dataset.copy;
+      });
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
