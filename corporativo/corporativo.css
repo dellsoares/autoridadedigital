@@ -7,7 +7,7 @@
 .corp-hero{min-height:690px;padding:92px 0 75px;isolation:isolate}
 .corp-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:4%;position:relative;z-index:1}
 .corp-hero-copy{padding:25px 0 30px}
-.corp-hero-copy h1{font-size:clamp(46px,6.1vw,79px);line-height:1.035;letter-spacing:-.075em;font-weight:760;margin:25px 0 22px;max-width:760px}
+.corp-hero-copy h1{font-size:40px;line-height:1.035;letter-spacing:-.075em;font-weight:760;margin:25px 0 22px;max-width:760px}
 .corp-hero-copy h1 em{color:var(--gold);font-style:normal}
 .corp-hero-lead{max-width:600px;color:#c4d3e5;font-size:16px;line-height:1.8;margin-bottom:28px}
 .corp-hero-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
@@ -29,7 +29,7 @@
 
 .corp-section{padding:105px 0}
 .corp-section-head{display:grid;grid-template-columns:1.2fr .8fr;gap:9%;align-items:end;margin-bottom:42px}
-.corp-section-head h2{font-size:clamp(42px,5.1vw,69px);line-height:1.06;letter-spacing:-.075em;font-weight:720;margin:18px 0 0}
+.corp-section-head h2{font-size:clamp(31.5px,3.825vw,51.75px);line-height:1.06;letter-spacing:-.075em;font-weight:720;margin:18px 0 0}
 .corp-section-head h2 em{color:var(--gold);font-style:normal}
 .corp-section-head>p{color:#aebfd2;font-size:14px;line-height:1.85;margin:0 0 4px;max-width:500px}
 .corp-map{background:linear-gradient(135deg,#f7e6b8 0%,#f4d27b 100%);color:var(--ink);position:relative;overflow:hidden}
@@ -110,7 +110,7 @@
 .corp-about-grid{display:grid;grid-template-columns:180px 1fr;align-items:center;gap:40px}
 .corp-about-symbol{width:155px;height:155px;border-radius:50%;border:1px solid #f7c65b58;display:grid;place-items:center;box-shadow:0 0 0 16px #ffffff05,0 0 45px #f7c65b12}
 .corp-about-symbol img{width:125px;height:125px;object-fit:cover;border-radius:50%}
-.corp-about h2{font-size:clamp(35px,4.6vw,57px);line-height:1.08;letter-spacing:-.07em;margin:16px 0}
+.corp-about h2{font-size:clamp(26.25px,3.45vw,42.75px);line-height:1.08;letter-spacing:-.07em;margin:16px 0}
 .corp-about h2 em{color:var(--gold);font-style:normal}
 .corp-about p{font-size:13px;color:#bdcddd;max-width:790px;line-height:1.8;margin-bottom:10px}
 .corp-about .btn{font-size:10px;padding:13px 17px;margin-top:12px}
@@ -118,7 +118,7 @@
 .corp-contact{padding:105px 0;background:radial-gradient(circle at 88% 15%,#143d69 0%,transparent 33%),#06172e;color:#f7f9fc;position:relative;overflow:hidden}
 .corp-contact:after{content:"";position:absolute;right:-250px;bottom:-390px;width:700px;height:700px;border:1px solid #f7c65b20;border-radius:50%;box-shadow:0 0 0 40px #ffffff04,0 0 0 85px #ffffff03;pointer-events:none}
 .corp-contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:8%;align-items:start;position:relative;z-index:1}
-.corp-contact-copy h2{font-size:clamp(44px,5.2vw,70px);line-height:1.05;letter-spacing:-.075em;margin:23px 0}
+.corp-contact-copy h2{font-size:clamp(33px,3.9vw,52.5px);line-height:1.05;letter-spacing:-.075em;margin:23px 0}
 .corp-contact-copy h2 em{color:var(--gold);font-style:normal}
 .corp-contact-copy>p{font-size:14px;color:#bfcede;max-width:430px}
 .corp-contact-points{display:grid;gap:13px;margin-top:35px}
@@ -153,7 +153,7 @@
 .corp-footer-bottom a{color:#d5b96f}
 
 @media(max-width:1100px){
-  .corp-hero-copy h1{font-size:clamp(44px,5.8vw,68px)}
+  .corp-hero-copy h1{font-size:40px}
   .corp-solution-grid{grid-template-columns:repeat(2,1fr)}
   .corp-solution-card{min-height:245px}
   .corp-hero-stamp{right:-12px}
@@ -175,7 +175,7 @@
   .corp-hero{padding:48px 0 30px}
   .corp-hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:0}
   .corp-hero-copy{padding:20px 0 0}
-  .corp-hero-copy h1{font-size:clamp(42px,10.7vw,62px);line-height:1.06;margin:21px 0 16px}
+  .corp-hero-copy h1{font-size:40px;line-height:1.06;margin:21px 0 16px}
   .corp-hero-lead{font-size:13px;line-height:1.75;margin-bottom:20px}
   .corp-hero-actions{gap:8px}
   .corp-hero-actions .btn{font-size:10px;padding:14px 15px;gap:12px}
@@ -190,7 +190,7 @@
   .corp-ticker .ticker-track{font-size:8px}
   .corp-section{padding:73px 0}
   .corp-section-head{display:block;margin-bottom:28px}
-  .corp-section-head h2{font-size:clamp(39px,9.6vw,56px);margin-top:14px}
+  .corp-section-head h2{font-size:clamp(29.25px,7.2vw,42px);margin-top:14px}
   .corp-section-head>p{font-size:12px;margin-top:14px}
   .corp-solution-grid{grid-template-columns:1fr 1fr;gap:8px}
   .corp-solution-card{min-height:225px;padding:16px 14px}
@@ -226,11 +226,11 @@
   .corp-about-grid{grid-template-columns:1fr;gap:25px}
   .corp-about-symbol{width:115px;height:115px}
   .corp-about-symbol img{width:95px;height:95px}
-  .corp-about h2{font-size:clamp(37px,9vw,52px)}
+  .corp-about h2{font-size:clamp(27.75px,6.75vw,39px)}
   .corp-about p{font-size:12px}
   .corp-contact{padding:75px 0}
   .corp-contact-grid{grid-template-columns:1fr;gap:28px}
-  .corp-contact-copy h2{font-size:clamp(43px,10vw,60px);margin:16px 0}
+  .corp-contact-copy h2{font-size:clamp(32.25px,7.5vw,45px);margin:16px 0}
   .corp-contact-copy>p{font-size:12px}
   .corp-contact-points{margin-top:20px;gap:10px}
   .corp-contact-points span{font-size:9px}
@@ -390,4 +390,9 @@
   .corp-context-heading-row { gap: 9px; }
   .corp-context-heading-row h2 { flex-basis: 230px; }
   .corp-context-heading-row .mh-context { margin-top: 14px; }
+}
+
+/* Mantém a redução de H2 também no mapa do rodapé, sem alterar outras páginas. */
+.corporate-page .footer-map-heading h2 {
+  font-size: clamp(17.25px, 1.875vw, 23.25px);
 }
