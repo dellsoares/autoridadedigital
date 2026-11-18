@@ -1,9 +1,9 @@
 ---
-title: "Site ou landing page: qual escolher para o seu negócio? | Wendell Soares"
+title: "Site ou landing page: qual escolher para o seu negócio? Dicas"
 slug: site-ou-landing-page
-description: Está na dúvida se precisa de um site ou landing page? Pois esse
-  conteúdo vai tirar suas dúvidas e mostrar onde cada um deles é mais efetivo
-  para a autoridade digial da sua empresa.
+description: Descubra a diferença entre site e landing page e entenda qual é a
+  melhor opção para a estratégia digital do seu negócio. Leia o artigo e tire
+  suas dúvidas!
 category: experiencia-e-dados
 date: 2026-11-07
 updated: 2026-11-17
