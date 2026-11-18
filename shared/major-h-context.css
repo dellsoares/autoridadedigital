@@ -187,3 +187,27 @@
 @media (prefers-reduced-motion: reduce) {
   .mh-context-trigger, .mh-context-panel { transition: none; animation: none; }
 }
+
+
+/* Chamadas contextuais adicionais da página inicial. */
+.hero-context-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -8px 0 25px;
+  color: #c5d5e8;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 650;
+}
+.hero-context-line .mh-context-trigger { width: 36px; height: 36px; }
+.hero-context-line .mh-context-trigger img { width: 30px; height: 30px; }
+.journal-heading-main { flex: 1; min-width: 0; }
+.journal-title-row { display: flex; align-items: center; gap: 12px; }
+.journal-title-row h2 { margin: 9px 0 0; }
+.mh-context--journal { margin-top: 9px; }
+@media (max-width: 700px) {
+  .hero-context-line { margin: -3px 0 21px; font-size: 11px; }
+  .journal-title-row { align-items: flex-start; gap: 9px; }
+  .mh-context--journal { margin-top: 8px; }
+}

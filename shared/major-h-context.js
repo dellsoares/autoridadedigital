@@ -81,8 +81,10 @@
     const context = document.querySelector('[data-major-h-category="presenca"]');
     if (!context) return;
     const selected = document.querySelector('#filters [data-filter][aria-selected="true"]');
+    const firstTab = document.querySelector('#filters [data-filter]');
+    const selectedCategory = selected?.dataset.filter || firstTab?.dataset.filter || '';
     const hasSearch = Boolean(document.getElementById('service-search')?.value.trim());
-    const isPresence = !hasSearch && (!selected || selected.dataset.filter === 'presenca');
+    const isPresence = !hasSearch && selectedCategory === 'presenca';
     context.hidden = !isPresence;
     if (!isPresence && activeContext === context) closeContext(context);
   }
@@ -116,7 +118,9 @@
       }
     }
 
-    if (event.target.closest('#filters [data-filter], #reset-filters')) {
+    // O script do catálogo recria os botões durante o mesmo evento de clique.
+    // Por isso, detectamos o botão original sem exigir que ele ainda esteja dentro de #filters.
+    if (event.target.closest('[data-filter]') || event.target.closest('#reset-filters')) {
       window.setTimeout(syncCatalogTip, 0);
     }
   });
