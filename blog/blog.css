@@ -249,3 +249,72 @@
   .ws-blog-page .ws-toro-description { font-size: 11px; line-height: 1.45; }
   .ws-blog-page .ws-toro-link { margin-top: 2px; font-size: 8px; }
 }
+
+
+/* Major H contextual — quatro pontos editoriais na página /blog/. */
+.ws-blog-page .blog-ai-question {
+  display:flex; align-items:center; gap:12px; width:fit-content; max-width:100%;
+  margin:22px 0 0; padding:9px 13px 9px 11px;
+  border:1px solid rgba(217,183,109,.32); border-radius:12px;
+  background:rgba(8,27,52,.72); box-shadow:0 8px 26px rgba(0,0,0,.16);
+}
+.ws-blog-page .blog-ai-question-copy { display:grid; gap:4px; }
+.ws-blog-page .blog-ai-question-copy span,
+.ws-blog-page .blog-ai-note-copy > span {
+  color:#f2cd78; font-size:8px; font-weight:850; letter-spacing:.16em;
+}
+.ws-blog-page .blog-ai-question-copy strong { color:#f6f8fc; font-size:12px; line-height:1.35; }
+.ws-blog-page .blog-ai-context { display:inline-flex; align-items:center; flex:0 0 auto; }
+.ws-blog-page .blog-ai-context .mh-context-trigger { width:40px; height:40px; }
+.ws-blog-page .blog-ai-context .mh-context-trigger img { width:34px; height:34px; }
+.ws-blog-page .blog-ai-heading-block { min-width:0; }
+.ws-blog-page .blog-ai-heading-row { display:flex; align-items:flex-end; gap:14px; }
+.ws-blog-page .blog-ai-heading-row h2 { flex:1; min-width:0; }
+.ws-blog-page .blog-ai-heading-row .blog-ai-context { margin-bottom:5px; }
+.ws-blog-page .blog-ai-source { color:#f4cb70; font-size:11px; font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+.ws-blog-page .blog-ai-source:hover { color:#ffe5a0; }
+.ws-blog-page .blog-ai-note {
+  display:flex; align-items:center; justify-content:space-between; gap:28px;
+  margin:40px 0 0; padding:24px 27px;
+  border:1px solid rgba(217,183,109,.34); border-radius:15px;
+  background:linear-gradient(110deg,rgba(19,48,80,.94),rgba(8,24,46,.9));
+  box-shadow:0 18px 45px rgba(0,0,0,.15);
+}
+.ws-blog-page .blog-ai-note-copy { max-width:720px; }
+.ws-blog-page .blog-ai-note-copy h3 { margin:8px 0 7px; color:#f8faff; font-size:clamp(20px,2.5vw,29px); line-height:1.15; letter-spacing:-.045em; }
+.ws-blog-page .blog-ai-note-copy h3 em { color:#f4c35e; font-style:normal; }
+.ws-blog-page .blog-ai-note-copy p { margin:0; color:#c5d2e5; font-size:12px; line-height:1.65; }
+.ws-blog-page .blog-ai-note-action { display:flex; align-items:center; gap:12px; flex:0 0 auto; }
+.ws-blog-page .blog-ai-note-action > span,
+.ws-blog-page .blog-ai-measure > span { color:#f1d79a; font-size:11px; font-weight:750; line-height:1.45; }
+.ws-blog-page .blog-ai-measure {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  width:fit-content; max-width:100%; margin:22px auto 24px; padding:9px 14px;
+  border:1px solid rgba(217,183,109,.35); border-radius:999px;
+  background:rgba(8,27,52,.58);
+}
+.ws-blog-page .blog-ai-measure .mh-context-trigger { width:38px; height:38px; }
+.ws-blog-page .blog-ai-measure .mh-context-trigger img { width:32px; height:32px; }
+.ws-blog-page .ws-blog-closing {
+  padding:76px var(--pad,5vw) 82px; border-top:1px solid rgba(215,179,92,.18); text-align:center;
+}
+.ws-blog-page .ws-blog-closing h2 {
+  max-width:880px; margin:0 auto; color:#f7f8fc;
+  font-size:clamp(31px,4.2vw,52px); line-height:1.12; letter-spacing:-.055em;
+}
+.ws-blog-page .ws-blog-closing .underlink { margin-top:4px; color:#f1d79a; }
+
+@media(max-width:700px) {
+  .ws-blog-page .blog-ai-question { margin-top:18px; padding:8px 10px; }
+  .ws-blog-page .blog-ai-question-copy strong { font-size:11px; }
+  .ws-blog-page .blog-ai-heading-row { align-items:flex-start; gap:9px; }
+  .ws-blog-page .blog-ai-heading-row .blog-ai-context { margin-top:10px; margin-bottom:0; }
+  .ws-blog-page .blog-ai-heading-row .mh-context-trigger { width:36px; height:36px; }
+  .ws-blog-page .blog-ai-heading-row .mh-context-trigger img { width:30px; height:30px; }
+  .ws-blog-page .blog-ai-note { align-items:flex-start; flex-direction:column; gap:16px; margin-top:26px; padding:19px 17px; }
+  .ws-blog-page .blog-ai-note-action { width:100%; justify-content:space-between; }
+  .ws-blog-page .blog-ai-note-action > span { max-width:230px; }
+  .ws-blog-page .blog-ai-measure { border-radius:14px; text-align:left; }
+  .ws-blog-page .blog-ai-measure > span { max-width:230px; }
+  .ws-blog-page .ws-blog-closing { padding:55px 22px 62px; }
+}
