@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071831">
-  <meta name="description" content="Use ferramentas gratuitas de inteligência digital para analisar seu site, avaliar sua presença em IA e planejar conteúdos com autoridade.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="description" content="Acesse ferramentas gratuitas para analisar seu site, avaliar sua autoridade digital e maturidade em IA e planejar pautas com SEO e GEO.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="Wendell Soares">
   <link rel="canonical" href="https://wendellsoares.jor.br/widget/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Wendell Soares">
   <meta property="og:title" content="Central de Inteligência Digital | Wendell Soares">
-  <meta property="og:description" content="Analise seu site, avalie sua maturidade em IA e transforme ideias em pautas de autoridade.">
+  <meta property="og:description" content="Scanner de sites, checklist de autoridade, avaliação de maturidade em IA e planejamento de pautas em uma só central.">
   <meta property="og:url" content="https://wendellsoares.jor.br/widget/">
   <meta property="og:image" content="https://wendellsoares.jor.br/assets/scanner.webp">
+  <meta property="og:image:alt" content="Ilustração de um painel de análise digital com indicadores, checklist e bússola.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Central de Inteligência Digital | Wendell Soares">
+  <meta name="twitter:description" content="Ferramentas gratuitas para analisar sites, avaliar autoridade digital e planejar conteúdo com SEO e GEO.">
+  <meta name="twitter:image" content="https://wendellsoares.jor.br/assets/scanner.webp">
+  <meta name="twitter:image:alt" content="Painel de análise digital com indicadores, checklist e bússola.">
   <title>Central de Inteligência Digital | Wendell Soares</title>
   <link rel="icon" href="/assets/simbolo-astronauta.webp" type="image/webp">
   <link rel="stylesheet" href="/styles.css">
@@ -25,13 +31,45 @@
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "@id":"https://wendellsoares.jor.br/widget/#webpage",
-    "url":"https://wendellsoares.jor.br/widget/",
-    "name":"Central de Inteligência Digital | Wendell Soares",
-    "description":"Ferramentas digitais para diagnóstico técnico, maturidade em inteligência artificial e planejamento de conteúdo com foco em autoridade.",
-    "inLanguage":"pt-BR",
-    "isPartOf":{"@type":"WebSite","name":"Wendell Soares","url":"https://wendellsoares.jor.br/"}
+    "@graph":[
+      {
+        "@type":"CollectionPage",
+        "@id":"https://wendellsoares.jor.br/widget/#webpage",
+        "url":"https://wendellsoares.jor.br/widget/",
+        "name":"Central de Inteligência Digital | Wendell Soares",
+        "description":"Ferramentas gratuitas para análise técnica de sites, diagnóstico de autoridade digital, avaliação de maturidade em inteligência artificial e planejamento de pautas com SEO e GEO.",
+        "inLanguage":"pt-BR",
+        "isPartOf":{"@id":"https://wendellsoares.jor.br/#website"},
+        "mainEntity":{"@id":"https://wendellsoares.jor.br/widget/#ferramentas"}
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://wendellsoares.jor.br/#website",
+        "url":"https://wendellsoares.jor.br/",
+        "name":"Wendell Soares",
+        "inLanguage":"pt-BR"
+      },
+      {
+        "@type":"ItemList",
+        "@id":"https://wendellsoares.jor.br/widget/#ferramentas",
+        "name":"Ferramentas de inteligência digital",
+        "itemListOrder":"https://schema.org/ItemListOrderAscending",
+        "numberOfItems":4,
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Scanner WS de Autoridade","url":"https://scanner-ws.dell-soares.workers.dev/"},
+          {"@type":"ListItem","position":2,"name":"Checklist de Autoridade","url":"https://dellsoares.github.io/marcaoverview/"},
+          {"@type":"ListItem","position":3,"name":"Termômetro de Maturidade em IA","url":"https://dellsoares.github.io/ias/"},
+          {"@type":"ListItem","position":4,"name":"Estúdio de Pautas de Autoridade","url":"https://dellsoares.github.io/pauta/"}
+        ]
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Início","item":"https://wendellsoares.jor.br/"},
+          {"@type":"ListItem","position":2,"name":"Central de Inteligência Digital","item":"https://wendellsoares.jor.br/widget/"}
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -165,39 +203,51 @@
       </div>
       <div class="widget-tools-grid">
         <article class="widget-tool-card">
-          <a href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer" class="widget-tool-link" aria-label="Abrir Checklist de Autoridade">
-            <div class="widget-tool-image"><img src="/assets/autoridade.webp" alt="Ilustração do Checklist de Autoridade Digital" width="1024" height="1024" loading="lazy"></div>
-            <div class="widget-tool-content">
-              <span class="widget-tool-meta">FERRAMENTA 02 / DIAGNÓSTICO</span>
-              <h3>Checklist de Autoridade</h3>
-              <p>Avalie clareza, estrutura e sinais de confiança do seu site. Um ponto de partida para enxergar o que fortalece — ou enfraquece — sua presença digital.</p>
-              <span class="widget-tool-cta">Acessar ferramenta <b aria-hidden="true">↗</b></span>
-            </div>
-          </a>
+          <div class="widget-tool-image"><img src="/assets/autoridade.webp" alt="Painel de checklist com indicadores, medalha, escudo e bússola para avaliação de autoridade digital." width="1024" height="1024" loading="lazy"></div>
+          <div class="widget-tool-content">
+            <span class="widget-tool-meta">FERRAMENTA 02 / DIAGNÓSTICO</span>
+            <h3>Checklist de Autoridade</h3>
+            <p>Avalie clareza, estrutura e sinais de confiança do seu site. Um ponto de partida para enxergar o que fortalece — ou enfraquece — sua presença digital.</p>
+            <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Checklist de Autoridade" data-widget-url="https://dellsoares.github.io/marcaoverview/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
+            <a class="widget-tool-external" href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
         <article class="widget-tool-card">
-          <a href="https://dellsoares.github.io/ias/" target="_blank" rel="noopener noreferrer" class="widget-tool-link" aria-label="Abrir Termômetro de Maturidade em IA">
-            <div class="widget-tool-image"><img src="/assets/termometro.webp" alt="Ilustração do Termômetro de Maturidade em IA" width="1024" height="1024" loading="lazy"></div>
-            <div class="widget-tool-content">
-              <span class="widget-tool-meta">FERRAMENTA 03 / AUTOAVALIAÇÃO</span>
-              <h3>Termômetro de Maturidade em IA</h3>
-              <p>Descubra se sua marca já está preparada para ser compreendida pelas inteligências artificiais e identifique pontos que merecem atenção.</p>
-              <span class="widget-tool-cta">Acessar ferramenta <b aria-hidden="true">↗</b></span>
-            </div>
-          </a>
+          <div class="widget-tool-image"><img src="/assets/termometro.webp" alt="Medidor digital com ponteiro, indicadores de desempenho, segurança e tecnologia para avaliação de maturidade em IA." width="1024" height="1024" loading="lazy"></div>
+          <div class="widget-tool-content">
+            <span class="widget-tool-meta">FERRAMENTA 03 / AUTOAVALIAÇÃO</span>
+            <h3>Termômetro de Maturidade em IA</h3>
+            <p>Descubra se sua marca já está preparada para ser compreendida pelas inteligências artificiais e identifique pontos que merecem atenção.</p>
+            <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Termômetro de Maturidade em IA" data-widget-url="https://dellsoares.github.io/ias/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
+            <a class="widget-tool-external" href="https://dellsoares.github.io/ias/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
         <article class="widget-tool-card">
-          <a href="https://dellsoares.github.io/pauta/" target="_blank" rel="noopener noreferrer" class="widget-tool-link" aria-label="Abrir Estúdio de Pautas de Autoridade">
-            <div class="widget-tool-image"><img src="/assets/pauta.webp" alt="Ilustração do Estúdio de Pautas de Autoridade" width="1024" height="1024" loading="lazy"></div>
-            <div class="widget-tool-content">
-              <span class="widget-tool-meta">FERRAMENTA 04 / PLANEJAMENTO</span>
-              <h3>Estúdio de Pautas de Autoridade</h3>
-              <p>Transforme um tema em uma pauta estratégica com foco em SEO, GEO e conversão. Organize ideias para produzir conteúdo com direção.</p>
-              <span class="widget-tool-cta">Acessar ferramenta <b aria-hidden="true">↗</b></span>
-            </div>
-          </a>
+          <div class="widget-tool-image"><img src="/assets/pauta.webp" alt="Caderno digital de planejamento com lista de tarefas, imagem e caneta para criação de pautas de autoridade." width="1024" height="1024" loading="lazy"></div>
+          <div class="widget-tool-content">
+            <span class="widget-tool-meta">FERRAMENTA 04 / PLANEJAMENTO</span>
+            <h3>Estúdio de Pautas de Autoridade</h3>
+            <p>Transforme um tema em uma pauta estratégica com foco em SEO, GEO e conversão. Organize ideias para produzir conteúdo com direção.</p>
+            <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Estúdio de Pautas de Autoridade" data-widget-url="https://dellsoares.github.io/pauta/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
+            <a class="widget-tool-external" href="https://dellsoares.github.io/pauta/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
+          </div>
         </article>
       </div>
+
+      <section class="widget-embed-viewer" id="widget-embed-viewer" aria-labelledby="widget-embed-title" hidden>
+        <div class="widget-embed-head">
+          <div>
+            <span class="widget-panel-label">FERRAMENTA INTERATIVA / WS</span>
+            <h3 id="widget-embed-title">Ferramenta selecionada</h3>
+          </div>
+          <button class="widget-embed-close" id="widget-embed-close" type="button">Fechar <span aria-hidden="true">×</span></button>
+        </div>
+        <div class="widget-embed-frame-wrap">
+          <iframe id="widget-embed-frame" title="Ferramenta interativa da Central de Inteligência Digital" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-read; clipboard-write"></iframe>
+        </div>
+        <p class="widget-frame-note">A ferramenta é carregada aqui dentro. Se o site de origem impedir a incorporação, use a opção para abrir em uma nova aba.</p>
+        <a class="widget-fallback-link" id="widget-embed-fallback" href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer">Abrir ferramenta em uma nova aba <span aria-hidden="true">↗</span></a>
+      </section>
     </div>
   </section>
 
@@ -320,9 +370,9 @@
             <span aria-hidden="true" class="footer-map-indicator">+</span>
           </summary>
           <div class="footer-map-links">
-            <a href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer">Checklist de autoridade <span>↗</span></a>
-            <a href="https://dellsoares.github.io/ias/" target="_blank" rel="noopener noreferrer">Termômetro de maturidade em IA <span>↗</span></a>
-            <a href="https://dellsoares.github.io/pauta/" target="_blank" rel="noopener noreferrer">Estúdio de pautas <span>↗</span></a>
+            <a href="/widget/#outras-ferramentas">Checklist de autoridade <span>↗</span></a>
+            <a href="/widget/#outras-ferramentas">Termômetro de maturidade em IA <span>↗</span></a>
+            <a href="/widget/#outras-ferramentas">Estúdio de pautas <span>↗</span></a>
             <a href="/widget/#scanner">Scanner WS <span>↗</span></a>
           </div>
         </details>
@@ -336,5 +386,44 @@
     </div>
   </div>
 </footer>
+
+<script>
+(() => {
+  const viewer = document.getElementById('widget-embed-viewer');
+  const frame = document.getElementById('widget-embed-frame');
+  const title = document.getElementById('widget-embed-title');
+  const fallback = document.getElementById('widget-embed-fallback');
+  const close = document.getElementById('widget-embed-close');
+  const triggers = [...document.querySelectorAll('[data-widget-open]')];
+  if (!viewer || !frame || !title || !fallback || !close || !triggers.length) return;
+
+  function openTool(trigger) {
+    const url = trigger.dataset.widgetUrl;
+    const name = trigger.dataset.widgetTitle || 'Ferramenta interativa';
+    if (!url) return;
+    title.textContent = name;
+    frame.title = name + ' — ferramenta interativa';
+    fallback.href = url;
+    if (frame.dataset.loadedUrl !== url) {
+      frame.src = url;
+      frame.dataset.loadedUrl = url;
+    }
+    viewer.hidden = false;
+    triggers.forEach(button => button.setAttribute('aria-expanded', String(button === trigger)));
+    viewer.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  function closeTool() {
+    viewer.hidden = true;
+    frame.removeAttribute('src');
+    delete frame.dataset.loadedUrl;
+    triggers.forEach(button => button.setAttribute('aria-expanded', 'false'));
+  }
+
+  triggers.forEach(button => button.addEventListener('click', () => openTool(button)));
+  close.addEventListener('click', closeTool);
+})();
+</script>
+
 </body>
 </html>

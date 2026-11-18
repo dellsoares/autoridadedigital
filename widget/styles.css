@@ -6,7 +6,7 @@
 .widget-scanner-copy{position:relative;z-index:2}
 .widget-kicker{display:inline-flex;align-items:center;gap:10px;color:#f7c65b;font-size:9px;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
 .widget-kicker:before{content:"";width:20px;height:1px;background:currentColor}
-.widget-scanner-copy h1{max-width:780px;margin:18px 0 18px;color:#fff;font-size:clamp(38px,5.6vw,72px);line-height:1.02;letter-spacing:-.07em;font-weight:760}
+.widget-scanner-copy h1{max-width:780px;margin:18px 0 18px;color:#fff;font-size:clamp(36px,4.6vw,60px);line-height:1.06;letter-spacing:-.065em;font-weight:750}
 .widget-scanner-copy h1 em,.widget-section-heading h2 em,.widget-final-cta h2 em{color:#f7c65b;font-style:normal}
 .widget-scanner-copy>p{max-width:650px;margin:0;color:#c5d4e5;font-size:14px;line-height:1.85}
 .widget-scanner-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
@@ -59,5 +59,30 @@
 .widget-final-cta p{margin:0;color:#c1d0df;font-size:12px;line-height:1.7}
 .widget-final-cta .btn{flex-shrink:0}
 @media(max-width:900px){.widget-scanner-heading{grid-template-columns:1fr .7fr;gap:24px}.widget-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.widget-tool-card:last-child{grid-column:1/-1}.widget-section-heading{grid-template-columns:1fr;gap:14px}.widget-section-heading>p{max-width:650px}}
-@media(max-width:700px){.widget-scanner-section{padding:48px 0 54px}.widget-scanner-heading{grid-template-columns:1fr;gap:8px;margin-bottom:24px}.widget-scanner-copy h1{font-size:clamp(37px,10vw,52px)}.widget-scanner-copy>p{font-size:13px}.widget-scanner-art{min-height:0;height:175px;margin-top:3px}.widget-scanner-art img{width:190px}.widget-scanner-panel{padding:13px;border-radius:13px}.widget-panel-head{align-items:flex-start;flex-direction:column;gap:8px}.widget-panel-head h2{font-size:22px}.widget-scanner-frame{height:calc((100vw - 44px) * 1.25 + 44px)}.widget-tools-section,.widget-method-section{padding:58px 0}.widget-section-heading{margin-bottom:25px}.widget-section-heading h2{font-size:clamp(34px,9vw,45px)}.widget-tools-grid{grid-template-columns:1fr;gap:14px}.widget-tool-card:last-child{grid-column:auto}.widget-tool-image{aspect-ratio:1.35/1}.widget-tool-content{padding:19px}.widget-tool-content h3{font-size:24px}.widget-tool-content p{font-size:13px}.widget-method-grid{grid-template-columns:1fr;gap:11px}.widget-method-card{min-height:0;padding:20px}.widget-method-card>span{margin-bottom:15px}.widget-final-cta{align-items:flex-start;flex-direction:column;margin-top:28px}.widget-final-cta .btn{width:100%;justify-content:center}}
+@media(max-width:700px){.widget-scanner-section{padding:48px 0 54px}.widget-scanner-heading{grid-template-columns:1fr;gap:8px;margin-bottom:24px}.widget-scanner-copy h1{font-size:clamp(34px,8.4vw,45px);line-height:1.08}.widget-scanner-copy>p{font-size:13px}.widget-scanner-art{min-height:0;height:175px;margin-top:3px}.widget-scanner-art img{width:190px}.widget-scanner-panel{padding:13px;border-radius:13px}.widget-panel-head{align-items:flex-start;flex-direction:column;gap:8px}.widget-panel-head h2{font-size:22px}.widget-scanner-frame{height:calc((100vw - 44px) * 1.25 + 44px)}.widget-tools-section,.widget-method-section{padding:58px 0}.widget-section-heading{margin-bottom:25px}.widget-section-heading h2{font-size:clamp(34px,9vw,45px)}.widget-tools-grid{grid-template-columns:1fr;gap:14px}.widget-tool-card:last-child{grid-column:auto}.widget-tool-image{aspect-ratio:1.35/1}.widget-tool-content{padding:19px}.widget-tool-content h3{font-size:24px}.widget-tool-content p{font-size:13px}.widget-method-grid{grid-template-columns:1fr;gap:11px}.widget-method-card{min-height:0;padding:20px}.widget-method-card>span{margin-bottom:15px}.widget-final-cta{align-items:flex-start;flex-direction:column;margin-top:28px}.widget-final-cta .btn{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.widget-tool-card,.widget-tool-image img{transition:none}.widget-tool-card:hover{transform:none}}
+
+
+/* Ferramentas incorporadas na própria página */
+.widget-tool-content .widget-tool-cta{width:100%;margin-top:auto;border:0;border-top:1px solid #e0e6ed;background:transparent;text-align:left;cursor:pointer;font:inherit;display:flex;align-items:center;justify-content:space-between;padding:13px 0 0;color:#9a6d17;font-size:10px;font-weight:850}
+.widget-tool-content .widget-tool-cta:hover,.widget-tool-content .widget-tool-cta:focus-visible{color:#6d4c0d}
+.widget-tool-content .widget-tool-cta b{font-size:17px}
+.widget-tool-external{display:inline-flex;align-items:center;gap:6px;margin-top:9px;color:#60758c;font-size:10px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.widget-tool-external:hover{color:#9a6d17}
+.widget-embed-viewer{margin-top:30px;padding:clamp(15px,2.5vw,25px);border:1px solid #d7e0ea;border-radius:16px;background:#fff;box-shadow:0 20px 50px #102b4918;scroll-margin-top:100px}
+.widget-embed-viewer[hidden]{display:none}
+.widget-embed-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}
+.widget-embed-head h3{margin:6px 0 0;color:#102744;font-size:clamp(21px,2.5vw,29px);line-height:1.15;letter-spacing:-.04em}
+.widget-embed-close{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #d7e0ea;border-radius:8px;background:#f5f7fa;color:#173451;font-size:12px;font-weight:800;cursor:pointer}
+.widget-embed-close span{font-size:20px;line-height:.8}
+.widget-embed-frame-wrap{overflow:hidden;border:1px solid #d9e1ea;border-radius:10px;background:#071831}
+.widget-embed-frame-wrap iframe{display:block;width:100%;height:min(88vh,920px);min-height:700px;border:0;background:#fff}
+.widget-embed-viewer .widget-frame-note{color:#61748a;font-size:11px}
+.widget-embed-viewer .widget-fallback-link{color:#8a651b;font-size:11px}
+@media(max-width:700px){
+  .widget-embed-viewer{margin-top:20px;padding:12px;border-radius:12px}
+  .widget-embed-head{align-items:flex-start}
+  .widget-embed-head h3{font-size:21px}
+  .widget-embed-close{padding:9px 10px;white-space:nowrap}
+  .widget-embed-frame-wrap iframe{height:82vh;min-height:640px}
+}
