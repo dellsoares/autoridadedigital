@@ -209,7 +209,6 @@
             <h3>Checklist de Autoridade</h3>
             <p>Avalie clareza, estrutura e sinais de confiança do seu site. Um ponto de partida para enxergar o que fortalece — ou enfraquece — sua presença digital.</p>
             <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Checklist de Autoridade" data-widget-url="https://dellsoares.github.io/marcaoverview/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
-            <a class="widget-tool-external" href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
           </div>
         </article>
         <article class="widget-tool-card">
@@ -219,7 +218,6 @@
             <h3>Termômetro de Maturidade em IA</h3>
             <p>Descubra se sua marca já está preparada para ser compreendida pelas inteligências artificiais e identifique pontos que merecem atenção.</p>
             <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Termômetro de Maturidade em IA" data-widget-url="https://dellsoares.github.io/ias/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
-            <a class="widget-tool-external" href="https://dellsoares.github.io/ias/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
           </div>
         </article>
         <article class="widget-tool-card">
@@ -229,7 +227,6 @@
             <h3>Estúdio de Pautas de Autoridade</h3>
             <p>Transforme um tema em uma pauta estratégica com foco em SEO, GEO e conversão. Organize ideias para produzir conteúdo com direção.</p>
             <button class="widget-tool-cta" type="button" data-widget-open data-widget-title="Estúdio de Pautas de Autoridade" data-widget-url="https://dellsoares.github.io/pauta/" aria-controls="widget-embed-viewer" aria-expanded="false">Abrir nesta página <b aria-hidden="true">↓</b></button>
-            <a class="widget-tool-external" href="https://dellsoares.github.io/pauta/" target="_blank" rel="noopener noreferrer">Abrir em nova aba <span aria-hidden="true">↗</span></a>
           </div>
         </article>
       </div>
@@ -245,8 +242,7 @@
         <div class="widget-embed-frame-wrap">
           <iframe id="widget-embed-frame" title="Ferramenta interativa da Central de Inteligência Digital" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-read; clipboard-write"></iframe>
         </div>
-        <p class="widget-frame-note">A ferramenta é carregada aqui dentro. Se o site de origem impedir a incorporação, use a opção para abrir em uma nova aba.</p>
-        <a class="widget-fallback-link" id="widget-embed-fallback" href="https://dellsoares.github.io/marcaoverview/" target="_blank" rel="noopener noreferrer">Abrir ferramenta em uma nova aba <span aria-hidden="true">↗</span></a>
+        <p class="widget-frame-note">A ferramenta é carregada dentro desta página. Use Fechar para voltar à lista de ferramentas.</p>
       </section>
     </div>
   </section>
@@ -392,10 +388,9 @@
   const viewer = document.getElementById('widget-embed-viewer');
   const frame = document.getElementById('widget-embed-frame');
   const title = document.getElementById('widget-embed-title');
-  const fallback = document.getElementById('widget-embed-fallback');
   const close = document.getElementById('widget-embed-close');
   const triggers = [...document.querySelectorAll('[data-widget-open]')];
-  if (!viewer || !frame || !title || !fallback || !close || !triggers.length) return;
+  if (!viewer || !frame || !title || !close || !triggers.length) return;
 
   function openTool(trigger) {
     const url = trigger.dataset.widgetUrl;
@@ -403,15 +398,26 @@
     if (!url) return;
     title.textContent = name;
     frame.title = name + ' — ferramenta interativa';
-    fallback.href = url;
     if (frame.dataset.loadedUrl !== url) {
       frame.src = url;
       frame.dataset.loadedUrl = url;
     }
     viewer.hidden = false;
     triggers.forEach(button => button.setAttribute('aria-expanded', String(button === trigger)));
-    viewer.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    viewer.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
   }
+
+  // Delegação em captura: impede que scripts globais transformem a ação em navegação externa.
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest('[data-widget-open]');
+    if (!trigger) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openTool(trigger);
+  }, true);
 
   function closeTool() {
     viewer.hidden = true;
@@ -419,8 +425,6 @@
     delete frame.dataset.loadedUrl;
     triggers.forEach(button => button.setAttribute('aria-expanded', 'false'));
   }
-
-  triggers.forEach(button => button.addEventListener('click', () => openTool(button)));
   close.addEventListener('click', closeTool);
 })();
 </script>
