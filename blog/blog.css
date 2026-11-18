@@ -332,3 +332,19 @@
     font-size: clamp(26.25px, 7.2vw, 35.25px);
   }
 }
+
+
+/* Marca visual no centro da órbita: reutiliza o símbolo oficial do site. */
+.ws-blog-page .ws-blog-orbit-core {
+  overflow: hidden;
+}
+.ws-blog-page .ws-blog-orbit-logo {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 76%;
+  height: 76%;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 12px #38aaff30);
+}
