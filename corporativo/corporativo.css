@@ -371,3 +371,23 @@
   .corp-portfolio-card-general{grid-column:auto}
   .corp-portfolio-card{min-height:0}
 }
+
+/* Major H Contextual — alinhamento dos explicadores nos títulos das seções. */
+.corp-context-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+.corp-context-heading-row h2 {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.corp-context-heading-row .mh-context {
+  margin-top: 12px;
+}
+@media (max-width: 700px) {
+  .corp-context-heading-row { gap: 9px; }
+  .corp-context-heading-row h2 { flex-basis: 230px; }
+  .corp-context-heading-row .mh-context { margin-top: 14px; }
+}
