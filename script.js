@@ -72,6 +72,8 @@
   if($('#service-search'))$('#service-search').addEventListener('input',e=>{currentSearch=e.target.value;currentFilter=currentSearch?'todos':'presenca';renderServices()});
   if($('#contact-form'))$('#contact-form').addEventListener('submit',prepareBriefing);
   if($('#year'))$('#year').textContent=new Date().getFullYear();
+  // Entrega a primeira pasta já aberta, sem depender de clique ou espera.
+  renderServices();
 })();
 
 /* Arquivo de cases (dados e visuais demonstrativos) */

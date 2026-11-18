@@ -35,7 +35,7 @@ Neste guia, o tabuleiro tem 27 casas. Cada dica apresenta uma jogada prática. V
 
 Antes de correr atrás de seguidores, prepare o terreno. O reconhecimento cresce melhor quando existe direção.
 
-![](/assets/posts/cartas/1-fundamentos-do-tabuleiro1011zon-1024x576.webp)
+![Infográfico com os fundamentos do tabuleiro da autoridade digital: nicho, audiência e proposta única.](/assets/posts/cartas/1-fundamentos-do-tabuleiro1011zon-1024x576.webp)
 
 ### 1. Escolha um nicho claro
 
@@ -53,7 +53,7 @@ Em um baralho, muitas cartas parecem iguais até chegar a jogada decisiva. Pergu
 
 Conteúdo é sua mão no jogo. Para ampliar a **autoridade digital**, escolha cartas úteis, não apenas chamativas.
 
-![](/assets/posts/cartas/2-cartas-de-conteudo.webp)
+![Infográfico com cartas para organizar pilares de conteúdo, calendário editorial e palavras-chave.](/assets/posts/cartas/2-cartas-de-conteudo.webp)
 
 ### 4. Crie pilares de conteúdo
 
@@ -71,7 +71,7 @@ A palavra-chave indica o assunto da página, mas não precisa virar um papagaio 
 
 Uma presença bem organizada evita movimentos desperdiçados. A **autoridade digital** também depende da experiência de navegação.
 
-![](/assets/posts/cartas/3-xadrez-de-presenca-online7-1024x576.webp)
+![Infográfico sobre a presença online: títulos e descrições, links internos e experiência do usuário.](/assets/posts/cartas/3-xadrez-de-presenca-online7-1024x576.webp)
 
 ### 7. Otimize títulos e descrições
 
@@ -91,7 +91,7 @@ Imagine tentar jogar ludo num tabuleiro sem números e com peças invisíveis. I
 
 Não é preciso capturar tudo numa jogada. A **autoridade digital** se desenvolve em movimentos consistentes.
 
-![](/assets/posts/cartas/4-consistencia-autoridade-digital6-1024x576.webp)
+![Infográfico sobre consistência na autoridade digital: frequência de publicação, identidade visual e reaproveitamento de conteúdo.](/assets/posts/cartas/4-consistencia-autoridade-digital6-1024x576.webp)
 
 ### 10. Publique com frequência sustentável
 
@@ -109,7 +109,7 @@ Uma boa partida pode render várias lições. Transforme um artigo em carrossel,
 
 Sem confiança, nem o melhor baralho resolve. Credibilidade exige demonstrações concretas.
 
-![](/assets/posts/cartas/5-autoridade-digital511zon-1024x576.webp)
+![Infográfico sobre confiança e autoridade digital: provas sociais, fontes confiáveis e página de autoria.](/assets/posts/cartas/5-autoridade-digital511zon-1024x576.webp)
 
 ### 13. Mostre provas sociais verdadeiras
 
@@ -127,7 +127,7 @@ Um texto sem autoria pode até ser útil, mas deixa perguntas no ar. Crie uma p�
 
 A partida fica melhor quando há troca. A **autoridade digital** também depende de relacionamento, não só de alcance.
 
-![](/assets/posts/cartas/6-engajamento-nas-autoridade-digital211zon-1024x576.webp)
+![Infográfico sobre engajamento: responder comentários, incentivar participação e criar chamadas claras.](/assets/posts/cartas/6-engajamento-nas-autoridade-digital211zon-1024x576.webp)
 
 ### 16. Responda aos comentários com atenção
 
@@ -145,7 +145,7 @@ Depois de ajudar, indique o próximo passo. Pode ser ler outro artigo, baixar um
 
 Até o melhor jogador perde num tabuleiro quebrado. A **autoridade digital** precisa de uma base técnica confiável.
 
-![](/assets/posts/cartas/7-xeque-maste-tecnico4-1024x576.webp)
+![Infográfico sobre SEO técnico: velocidade do site, experiência mobile e correção de links quebrados.](/assets/posts/cartas/7-xeque-maste-tecnico4-1024x576.webp)
 
 ### 19. Faça seu site carregar rápido
 
@@ -163,7 +163,7 @@ Páginas inexistentes, formulários que falham e imagens que somem parecem casas
 
 Chegou a hora de alcançar outras mesas. A **autoridade digital** cresce com boas conexões e exposição relevante.
 
-![](/assets/posts/cartas/8-truco-da-expansao-autoridade-digital3-1024x576.webp)
+![Infográfico sobre expansão da autoridade digital por meio de parcerias, backlinks e canais estratégicos.](/assets/posts/cartas/8-truco-da-expansao-autoridade-digital3-1024x576.webp)
 
 ### 22. Faça parcerias e publique como convidado
 
@@ -181,7 +181,7 @@ Estar em todas as redes não é vitória automática. Escolha onde sua audiênci
 
 O troféu não aparece após duas rodadas. O resultado melhora com análise, atualização e paciência.
 
-![](/assets/posts/cartas/9-autoridade-digital-vitoria-a-longo-prazo111zon-1024x576.webp)
+![Infográfico sobre a construção de autoridade digital no longo prazo: métricas, atualização de conteúdo e paciência.](/assets/posts/cartas/9-autoridade-digital-vitoria-a-longo-prazo111zon-1024x576.webp)
 
 ### 25. Monitore métricas que importam
 

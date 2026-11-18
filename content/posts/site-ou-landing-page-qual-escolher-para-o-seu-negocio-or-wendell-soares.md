@@ -1,5 +1,6 @@
 ---
 title: "Site ou landing page: qual escolher para o seu negócio? Dicas"
+seo_title: "Site ou landing page: qual escolher"
 slug: site-ou-landing-page
 description: Descubra a diferença entre site e landing page e entenda qual é a
   melhor opção para a estratégia digital do seu negócio. Leia o artigo e tire

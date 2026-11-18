@@ -64,7 +64,7 @@ Por isso, uma estratégia de SEO em 2027 precisa explorar perguntas completas e 
 
 **Aplicação prática:** transforme conversas de vendas, dúvidas do suporte e objeções comerciais em pautas editoriais.
 
-![](</assets/posts/seo em 2027/3-a-novs-jornada-de-descoberta-do-seo-em-202711zon-1024x576.webp>)
+![Infográfico sobre a nova jornada de descoberta em SEO em 2027, da pergunta natural à conversão distribuída.](</assets/posts/seo em 2027/3-a-novs-jornada-de-descoberta-do-seo-em-202711zon-1024x576.webp>)
 
 ### **2. O tráfego orgânico deixa de representar toda a influência da busca**
 
@@ -152,9 +152,9 @@ A consequência prática é importante: **não adianta decorar uma página com s
 
 Autoria identificável, exemplos verificáveis e afirmações bem fundamentadas têm mais valor editorial do que selos sem contexto.
 
-![](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
+![Infográfico com cinco forças que reescrevem o SEO em 2027: busca por diálogo, cliques, autoridade, conteúdo e contexto.](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
 
-![](</assets/posts/seo em 2027/4-mapa-de-autoridade-em-seo-em-202711zon-1024x576.webp>)
+![Mapa da autoridade digital em 2027, conectando reputação, presença e relevância para pessoas e algoritmos.](</assets/posts/seo em 2027/4-mapa-de-autoridade-em-seo-em-202711zon-1024x576.webp>)
 
 ### **9. A experiência precisa deixar vestígios verificáveis**
 
@@ -240,9 +240,9 @@ O conteúdo deve explicar imediatamente que o custo depende do escopo, da comple
 
 Esse formato também facilita a identificação de passagens informativas.
 
-![](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
+![Infográfico com cinco forças que reescrevem o SEO em 2027: busca por diálogo, cliques, autoridade, conteúdo e contexto.](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
 
-![](</assets/posts/seo em 2027/5-as-metricas-que-importam-de-verdade-1024x576.webp>)
+![Infográfico com métricas de SEO em 2027: share of answer, crescimento, busca de marca, eficiência e conversão.](</assets/posts/seo em 2027/5-as-metricas-que-importam-de-verdade-1024x576.webp>)
 
 ### **15. FAQs devem resolver dúvidas, não servir como decoração algorítmica**
 
@@ -344,9 +344,9 @@ Também não garante resultados enriquecidos apenas porque a implementação est
 
 A marcação é uma camada de organização técnica, não um substituto para qualidade.
 
-![](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
+![Infográfico com cinco forças que reescrevem o SEO em 2027: busca por diálogo, cliques, autoridade, conteúdo e contexto.](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
 
-![](</assets/posts/seo em 2027/6-7-acoes-para-gasnhar-autoridade-em-seo-em-2027-1024x576.webp>)
+![Checklist visual com sete ações para ganhar autoridade e performance em SEO.](</assets/posts/seo em 2027/6-7-acoes-para-gasnhar-autoridade-em-seo-em-2027-1024x576.webp>)
 
 ### **22. Imagens deixarão de ser apenas elementos decorativos**
 
@@ -392,7 +392,7 @@ Para negócios com atendimento presencial, o Perfil da Empresa no Google continu
 
 ## **Autoridade e performance: como medir resultados em 2027**
 
-![](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
+![Infográfico com cinco forças que reescrevem o SEO em 2027: busca por diálogo, cliques, autoridade, conteúdo e contexto.](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
 
 ### **25. Busca de marca pode revelar uma influência que o clique não explica**
 
@@ -450,9 +450,9 @@ Uma sequência prática começa com o diagnóstico de indexação e conteúdos e
 
 O princípio é simples: **não produzir mais ruído, mas construir relevância onde a decisão acontece**.
 
-![](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
+![Infográfico com cinco forças que reescrevem o SEO em 2027: busca por diálogo, cliques, autoridade, conteúdo e contexto.](</assets/posts/seo em 2027/2-5-forcas-que-reescrevem-o-seo-em-2027-1024x576-1.webp>)
 
-![](</assets/posts/seo em 2027/8-seo-em-2027-proxima-parada-1024x576.webp>)
+![Ilustração de uma jornada digital que conecta pessoas, conteúdo e sistemas de busca em 2027.](</assets/posts/seo em 2027/8-seo-em-2027-proxima-parada-1024x576.webp>)
 
 ## **Conclusão: o SEO de 2027 não será vencido apenas por quem aparece primeiro**
 
