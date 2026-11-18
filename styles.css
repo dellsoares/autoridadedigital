@@ -815,3 +815,45 @@ body.about-page main section[id] { scroll-margin-top: 24px; }
 
 .cases-detail-link{margin-top:22px;max-width:max-content}
 @media(max-width:700px){.cases-detail-link{max-width:100%;width:100%}}
+
+
+/* HOME / FREQUÊNCIAS: linha do tempo horizontal e pop-up interativo */
+#visao.section-intro { padding-top: 76px; padding-bottom: 72px; }
+#visao .intro-grid { margin-bottom: 28px; }
+.frequency-timeline { position: relative; margin-top: 6px; }
+.frequency-timeline-track { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 18px; padding: 8px 3% 12px; }
+.frequency-timeline-line { position: absolute; z-index: 0; top: 39px; left: 18%; right: 18%; height: 2px; background: linear-gradient(90deg, #d7a640 0%, #7e9bb9 50%, #d7a640 100%); opacity: .82; }
+.frequency-point { position: relative; z-index: 1; display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 9px; padding: 0 9px 12px; border: 0; background: transparent; color: #102b49; text-align: center; cursor: pointer; }
+.frequency-point-marker { display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid #d4a642; border-radius: 50%; background: linear-gradient(145deg, #fffdf8, #f3dfb1); color: #102b49; font-size: 15px; font-weight: 850; letter-spacing: .04em; box-shadow: 0 8px 22px rgba(11, 35, 61, .13); transition: transform .22s ease, background .22s ease, color .22s ease, box-shadow .22s ease; }
+.frequency-point:hover .frequency-point-marker, .frequency-point:focus-visible .frequency-point-marker, .frequency-point.is-active .frequency-point-marker { transform: translateY(-3px) scale(1.06); background: linear-gradient(145deg, #12385f, #071a34); color: #f7cf72; box-shadow: 0 0 0 5px rgba(218, 173, 78, .16), 0 12px 28px rgba(7, 27, 52, .2); }
+.frequency-point-label { color: #102b49; font-size: 16px; line-height: 1.2; font-weight: 850; letter-spacing: -.025em; }
+.frequency-point-caption { max-width: 230px; color: #63768a; font-size: 12px; line-height: 1.45; }
+.frequency-point:focus-visible { outline: none; }
+.frequency-point:focus-visible .frequency-point-marker { outline: 2px solid #1b5486; outline-offset: 4px; }
+.frequency-popover { display: grid; grid-template-columns: 112px minmax(0, 1fr) 36px; align-items: center; gap: 20px; width: min(820px, 100%); margin: 12px auto 0; padding: 22px 25px; border: 1px solid rgba(223, 185, 99, .8); border-radius: 14px; background: linear-gradient(120deg, #092746, #12385f); color: #fff; box-shadow: 0 18px 42px rgba(6, 25, 48, .17); animation: frequencyPopoverIn .2s ease both; }
+.frequency-popover[hidden] { display: none !important; }
+.frequency-popover-index { color: #f2c764; font-size: 10px; font-weight: 850; letter-spacing: .13em; line-height: 1.5; }
+.frequency-popover-copy h3 { margin: 0 0 6px; color: #fff; font-size: clamp(19px, 2vw, 25px); line-height: 1.2; letter-spacing: -.035em; }
+.frequency-popover-copy p { margin: 0; color: #d0deeb; font-size: 13px; line-height: 1.65; }
+.frequency-popover-close { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: transparent; color: #fff; font-size: 22px; line-height: 1; }
+.frequency-popover-close:hover { background: rgba(255,255,255,.12); }
+@keyframes frequencyPopoverIn { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 700px) {
+  #visao.section-intro { padding-top: 66px; padding-bottom: 62px; }
+  #visao .intro-grid { margin-bottom: 22px; }
+  .frequency-timeline-track { gap: 3px; padding: 7px 0 10px; }
+  .frequency-timeline-line { top: 28px; left: 16%; right: 16%; }
+  .frequency-point { gap: 7px; padding: 0 3px 9px; }
+  .frequency-point-marker { width: 50px; height: 50px; font-size: 12px; }
+  .frequency-point-label { font-size: 12px; }
+  .frequency-point-caption { max-width: 105px; font-size: 9px; line-height: 1.3; }
+  .frequency-popover { grid-template-columns: minmax(0, 1fr) 32px; gap: 8px 12px; margin-top: 9px; padding: 16px; border-radius: 12px; }
+  .frequency-popover-index { grid-column: 1; grid-row: 1; }
+  .frequency-popover-close { grid-column: 2; grid-row: 1; width: 31px; height: 31px; }
+  .frequency-popover-copy { grid-column: 1 / -1; grid-row: 2; }
+  .frequency-popover-copy h3 { font-size: 19px; }
+  .frequency-popover-copy p { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frequency-point-marker, .frequency-popover { transition: none; animation: none; }
+}
