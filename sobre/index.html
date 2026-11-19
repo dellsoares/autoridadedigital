@@ -214,6 +214,360 @@
       .about-hero-mark img, .about-route-strip-track { animation: none; }
       .timeline-card, .about-offer-card, [data-about-reveal], .timeline-dialog[open] { transition: none; animation: none; transform: none; opacity: 1; }
     }
+
+    /* AJUSTES DE TIPOGRAFIA, FAIXA E HERO */
+    .about-hero-copy h1 {
+      font-size: 40px;
+      line-height: 1.08;
+    }
+    .about-section-head h2,
+    .about-offer-head h2 {
+      font-size: clamp(34px, 3.8vw, 48px);
+      line-height: 1.09;
+      letter-spacing: -.055em;
+    }
+    .about-hero-mark img {
+      width: min(90%, 320px);
+    }
+
+    /* FAIXA CONTÍNUA — mesma linguagem visual da home */
+    .about-route-strip {
+      position: relative;
+      z-index: 9;
+      margin: 10px 0 -8px;
+      overflow: hidden;
+      border: 0;
+      background: #f7f8fb;
+      color: #0b2050;
+      padding: 20px 0 18px;
+      transform: skewY(-2deg);
+      box-shadow: 0 10px 40px #021b3852;
+      font-size: clamp(14px, 1.42vw, 19px);
+      letter-spacing: .17em;
+    }
+    .about-route-strip-track {
+      display: flex;
+      width: max-content;
+      gap: 36px;
+      animation: aboutMarquee 64s linear infinite;
+      color: inherit;
+      font-size: inherit;
+      font-weight: 900;
+      letter-spacing: inherit;
+    }
+    .about-route-strip-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 900;
+    }
+    .about-route-strip-track b {
+      color: #d49b2c;
+      font-weight: 900;
+    }
+
+    /* LINHA DO TEMPO HORIZONTAL E CONTÍNUA */
+    .timeline-instruction {
+      margin: -22px auto 20px;
+      color: #6d7d90;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .timeline-viewport {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 30px;
+      margin: 0 auto 20px;
+      outline: none;
+    }
+    .timeline-viewport::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 88px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4a53d 8%, #83a6c7 50%, #d4a53d 92%, transparent);
+      pointer-events: none;
+    }
+    .timeline-track {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: max-content;
+      align-items: flex-start;
+      animation: timelineMarquee 64s linear infinite;
+      will-change: transform;
+    }
+    .timeline-track-group {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: flex-start;
+      gap: 30px;
+      padding-right: 30px;
+    }
+    .about-timeline-item {
+      position: relative;
+      display: flex;
+      flex: 0 0 170px;
+      flex-direction: column;
+      align-items: center;
+      width: 170px;
+      min-width: 0;
+      align-self: flex-start;
+      text-align: center;
+      padding: 0;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+    .about-timeline-item::before {
+      content: none;
+    }
+    .timeline-node {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 132px;
+      height: 132px;
+      flex: 0 0 132px;
+      padding: 9px;
+      overflow: hidden;
+      border: 1px solid rgba(50, 99, 152, .22);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, #fff, #e7eef6 72%);
+      box-shadow: 0 9px 25px rgba(10, 36, 65, .10);
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+    }
+    .timeline-node:hover,
+    .timeline-node:focus-visible {
+      transform: scale(1.07);
+      border-color: #d4a53d;
+      box-shadow: 0 14px 32px rgba(10, 36, 65, .17), 0 0 0 5px rgba(212, 165, 61, .12);
+    }
+    .timeline-node-image {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 108px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #071831;
+    }
+    .timeline-node-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+      object-fit: contain;
+      object-position: center;
+    }
+    .timeline-node-halo {
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(212, 165, 61, .24);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .about-timeline-item.is-selected .timeline-node {
+      transform: scale(1.13);
+      border-color: #d4a53d;
+      background: #fff8e8;
+      box-shadow: 0 15px 35px rgba(10, 36, 65, .16), 0 0 0 6px rgba(212, 165, 61, .13);
+    }
+    .about-timeline-item.is-selected .timeline-node-halo {
+      border-color: rgba(212, 165, 61, .8);
+    }
+    .timeline-node-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 17px 4px 0;
+    }
+    .timeline-node-copy .timeline-period {
+      display: block;
+      margin: 0 0 7px;
+      color: #0e345a;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .025em;
+    }
+    .timeline-node-copy h3 {
+      min-height: 2.3em;
+      margin: 0 0 7px;
+      color: #102c4b;
+      font-size: 15px;
+      line-height: 1.16;
+      letter-spacing: -.035em;
+    }
+    .timeline-node-copy .timeline-category {
+      display: block;
+      color: #66809a;
+      font-size: 8px;
+      font-weight: 850;
+      line-height: 1.5;
+      letter-spacing: .08em;
+    }
+    .timeline-feature {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: clamp(24px, 4vw, 54px);
+      max-width: 1040px;
+      margin: 5px auto 0;
+      padding: 22px;
+      border: 1px solid rgba(16, 53, 89, .10);
+      border-radius: 18px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 15px 38px rgba(10,36,65,.075);
+    }
+    .timeline-feature-media {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #071831;
+    }
+    .timeline-feature-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0;
+      padding: 0;
+      object-fit: contain;
+      object-position: center;
+    }
+    .timeline-feature-copy {
+      min-width: 0;
+      padding: 8px 4px;
+    }
+    .timeline-feature-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px 12px;
+      margin-bottom: 12px;
+      color: #326398;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .10em;
+    }
+    .timeline-feature-meta span:first-child {
+      color: #0e345a;
+      font-size: 13px;
+      letter-spacing: .02em;
+    }
+    .timeline-feature-meta span + span::before {
+      content: "·";
+      margin-right: 10px;
+      color: #c08d27;
+    }
+    .timeline-feature-copy h3 {
+      margin: 0 0 12px;
+      color: #102c4b;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.12;
+      letter-spacing: -.045em;
+    }
+    .timeline-feature-copy p {
+      margin: 0;
+      color: #5a6d81;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .timeline-feature-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #1e5a91;
+      cursor: pointer;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .025em;
+    }
+    .timeline-feature-open span {
+      color: #c08d27;
+      font-size: 16px;
+      transition: transform .2s ease;
+    }
+    .timeline-feature-open:hover span {
+      transform: translate(3px, -2px);
+    }
+    .timeline-viewport:hover .timeline-track,
+    .timeline-viewport:focus-within .timeline-track {
+      animation-play-state: paused;
+    }
+    @keyframes timelineMarquee {
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 760px) {
+      .about-hero-copy h1 { font-size: 40px; }
+      .about-section-head h2,
+      .about-offer-head h2 { font-size: clamp(34px, 8.5vw, 43px); }
+      .about-route-strip {
+        margin: 4px 0 -6px;
+        padding: 15px 0;
+        font-size: 14px;
+        transform: skewY(-1.6deg);
+      }
+      .about-route-strip-track { animation-duration: 42s; }
+      .timeline-instruction { margin: -12px 0 15px; text-align: left; }
+      .timeline-viewport { padding: 18px 0 25px; margin-bottom: 12px; }
+      .timeline-viewport::before { top: 75px; }
+      .timeline-track { animation-duration: 78s; }
+      .timeline-track-group { gap: 20px; padding-right: 20px; }
+      .about-timeline-item { flex-basis: 145px; width: 145px; }
+      .timeline-node { width: 112px; height: 112px; flex-basis: 112px; padding: 8px; }
+      .timeline-node-image { width: 91px; }
+      .timeline-node-copy { padding-top: 14px; }
+      .timeline-node-copy h3 { font-size: 14px; }
+      .timeline-node-copy .timeline-category { font-size: 7px; }
+      .timeline-feature {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 13px;
+        border-radius: 14px;
+      }
+      .timeline-feature-copy { padding: 5px 5px 8px; }
+      .timeline-feature-copy h3 { font-size: 24px; }
+      .timeline-feature-copy p { font-size: 13px; }
+      .timeline-feature-open { margin-top: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .about-route-strip-track,
+      .timeline-track {
+        animation: none;
+      }
+      .timeline-viewport { overflow-x: auto; }
+      .timeline-track { transform: none; }
+      .timeline-node,
+      .timeline-feature-open span { transition: none; }
+    }
+
   </style>
 </head>
 <body class="about-page">
@@ -303,7 +657,7 @@
           </div>
         </div>
         <div class="about-hero-mark" aria-label="Símbolo da marca Wendell Soares">
-          <img src="/assets/simbolo-astronauta.webp" alt="Símbolo astronauta da marca Wendell Soares" width="1254" height="1254" fetchpriority="high">
+          <img src="https://raw.githubusercontent.com/dellsoares/autoridadedigital/d55039d8ee3612ff43ed9807cc6dea86c215ff3d/avatar_wendell.png" alt="Retrato de Wendell Soares" width="1254" height="1254" fetchpriority="high">
           <span>WS / 2007—2025</span>
         </div>
       </div>
@@ -327,21 +681,27 @@
         <strong>PERÍODOS QUE SE CRUZAM</strong>
         <p>Estudo e trabalho aconteceram em paralelo — e uma experiência foi alimentando a outra.</p>
       </aside>
-      <p class="timeline-instruction" data-about-reveal>Escolha uma etapa para conhecer a história completa e o que ela acrescenta ao meu trabalho hoje.</p>
+      <p class="timeline-instruction" data-about-reveal>A linha percorre as experiências continuamente. Selecione uma etapa para ampliar a imagem e explorar o que ela acrescentou ao meu trabalho.</p>
 
-      <div class="about-timeline">
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+      <div class="timeline-viewport" aria-label="Linha do tempo profissional em movimento">
+        <div class="timeline-track" id="timeline-track">
+          <div class="timeline-track-group" id="timeline-track-group">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2007–2017"
+          data-category="VENDAS E GESTÃO COMERCIAL"
+          data-title="Antes de tudo, vendedor."
+          data-summary="Aprendi a ajustar a oferta à necessidade real — e a reconhecer onde uma venda pode se perder.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Antes de tudo, vendedor.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/vendas-equipe.webp" alt="Wendell em uma fotografia de sua fase de atuação comercial, ao lado de colegas e de um veículo amarelo" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">VIVÊNCIA COMERCIAL</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2007–2017</span><span class="timeline-category">VENDAS E GESTÃO COMERCIAL</span></div>
-              <h3>Antes de tudo, vendedor.</h3>
-              <p>Aprendi a ajustar a oferta à necessidade real — e a reconhecer onde uma venda pode se perder.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2007–2017" data-category="VENDAS E GESTÃO COMERCIAL" data-title="Antes de tudo, vendedor.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2007–2017</span>
+            <h3>Antes de tudo, vendedor.</h3>
+            <span class="timeline-category">VENDAS E GESTÃO COMERCIAL</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -351,19 +711,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Escuta comercial, personalização da oferta e atenção aos pontos que influenciam a conversão.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2012–2017"
+          data-category="GRADUAÇÃO"
+          data-title="Conhecimento que encontra a prática."
+          data-summary="A teoria ganhou sentido quando aprendi a traduzi-la para a realidade de cada contexto.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Conhecimento que encontra a prática.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/formacao-academica.webp" alt="Wendell na cerimônia de formatura, usando beca e capelo" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">FORMAÇÃO ACADÊMICA</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2012–2017</span><span class="timeline-category">GRADUAÇÃO</span></div>
-              <h3>Conhecimento que encontra a prática.</h3>
-              <p>A teoria ganhou sentido quando aprendi a traduzi-la para a realidade de cada contexto.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2012–2017" data-category="FORMAÇÃO ACADÊMICA" data-title="Conhecimento que encontra a prática.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2012–2017</span>
+            <h3>Conhecimento que encontra a prática.</h3>
+            <span class="timeline-category">GRADUAÇÃO</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -373,19 +736,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Capacidade de organizar informação, compreender contexto e transformar conhecimento em decisões aplicáveis.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2015–2020"
+          data-category="COMUNICAÇÃO INSTITUCIONAL"
+          data-title="Perto de quem empreende."
+          data-summary="Pequenos negócios, equipe enxuta e um aplicativo comercial que chegou a cerca de 9 mil usuários.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Perto de quem empreende.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/aceop-comunicacao.webp" alt="Wendell apresentando conteúdo em uma palestra em Ouro Preto" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">ACEOP / OURO PRETO</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2015–2020</span><span class="timeline-category">COMUNICAÇÃO INSTITUCIONAL</span></div>
-              <h3>Perto de quem empreende.</h3>
-              <p>Pequenos negócios, equipe enxuta e um aplicativo comercial que chegou a cerca de 9 mil usuários.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2015–2020" data-category="ACEOP · COMUNICAÇÃO INSTITUCIONAL" data-title="Perto de quem empreende.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2015–2020</span>
+            <h3>Perto de quem empreende.</h3>
+            <span class="timeline-category">COMUNICAÇÃO INSTITUCIONAL</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -396,19 +762,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Proximidade com pequenos e médios negócios, visão de operação e soluções de comunicação conectadas à rotina de quem administra.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2015–2021"
+          data-category="COMUNICAÇÃO PÚBLICA E POLÍTICA"
+          data-title="Comunicar com responsabilidade."
+          data-summary="Aprendi a equilibrar o que uma liderança deseja dizer com o que é adequado comunicar.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Comunicar com responsabilidade.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/camara-municipal-ouro-preto.webp" alt="Fachada de um edifício histórico em Ouro Preto relacionado à trajetória na Câmara Municipal" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">CÂMARA MUNICIPAL DE OURO PRETO</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2015–2021</span><span class="timeline-category">COMUNICAÇÃO PÚBLICA E POLÍTICA</span></div>
-              <h3>Comunicar com responsabilidade.</h3>
-              <p>Aprendi a equilibrar o que uma liderança deseja dizer com o que é adequado comunicar.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2015–2021" data-category="CÂMARA MUNICIPAL DE OURO PRETO" data-title="Comunicar com responsabilidade.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2015–2021</span>
+            <h3>Comunicar com responsabilidade.</h3>
+            <span class="timeline-category">COMUNICAÇÃO PÚBLICA E POLÍTICA</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -418,19 +787,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Leitura de contexto, responsabilidade editorial e posicionamento sem perder de vista os limites éticos.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2020"
+          data-category="PÓS-GRADUAÇÃO EM MARKETING DIGITAL"
+          data-title="Conteúdo com intenção."
+          data-summary="SEO, copywriting e conteúdo para diferentes mercados, públicos e objetivos.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Conteúdo com intenção.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/marketing-digital-site.webp" alt="Captura de tela do site institucional desenvolvido para o psicólogo Ângelo Oliveira" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">MARKETING DIGITAL</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2020</span><span class="timeline-category">PÓS-GRADUAÇÃO EM MARKETING DIGITAL</span></div>
-              <h3>Conteúdo com intenção.</h3>
-              <p>SEO, copywriting e conteúdo para diferentes mercados, públicos e objetivos.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2020" data-category="MARKETING DIGITAL" data-title="Conteúdo com intenção.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2020</span>
+            <h3>Conteúdo com intenção.</h3>
+            <span class="timeline-category">PÓS-GRADUAÇÃO EM MARKETING DIGITAL</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -441,19 +813,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Conteúdo, SEO e copywriting alinhados ao público, à intenção de busca e ao objetivo de negócio.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2021–2025"
+          data-category="COMUNICAÇÃO E SOCIAL MEDIA · CVB-MG"
+          data-title="Informar sem espetacularizar."
+          data-summary="Comunicação humanizada, produção multimídia e mobilização social com respeito às pessoas.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Informar sem espetacularizar.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/cruz-vermelha-comunicacao.webp" alt="Wendell falando ao microfone para uma turma de jovens durante uma atividade da Cruz Vermelha" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">CRUZ VERMELHA / MINAS GERAIS</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2021–2025</span><span class="timeline-category">COMUNICAÇÃO E SOCIAL MEDIA · CVB-MG</span></div>
-              <h3>Informar sem espetacularizar.</h3>
-              <p>Comunicação humanizada, produção multimídia e mobilização social com respeito às pessoas.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2021–2025" data-category="CRUZ VERMELHA BRASILEIRA · MINAS GERAIS" data-title="Informar sem espetacularizar.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2021–2025</span>
+            <h3>Informar sem espetacularizar.</h3>
+            <span class="timeline-category">COMUNICAÇÃO E SOCIAL MEDIA · CVB-MG</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -463,19 +838,22 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Comunicação sensível, produção multimídia e capacidade de mobilizar sem perder o respeito pelo contexto e pelas pessoas.</p></div>
           </template>
         </article>
-
-        <article class="about-timeline-item" data-about-reveal>
-          <div class="timeline-card">
-            <figure class="timeline-media">
+        <article class="about-timeline-item" data-about-reveal
+          data-period="2025"
+          data-category="PÓS-GRADUAÇÃO EM IA E AUTORIDADE DIGITAL"
+          data-title="Tecnologia com propósito."
+          data-summary="IA, SEO/GEO e experiências digitais para orientar, engajar e gerar oportunidades.">
+          <button class="timeline-node" type="button" data-timeline-select aria-pressed="false"
+            aria-label="Selecionar etapa: Tecnologia com propósito.">
+            <span class="timeline-node-image">
               <img src="/assets/sobre/ia-experiencias-interativas.webp" alt="Seção do site de Wendell Soares que apresenta projetos de agendamento, jogos, quizzes e assistente digital com IA" width="1200" height="900" loading="lazy" decoding="async">
-              <figcaption class="timeline-media-caption">EXPERIÊNCIAS DIGITAIS / IA</figcaption>
-            </figure>
-            <div class="timeline-content">
-              <div class="timeline-meta"><span class="timeline-period">2025</span><span class="timeline-category">PÓS-GRADUAÇÃO EM IA E AUTORIDADE DIGITAL</span></div>
-              <h3>Tecnologia com propósito.</h3>
-              <p>IA, SEO/GEO e experiências digitais para orientar, engajar e gerar oportunidades.</p>
-              <button class="timeline-open" type="button" data-timeline-open aria-haspopup="dialog" aria-controls="timeline-dialog" data-period="2025" data-category="IA E AUTORIDADE DIGITAL" data-title="Tecnologia com propósito.">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
-            </div>
+            </span>
+            <span class="timeline-node-halo" aria-hidden="true"></span>
+          </button>
+          <div class="timeline-node-copy">
+            <span class="timeline-period">2025</span>
+            <h3>Tecnologia com propósito.</h3>
+            <span class="timeline-category">PÓS-GRADUAÇÃO EM IA E AUTORIDADE DIGITAL</span>
           </div>
           <template class="timeline-detail-template">
             <div class="timeline-detail-copy">
@@ -485,6 +863,24 @@
             <div class="timeline-dialog-takeaway"><strong>O que levo para hoje</strong><p>Estratégia digital conectada à IA, com tecnologia aplicada a problemas e objetivos concretos.</p></div>
           </template>
         </article>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-feature" id="timeline-feature" aria-live="polite">
+        <figure class="timeline-feature-media">
+          <img id="timeline-feature-image" src="/assets/sobre/vendas-equipe.webp"
+            alt="Wendell em uma fotografia de sua fase de atuação comercial, ao lado de colegas e de um veículo amarelo"
+            width="1200" height="900" loading="lazy" decoding="async">
+        </figure>
+        <div class="timeline-feature-copy">
+          <div class="timeline-feature-meta">
+            <span id="timeline-feature-period">2007–2017</span>
+            <span id="timeline-feature-category">VENDAS E GESTÃO COMERCIAL</span>
+          </div>
+          <h3 id="timeline-feature-title">Antes de tudo, vendedor.</h3>
+          <p id="timeline-feature-summary">Aprendi a ajustar a oferta à necessidade real — e a reconhecer onde uma venda pode se perder.</p>
+          <button class="timeline-feature-open" id="timeline-feature-open" type="button">Conhecer essa etapa <span aria-hidden="true">↗</span></button>
+        </div>
       </div>
     </div>
   </section>
@@ -679,23 +1075,82 @@
     const dialogTitle = document.getElementById('timeline-dialog-title');
     const dialogBody = document.getElementById('timeline-dialog-body');
     const closeButton = dialog?.querySelector('.timeline-dialog-close');
+    const timelineItems = [...document.querySelectorAll('.about-timeline-item')];
+    const timelineTrack = document.getElementById('timeline-track');
+    const timelineGroup = document.getElementById('timeline-track-group');
+    const featureImage = document.getElementById('timeline-feature-image');
+    const featurePeriod = document.getElementById('timeline-feature-period');
+    const featureCategory = document.getElementById('timeline-feature-category');
+    const featureTitle = document.getElementById('timeline-feature-title');
+    const featureSummary = document.getElementById('timeline-feature-summary');
+    const featureOpen = document.getElementById('timeline-feature-open');
+    let selectedTimelineItem = null;
     let lastTrigger = null;
 
-    document.querySelectorAll('[data-timeline-open]').forEach(button => {
-      button.addEventListener('click', () => {
-        if (!dialog) return;
-        const card = button.closest('.about-timeline-item');
-        const template = card?.querySelector('.timeline-detail-template');
-        if (!template) return;
-        lastTrigger = button;
-        dialogPeriod.textContent = button.dataset.period || '';
-        dialogCategory.textContent = button.dataset.category || '';
-        dialogTitle.textContent = button.dataset.title || 'Conheça essa etapa';
-        dialogBody.replaceChildren(template.content.cloneNode(true));
-        if (typeof dialog.showModal === 'function') dialog.showModal();
-        else dialog.setAttribute('open', '');
+    function selectTimelineItem(item) {
+      if (!item) return;
+      selectedTimelineItem = item;
+
+      timelineItems.forEach(current => {
+        const active = current === item;
+        current.classList.toggle('is-selected', active);
+        current.querySelector('[data-timeline-select]')?.setAttribute('aria-pressed', String(active));
+      });
+
+      const image = item.querySelector('.timeline-node img');
+      if (image && featureImage) {
+        featureImage.src = image.getAttribute('src') || '';
+        featureImage.alt = image.getAttribute('alt') || 'Imagem desta etapa da trajetória';
+      }
+      if (featurePeriod) featurePeriod.textContent = item.dataset.period || '';
+      if (featureCategory) featureCategory.textContent = item.dataset.category || '';
+      if (featureTitle) featureTitle.textContent = item.dataset.title || '';
+      if (featureSummary) featureSummary.textContent = item.dataset.summary || '';
+    }
+
+    function openTimelineDialog(item) {
+      if (!dialog || !item) return;
+      const template = item.querySelector('.timeline-detail-template');
+      if (!template) return;
+
+      lastTrigger = featureOpen;
+      dialogPeriod.textContent = item.dataset.period || '';
+      dialogCategory.textContent = item.dataset.category || '';
+      dialogTitle.textContent = item.dataset.title || 'Conheça essa etapa';
+      dialogBody.replaceChildren(template.content.cloneNode(true));
+
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+    }
+
+    timelineItems.forEach(item => {
+      item.querySelector('[data-timeline-select]')?.addEventListener('click', () => {
+        selectTimelineItem(item);
       });
     });
+
+    featureOpen?.addEventListener('click', () => {
+      openTimelineDialog(selectedTimelineItem);
+    });
+
+    if (timelineGroup && timelineTrack) {
+      const duplicate = timelineGroup.cloneNode(true);
+      duplicate.classList.add('timeline-track-group--clone');
+      duplicate.setAttribute('aria-hidden', 'true');
+      duplicate.removeAttribute('id');
+      duplicate.querySelectorAll('[data-about-reveal]').forEach(item => {
+        item.removeAttribute('data-about-reveal');
+        item.classList.add('is-visible');
+      });
+      duplicate.querySelectorAll('button').forEach(button => {
+        button.removeAttribute('data-timeline-select');
+        button.disabled = true;
+        button.tabIndex = -1;
+      });
+      timelineTrack.append(duplicate);
+    }
+
+    selectTimelineItem(timelineItems[0]);
 
     closeButton?.addEventListener('click', () => {
       if (typeof dialog.close === 'function') dialog.close();
