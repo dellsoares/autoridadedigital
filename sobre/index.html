@@ -568,6 +568,116 @@
       .timeline-feature-open span { transition: none; }
     }
 
+
+
+    /* AJUSTES FINAIS — MINIATURAS CIRCULARES E HERO */
+    .timeline-node {
+      padding: 0;
+    }
+    .timeline-node-image {
+      position: absolute;
+      inset: 0;
+      width: auto;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: #071831;
+    }
+    .timeline-node-image img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+    .timeline-node-halo {
+      z-index: 2;
+      inset: 5px;
+      border-color: rgba(255,255,255,.35);
+      box-shadow: inset 0 0 14px rgba(3,15,32,.12);
+    }
+
+    .about-hero-mark {
+      isolation: isolate;
+      min-height: 330px;
+    }
+    .about-hero-mark::before,
+    .about-hero-mark::after {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .about-hero-mark::before {
+      z-index: 2;
+      width: calc(clamp(210px, 22vw, 250px) + 22px);
+      height: auto;
+      aspect-ratio: 1;
+      border: 0;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg 245deg,
+        rgba(247,198,91,.18) 270deg,
+        rgba(255,222,137,.95) 292deg,
+        rgba(247,198,91,.28) 312deg,
+        transparent 338deg 360deg
+      );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+      filter: drop-shadow(0 0 5px rgba(247,198,91,.45));
+      animation: aboutNeonOrbit 8s linear infinite;
+      pointer-events: none;
+    }
+    .about-hero-mark::after {
+      z-index: 0;
+      width: calc(clamp(210px, 22vw, 250px) + 42px);
+      height: auto;
+      aspect-ratio: 1;
+      border: 1px solid rgba(164,205,244,.16);
+      box-shadow: 0 0 22px rgba(247,198,91,.045);
+    }
+    .about-hero-mark img {
+      z-index: 1;
+      width: clamp(210px, 22vw, 250px);
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 35%;
+      border: 1px solid rgba(247,198,91,.28);
+      border-radius: 50%;
+      background: #0a2342;
+      box-shadow: 0 0 0 5px rgba(247,198,91,.045), 0 15px 38px rgba(0,0,0,.28);
+    }
+    .about-hero-mark span {
+      z-index: 3;
+    }
+    @keyframes aboutNeonOrbit {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @media (max-width: 760px) {
+      .about-hero-mark {
+        min-height: 215px;
+      }
+      .about-hero-mark::before {
+        width: 173px;
+      }
+      .about-hero-mark::after {
+        width: 193px;
+      }
+      .about-hero-mark img {
+        width: 155px;
+        height: 155px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .about-hero-mark::before {
+        animation: none;
+      }
+    }
+
   </style>
 </head>
 <body class="about-page">
