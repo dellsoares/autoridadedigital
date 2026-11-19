@@ -859,82 +859,84 @@ body.about-page main section[id] { scroll-margin-top: 24px; }
 }
 
 
-/* MAPA DE SOLUÇÕES — desktop: painel amplo e cartões com leitura confortável.
-   O HTML e o bloco do Major H permanecem intactos; o mobile mantém as regras atuais. */
+/* MAPA DE SOLUÇÕES — composição desktop corrigida.
+   O HTML separa cabeçalho, busca, cartões e rodapé; o Major H permanece intacto. */
 @media (min-width: 1081px) {
-  .folder-contents {
-    display: block;
-    width: 100%;
-    padding: 25px 25px 23px;
+  .catalog-section .catalog-folder-region .folder-contents {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .folder-contents-top {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-    align-items: end;
-    gap: 24px;
-    width: 100%;
-    margin: 0 0 21px;
+  .catalog-section .catalog-folder-region .folder-contents > .folder-contents-top {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px) !important;
+    align-items: end !important;
+    gap: 22px !important;
+    width: 100% !important;
+    margin: 0 0 22px !important;
   }
 
-  .folder-title-block {
-    min-width: 0;
+  .catalog-section .catalog-folder-region .folder-title-block {
+    min-width: 0 !important;
   }
 
-  /* Mantém o título e o Major H juntos, na posição original da seção. */
-  .folder-title-row {
-    min-width: 0;
+  .catalog-section .catalog-folder-region .folder-contents-top > .search {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    align-self: end !important;
   }
 
-  .folder-contents-top .search {
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    margin: 0;
-    align-self: end;
+  .catalog-section .catalog-folder-region .folder-contents > #services-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 11px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
   }
 
-  .service-list,
-  #services-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 11px;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
+  .catalog-section #services-list .service-card {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 76px !important;
+    padding: 14px 15px !important;
+    gap: 13px !important;
   }
 
-  #services-list .service-card {
-    width: 100%;
-    min-width: 0;
-    min-height: 76px;
-    padding: 14px 15px;
-    gap: 13px;
+  .catalog-section #services-list .service-title-btn {
+    display: block !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    white-space: normal !important;
   }
 
-  #services-list .service-title-btn {
-    min-width: 0;
+  .catalog-section #services-list .service-card h3 {
+    font-size: 15px !important;
+    line-height: 1.32 !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
   }
 
-  #services-list .service-card h3 {
-    font-size: 15px;
-    line-height: 1.32;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal;
+  .catalog-section #services-list .service-actions {
+    flex: 0 0 auto !important;
   }
 
-  #services-list .service-actions {
-    flex: 0 0 auto;
-  }
-
-  .folder-contents > .list-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 18px;
-    width: 100%;
-    margin-top: 19px;
-    padding-top: 14px;
+  .catalog-section .catalog-folder-region .folder-contents > .list-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 18px !important;
+    width: 100% !important;
+    margin-top: 19px !important;
+    padding-top: 14px !important;
   }
 }
