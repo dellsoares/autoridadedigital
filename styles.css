@@ -857,3 +857,84 @@ body.about-page main section[id] { scroll-margin-top: 24px; }
 @media (prefers-reduced-motion: reduce) {
   .frequency-point-marker, .frequency-popover { transition: none; animation: none; }
 }
+
+
+/* MAPA DE SOLUÇÕES — desktop: painel amplo e cartões com leitura confortável.
+   O HTML e o bloco do Major H permanecem intactos; o mobile mantém as regras atuais. */
+@media (min-width: 1081px) {
+  .folder-contents {
+    display: block;
+    width: 100%;
+    padding: 25px 25px 23px;
+  }
+
+  .folder-contents-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    align-items: end;
+    gap: 24px;
+    width: 100%;
+    margin: 0 0 21px;
+  }
+
+  .folder-title-block {
+    min-width: 0;
+  }
+
+  /* Mantém o título e o Major H juntos, na posição original da seção. */
+  .folder-title-row {
+    min-width: 0;
+  }
+
+  .folder-contents-top .search {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    align-self: end;
+  }
+
+  .service-list,
+  #services-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  #services-list .service-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 76px;
+    padding: 14px 15px;
+    gap: 13px;
+  }
+
+  #services-list .service-title-btn {
+    min-width: 0;
+  }
+
+  #services-list .service-card h3 {
+    font-size: 15px;
+    line-height: 1.32;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  #services-list .service-actions {
+    flex: 0 0 auto;
+  }
+
+  .folder-contents > .list-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    margin-top: 19px;
+    padding-top: 14px;
+  }
+}
