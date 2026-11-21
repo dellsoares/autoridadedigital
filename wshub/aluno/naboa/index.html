@@ -353,6 +353,11 @@ body{background:linear-gradient(140deg,#e9f0f7,#f0f4f9 55%,#e4edf6)}
  .welcome-intro-dialog .intro-naboa-suspended{width:85px;height:85px;right:6%;top:39%}
 }
 </style>
+
+<style id="ws-hub-correcoes-acesso-logo">
+/* Somente o fundo de apresentação da marca NABOA, sem alterar o desenho. */
+body.page-aluno .course-hero .course-logo{background:#fff!important}
+</style>
 </head>
 <body class="page-aluno">
 <a class="skip-link" href="#main">Ir para o conteúdo da aula</a>
@@ -362,7 +367,7 @@ body{background:linear-gradient(140deg,#e9f0f7,#f0f4f9 55%,#e4edf6)}
 </div></header>
 <section id="accessibility" class="accessibility" aria-label="Preferências de acessibilidade" hidden><div class="accessibility-inner"><strong>Acessibilidade</strong><div class="accessibility-group"><span>Texto</span><button type="button" class="btn btn-outline btn-small" id="text-down">A−</button><button type="button" class="btn btn-outline btn-small" id="text-up">A+</button><button type="button" class="btn btn-outline btn-small" id="text-reset">Padrão</button></div><div class="accessibility-group"><button type="button" class="btn btn-outline btn-small" id="contrast-toggle" aria-pressed="false">Alto contraste</button><button type="button" class="btn btn-outline btn-small" id="motion-toggle" aria-pressed="false">Reduzir movimentos</button></div><div class="accessibility-group"><button type="button" class="btn btn-outline btn-small" id="speak-start">Ouvir aula</button><button type="button" class="btn btn-outline btn-small" id="speak-pause">Pausar / continuar</button><button type="button" class="btn btn-outline btn-small" id="speak-stop">Parar leitura</button></div><span id="speech-status" class="status" role="status" aria-live="polite"></span></div></section>
 <main id="main">
-<section id="gate" aria-labelledby="gate-title"><div class="gate-box"><div class="gate-copy"><span class="tagline">WS Hub · Área do participante</span><h1 id="gate-title">Seu ambiente de aprendizagem.</h1><p>Digite a senha da formação para entrar diretamente nas aulas, atividades e materiais do seu ambiente de aprendizagem.</p><form id="gate-form" class="gate-form"><label for="access-code">Senha da formação</label><div class="code-field"><input id="access-code" type="text" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Digite sua senha" maxlength="72"><button class="btn btn-primary" type="submit">Acessar formação</button></div><p id="gate-feedback" class="status" role="status" aria-live="polite">O acesso continua disponível neste aparelho. As anotações ficam salvas neste navegador.</p>
+<section id="gate" aria-labelledby="gate-title"><div class="gate-box"><div class="gate-copy"><span class="tagline">WS Hub · Área do participante</span><h1 id="gate-title">Seu ambiente de aprendizagem.</h1><p>Digite a senha da formação para entrar diretamente nas aulas, atividades e materiais do seu ambiente de aprendizagem.</p><form id="gate-form" class="gate-form"><label for="access-code">Senha da formação</label><div class="code-field"><input id="access-code" type="text" required autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Digite sua senha" maxlength="72"><button class="btn btn-primary" type="submit">Acessar formação</button></div><p id="gate-feedback" class="status" role="status" aria-live="polite">O acesso continua disponível neste aparelho. As anotações ficam salvas neste navegador.</p><p class="status" style="margin-top:9px;color:#d8c080">Não sabe sua senha? Entre em contato comigo para receber seu acesso.</p>
   <a class="gate-back" href="../../propostas/?ref=silvia-naboa">← Voltar à proposta</a>
  </form></div><div class="gate-art"><div><img alt="Astronauta, símbolo original do WS Hub" src="../../assets/logo-wendell-soares.png"><strong class="hub-wordmark">WS <span>Hub</span></strong><p>Conhecimento, tecnologia e propósito.</p></div></div></div></section>
 <section id="course" hidden aria-labelledby="course-title">
