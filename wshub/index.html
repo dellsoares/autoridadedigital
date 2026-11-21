@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06162b">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="WS Hub: conexões entre conhecimento, formações, ferramentas, propostas e experiências digitais de Wendell Soares.">
+  <title>WS Hub | Wendell Soares</title>
+  <meta property="og:title" content="WS Hub | Wendell Soares">
+  <meta property="og:description" content="Um espaço. Muitas conexões. Descubra o ecossistema digital WS Hub.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06162b;--ink:#ecf5ff;--muted:#b7cbe2;--soft:#8faac9;--gold:#f3bd4b;--gold2:#db9e27;--cyan:#5bdded;--line:rgba(120,174,214,.24);--surface:#0a2342;--surface2:#0d2b50;--max:1192px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font:400 16px/1.58 Inter,'Segoe UI',system-ui,-apple-system,sans-serif;background:radial-gradient(ellipse 700px 480px at 83% 15%,#13427257,transparent 74%),radial-gradient(ellipse 760px 350px at 10% 67%,#103c6550,transparent 75%),var(--bg);min-height:100vh}
+    a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}button:disabled{cursor:not-allowed}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}::selection{background:var(--gold);color:var(--bg)}
+    .shell{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4.7vw,62px)}
+    .topbar{height:94px;display:flex;align-items:center;justify-content:space-between;gap:22px;border-bottom:1px solid #9ac6e728}
+    .identity{display:flex;align-items:center;gap:13px;min-width:0}.identity img{width:58px;height:58px;object-fit:contain;flex:none;filter:drop-shadow(0 2px 10px #164b7760)}.identity-title{font-weight:900;letter-spacing:-.03em;font-size:23px;line-height:1.16}.identity-title span{color:var(--gold)}.identity small{display:block;color:var(--soft);font-size:12px;letter-spacing:.08em;font-weight:600;line-height:1.3;margin-top:4px}
+    .header-right{display:flex;gap:22px;align-items:center;white-space:nowrap}.header-link{font-weight:600;font-size:13px;color:var(--muted);transition:color .2s}.header-link:hover{color:var(--gold)}.header-link.external::after{content:' ↗';color:var(--gold)}
+    .hero{display:grid;grid-template-columns:minmax(320px,.90fr) minmax(470px,1.12fr);align-items:center;gap:20px;padding:56px 0 29px;min-height:525px}
+    .eyebrow{font-size:13px;line-height:1.4;letter-spacing:.065em;font-weight:800;color:var(--gold);display:inline-flex;align-items:center;gap:9px}.eyebrow:before{content:"";height:2px;width:22px;background:var(--gold)}
+    h1{font-size:clamp(40px,4.35vw,62px);letter-spacing:-.065em;line-height:1.07;margin:24px 0 22px;font-weight:850;max-width:530px}h1 em{font-style:normal;color:var(--gold)}
+    .lead{max-width:465px;color:var(--muted);font-size:17px;line-height:1.72;margin:0}.hero-action{display:inline-flex;align-items:center;gap:15px;margin-top:29px;min-height:47px;border:1px solid #e2b44b66;background:linear-gradient(110deg,#153e63,#0b2c4c);border-radius:8px;padding:10px 16px;color:#f6e2b4;font-weight:750;font-size:14px;transition:transform .2s,background .2s}.hero-action:hover{transform:translateY(-2px);background:#21466b}.hero-action span{font-size:18px}
+    .micro{font-size:13px;color:var(--soft);margin-top:24px;display:flex;align-items:center;gap:8px}.micro i{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}
+    .network{position:relative;isolation:isolate;min-width:0;width:100%;height:450px;overflow:visible}
+    .network:before{content:"";position:absolute;inset:11% 3% 8%;background:radial-gradient(circle at 50% 50%,#147dae27,transparent 66%);filter:blur(14px);z-index:-1;pointer-events:none}
+    .network-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+    .network-svg path{stroke:var(--line);stroke-width:1.6;fill:none;vector-effect:non-scaling-stroke;transition:stroke .22s,stroke-width .22s}.network-svg path.active{stroke:#efbe5bbc;stroke-width:2.5}.network-svg path.dim{opacity:.62}
+    .network-svg .dot{fill:var(--gold);filter:drop-shadow(0 0 8px #f2c25a)}
+    .core{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%);width:156px;height:156px;border-radius:50%;border:1px solid #e3bb6284;background:radial-gradient(circle at 50% 35%,#1c5880,#0b2a50 66%,#071c36);box-shadow:0 0 0 11px #9fcaed08,0 0 0 30px #f3bd4b08,0 0 30px #54b6da30,inset 0 0 35px #13557e;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    .core:after{content:"";position:absolute;inset:-13px;border-radius:50%;border:1px dashed #cdad626b;animation:rotate 34s linear infinite;pointer-events:none}.core-label{font-size:25px;font-weight:900;letter-spacing:-.04em;line-height:1.1}.core-label span{color:var(--gold)}.core-small{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:7px}
+    .node{position:absolute;z-index:3;transform:translate(-50%,-50%);min-width:128px;min-height:47px;display:flex;align-items:center;justify-content:center;gap:9px;padding:9px 14px;border:1px solid #65b4d45e;background:linear-gradient(155deg,#112f50,#0a1d36);border-radius:8px;color:#f2f7ff;font-size:14px;font-weight:740;box-shadow:0 8px 25px #020d1d7d;transition:border-color .18s,box-shadow .18s,background .18s,transform .18s;white-space:nowrap;text-align:center}
+    .node:before{content:"";width:7px;height:7px;flex:none;background:#5fcae0;border:1px solid #7ed9e7;border-radius:50%;box-shadow:0 0 7px #65dae577}.node:hover,.node.active{border-color:var(--gold);background:linear-gradient(155deg,#1a4564,#0d294a);box-shadow:0 0 0 1px #f3bd4b4d,0 0 24px #f3bd4b26;transform:translate(-50%,-50%) scale(1.045)}.node.active:before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold)}
+    .node[data-section="cursos"]{left:25%;top:19%}.node[data-section="propostas"]{left:75%;top:15%}.node[data-section="aluno"]{left:88%;top:51%}.node[data-section="ferramentas"]{left:72%;top:84%}.node[data-section="experiencias"]{left:20%;top:78%}
+    .floating-speck{position:absolute;width:4px;height:4px;border-radius:50%;background:#58bcd6aa;box-shadow:0 0 8px #51cbdf}.speck1{top:10%;left:49%}.speck2{top:37%;left:9%}.speck3{top:92%;left:47%}.speck4{top:30%;left:98%}
+    .modules-head{padding:14px 0 18px;display:flex;justify-content:space-between;align-items:end;gap:12px;border-top:1px solid #a0bdd52b}.modules-head h2{font-size:24px;letter-spacing:-.03em;margin:0;font-weight:800}.modules-head p{margin:0;color:var(--soft);font-size:13px}
+    .module-tabs{display:flex;flex-wrap:wrap;gap:9px;padding:8px 0 19px}.module-tab{background:#0a2645;border:1px solid #8aabc54f;border-radius:7px;color:var(--muted);padding:10px 14px;font-size:13px;font-weight:700;min-height:40px}.module-tab:hover{border-color:#f3bd4ba0;color:var(--ink)}.module-tab[aria-selected="true"]{border-color:var(--gold);color:var(--gold);background:#233d52}
+    .detail{position:relative;border:1px solid #6f9bbb42;border-radius:9px;background:linear-gradient(155deg,#0c2a4bf0,#071b34 74%);box-shadow:0 14px 45px #00102164;overflow:hidden;min-height:300px;scroll-margin-top:20px}
+    .detail:before{content:"";position:absolute;top:0;left:0;width:130px;height:2px;background:linear-gradient(to right,var(--gold),transparent)}
+    .detail-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,.70fr);gap:24px;padding:32px 36px;min-height:310px;position:relative}
+    .detail-main{position:relative;z-index:2}.detail-kicker{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.065em}.detail h3{font-size:clamp(27px,3.5vw,37px);line-height:1.17;letter-spacing:-.045em;margin:9px 0 13px}.detail .description{max-width:650px;color:var(--muted);font-size:15px;margin:0 0 19px}
+    .feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 19px;max-width:650px;margin:18px 0 14px}.feature{display:flex;align-items:flex-start;gap:9px;color:#e0ebf5;font-size:14px}.feature:before{content:'';border:1px solid var(--gold);background:#f3bd4b25;min-width:7px;width:7px;height:7px;transform:rotate(45deg);margin-top:8px}
+    .detail-aside{padding:20px 21px;border:1px solid #9abae53a;background:linear-gradient(160deg,#112f50,#0a243f);border-radius:7px;align-self:center;position:relative;z-index:2}.detail-aside .corner{display:inline-block;border-left:3px solid var(--gold);padding-left:10px;color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.03em}.detail-aside strong{display:block;font-size:18px;line-height:1.35;margin:15px 0 8px}.detail-aside p{color:var(--muted);font-size:13px;margin:0}
+    .detail.signal-visible .detail-aside{visibility:hidden}
+    .note-trigger{display:inline-flex;align-items:center;gap:9px;border:1px solid #e5bd5c65;background:#193f5a80;border-radius:7px;padding:9px 12px;color:#ffe2a3;font-size:13px;font-weight:750;margin-top:11px;min-height:39px}.note-trigger:hover{background:#28516b}.note-trigger .spark{font-size:15px}
+    .note-wire{position:absolute;inset:0;z-index:3;pointer-events:none;width:100%;height:100%;overflow:visible}.note-wire path{fill:none;stroke:var(--gold);stroke-width:2;filter:drop-shadow(0 0 5px #f2bd4f)}.signal{position:absolute;z-index:5;right:34px;top:28px;width:min(300px,34%);background:#183953;border:1px solid var(--gold);border-radius:7px;padding:19px 39px 17px 18px;box-shadow:0 12px 30px #0009;opacity:0;transform:translateY(9px) scale(.985);pointer-events:none;transition:opacity .25s,transform .25s}.signal.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.signal strong{display:block;color:var(--gold);font-size:14px;margin-bottom:7px}.signal p{color:#e0ecf5;font-size:13px;margin:0;line-height:1.55}.signal-close{position:absolute;top:9px;right:10px;border:0;background:none;color:var(--ink);font-size:21px;line-height:1.1;min-width:28px;min-height:28px}
+    .muted-caption{font-size:13px;color:var(--soft);margin:13px 0 0}.site-footer{padding:35px 0 42px;margin-top:41px;border-top:1px solid #a0bdd52b;display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--soft);font-size:13px}.site-footer a{color:#f4cc76}.site-footer .footlinks{display:flex;gap:16px;align-items:center}
+    .noscript{background:#2d230f;color:#ffe7b4;padding:16px;border-radius:8px;margin:12px 0}
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    @media(max-width:1080px){.hero{grid-template-columns:minmax(270px,.88fr) minmax(400px,1fr)}.network{height:415px}.node{min-width:118px;font-size:13px;padding:9px 10px}.node[data-section="propostas"]{left:80%}.node[data-section="aluno"]{left:85%}.node[data-section="experiencias"]{left:21%}}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;gap:14px;padding-top:43px}.hero h1{max-width:760px;margin-top:16px}.lead{max-width:750px}.network{height:410px;max-width:660px;margin:0 auto}.modules-head{padding-top:5px}.detail-grid{grid-template-columns:1fr}.detail-aside{width:100%;max-width:650px}.signal{width:min(310px,44%)}.header-right{gap:13px}}
+    @media(max-width:570px){body{font-size:15px}.topbar{height:79px}.identity img{height:47px;width:47px}.identity-title{font-size:21px}.identity small{font-size:11px}.header-right .first{display:none}.header-link{font-size:12px}.hero{padding:42px 0 10px;min-height:0}h1{font-size:clamp(37px,10vw,51px)}.lead{font-size:15px;line-height:1.6}.micro{font-size:12px}.network{height:370px;max-width:440px}.core{width:121px;height:121px}.core-label{font-size:22px}.core-small{font-size:10px}.node{font-size:12px;min-width:105px;min-height:43px;padding:9px}.node[data-section="cursos"]{left:22%;top:18%}.node[data-section="propostas"]{left:78%;top:17%}.node[data-section="aluno"]{left:82%;top:61%}.node[data-section="ferramentas"]{left:74%;top:84%}.node[data-section="experiencias"]{left:23%;top:83%}.modules-head{display:block}.modules-head h2{font-size:21px}.modules-head p{margin-top:4px}.module-tabs{gap:7px}.module-tab{font-size:12px;padding:9px 10px}.detail-grid{padding:26px 20px 24px;gap:22px}.detail h3{font-size:28px}.detail .description{font-size:14px}.feature-list{grid-template-columns:1fr}.detail-aside{padding:17px 18px}.signal{position:relative;top:auto!important;right:auto!important;margin:0 20px 20px;width:auto;max-width:none;display:none}.signal.open{display:block}.signal.open:before{content:"";position:absolute;left:26px;top:-28px;height:28px;width:2px;background:linear-gradient(var(--gold),var(--cyan));box-shadow:0 0 9px var(--gold)}.signal.open:after{content:"";position:absolute;left:22px;top:-32px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}.detail.signal-visible .detail-aside{display:none}.site-footer{display:block;font-size:12px}.site-footer .footlinks{margin-top:8px}}
+    @media(max-width:370px){.node{font-size:11px;min-width:100px;padding:8px}.node[data-section="cursos"]{left:23%}.node[data-section="propostas"]{left:79%}.node[data-section="experiencias"]{left:26%}.node[data-section="ferramentas"]{left:76%}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+<div class="shell" id="topo">
+  <header class="topbar">
+    <a class="identity" href="#inicio" aria-label="WS Hub, voltar ao início">
+      <img src="assets/logo-wendell-soares.png" alt="Logo original de Wendell Soares" width="58" height="58">
+      <span><span class="identity-title">WS <span>Hub</span></span><small>por Wendell Soares</small></span>
+    </a>
+    <nav class="header-right" aria-label="Navegação geral">
+      <a class="header-link first" href="#conexoes">Explorar conexões</a>
+      <a class="header-link external" href="https://wendellsoares.jor.br/" target="_blank" rel="noopener noreferrer">Site oficial</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="title">
+      <div class="hero-copy">
+        <div class="eyebrow">Um espaço. Muitas conexões.</div>
+        <h1 id="title">Tudo se conecta.<br><em>O conhecimento também.</em></h1>
+        <p class="lead">Formações, propostas, ferramentas e experiências digitais em um só ambiente — com espaço para novas ideias e projetos.</p>
+        <a class="hero-action" href="#conexoes">Explorar o WS Hub <span aria-hidden="true">↘</span></a>
+        <p class="micro"><i aria-hidden="true"></i> Selecione uma conexão para conhecer cada área.</p>
+      </div>
+      <nav class="network" aria-label="Mapa de conexões do WS Hub">
+        <svg class="network-svg" id="network-svg" aria-hidden="true"></svg>
+        <span class="floating-speck speck1" aria-hidden="true"></span><span class="floating-speck speck2" aria-hidden="true"></span><span class="floating-speck speck3" aria-hidden="true"></span><span class="floating-speck speck4" aria-hidden="true"></span>
+        <div class="core" id="core"><div class="core-label">WS <span>Hub</span></div><div class="core-small">ideias conectadas</div></div>
+        <a class="node" data-section="cursos" href="#cursos">Cursos</a>
+        <a class="node" data-section="propostas" href="#propostas">Propostas</a>
+        <a class="node" data-section="aluno" href="#aluno">Área do aluno</a>
+        <a class="node" data-section="ferramentas" href="#ferramentas">Ferramentas</a>
+        <a class="node" data-section="experiencias" href="#experiencias">Experiências</a>
+      </nav>
+    </section>
+    <section id="conexoes" aria-labelledby="sec-title">
+      <div class="modules-head"><h2 id="sec-title">Explore as áreas</h2><p>O WS Hub cresce com seus projetos.</p></div>
+      <div class="module-tabs" role="tablist" aria-label="Áreas disponíveis">
+        <button role="tab" class="module-tab" data-tab="cursos" aria-selected="true" aria-controls="content-panel">Cursos</button>
+        <button role="tab" class="module-tab" data-tab="propostas" aria-selected="false" aria-controls="content-panel">Propostas</button>
+        <button role="tab" class="module-tab" data-tab="aluno" aria-selected="false" aria-controls="content-panel">Área do aluno</button>
+        <button role="tab" class="module-tab" data-tab="ferramentas" aria-selected="false" aria-controls="content-panel">Ferramentas</button>
+        <button role="tab" class="module-tab" data-tab="experiencias" aria-selected="false" aria-controls="content-panel">Experiências</button>
+      </div>
+      <section class="detail" id="content-panel" role="tabpanel" aria-live="polite" tabindex="-1">
+        <div class="detail-grid">
+          <div class="detail-main" id="detail-main"></div>
+          <div class="detail-aside" id="detail-aside"></div>
+          <svg class="note-wire" id="note-wire" aria-hidden="true"></svg>
+        </div>
+        <aside class="signal" id="signal" aria-live="polite" aria-label="Observação contextual">
+          <button class="signal-close" id="signal-close" aria-label="Fechar observação">×</button>
+          <strong id="signal-title"></strong><p id="signal-text"></p>
+        </aside>
+      </section>
+      <noscript><div class="noscript">A navegação interativa do WS Hub precisa de JavaScript ativado para exibir os conteúdos das áreas.</div></noscript>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div>WS Hub · versão 1 · Uma iniciativa de Wendell Soares.</div>
+    <div class="footlinks"><a href="https://wendellsoares.jor.br/" target="_blank" rel="noopener noreferrer">wendellsoares.jor.br</a><span>Conhecimento em conexão.</span></div>
+  </footer>
+</div>
+<script>
+(() => {
+  'use strict';
+  const sections = {
+    cursos:{num:'01 · Conhecimento',title:'Cursos e formações',description:'Aqui ficarão reunidos os cursos e experiências de formação do WS Hub. A estrutura visual está preparada para receber o catálogo após sua revisão.',features:['Cursos e imersões','Oficinas e workshops','Conteúdos e materiais','Acompanhamento por turma'],sideTitle:'Catálogo a cadastrar',sideText:'Nenhum curso foi publicado nesta versão. O conteúdo será incluído em uma próxima etapa, depois da sua conferência.',noteTitle:'Catálogo de cursos',noteText:'A área está preparada, mas ainda não há cursos cadastrados. Quando você liberar, adicionaremos as informações sem mudar a navegação.'},
+    propostas:{num:'02 · Projetos',title:'Propostas e soluções',description:'Um lugar para organizar propostas, escopos e condições de trabalhos personalizados. O acesso reservado poderá ser integrado em uma etapa posterior.',features:['Propostas sob medida','Escopo e entregas','Condições e prazos','Acompanhamento do processo'],sideTitle:'Acesso em preparação',sideText:'A consulta privada e a aprovação digital ainda não estão habilitadas. Esta versão não solicita códigos nem armazena dados.',noteTitle:'Segurança e propostas',noteText:'O acesso a propostas individuais dependerá de autenticação real. Nesta versão, mostramos apenas a organização visual dessa área.'},
+    aluno:{num:'03 · Aprendizagem',title:'Área do aluno',description:'Espaço para acompanhar cada formação e encontrar o conteúdo que será liberado aos participantes. A área é apenas uma das conexões do WS Hub.',features:['Cronograma e materiais','Exercícios interativos','Quizzes e desafios','Referências e ferramentas'],sideTitle:'Ambiente por turma',sideText:'As turmas e os materiais ainda não foram configurados. O painel será conectado após definição dos acessos.',noteTitle:'Exercícios e quizzes',noteText:'Questões, comentários e observações poderão usar o mesmo gesto visual: um ponto se ilumina, a linha se conecta e a explicação aparece.'},
+    ferramentas:{num:'04 · Utilidades',title:'Ferramentas digitais',description:'Uma área para conectar utilidades da internet, recursos próprios e soluções de produtividade — sem misturar tudo ao conteúdo dos cursos.',features:['Utilidades online','Recursos de produtividade','Ferramentas autorais','Novos projetos conectados'],sideTitle:'Conexões futuras',sideText:'Os links e as ferramentas serão incluídos conforme forem selecionados. Nenhum recurso externo foi cadastrado nesta edição.',noteTitle:'Rede em expansão',noteText:'Cada nova ferramenta poderá se tornar um nó no mapa do WS Hub, sem exigir a reconstrução da identidade visual.'},
+    experiencias:{num:'05 · Interatividade',title:'Experiências interativas',description:'Um espaço para atividades que transformam informação em participação: desafios, jogos, quizzes e outras experiências digitais.',features:['Quizzes e desafios','Atividades práticas','Jogos educativos','Experiências em evolução'],sideTitle:'Novidades conectadas',sideText:'As experiências serão adicionadas em versões futuras; esta primeira entrega apresenta o módulo e sua identidade.',noteTitle:'Observações conectadas',noteText:'O recurso de nota luminosa funciona nesta prévia e poderá ser aplicado a respostas de quizzes, dicas e comentários contextuais.'}
+  };
+  const nav = document.querySelector('.network');
+  const svg = document.querySelector('#network-svg');
+  const central = document.querySelector('#core');
+  const nodes = [...document.querySelectorAll('.node')];
+  const tabs = [...document.querySelectorAll('.module-tab')];
+  const main = document.querySelector('#detail-main');
+  const aside = document.querySelector('#detail-aside');
+  const panel = document.querySelector('#content-panel');
+  const signal = document.querySelector('#signal');
+  const wire = document.querySelector('#note-wire');
+  const close = document.querySelector('#signal-close');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const NS='http://www.w3.org/2000/svg';
+  let paths={},selected='cursos',signalOpen=false,signalTrigger=null,activeAnimation=null;
+  function svgEl(tag,attrs){const el=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,v])=>el.setAttribute(k,v));return el}
+  function centerOf(el,base){const a=el.getBoundingClientRect(),b=base.getBoundingClientRect();return {x:a.left-b.left+a.width/2,y:a.top-b.top+a.height/2}}
+  function drawNetwork(){const rect=nav.getBoundingClientRect();if(!rect.width || !rect.height)return;svg.setAttribute('viewBox',`0 0 ${rect.width} ${rect.height}`);svg.replaceChildren();paths={};const c=centerOf(central,nav);nodes.forEach((node,index)=>{const p=centerOf(node,nav),dx=p.x-c.x,dy=p.y-c.y;const bend=(index%2===0?1:-1)*Math.min(15,Math.hypot(dx,dy)*.065),length=Math.hypot(dx,dy)||1,mx=(c.x+p.x)/2-dy/length*bend,my=(c.y+p.y)/2+dx/length*bend;const d=`M ${c.x} ${c.y} Q ${mx} ${my} ${p.x} ${p.y}`;const path=svgEl('path',{d,'data-target':node.dataset.section});path.classList.toggle('active',node.dataset.section===selected);svg.append(path);paths[node.dataset.section]=path});}
+  function closeSignal(){signalOpen=false;signal.classList.remove('open');panel.classList.remove('signal-visible');wire.replaceChildren();if(signalTrigger)signalTrigger.setAttribute('aria-expanded','false');signalTrigger=null;}
+  function setSection(id,{scroll=false}={}){if(!sections[id])return;selected=id;closeSignal();const data=sections[id];nodes.forEach(n=>{n.classList.toggle('active',n.dataset.section===id);if(paths[n.dataset.section])paths[n.dataset.section].classList.toggle('active',n.dataset.section===id)});tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===id)));main.replaceChildren();aside.replaceChildren();
+    const kicker=document.createElement('div');kicker.className='detail-kicker';kicker.textContent=data.num;const h=document.createElement('h3');h.textContent=data.title;const p=document.createElement('p');p.className='description';p.textContent=data.description;const list=document.createElement('div');list.className='feature-list';for(const txt of data.features){const x=document.createElement('div');x.className='feature';x.textContent=txt;list.append(x)}
+    const note=document.createElement('button');note.className='note-trigger';note.type='button';note.innerHTML='<span class="spark" aria-hidden="true">✧</span><span>Ver uma observação conectada</span>';note.setAttribute('aria-expanded','false');note.setAttribute('aria-controls','signal');note.addEventListener('click',()=>showSignal(note,data));main.append(kicker,h,p,list,note);
+    const tag=document.createElement('span');tag.className='corner';tag.textContent='Estado desta área';const strong=document.createElement('strong');strong.textContent=data.sideTitle;const small=document.createElement('p');small.textContent=data.sideText;aside.append(tag,strong,small);
+    if(scroll){panel.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'})}
+  }
+  function showSignal(trigger,data){if(signalOpen && signalTrigger===trigger){closeSignal();return}closeSignal();signalTrigger=trigger;signalOpen=true;signal.querySelector('#signal-title').textContent=data.noteTitle;signal.querySelector('#signal-text').textContent=data.noteText;trigger.setAttribute('aria-expanded','true');panel.classList.add('signal-visible');signal.classList.add('open');requestAnimationFrame(()=>{drawSignalWire(trigger)});}
+  function drawSignalWire(trigger){if(!signalOpen)return;const base=panel.querySelector('.detail-grid');if(window.innerWidth<571){wire.replaceChildren();return}const rect=base.getBoundingClientRect(),a=trigger.getBoundingClientRect(),b=signal.getBoundingClientRect();if(!rect.width)return;wire.setAttribute('viewBox',`0 0 ${rect.width} ${rect.height}`);wire.replaceChildren();const x1=a.right-rect.left-2,y1=a.top-rect.top+a.height/2,x2=b.left-rect.left,y2=b.top-rect.top+b.height/2;const middle=(x1+x2)/2;const path=svgEl('path',{d:`M ${x1} ${y1} C ${middle} ${y1},${middle} ${y2},${x2} ${y2}`});wire.append(path);if(!reduceMotion.matches){const len=path.getTotalLength();path.style.strokeDasharray=`${len}`;path.style.strokeDashoffset=`${len}`;path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:310,easing:'ease-out',fill:'forwards'}).finished.then(()=>{path.style.strokeDashoffset='0'}).catch(()=>{})}}
+  function pulse(node){if(reduceMotion.matches)return Promise.resolve();const p=paths[node.dataset.section];if(!p)return Promise.resolve();const len=p.getTotalLength(),dot=svgEl('circle',{r:'5',class:'dot'});svg.append(dot);return new Promise(resolve=>{const start=performance.now(),dur=335;function step(now){const t=Math.min(1,(now-start)/dur);const ease=1-Math.pow(1-t,2);const at=p.getPointAtLength(len*(1-ease));dot.setAttribute('cx',at.x);dot.setAttribute('cy',at.y);if(t<1 && dot.isConnected){activeAnimation=requestAnimationFrame(step)}else{dot.remove();resolve()}}activeAnimation=requestAnimationFrame(step)});}
+  let requested=0;
+  async function navigate(id){if(!sections[id])return;const ticket=++requested;const node=nodes.find(n=>n.dataset.section===id);if(node)await pulse(node);if(ticket!==requested)return;setSection(id,{scroll:true});if(location.hash!==`#${id}`)history.replaceState(null,'',`#${id}`);}
+  nodes.forEach(n=>n.addEventListener('click',e=>{e.preventDefault();navigate(n.dataset.section)}));
+  tabs.forEach(t=>t.addEventListener('click',()=>navigate(t.dataset.tab)));
+  close.addEventListener('click',()=>{const trigger=signalTrigger;closeSignal();trigger?.focus()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape' && signalOpen)closeSignal()});
+  window.addEventListener('hashchange',()=>{const id=decodeURIComponent(location.hash.slice(1));if(sections[id])setSection(id,{scroll:true})});
+  let resizeT;window.addEventListener('resize',()=>{clearTimeout(resizeT);resizeT=setTimeout(()=>{drawNetwork();if(signalOpen)drawSignalWire(signalTrigger)},90)},{passive:true});
+  setSection(sections[location.hash.slice(1)]?location.hash.slice(1):'cursos');
+  drawNetwork();document.fonts?.ready?.then(drawNetwork);
+  if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost')){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+})();
+</script>
+</body>
+</html>
