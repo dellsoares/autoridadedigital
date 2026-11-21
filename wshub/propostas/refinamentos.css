@@ -38,3 +38,11 @@
 
 /* WS Hub: padrão de cantos de botões (8px), sem alterar elementos circulares. */
 .action,.experience-link,.program-close,.proposal-actions button,.program-dialog button,.program-detail button,.major-last-chance button,.hero-kicker,button[type="submit"]{border-radius:8px}
+
+/* ENTREGA: substituicao integral SOMENTE da imagem aprovada da capa, sem colagem na tela do notebook. */
+.header-id{display:none!important}
+.hero-visual .hero-proposal-image{display:block;width:100%;height:100%;object-fit:contain;object-position:center;max-width:100%;filter:none;transform:none}
+.hero-visual{background:#06162b}
+.hero::after{pointer-events:none}
+@media(max-width:780px){.hero-visual{opacity:.52}}
+@media(max-width:580px){.hero-visual{opacity:.25}}

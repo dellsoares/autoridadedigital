@@ -110,3 +110,37 @@ body.page-aluno .gate-art strong.hub-wordmark span{color:var(--hub-ouro)}
 body.page-aluno .gate-art p{color:#cad9ec}
 body.page-aluno .footer-unified-brand strong.hub-wordmark{color:#fff;font-weight:900}
 body.page-aluno .footer-unified-brand strong.hub-wordmark span{color:var(--hub-ouro)}
+
+
+/* PADRÃO VISUAL DEFINITIVO: o cabeçalho tem a mesma marca do rodape, e acompanha a rolagem.
+   Não altera a rede neural nem os blocos comerciais já aprovados. */
+:root{--hub-ouro:#f3bd4b}
+body.page-hub .identity strong,body.page-hub .footer-brand strong,
+body.page-proposta .hub-wordmark,body.page-proposta .footer-brand strong,
+body.page-aluno .hub-wordmark,body.page-aluno .footer-unified-brand strong,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .brand strong,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .footer-brand strong{color:#fff!important}
+body.page-hub .identity strong span,body.page-hub .footer-brand strong span,
+body.page-proposta .hub-wordmark span,body.page-proposta .footer-brand strong span,
+body.page-aluno .hub-wordmark span,body.page-aluno .footer-unified-brand .hub-wordmark span,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .brand strong span,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .footer-brand strong span{color:#f3bd4b!important}
+body.page-hub .identity small,body.page-hub .footer-brand>div>span,
+body.page-proposta .hub-tagline,body.page-proposta .footer-brand>div>span,
+body.page-aluno .hub-tagline,body.page-aluno .footer-unified-brand small,
+body.page-aluno .gate-art p,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .brand small,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .footer-brand small{color:#fff!important}
+body.page-hub .topbar,body.page-proposta .site-header,body.page-aluno .topbar,
+body:not(.page-proposta):not(.page-aluno):not(.page-hub) .topbar{
+ position:sticky!important;top:0;z-index:1000;background:#040e22!important;
+ border-bottom:1px solid rgba(243,189,75,.55)!important;
+}
+/* Capa do hub usa header dentro de uma largura fixa: expandir somente seu fundo. */
+body.page-hub .site-wrap{overflow:clip}
+body.page-hub .topbar::before{content:'';position:absolute;inset:0 calc(50% - 50vw);z-index:-1;background:#040e22;box-shadow:0 1px 0 rgba(243,189,75,.45)}
+body.page-hub .topbar{isolation:isolate}
+body.page-hub .topbar::after{content:'';position:absolute;inset:auto 0 0;height:1px;background:transparent}
+body.page-proposta .site-header,body.page-aluno .topbar{box-shadow:0 5px 19px rgba(2,10,28,.14)}
+/* Bordas discretamente arredondadas; nao mudar logomarcas, indices ou nos circulares. */
+button:not(.node),.hero-action,.action,.btn,.experience-link,.module-tab,input,select,textarea{border-radius:8px}

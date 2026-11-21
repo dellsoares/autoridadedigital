@@ -8,7 +8,7 @@
  */
 window.WSHUB_PROPOSTAS = {
   "silvia-naboa": {
-    numero: "WS-001",
+    numero:'',
     titulo: "Portal NABOA",
     subtitulo: "Inteligência artificial aplicada à comunicação socioambiental",
     chamada: "Formação prática e personalizada para integrar a IA à pesquisa, à produção de conteúdo e à rotina editorial do portal.",
