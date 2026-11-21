@@ -6,7 +6,7 @@ description: Entenda os riscos das ferramentas de IA compartilhadas, conheça
 category: experiencia-e-dados
 date: 2026-11-21
 updated: 2026-11-21
-published: false
+published: true
 cover: /assets/posts/ferramentas-de-ia-compastilhadas.webp
 cover_alt: " ferramentas de IA compartilhadas"
 ---
