@@ -30,8 +30,6 @@
   put('client-organization',proposal.organizacao);
   put('hours-chip',`${proposal.encontros} encontros · ${proposal.cargaHoraria} horas`);
   put('header-id',proposal.numero ? `Proposta ${proposal.numero}` : '');
-  put('header-client',proposal.cliente);
-  put('header-course',proposal.subtitulo || proposal.titulo);
   if(proposal.investimentoAnterior){put('investment-original',proposal.investimentoAnterior);$('investment-original').hidden=false;}
   if(proposal.validade === 'A combinar') $('validity-section').hidden=true;
   put('investment-value',proposal.investimento || 'A combinar');
@@ -102,28 +100,45 @@
   $('request-action').addEventListener('click',()=>contact(false));
   $('pdf-action').addEventListener('click',()=>window.print());
 
-  // Existing Major H chat from the main site; no duplicated API credentials or Worker.
-  function openMajorH(){
-    if(window.WSMajorH && typeof window.WSMajorH.open==='function'){
-      window.WSMajorH.open(); return;
-    }
-    // O global.js do site original também reconhece [data-open-major-h].
-    // Não criar outro assistente: este botão usa a integração já existente.
-  }
-  $('major-open-from-proposal').addEventListener('click',openMajorH);
+  // Apenas o chatbot flutuante global do site; não duplicar botão/assistente.
+  // Convite de saída: uma única vez por navegador, desktop, após 45 segundos
+  // e só quando o ponteiro sair pelo topo da janela.
+  const exitOffer=$('major-last-chance');
+  const offerKey=`wshub:major-h:exit-offer:${id}:v2`;
+  const eligibleAt=performance.now()+45000;
+  let meaningfulAction=false;
+  let exitShown=false;
+  try{exitShown=localStorage.getItem(offerKey)==='shown';}catch(_){/* armazenamento indisponível */}
 
-  // A single, non-blocking exit offer on desktop only. Never after meaningful actions.
-  let acted=false,exitShown=false;
-  const lastChance=$('major-last-chance');
-  const markAction=()=>{acted=true;lastChance.hidden=true;};
-  [openButton,$('approve-action'),$('request-action'),$('pdf-action'),$('major-open-from-proposal')].forEach(el=>el.addEventListener('click',markAction));
-  const start=Date.now();
-  document.addEventListener('mouseout',e=>{
-    if(exitShown||acted||Date.now()-start<45000||window.matchMedia('(pointer:coarse)').matches)return;
-    if(e.relatedTarget!==null||e.clientY>4)return;
-    exitShown=true;lastChance.hidden=false;
+  function closeOffer(){
+    if(exitOffer.open){exitOffer.close();}
+  }
+  function markAction(){meaningfulAction=true;closeOffer();}
+  // Se o visitante usou qualquer ação da proposta ou abriu o chat flutuante,
+  // não exibir um segundo convite concorrente.
+  document.addEventListener('click',event=>{
+    const el=event.target instanceof Element ? event.target.closest('button,a,[role="button"]') : null;
+    if(el && !exitOffer.contains(el))markAction();
+  },true);
+  function showOffer(){
+    if(exitShown||meaningfulAction||exitOffer.open)return;
+    exitShown=true;
+    try{localStorage.setItem(offerKey,'shown');}catch(_){/* armazenamento indisponível */}
+    if(typeof exitOffer.showModal==='function'){exitOffer.showModal();}
+    else{exitOffer.setAttribute('open','');}
+  }
+  document.addEventListener('mouseout',event=>{
+    if(exitShown||meaningfulAction||performance.now()<eligibleAt)return;
+    if(window.matchMedia('(pointer:coarse)').matches || window.innerWidth<768)return;
+    if(event.relatedTarget!==null || event.clientY>2)return;
+    if(document.querySelector('dialog[open]'))return;
+    showOffer();
   });
-  $('major-view-program').onclick=()=>{markAction();openButton.click();};
-  $('major-dismiss').onclick=()=>{exitShown=true;lastChance.hidden=true;};
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')lastChance.hidden=true;});
+  $('major-view-program').addEventListener('click',()=>{
+    markAction();
+    openButton.click();
+  });
+  $('major-dismiss').addEventListener('click',closeOffer);
+  exitOffer.addEventListener('click',event=>{if(event.target===exitOffer)closeOffer();});
+  // Esc fecha o diálogo pelo comportamento nativo, sem o mostrar novamente.
 })();

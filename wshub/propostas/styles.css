@@ -277,15 +277,19 @@ button.experience-link{font:inherit;border:1px solid #0b3154;cursor:pointer;disp
 .investment-original{font-size:17px;color:#6c7788;text-decoration-thickness:1.5px}
 .module-card{transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
 @media(hover:hover){.module-card:hover{transform:translateY(-3px);background:linear-gradient(145deg,#fff9eb,#fff);border-color:#d7b763;box-shadow:0 10px 24px rgba(14,35,65,.11)}}
-#major-open-from-proposal img{width:27px;height:27px;border-radius:50%;object-fit:contain}
-.major-last-chance{position:fixed;z-index:1000;right:24px;bottom:22px;max-width:min(390px,calc(100vw - 32px));display:flex;align-items:flex-start;gap:12px;border:1px solid #d6b463;border-radius:10px;background:white;box-shadow:0 14px 40px rgba(7,24,49,.2);padding:16px;color:var(--navy)}
-.major-last-chance[hidden]{display:none}
-.major-last-chance img{width:52px;height:52px;object-fit:contain;border-radius:50%;flex:none}
-.major-last-copy strong{font-size:15px}
-.major-last-copy p{font-size:13px;line-height:1.4;margin:4px 0 11px}
-.major-last-actions{display:flex;flex-wrap:wrap;gap:7px}
-.major-last-actions button{padding:9px 11px;border:1px solid var(--navy);border-radius:7px;background:white;color:var(--navy);font-weight:750;font-size:12px;cursor:pointer}
+/* Major H: janela central; o chatbot global já possui seu botão flutuante. */
+.major-last-chance{position:fixed;inset:0;margin:auto;width:min(490px,calc(100vw - 36px));height:max-content;max-height:calc(100dvh - 50px);overflow:auto;z-index:2000;display:flex;align-items:flex-start;gap:16px;border:1px solid #e4be62;border-radius:11px;background:linear-gradient(155deg,#ffffff 70%,#fff8eb);box-shadow:0 24px 65px rgba(4,15,33,.32);padding:23px;color:var(--navy)}
+.major-last-chance:not([open]){display:none}
+.major-last-chance::backdrop{background:rgba(4,15,33,.38)}
+.major-last-chance img{width:63px;height:63px;object-fit:contain;border-radius:50%;flex:none}
+.major-last-copy{min-width:0}
+.major-last-copy strong{font-size:20px;line-height:1.2;color:var(--navy);letter-spacing:-.03em}
+.major-last-copy p{font-size:15px;line-height:1.5;margin:8px 0 17px;color:#344760}
+.major-last-actions{display:flex;flex-wrap:wrap;gap:9px}
+.major-last-actions button{padding:10px 13px;border:1px solid #b5c4d8;border-radius:7px;background:white;color:var(--navy);font-weight:750;font-size:13px;cursor:pointer}
 .major-last-actions button:first-child{background:var(--gold);border-color:var(--gold2)}
+.major-last-actions button:hover{border-color:var(--gold2)}
+@media(max-width:580px){.major-last-chance{padding:18px;gap:11px}.major-last-chance img{width:48px;height:48px}.major-last-copy strong{font-size:18px}}
 @media(max-width:760px){.header-id{display:none}.header-client{max-width:200px}.header-client strong{font-size:12px}.header-client span{font-size:11px}.brand-page{display:none}}
 @media(max-width:520px){.header-content{gap:10px}.header-client{max-width:48vw}.brand-name{font-size:20px}.hero-visual{inset:0 0 0 16%}.site-screenshot{object-position:54% center}}
-@media print{.major-last-chance,#major-open-from-proposal{display:none!important}}
+@media print{.major-last-chance{display:none!important}}

@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#071831">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="description" content="Proposta personalizada de treinamento pelo WS Hub.">
+  <meta name="description" content="Proposta personalizada de formação digital pelo WS Hub: conhecimento, tecnologia e propósito.">
+  <meta property="og:type" content="website"><meta property="og:title" content="Proposta personalizada de formação | WS Hub"><meta property="og:description" content="Conheça uma proposta de formação digital com conteúdo, metodologia e recursos práticos."><meta property="og:image" content="https://wendellsoares.jor.br/wshub/propostas/assets/site-wendell-soares.webp">
   <title>Proposta de treinamento | WS Hub</title>
   <link rel="icon" type="image/webp" href="assets/logo-ws.webp">
   <link rel="stylesheet" href="/shared/global.css">
+  <link rel="stylesheet" href="/shared/major-h-context.css?v=2">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinamentos.css">
   <script src="dados-propostas.js" defer></script>
   <script src="proposta.js" defer></script>
 </head>
@@ -37,13 +40,16 @@
 <header class="site-header">
  <div class="wrap header-content">
   <div class="brand-lockup"><img src="assets/logo-ws.webp" alt="Símbolo original do WS Hub" width="48" height="48"><span class="brand-name">WS Hub</span><span class="brand-divider" aria-hidden="true"></span><span class="brand-page">Proposta de treinamento</span></div>
-  <div class="header-right"><div class="header-client"><strong id="header-client"></strong><span id="header-course"></span></div><span class="header-id" id="header-id"></span></div>
+  <div class="header-right"><span class="header-id" id="header-id"></span></div>
  </div>
 </header>
 <main id="conteudo" hidden>
  <section class="hero" aria-labelledby="proposal-title">
-   <div class="hero-visual" aria-label="Captura real da página inicial de Wendell Soares">
-    <img class="site-screenshot" src="assets/site-wendell-soares.webp" alt="Página inicial do site Wendell Soares, mostrando sua identidade visual e apresentação profissional" width="1200" height="675" loading="eager">
+   <div class="hero-visual" aria-label="Computador exibindo a página real de Wendell Soares">
+    <div class="laptop-stage">
+      <img class="laptop-photo" src="assets/computador-ambiente.webp" alt="Computador sobre uma mesa, com o site Wendell Soares exibido na tela" width="571" height="334" loading="eager">
+      <div class="laptop-screen" aria-hidden="true"><img src="assets/site-wendell-soares.webp" width="1200" height="675" alt=""></div>
+    </div>
    </div>
    <div class="wrap hero-inner">
     <div class="hero-copy">
@@ -96,7 +102,6 @@
       <button class="action action-primary" type="button" id="approve-action"><svg class="icon"><use href="#i-check"></use></svg><span>Aprovar proposta</span></button>
       <button class="action action-secondary" type="button" id="request-action"><svg class="icon"><use href="#i-pencil"></use></svg><span>Solicitar ajustes</span></button>
       <button class="action action-secondary" type="button" id="pdf-action"><svg class="icon"><use href="#i-print"></use></svg><span>Salvar como PDF</span></button>
-      <button class="action action-secondary" type="button" id="major-open-from-proposal" data-open-major-h><img src="https://wendellsoares.jor.br/assets/major-h/major-h-avatar-160.webp" alt="" width="27" height="27"> Tirar dúvidas com o Major H</button>
       <p class="approval-explanation" id="approval-explanation">A aprovação e os pedidos de ajuste serão enviados pelo WhatsApp.</p>
      </div>
     </aside>
@@ -119,15 +124,16 @@
 <section class="not-found" id="not-found" hidden><div class="wrap"><h1>Proposta não encontrada</h1><p>Confira se o link foi copiado corretamente.</p></div></section>
 <footer class="site-footer">
  <div class="wrap footer-top"><div class="footer-brand"><img src="assets/logo-ws.webp" alt="" width="56" height="56"><div><strong>WS Hub</strong><span>Conhecimento, tecnologia e propósito.</span></div></div><p class="footer-quote"><span>Experiência compartilhada</span><span>Autoridade construída.</span></p><div class="footer-commitment"><svg class="icon"><use href="#i-leaf"></use></svg><div><strong>Compromisso socioambiental</strong><span>Nossos treinamentos são 100% digitais. Não utilizamos papel.</span></div></div></div>
- <div class="wrap footer-bottom"><span>WS Hub · Formação digital personalizada</span><a href="https://wendellsoares.jor.br/" target="_blank" rel="noopener noreferrer">Site construído por W Soares</a></div>
+ <div class="wrap footer-bottom"><span>WS Hub · Formação digital personalizada</span><a href="https://wendellsoares.jor.br/" target="_blank" rel="noopener noreferrer">Site construído por Wendell Soares</a></div>
 </footer>
-<aside class="major-last-chance" id="major-last-chance" hidden aria-label="Convite do Major H">
+<dialog class="major-last-chance" id="major-last-chance" aria-labelledby="major-exit-title" aria-describedby="major-exit-text">
   <img src="https://wendellsoares.jor.br/assets/major-h/major-h-avatar-160.webp" alt="" width="55" height="55" loading="lazy">
-  <div class="major-last-copy"><strong>Uma dica do Major H</strong><p>Ainda está em dúvida? Conheça o conteúdo programático antes de decidir.</p>
+  <div class="major-last-copy"><strong id="major-exit-title">Antes de ir...</strong><p id="major-exit-text">Ainda está em dúvida? Conheça o conteúdo programático antes de decidir.</p>
   <div class="major-last-actions"><button type="button" id="major-view-program">Conhecer o programa</button><button type="button" id="major-dismiss">Agora não</button></div></div>
-</aside>
+</dialog>
 <!-- Mesmo script global de chat do site principal. Não duplicar Worker nem usar nova API. -->
 <script src="/shared/global.js" defer></script>
+<script src="/shared/major-h-context.js?v=2" defer></script>
 <div role="status" class="toast" id="feedback" aria-live="polite" hidden></div>
 </body>
 </html>
