@@ -9,6 +9,31 @@ updated: 2026-11-21
 published: true
 cover: /assets/posts/ferramentas-de-ia-compastilhadas.webp
 cover_alt: " ferramentas de IA compartilhadas"
+faq:
+  - question: Usar ferramentas de IA compartilhadas é ilegal?
+    answer: Não necessariamente. Depende das permissões, das condições de uso da
+      plataforma e dos dados envolvidos. O compartilhamento pode gerar riscos de
+      privacidade, segurança e descumprimento da LGPD.
+  - question: Apagar o histórico resolve todos os riscos?
+    answer: Não. Apagar o histórico ajuda a reduzir a exposição, mas não garante a
+      exclusão de todos os dados, arquivos ou registros mantidos pela
+      plataforma.
+  - question: Apagar o histórico resolve todos os riscos?
+    answer: Não. Apagar o histórico ajuda a reduzir a exposição, mas não garante a
+      exclusão de todos os dados, arquivos ou registros mantidos pela
+      plataforma.
+  - question: Posso enviar planilhas e documentos para uma IA compartilhada?
+    answer: O ideal é evitar o envio de documentos com dados pessoais, informações
+      financeiras ou conteúdos estratégicos. Quando necessário, utilize versões
+      anonimizadas e siga as políticas de segurança da empresa.
+  - question: O maior risco das ferramentas de IA compartilhadas é a LGPD?
+    answer: Não. Além das possíveis implicações da LGPD, existem riscos comerciais,
+      estratégicos, financeiros, reputacionais e de exposição de informações
+      confidenciais.
+  - question: Qual é o principal cuidado ao usar IA compartilhada?
+    answer: Nunca considere um ambiente compartilhado privado por padrão. Evite
+      enviar informações confidenciais, revise os arquivos utilizados e remova
+      históricos e documentos quando possível.
 ---
 O uso de **ferramentas de IA compartilhadas** cresceu muito porque ele reduz custos, amplia acesso e facilita testes. Para muita gente, pagar menos por uma conta, entrar em um ambiente já configurado e começar a usar diferentes recursos parece apenas uma solução prática. O problema é que, em muitos casos, a conveniência vem acompanhada de uma pergunta pouco discutida: **quem mais pode ver o que foi deixado ali?**
 
@@ -125,3 +150,4 @@ Ao usar **ferramentas de IA compartilhadas**, a pergunta não deve ser apenas �
 Essa é uma questão de privacidade, de reputação, de governança e de responsabilidade profissional.
 
 Porque, no fim, o risco nem sempre está em um grande vazamento. Às vezes, ele está em algo bem mais simples: uma planilha esquecida, um histórico não apagado, um arquivo deixado para trás e alguém que jamais deveria estar vendo aquilo.
+
