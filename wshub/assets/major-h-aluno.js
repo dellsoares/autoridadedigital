@@ -67,4 +67,13 @@ const nav=$('#course-nav')||$('#module-nav')||$('#lesson-nav');if(nav)new Mutati
 const lessonTitle=$('#lesson-title');if(lessonTitle)new MutationObserver(()=>{if(opened)refresh()}).observe(lessonTitle,{childList:true,characterData:true,subtree:true});
 window.addEventListener('ws:major-aluno-update',()=>{if(opened)refresh()});
 sync();
+// Pesquisa de conclusão: carregada em todos os portais que utilizam este componente.
+// A pesquisa aguarda a conclusão efetiva; não é exibida no início do curso.
+if(!document.querySelector('script[data-wshub-feedback]')){
+ const script=document.createElement('script');
+ script.src='/wshub/assets/feedback-curso.js?v=1';
+ script.defer=true;
+ script.dataset.wshubFeedback='true';
+ document.body.append(script);
+}
 })();

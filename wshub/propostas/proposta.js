@@ -275,7 +275,8 @@
     }
     const number=String(proposal.contatoWhatsApp||'').replace(/\D/g,'');
     const prefix=approve?'Olá! Confirmo que aprovo a proposta':'Olá! Gostaria de solicitar ajustes na proposta';
-    const message=`${prefix} ${proposal.numero||''} — ${proposal.titulo}, destinada a ${proposal.cliente}. Link: ${location.href}`;
+    const beneficio=window.WS_HUB_BENEFICIOS?.mensagem?.()||'';
+    const message=`${prefix} ${proposal.numero||''} — ${proposal.titulo}, destinada a ${proposal.cliente}. Link: ${location.href}${beneficio?' | '+beneficio:''}`;
     if(number){
       const url=`https://wa.me/${number}?text=${encodeURIComponent(message)}`;
       const opened=window.open(url,'_blank','noopener,noreferrer');

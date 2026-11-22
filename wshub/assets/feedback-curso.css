@@ -1,0 +1,22 @@
+/* Modal pedagógico pós-conclusão — WS Hub */
+.ws-fb-dialog{border:1px solid #6e9db9;border-radius:16px;background:#071831;color:#f5f9ff;padding:0;width:min(690px,calc(100% - 24px));max-height:94dvh;overflow:auto;box-shadow:0 30px 100px #000b;font:14px/1.5 Inter,system-ui,sans-serif}
+.ws-fb-dialog::backdrop{background:rgba(1,10,24,.81);backdrop-filter:blur(5px)}
+.ws-fb-dialog *{box-sizing:border-box}
+.ws-fb-dialog .ws-fb-head{display:flex;gap:14px;align-items:center;padding:20px 22px;background:linear-gradient(115deg,#143a62,#0b2444);border-bottom:1px solid #385d79}
+.ws-fb-dialog .ws-fb-head img{width:62px;height:62px;object-fit:contain;border:2px solid #f5c45a;border-radius:50%;background:#0b2444}
+.ws-fb-dialog .ws-fb-head>div{flex:1;min-width:0}.ws-fb-dialog small{color:#f5c45a;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:11px}
+.ws-fb-dialog h2{font-size:clamp(22px,4vw,30px);line-height:1.15;letter-spacing:-.035em;margin:5px 0;color:#fff}
+.ws-fb-dialog .ws-fb-dismiss{align-self:flex-start;border:1px solid #587490;border-radius:8px;color:#fff;background:#183d60;width:37px;height:37px;cursor:pointer;font-size:23px}
+.ws-fb-dialog .ws-fb-body{padding:22px}.ws-fb-dialog p{color:#ccdbec}.ws-fb-dialog .ws-fb-lead{font-size:14px;margin:0 0 20px}.ws-fb-dialog .ws-fb-lead strong{color:#f5cf76}
+.ws-fb-dialog .ws-fb-q{margin:0 0 15px;padding:0;border:0;min-inline-size:0}.ws-fb-dialog legend{font-size:14px;font-weight:800;color:white;margin:0 0 8px}
+.ws-fb-dialog .ws-fb-options,.ws-fb-dialog .ws-fb-scores{display:flex;flex-wrap:wrap;gap:7px}
+.ws-fb-dialog label{display:inline-flex;align-items:center;gap:7px;border:1px solid #526b86;background:#12314f;border-radius:9px;min-height:40px;padding:8px 12px;cursor:pointer;color:#e7f0f9;font-size:13px}
+.ws-fb-dialog label:has(input:checked){border-color:#f5c45a;background:#204363;color:#fff}.ws-fb-dialog input{accent-color:#f5c45a}
+.ws-fb-dialog .ws-fb-scores label{min-width:42px;justify-content:center;padding:9px}.ws-fb-dialog .ws-fb-buttons{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:9px;margin:18px 0 0}
+.ws-fb-dialog button{font:inherit;cursor:pointer;border-radius:8px;padding:11px 15px;font-weight:800;min-height:43px}.ws-fb-dialog .ws-fb-no{background:#163856;border:1px solid #667f97;color:#fff}.ws-fb-dialog .ws-fb-send,.ws-fb-dialog .ws-fb-copy{background:#f5c45a;color:#06162b;border:1px solid #f5c45a}.ws-fb-dialog .ws-fb-finish{background:#173b5b;color:#fff;border:1px solid #71889e;margin-left:8px}
+.ws-fb-dialog .ws-fb-error{background:#401e2d;color:#ffd6d6;padding:10px;border-radius:8px;margin:12px 0}
+.ws-fb-dialog .ws-fb-success{background:#102e4d;border:1px solid #6f94ad;border-radius:9px;padding:20px}.ws-fb-dialog .ws-fb-success strong{color:#f5c45a;font-size:20px}.ws-fb-dialog .ws-fb-code{font-size:36px;letter-spacing:.17em;font-weight:900;color:#fff;padding:8px 0}
+.ws-fb-dialog .ws-fb-privacy{font-size:11px;color:#a9bdcf;margin:16px 0 0}
+.ws-fb-dialog [hidden]{display:none!important}@media(max-width:590px){.ws-fb-dialog .ws-fb-head{padding:15px}.ws-fb-dialog .ws-fb-body{padding:15px}.ws-fb-dialog .ws-fb-scores label{min-width:36px;padding:7px}.ws-fb-dialog .ws-fb-head img{width:50px;height:50px}}
+
+.ws-fb-dialog .ws-fb-link{background:#16446a;color:#fff;border:1px solid #7d9cb8;margin-left:8px}
