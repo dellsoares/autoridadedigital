@@ -8,5 +8,27 @@
 .hub-entry-brand strong span,.hub-entry-footer strong span{color:#f3bd4b!important}
 .hub-entry-brand small,.hub-entry-footer small{color:white!important}
 </style></head><body><header class="topbar hub-entry-topbar"><div class="wrap topinner"><a class="brand hub-entry-brand" href="../" aria-label="WS Hub, início"><img src="../assets/logo-wendell-soares.png" alt="Astronauta, logomarca original do WS Hub" width="54" height="54"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></a><a class="top-back" href="../">Voltar ao WS Hub</a></div></header><main class="stage wrap"><section class="gate"><span class="eyebrow">Acesso do participante</span><h1>Seu ambiente de aprendizagem.</h1><p>Informe o código recebido para abrir sua formação, acessar aulas, exercícios e materiais digitais.</p><form id="entry"><div class="field"><label for="code">Código da formação</label><input id="code" name="codigo" type="password" placeholder="Digite seu código" autocomplete="off" required autocapitalize="characters"></div><button type="submit">Acessar formação</button><p id="error" class="error" hidden role="alert">Código não reconhecido. Confira o código enviado para sua formação.</p></form><p class="hint">Não sabe sua senha? <strong style="color:#f5c45a;font-weight:750">Entre em contato comigo para receber seu acesso.</strong></p></section></main><footer class="footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand hub-entry-footer"><img src="../assets/logo-wendell-soares.png" alt="" width="48" height="48"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></div><div class="footer-quote">Experiência compartilhada,<br>autoridade construída.</div><div class="footer-eco">Nossos treinamentos são 100% digitais.<br>Não utilizamos papel.</div></div><div class="footer-bottom"><span>WS Hub · Ambiente de aprendizagem</span><a href="https://wendellsoares.jor.br/">Site construído por Wendell Soares</a></div></div></footer><script>
-(()=>{'use strict';const form=document.getElementById('entry'),field=document.getElementById('code'),error=document.getElementById('error');form.addEventListener('submit',e=>{e.preventDefault();const code=field.value.trim().toLocaleUpperCase('pt-BR');if(code==='VOLUNTARIADO'){try{localStorage.setItem('wshub_naboa_access','1')}catch{}location.assign('naboa/');return}error.hidden=false;field.focus()});field.addEventListener('input',()=>{error.hidden=true})})();
+(()=>{'use strict';
+const form=document.getElementById('entry'),field=document.getElementById('code'),error=document.getElementById('error'),button=form.querySelector('button');
+const API='https://ws-hub-api.dell-soares.workers.dev';
+form.addEventListener('submit',async e=>{
+ e.preventDefault();const code=field.value.trim().toLocaleUpperCase('pt-BR');
+ error.hidden=true;button.disabled=true;button.textContent='Verificando acesso…';
+ try {
+  const response=await fetch(API+'/api/publico/acesso',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({codigo:code})});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok)throw Error(data.erro||'Código não reconhecido.');
+  const slug=String(data.slug||'');if(!/^[a-z0-9][a-z0-9_-]{0,79}$/.test(slug))throw Error('Formação indisponível.');
+  try{sessionStorage.setItem('wshub:curso:'+slug+':token',data.token)}catch(_){}
+  if(slug==='naboa'){try{localStorage.setItem('wshub_naboa_access','1')}catch(_){}location.assign('naboa/')}
+  else location.assign('curso/?ref='+encodeURIComponent(slug));
+ }catch(err){
+  // Mantém o acesso legado do NABOA se a API estiver temporariamente indisponível.
+  if((err instanceof TypeError)&&code==='VOLUNTARIADO'){try{localStorage.setItem('wshub_naboa_access','1')}catch(_){}location.assign('naboa/');return}
+  error.textContent=err.message||'Não foi possível verificar o código. Tente novamente.';
+  error.hidden=false;field.focus();
+ }finally{button.disabled=false;button.textContent='Acessar formação'}
+});
+field.addEventListener('input',()=>{error.hidden=true})
+})();
 </script></body></html>

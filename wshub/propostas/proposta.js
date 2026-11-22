@@ -1,10 +1,28 @@
-(function(){
+(async function(){
   'use strict';
   const $ = (id)=>document.getElementById(id);
   const query = new URLSearchParams(window.location.search);
   const id = (query.get('ref') || 'silvia-naboa').trim();
   const proposals = window.WSHUB_PROPOSTAS || {};
-  const proposal = Object.prototype.hasOwnProperty.call(proposals,id) ? proposals[id] : null;
+  let proposal = Object.prototype.hasOwnProperty.call(proposals,id) ? proposals[id] : null;
+  // As novas propostas são servidas pela API sem republicar arquivos no GitHub.
+  // A proposta original da Silvia permanece como fallback caso a rede esteja indisponível.
+  try {
+    const response = await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/propostas/'+encodeURIComponent(id), {cache:'no-store'});
+    if(response.ok) {
+      const data = await response.json();
+      const p=data.proposta||{},c=data.cliente||{},f=data.formacao||{};
+      proposal={...p,
+        cliente:c.nome||p.cliente||'',organizacao:c.organizacao||c.nome||p.organizacao||'',
+        logo:c.logo||p.logo||'',objetivo:f.objetivo||p.objetivo||'',
+        modulos:Array.isArray(f.modulos)?f.modulos:(p.modulos||[]),
+        percurso:Array.isArray(f.modulos)?f.modulos:(p.percurso||p.modulos||[]),
+        contatoWhatsApp:p.contatoWhatsApp||'5531983073854',
+        encontros:p.encontros||f.encontros||0,cargaHoraria:p.cargaHoraria||f.cargaHoraria||0,
+        numero:''
+      };
+    }
+  }catch(error){console.warn('WS Hub: proposta remota indisponível',error)}
   if(!proposal){ $('not-found').hidden=false; document.title='Proposta não encontrada | WS Hub'; return; }
   const put=(id,value)=>{const el=$(id); if(el) el.textContent=String(value??'');};
   const itemIcon=(symbol,className='icon')=>{
@@ -35,7 +53,7 @@
   put('investment-value',proposal.investimento || 'A combinar');
   put('investment-note',proposal.observacaoInvestimento || '');
   put('validity-value',proposal.validade || 'Definida no envio');
-  if(proposal.logo){$('client-logo').src=proposal.logo; $('client-logo').alt=`Identidade visual de ${proposal.organizacao}`;}
+  if(proposal.logo){$('client-logo').src=proposal.logo; $('client-logo').alt=`Identidade visual de ${proposal.organizacao}`;}else{$('client-logo').style.display='none';}
   document.title=`Proposta para ${proposal.cliente} | ${proposal.titulo} | WS Hub`;
   const modules=$('module-grid');
   for(let i=0;i<(proposal.modulos||[]).length;i++){
