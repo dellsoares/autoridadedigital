@@ -21,6 +21,7 @@ function completed(){
  return !!r&&Number(r[2])>0&&Number(r[1])>=Number(r[2]);
 }
 function authorized(){
+ try{if(sessionStorage.getItem('wshub:curso:'+slug()+':tipo')==='individual'||localStorage.getItem('wshub:aluno:'+slug()+':tipo')==='individual')return false;}catch(_){}
  if(q('gate')&&!q('gate').hidden)return false;
  if(q('app')?.hidden||q('course')?.hidden)return false;
  if(slug()==='naboa')return store.getItem('wshub_naboa_access')==='1';

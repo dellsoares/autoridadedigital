@@ -84,4 +84,8 @@ if(!document.querySelector('script[data-wshub-certificado]')){
 if(!document.querySelector('script[data-wshub-corporativo]')){
  const s=document.createElement('script');s.src='/wshub/assets/corporativo-material.js?v=1';s.defer=true;s.dataset.wshubCorporativo='true';document.body.append(s);
 }
+
+if(!document.querySelector('script[data-wshub-individual]')){
+ const s=document.createElement('script');s.src='/wshub/assets/inscricao-aluno.js?v=1';s.defer=true;s.dataset.wshubIndividual='true';document.body.append(s);
+}
 })();

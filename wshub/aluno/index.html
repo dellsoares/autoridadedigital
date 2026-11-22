@@ -20,6 +20,18 @@ form.addEventListener('submit',async e=>{
   if(!response.ok)throw Error(data.erro||'Código não reconhecido.');
   const slug=String(data.slug||'');if(!/^[a-z0-9][a-z0-9_-]{0,79}$/.test(slug))throw Error('Formação indisponível.');
   try{sessionStorage.setItem('wshub:curso:'+slug+':token',data.token)}catch(_){}
+  try{
+   if(data.tipo==='individual'){
+    sessionStorage.setItem('wshub:curso:'+slug+':tipo','individual');
+    localStorage.setItem('wshub:aluno:'+slug+':tipo','individual');
+    localStorage.setItem('wshub:aluno:'+slug+':token',data.token);
+   }else{
+    sessionStorage.removeItem('wshub:curso:'+slug+':tipo');
+    localStorage.removeItem('wshub:aluno:'+slug+':tipo');
+    localStorage.removeItem('wshub:aluno:'+slug+':token');
+   }
+  }catch(_){}
+  if(data.tipo==='individual' && data.materialDisponivel===false){location.assign('certificado/?ref='+encodeURIComponent(slug));return}
   if(slug==='naboa'){try{localStorage.setItem('wshub_naboa_access','1')}catch(_){}location.assign('naboa/')}
   else location.assign('curso/?ref='+encodeURIComponent(slug));
  }catch(err){
