@@ -2,6 +2,17 @@
 const DATA=window.VOZ_ATIVA_CURSO;
 const $=id=>document.getElementById(id);
 const tokenKey='wshub:curso:voz-ativa:token';
+const preferredLogo='assets/logo-voz-ativa.png';
+function applyIntroData(course,client){
+  const custom=String(course?.boasVindas||'').trim();
+  if(custom)document.getElementById('welcome-custom-text').textContent=custom;
+  const logo=String(client?.logo||course?.logo||'').trim();
+  if(logo && (/^(https:\/\/|\/wshub\/|data:image\/(?:png|jpeg|webp);base64,)/i.test(logo))){
+    document.getElementById('intro-client-logo').src=logo;
+    const heroLogo=document.querySelector('.client-logo img');if(heroLogo)heroLogo.src=logo;
+  }
+}
+
 const PREFIX='wshub:voz-ativa:v1:';
 const store={get(k,f=''){try{return localStorage.getItem(PREFIX+k)??f}catch{return f}},set(k,v){try{localStorage.setItem(PREFIX+k,v)}catch{}},json(k,def){try{return JSON.parse(this.get(k,''))??def}catch{return def}}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -53,6 +64,13 @@ function initCalendar(){$('new-pauta').addEventListener('submit',e=>{e.preventDe
 function mark(){const id=lessons[idx].id;if(!done.includes(id))done.push(id);else done=done.filter(t=>t!==id);store.set('done',JSON.stringify(done));showLesson(idx)}
 function handleAction(action){switch(action){case'done':mark();break;case'next':showLesson(idx+1);break;case'prev':showLesson(idx-1);break;case'quiz':showInfo('quiz');break;case'anotacoes':showInfo('anotacoes');break;case'reset-quiz':store.set('quizAnswers','{}');showInfo('quiz');break;case'lesson-quiz':showLesson(7);break;case'pdf-lab':window.open('assets/caderno-laboratorio-seo.pdf','_blank','noopener');break;case'lab-first':showLesson(4);break;case'download-notes':download('voz-ativa-caderno-seo.txt',notesText());break;case'copy-notes':navigator.clipboard?.writeText(notesText()).then(()=>alert('Anotações copiadas.')).catch(()=>download('voz-ativa-caderno-seo.txt',notesText()));break}}
 function events(){document.addEventListener('click',e=>{const lesson=e.target.closest('[data-lesson]');if(lesson){showLesson(Number(lesson.dataset.lesson));return}const tab=e.target.closest('[data-view]');if(tab){if(tab.dataset.view==='curso')showLesson(idx);else showInfo(tab.dataset.view);return}const act=e.target.closest('[data-action]');if(act){handleAction(act.dataset.action);return}const del=e.target.closest('[data-delete-pauta]');if(del){const arr=store.json('pautas',[]);arr.splice(Number(del.dataset.deletePauta),1);store.set('pautas',JSON.stringify(arr));renderPautas()}});$('major-toggle').addEventListener('click',()=>{const el=$('major-message');el.hidden=!el.hidden;$('major-toggle').setAttribute('aria-expanded',String(!el.hidden))});$('major-close').addEventListener('click',()=>{$('major-message').hidden=true;$('major-toggle').setAttribute('aria-expanded','false')});$('start').addEventListener('click',()=>{$('welcome').close();store.set('welcome','1')});}
-async function start(){events();if(!DATA||!Array.isArray(lessons))return;let preview=['localhost','127.0.0.1'].includes(location.hostname);const tk=(()=>{try{return sessionStorage.getItem(tokenKey)||''}catch{return ''}})();if(!preview){if(!tk){$('gate').hidden=false;return}try{const r=await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/formacoes/voz-ativa',{headers:{'Authorization':'Bearer '+tk},cache:'no-store'});if(!r.ok)throw Error('Sessão encerrada');const obj=await r.json();if(obj.formacao?.slug!=='voz-ativa')throw Error('Formação não autorizada')}catch(e){$('gate').hidden=false;return}}
+async function start(){events();if(!DATA||!Array.isArray(lessons))return;let preview=['localhost','127.0.0.1'].includes(location.hostname);const tk=(()=>{try{return sessionStorage.getItem(tokenKey)||''}catch{return ''}})();if(!preview){if(!tk){$('gate').hidden=false;return}try{const r=await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/formacoes/voz-ativa',{headers:{'Authorization':'Bearer '+tk},cache:'no-store'});if(!r.ok)throw Error('Sessão encerrada');const obj=await r.json();if(obj.formacao?.slug!=='voz-ativa')throw Error('Formação não autorizada');
+  applyIntroData(obj.formacao,obj.cliente);
+  // O cadastro da marca fica em Clientes no painel. A API individual da proposta
+  // disponibiliza a mesma marca quando a proposta estiver publicada.
+  try {
+    const p=await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/propostas/voz-ativa',{cache:'no-store'});
+    if(p.ok){const detail=await p.json();applyIntroData(obj.formacao,detail?.cliente);}
+  } catch(_) { /* mantém o arquivo de marca original do curso */ }}catch(e){$('gate').hidden=false;return}}
 $('app').hidden=false;showLesson(0);if(store.get('welcome')!=='1'&&typeof $('welcome').showModal==='function')$('welcome').showModal()}
 start()})();
