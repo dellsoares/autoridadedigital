@@ -181,17 +181,7 @@ function openEditor(type,id){
   h+=optionsField('status','Situação',v.status||'Em preparação',['Em preparação','Ativa','Arquivada']);
   h+=field('objetivo','Objetivo da formação',v.objetivo,'textarea','full');
   h+=field('boasVindas','Mensagem de boas-vindas',v.boasVindas,'textarea','full');
-  h+=`</div>${title('Programa e materiais')}<div class="form-layout">`;
-  h+=field('modulosTexto','Encontros: uma linha por módulo',formatModules(v.modulos),'textarea','full tall');
-  h+=`<div class="field full"><small>Formato: Título | Horas | Resumo | Foco | Tópico 1 ; Tópico 2 | Resultado</small></div>`;
-  h+=field('bibliotecaTexto','Biblioteca: um material por linha',formatLibrary(v.biblioteca),'textarea','full');
-  h+=`<div class="field full"><small>Formato: Nome do material | https://endereco-do-material</small></div>`;
-  h+=field('cronogramaTexto','Cronograma: um encontro por linha',formatSchedule(v.cronograma),'textarea','full');
-  h+=`<div class="field full"><small>Formato: Data | Horário | Encontro</small></div>`;
-  h+=field('participantesTexto','Participantes da formação (uso interno; um por linha)',(v.participantes||[]).join('\n'),'textarea','full');
-  h+=`</div>${title('Aulas dentro do portal')}<div class="helper">Crie aulas com texto, atividade prática e referências. A formação NABOA existente será preservada: o painel não substituirá as aulas já aprovadas.</div><div id="lesson-repeater">`;
-  h+=formatLessons(v.aulas||[]);
-  h+=`</div><button class="btn spaced" type="button" id="add-lesson">+ Adicionar aula</button><div class="form-layout">`;
+  h+=`<div class="field full"><p class="note" style="padding:13px 15px;border:1px solid #41617f;border-radius:9px">Os módulos, as aulas, os materiais e o cronograma desta formação são publicados por atualização de código. Este formulário mantém os dados administrativos sem alterar o conteúdo existente.</p></div>`;
  }else if(type==='proposta'){
   h+=optionsField('clientId','Cliente',v.clientId||'',[{value:'',label:'Selecione o cliente'},...db.clientes.map(c=>({value:c.id,label:`${c.nome}${c.organizacao?' · '+c.organizacao:''}`}))]);
   h+=optionsField('courseId','Formação',v.courseId||'',[{value:'',label:'Selecione a formação'},...db.formacoes.map(c=>({value:c.id,label:c.titulo}))]);
@@ -240,10 +230,10 @@ async function saveEditor(e){e.preventDefault();const {type,id}=editing,original
   if(id)db.clientes=db.clientes.map(x=>x.id===id?v:x);else db.clientes.push(v);
  }else if(type==='formacao'){
   const slug=idify(val('slug'));
-  if(!val('titulo')||!slug||!val('senha')){toast('Informe título, endereço curto e código.');return}
+  if(!val('titulo')||!slug){toast('Informe título e endereço curto.');return}
   if(db.formacoes.some(c=>c.slug===slug&&c.id!==id)){toast('Este endereço curto já está em uso.');return}
-  const newId=id||uniqueId(slug,'formacoes');v={...v,id:newId,slug,titulo:val('titulo'),subtitulo:val('subtitulo'),senha:val('senha').toLocaleUpperCase('pt-BR'),encontros:Number(val('encontros'))||0,cargaHoraria:Number(val('cargaHoraria'))||0,status:val('status'),objetivo:val('objetivo'),boasVindas:val('boasVindas'),modulos:parseModules(val('modulosTexto')),aulas:getLessons(),biblioteca:parseLibrary(val('bibliotecaTexto')),cronograma:parseSchedule(val('cronogramaTexto')),participantes:linhas(val('participantesTexto'))};
-  const duplicated=db.formacoes.some(c=>c.senha.toLocaleUpperCase('pt-BR')===v.senha&&c.id!==id);if(duplicated){toast('Esse código de acesso já pertence a outra formação.');return}
+  const newId=id||uniqueId(slug,'formacoes');v={...v,id:newId,slug,titulo:val('titulo'),subtitulo:val('subtitulo'),senha:val('senha').toLocaleUpperCase('pt-BR'),encontros:Number(val('encontros'))||0,cargaHoraria:Number(val('cargaHoraria'))||0,status:val('status'),objetivo:val('objetivo'),boasVindas:val('boasVindas'),modulos:Array.isArray(v.modulos)?v.modulos:[],aulas:Array.isArray(v.aulas)?v.aulas:[],biblioteca:Array.isArray(v.biblioteca)?v.biblioteca:[],cronograma:Array.isArray(v.cronograma)?v.cronograma:[],participantes:Array.isArray(v.participantes)?v.participantes:[]};
+  const duplicated=!!v.senha&&db.formacoes.some(c=>String(c.senha||'').toLocaleUpperCase('pt-BR')===v.senha&&c.id!==id);if(duplicated){toast('Esse código de acesso já pertence a outra formação.');return}
   if(id)db.formacoes=db.formacoes.map(x=>x.id===id?v:x);else db.formacoes.push(v);
  }else if(type==='proposta'){
   const newId=id||idify(val('ref'))||uniqueId(idify(val('clientId')+'-'+val('courseId'))||'proposta','propostas');

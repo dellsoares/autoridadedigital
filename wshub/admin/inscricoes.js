@@ -40,11 +40,45 @@ function showRows(){const c=course();if(!c)return;const list=(state.inscricoesIn
    const b=document.createElement('button');b.type='button';b.className='smallbtn'+(cls?' '+cls:'');b.textContent=label;b.addEventListener('click',handler);tools.append(b);
   }cell.append(tools);
  }}
+
+function renderOverview(){
+ const select=$('overview-filter-course'),old=select.value;
+ const courses=state?.formacoes||[],records=state?.inscricoesIndividuais||[];
+ select.replaceChildren(new Option('Todas as formações',''));
+ const slugs=[...new Set(records.map(r=>r.slug))].sort((a,b)=>(courses.find(c=>c.slug===a)?.titulo||a).localeCompare(courses.find(c=>c.slug===b)?.titulo||b,'pt-BR'));
+ for(const slug of slugs){const f=courses.find(c=>c.slug===slug);select.append(new Option(f?.titulo||slug,slug));}
+ if([...select.options].some(o=>o.value===old))select.value=old;
+ filterOverview();
+}
+function filterOverview(){
+ if(!state)return;
+ const courses=state.formacoes||[],filter=$('overview-filter-course').value,term=$('overview-search').value.toLocaleLowerCase('pt-BR').trim();
+ const records=(state.inscricoesIndividuais||[]).filter(r=>{
+  const f=courses.find(c=>c.slug===r.slug);
+  return (!filter||r.slug===filter)&&(!term||[r.nome,r.whatsapp,r.email,f?.titulo,r.slug].some(v=>String(v||'').toLocaleLowerCase('pt-BR').includes(term)));
+ }).sort((a,b)=>String(b.inscritoEm||'').localeCompare(String(a.inscritoEm||'')));
+ $('overview-count').textContent=records.length+' inscrição(ões) encontrada(s).';
+ const tbody=$('overview-rows');tbody.replaceChildren();
+ if(!records.length){const row=tbody.insertRow(),cell=row.insertCell();cell.colSpan=7;cell.textContent='Nenhuma inscrição encontrada.';return;}
+ for(const r of records){
+  const f=courses.find(c=>c.slug===r.slug);const row=tbody.insertRow();
+  const proof=f?.inscricaoIndividual?.tipo==='online'?((r.aulasConcluidas||[]).length+' de '+(f.aulas||[]).length+' aulas'):r.presencaEm?'Presença confirmada':'Presença pendente';
+  const vals=[f?.titulo||r.slug,r.nome||'—',[r.whatsapp,r.email].filter(Boolean).join(' · ')||'—',r.bloqueada?'Bloqueada':r.aprovada?'Aprovada':'Aguardando',proof,r.certificadoId?'Emitido':'Pendente'];
+  vals.forEach(v=>{const td=row.insertCell();td.textContent=v});
+  const td=row.insertCell();const button=document.createElement('button');button.type='button';button.className='smallbtn';button.textContent='Gerir';
+  button.addEventListener('click',()=>{
+   const c=$('course');if(![...c.options].some(o=>o.value===r.slug)){status('Essa formação não está disponível para gestão nesta tela.',true);return}
+   c.value=r.slug;configView();document.getElementById('rows').closest('section').scrollIntoView({behavior:'smooth',block:'start'});
+   status('Formação selecionada: '+(f?.titulo||r.slug)+'. Localize o aluno para utilizar Editar, Aprovar, Bloquear ou Excluir.');
+  });td.append(button);
+ }
+}
+
 async function load(){status('Sincronizando inscrições…');try{const res=await call('/api/admin/dados');state=res.state;if(!Array.isArray(state.formacoes))throw Error('Dados inválidos');
  const previous=$('course').value;$('course').replaceChildren();for(const c of state.formacoes.filter(x=>!['naboa','voz-ativa'].includes(x.slug))){const o=new Option(c.titulo+' ('+c.slug+')',c.slug);$('course').append(o)}
  if(!state.formacoes.some(x=>x.slug===$('course').value)&&!$('course').options.length)throw Error('Cadastre uma formação nova no painel principal antes de configurar inscrições.');
  if([...$('course').options].some(x=>x.value===previous))$('course').value=previous;
- $('app').hidden=false;$('auth').hidden=true;configView();status('Dados atualizados no Cloudflare.');}catch(e){$('app').hidden=true;$('auth').hidden=false;status(e.message,true)}}
+ $('app').hidden=false;$('auth').hidden=true;configView();renderOverview();status('Dados atualizados no Cloudflare.');}catch(e){$('app').hidden=true;$('auth').hidden=false;status(e.message,true)}}
 async function update(r,action){const desc=action==='novo-codigo'?'Gerar um novo código? O anterior deixará de funcionar.':action==='bloquear'?'Bloquear o acesso deste participante?':'Aprovar a inscrição deste participante?';if(!confirm(desc))return;
  try{const x=await call('/api/admin/inscricoes/'+encodeURIComponent(r.id)+'/'+action,'POST',{});if(x.codigo){await navigator.clipboard.writeText(x.codigo).catch(()=>{});alert('Novo código (exibido uma vez; copie e envie ao participante):\n\n'+x.codigo+'\n\nTambém foi tentada a cópia para a área de transferência.')}await load();status('Registro atualizado.')}catch(e){status(e.message,true)}}
 // Toda ação de gestão usa o token administrativo; os alunos não recebem essa permissão.
@@ -92,6 +126,7 @@ async function deletePerson(r){
  try{await call('/api/admin/inscricoes/'+encodeURIComponent(r.id),'DELETE');await load();status('Inscrição excluída. Acesso e certificado anterior invalidados.')}catch(e){status(e.message,true)}
 }
 $('login').addEventListener('submit',async e=>{e.preventDefault();const b=e.currentTarget.querySelector('button');b.disabled=true;try{const r=await fetch(API+'/api/admin/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({senha:$('password').value})});const d=await r.json();if(!r.ok)throw Error(d.erro||'Senha inválida');token=d.token;try{sessionStorage.setItem(AUTH,token)}catch(_){}$('password').value='';await load()}catch(x){status(x.message,true)}finally{b.disabled=false}});
+$('overview-search').addEventListener('input',filterOverview);$('overview-filter-course').addEventListener('change',filterOverview);$('overview-reload').addEventListener('click',load);
 $('course').addEventListener('change',configView);$('format').addEventListener('change',refreshMode);
 $('config').addEventListener('submit',async e=>{e.preventDefault();const c=course();if(!c)return;const button=$('save');button.disabled=true;try{const data={slug:c.slug,tipo:$('format').value,inicio:$('format').value==='online'?null:iso($('begin').value),termino:$('format').value==='online'?null:iso($('end').value),consultaAte:$('format').value==='online'?null:iso($('review').value),liberacao:$('approval').value,limiteInscritos:Number($('limit').value),inscricoesAbertas:$('open').checked};await call('/api/admin/inscricoes/configurar','POST',data);await load();status('Formação configurada! Link de inscrição disponível'+(data.tipo==='online'?' sem prazo e sem QR de presença.':'; QR de presença disponível.') )}catch(e){status(e.message,true)}finally{button.disabled=false}});
 async function copy(s){try{await navigator.clipboard.writeText(s);status('Link copiado.')}catch(_){prompt('Copie o link:',s)}}

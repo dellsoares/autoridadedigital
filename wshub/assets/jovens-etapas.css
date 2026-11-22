@@ -26,3 +26,29 @@
 #ws-jovens-boas-vindas .ws-jovens-status{color:#f5cb6d!important;background:#143a5b;border:1px solid #37698d;border-radius:10px}
 #ws-jovens-boas-vindas .ws-btn{margin:18px auto 0;min-height:49px}
 @media(max-width:610px){.ws-major-coach{right:12px;bottom:14px}.ws-major-launch{width:53px;height:53px}.ws-major-launch img{width:46px;height:46px}.ws-major-panel{bottom:66px}.ws-arte-thumb{height:145px}.ws-step-actions{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.ws-step-requirement{grid-column:1/-1;grid-row:1;order:-1}.ws-step-actions .ws-step-button{width:100%}.ws-module-poster img{height:170px}}
+
+
+/* WS Hub: abertura padrão dos cursos NABOA e Voz Ativa — imagem original do instrutor e avatar sobre a mão. */
+#ws-jovens-boas-vindas.ws-jovens-dialog{position:fixed;inset:0;margin:auto;padding:0!important;width:min(96vw,1050px)!important;max-width:1050px!important;height:min(95dvh,740px)!important;max-height:95dvh;overflow:auto;border:1px solid #f3bd4b88;border-radius:10px;background:#06162b;box-shadow:0 30px 110px #020b1edb;text-align:left}
+#ws-jovens-boas-vindas::backdrop{background:#020b1ceb;backdrop-filter:blur(6px)}
+#ws-jovens-boas-vindas .ws-jovens-modal{box-sizing:border-box;position:relative;min-height:100%;padding:clamp(26px,5vw,58px)!important;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;background:radial-gradient(circle at 95% 5%,#285a874b,transparent 50%),radial-gradient(circle at 15% 95%,#c68b2419,transparent 55%),#06162b}
+#ws-jovens-boas-vindas .ws-intro-content{position:relative;z-index:2;width:60%;max-width:615px}
+#ws-jovens-boas-vindas .ws-intro-kicker{color:#f3bd4b;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:850;margin:0 0 16px}
+#ws-jovens-boas-vindas .ws-intro-brand{display:flex;align-items:center;gap:11px;margin:0 0 24px}
+#ws-jovens-boas-vindas .ws-intro-brand img{width:53px;height:53px;object-fit:contain;border-radius:50%}
+#ws-jovens-boas-vindas .ws-intro-brand span{display:grid;gap:2px}
+#ws-jovens-boas-vindas .ws-intro-brand strong{font-size:23px;line-height:1.1;font-weight:900;color:#fff}
+#ws-jovens-boas-vindas .ws-intro-brand em{font-style:normal;color:#f3bd4b}
+#ws-jovens-boas-vindas .ws-intro-brand small{font-size:12px;color:#cbd8e8}
+#ws-jovens-boas-vindas h2{color:#fff;font-size:clamp(32px,3.7vw,48px);line-height:1.06;margin:0 0 19px;text-align:left}
+#ws-jovens-boas-vindas .ws-intro-content p{color:#dfebf7;margin:0 0 12px;max-width:590px;text-align:left;font-size:clamp(14px,1.5vw,17px);line-height:1.58}
+#ws-jovens-boas-vindas .ws-intro-insight{border-left:3px solid #f3bd4b;background:#ffffff0b;padding:11px 14px;margin:17px 0 22px;display:grid;gap:4px;border-radius:7px}
+#ws-jovens-boas-vindas .ws-intro-insight strong{font-size:12px;color:#f3bd4b}
+#ws-jovens-boas-vindas .ws-intro-insight span{font-size:13px;line-height:1.45;color:#e1eafa}
+#ws-jovens-boas-vindas .ws-intro-content .ws-btn{background:#f3bd4b;color:#071831;border-radius:8px;font-weight:850;font-size:14px;margin:0}
+#ws-jovens-boas-vindas .ws-intro-photo{position:absolute;right:0;bottom:0;width:44%;height:100%;margin:0;z-index:1;pointer-events:none;overflow:hidden;isolation:isolate}
+#ws-jovens-boas-vindas .ws-intro-photo:after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;background:linear-gradient(0deg,#06162b,transparent);z-index:3}
+#ws-jovens-boas-vindas .ws-intro-presenter{position:absolute;right:2%;bottom:0;width:min(100%,425px);height:auto;max-height:96%;object-fit:contain;object-position:bottom right;filter:drop-shadow(-13px 9px 17px #010b1975);z-index:1}
+#ws-jovens-boas-vindas .ws-intro-client-logo{position:absolute;right:0;top:38%;z-index:2;width:clamp(105px,12vw,150px);height:clamp(105px,12vw,150px);object-fit:cover;border:3px solid #f3bd4b;border-radius:50%;background:#07172d;box-shadow:0 0 0 6px #f3bd4b27,0 0 31px #f3bd4b66;transform:translateY(-12%)}
+@media(max-width:800px){#ws-jovens-boas-vindas.ws-jovens-dialog{width:min(100vw,740px)!important;max-height:100dvh;height:min(100dvh,850px)!important}#ws-jovens-boas-vindas .ws-jovens-modal{padding:29px 25px 300px!important;display:block}#ws-jovens-boas-vindas .ws-intro-content{width:100%}#ws-jovens-boas-vindas .ws-intro-photo{width:100%;height:305px}#ws-jovens-boas-vindas .ws-intro-presenter{max-height:330px;width:auto;right:16%}#ws-jovens-boas-vindas .ws-intro-client-logo{height:105px;width:105px;right:4%;top:45%}}
+@media(max-width:430px){#ws-jovens-boas-vindas.ws-jovens-dialog{border-radius:0}#ws-jovens-boas-vindas .ws-jovens-modal{padding:20px 22px 240px!important}#ws-jovens-boas-vindas .ws-intro-brand{margin-bottom:13px}#ws-jovens-boas-vindas h2{font-size:32px;margin-bottom:12px}#ws-jovens-boas-vindas .ws-intro-content p{font-size:14px;line-height:1.45}#ws-jovens-boas-vindas .ws-intro-insight{margin:12px 0}#ws-jovens-boas-vindas .ws-intro-photo{height:235px}#ws-jovens-boas-vindas .ws-intro-presenter{max-height:258px;right:13%}#ws-jovens-boas-vindas .ws-intro-client-logo{width:86px;height:86px;right:6%;top:39%}}

@@ -19,14 +19,20 @@ function open(d){if(!d)return;if(!d.open){try{d.showModal()}catch(_){d.setAttrib
 function close(d){if(!d)return;if(d.open){try{d.close()}catch(_){d.removeAttribute('open')}}}
 const name=()=>student?.nome||'aluno';
 function welcome(){
- const key='wshub:jovens:boas-vindas:v2:'+slug+':'+name();
+ const key='wshub:jovens:boas-vindas:v3:'+slug+':'+name();
  if(sessionStorage.getItem(key))return;
  const d=dialog('ws-jovens-boas-vindas',
- `<img class="ws-jovens-logo" src="${avatar}" alt="Avatar da formação"><div class="ws-kicker">WS Hub · CVB-MG Júnior</div><h2>Olá, aluno.</h2>
+ `<section class="ws-intro-content">
+ <div class="ws-intro-kicker">WS Hub · Formação exclusiva</div>
+ <div class="ws-intro-brand"><img src="/wshub/assets/logo-wendell-soares.png" width="53" height="53" alt="Marca WS Hub"><span><strong>WS <em>Hub</em></strong><small>Conhecimento, tecnologia e propósito.</small></span></div>
+ <h2>Olá, aluno.</h2>
  <p>Esse curso é um brinde, intermediado por um pedido do instrutor da CVB-MG Júnior e seu compromisso com a formação de jovens aprendizes.</p>
  <p>Espero que curtam e lembrem: <strong>conhecimento compartilhado é mais conhecimento.</strong></p>
- <p><strong>Bem-vindo à sua jornada.</strong></p><p class="ws-jovens-status">Currículo e mídias digitais para jovens · 7 módulos · 2 horas</p>
- <button type="button" class="ws-btn" id="ws-boas-vindas-iniciar">Começar minha jornada</button>`);
+ <p><strong>Bem-vindo à sua jornada.</strong></p>
+ <div class="ws-intro-insight"><strong>Major H · Antes de começar</strong><span>Você pode avançar no seu ritmo. Cada etapa traz uma dica e uma atividade para aplicar o que aprendeu.</span></div>
+ <button type="button" class="ws-btn" id="ws-boas-vindas-iniciar">Começar minha jornada</button>
+ </section>
+ <figure class="ws-intro-photo" aria-label="Wendell Soares apresentando a identidade visual do curso"><img class="ws-intro-presenter" src="/wshub/aluno/naboa/assets/wendell-recorte-original.png" width="765" height="1024" loading="eager" alt="Wendell Soares em sua fotografia original com a mão aberta"><img class="ws-intro-client-logo" src="${avatar}" alt="Avatar original do curso dos jovens, apresentado acima das mãos"></figure>`);
  d.querySelector('button').addEventListener('click',()=>{sessionStorage.setItem(key,'1');close(d)});
  open(d);
 }
