@@ -45,13 +45,79 @@ function choose(){const c=course();if(!c)return;
 function refreshMode(){const isCorp=$('cert-mode').value==='corporativa';$('schedule-fields').hidden=!isCorp;
  for(const id of ['starts','ends','review-until'])$(id).required=isCorp;}
 function showRecords(){const root=$('records');root.replaceChildren();const recs=Array.isArray(state?.certificadosEmissoes)?state.certificadosEmissoes:[];
- const last=recs.slice(-100).reverse();if(!last.length){const td=document.createElement('td');td.colSpan=5;td.textContent='Nenhum certificado registrado ainda.';const tr=document.createElement('tr');tr.append(td);root.append(tr);return;}
+ const last=recs.slice(-100).reverse();if(!last.length){const td=document.createElement('td');td.colSpan=6;td.textContent='Nenhum certificado registrado ainda.';const tr=document.createElement('tr');tr.append(td);root.append(tr);return;}
  for(const r of last){const tr=document.createElement('tr');
   const vals=[r.nome,r.titulo,r.tipo==='manual'?'Manual':'QR Code',format(r.criadoEm)];
-  vals.forEach(v=>{const td=document.createElement('td');td.textContent=v||'—';tr.append(td)});
+  vals.forEach((v,i)=>{const td=document.createElement('td');td.textContent=v||'—';if(i===0&&r.revogadoEm){const note=document.createElement('div');note.className='revoked';note.textContent='Excluído · certificado inválido';td.append(note);}else if(i===0&&r.atualizadoEm){const note=document.createElement('div');note.className='badge-ok';note.textContent='Corrigido';td.append(note);}tr.append(td)});
   const td=document.createElement('td'),a=document.createElement('a');a.href='/wshub/certificado/verificar/?id='+encodeURIComponent(r.id);
-  a.target='_blank';a.rel='noopener';a.textContent='Verificar';td.append(a);tr.append(td);root.append(tr);
+  a.target='_blank';a.rel='noopener';a.textContent='Verificar';td.append(a);tr.append(td);
+  const opts=document.createElement('td');const wrapper=document.createElement('div');wrapper.className='tools';opts.append(wrapper);
+  if(r.tipo==='manual'&&!r.revogadoEm){
+   for(const [action,label,cls] of [['edit','Editar',''],['reprint','Reimprimir',''],['delete','Excluir','danger']]){
+    const b=document.createElement('button');b.type='button';b.dataset.certAction=action;b.dataset.certId=r.id;
+    b.textContent=label;if(cls)b.classList.add(cls);wrapper.append(b);
+   }
+  }else if(r.tipo==='manual')wrapper.textContent='Excluído';else wrapper.textContent='Somente leitura';
+  tr.append(opts);root.append(tr);
  }
+}
+function findCert(id){return (state?.certificadosEmissoes||[]).find(r=>r.id===id)}
+function editCert(id){const r=findCert(id);if(!r||r.tipo!=='manual'||r.revogadoEm)return;
+ const opts=$('cert-edit-course');opts.replaceChildren();for(const c of state.formacoes||[]){
+  const option=document.createElement('option');option.value=c.slug;option.textContent=c.titulo;opts.append(option);
+ }
+ $('cert-edit-id').value=r.id;$('cert-edit-name').value=r.nome;opts.value=r.slug;
+ $('cert-edit-date').value=local(r.termino).slice(0,10);
+ $('cert-edit-dialog').showModal();
+}
+// Alterações protegidas pelo login e pela revisão do estado Cloudflare já existente.
+// Não exige novas rotas ou implantação do Worker.
+async function updateCertificateState(id,mode,data){
+ const latest=await call('/api/admin/dados');
+ const items=Array.isArray(latest.state.certificadosEmissoes)?latest.state.certificadosEmissoes:[];
+ const position=items.findIndex(item=>item.id===id);
+ if(position<0)throw new Error('Certificado não localizado. Atualize os registros.');
+ const current=items[position];
+ if(current.tipo!=='manual')throw new Error('Esta opção existe somente para certificados manuais.');
+ if(mode==='edit'){
+  const c=latest.state.formacoes.find(course=>course.slug===data.slug);
+  if(!c)throw new Error('Formação não encontrada no painel.');
+  const norm=window.WSHubCertTemplate?.displayName(data.nome)||String(data.nome||'').trim();
+  if(norm.length<5||norm.length>100||norm.split(' ').length<2||/[0-9<>\x00-\x1f]/.test(norm))
+   throw new Error('Informe nome e sobrenome válidos.');
+  const day=String(data.dataRealizacao||'');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||!Number.isFinite(Date.parse(day))||new Date(day).toISOString().slice(0,10)!==day)
+   throw new Error('Informe uma data de realização válida.');
+  items[position]={...current,nome:norm,slug:c.slug,titulo:c.titulo,horas:Number(c.cargaHoraria)||0,
+    inicio:null,termino:day+'T12:00:00-03:00',atualizadoEm:new Date().toISOString()};
+ }else if(mode==='delete'){
+  items.splice(position,1); // O código antigo deixa de ser reconhecido na verificação pública.
+ }else throw new Error('Operação não reconhecida.');
+ latest.state.certificadosEmissoes=items;
+ await call('/api/admin/dados','PUT',{revision:latest.revision,state:latest.state});
+}
+async function saveCertEdit(event){event.preventDefault();const id=$('cert-edit-id').value;
+ const btn=$('cert-edit-save');btn.disabled=true;status('Salvando correção no Cloudflare…');
+ try{
+  await updateCertificateState(id,'edit',{nome:$('cert-edit-name').value,
+    slug:$('cert-edit-course').value,dataRealizacao:$('cert-edit-date').value});
+  $('cert-edit-dialog').close();await load();status('Certificado corrigido. Clique em Reimprimir e substitua a versão anterior.');
+ }catch(error){status('Não foi possível editar: '+error.message,true)}finally{btn.disabled=false}
+}
+async function deleteCert(id){const r=findCert(id);if(!r||r.tipo!=='manual')return;
+ if(!confirm('Excluir o certificado manual de '+r.nome+'?\n\nO certificado emitido ficará INVÁLIDO na verificação pública. Esta ação não pode ser desfeita.'))return;
+ status('Excluindo certificado…');try{
+  await updateCertificateState(id,'delete');
+  await load();status('Certificado excluído do painel. O código de verificação anterior está inválido.');
+ }catch(error){status('Erro ao excluir: '+error.message,true)}
+}
+async function reprintCert(id){const r=findCert(id);if(!r||r.tipo!=='manual'||r.revogadoEm)return;
+ if(!window.WSHubCertTemplate){status('Modelo do certificado ainda não carregado.',true);return}
+ const c=state?.formacoes?.find(c=>c.slug===r.slug);
+ const client=state?.clientes?.find(x=>x.id===c?.clientId)||{};
+ const meta={titulo:r.titulo,cliente:client.organizacao||client.nome||'',horas:r.horas,
+  termino:r.termino,inicio:r.inicio,registro:r.id};
+ try{await WSHubCertTemplate.print(meta,r.nome);status('Certificado preparado para salvar em PDF.')}catch(error){status('Falha na impressão: '+error.message,true)}
 }
 function display(){const s=$('course-select'),selected=s.value;s.replaceChildren();
  for(const c of state?.formacoes||[]){const o=document.createElement('option');o.value=c.id;
@@ -96,6 +162,15 @@ async function issue(e){e.preventDefault();const c=course();if(!c)return;
   $('manual-name').value='';await load();
  }catch(err){status(err.message,true)}finally{btn.disabled=false}
 }
+$('records').addEventListener('click',event=>{
+ const button=event.target.closest('button[data-cert-action]');if(!button)return;
+ const id=button.dataset.certId;const action=button.dataset.certAction;
+ if(action==='edit')editCert(id);
+ else if(action==='delete')deleteCert(id);
+ else if(action==='reprint')reprintCert(id);
+});
+$('cert-edit-form').addEventListener('submit',saveCertEdit);
+$('cert-edit-cancel').addEventListener('click',()=>$('cert-edit-dialog').close());
 $('login-form').addEventListener('submit',login);
 $('course-select').addEventListener('change',choose);
 $('cert-mode').addEventListener('change',refreshMode);

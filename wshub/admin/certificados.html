@@ -13,8 +13,8 @@ button,.button{background:#173c60;color:#f5faff;border:1px solid #5b7d97;padding
 .status{padding:12px 14px;background:#0a1c32;border-radius:8px;border:1px solid #395976;min-height:46px;margin:15px 0;color:#e5f0fb}.status[data-type="bad"]{border-color:#ca7870;color:#ffdbd5}.status[data-type="ok"]{border-color:#62b9a2;color:#bff7de}
 .qrbox{display:grid;justify-items:center;text-align:center;gap:10px;padding:15px;border-radius:12px;border:1px solid #567a93;background:#071b31}
 .qrbox canvas{width:min(100%,300px);height:auto;background:#fff;border-radius:8px;padding:8px;image-rendering:pixelated}.qrbox p{margin:0;font-size:13px;word-break:break-word}.qrbox .valid{color:#f7cc6a;font-weight:750}
-.table-wrap{overflow:auto;border:1px solid #456381;border-radius:8px;margin-top:13px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:10px;text-align:left;border-bottom:1px solid #3b5772}th{background:#102d4c;color:#ffdc87}td{color:#e2edf9}
-[hidden]{display:none!important}.help{border-left:3px solid var(--gold);padding:11px 14px;background:#081d35;color:#d0e3f5;font-size:13px;margin-top:14px}
+.table-wrap{overflow:auto;border:1px solid #456381;border-radius:8px;margin-top:13px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:10px;text-align:left;border-bottom:1px solid #3b5772}th{background:#102d4c;color:#ffdc87}td{color:#e2edf9}.tools{display:flex;gap:6px;flex-wrap:wrap}.tools button{padding:7px 9px;font-size:12px}.tools .danger{color:#ffe7e3;border-color:#ae6663;background:#58303b}.revoked{color:#f0b5a5;font-size:11px}.badge-ok{color:#a3e4cc;font-size:11px}
+dialog{border:1px solid #7194b0;border-top:3px solid #f3bd4b;border-radius:14px;background:#0d2949;color:#f6faff;max-width:min(570px,calc(100vw - 22px));width:100%;box-shadow:0 30px 80px #000a;padding:24px}dialog::backdrop{background:#020b20bb}dialog h2{margin:0 0 4px}.danger-note{font-size:12px;color:#f0b5a5}[hidden]{display:none!important}.help{border-left:3px solid var(--gold);padding:11px 14px;background:#081d35;color:#d0e3f5;font-size:13px;margin-top:14px}
 @media(max-width:790px){.grid{grid-template-columns:1fr}.span2{grid-column:auto}.duo{grid-template-columns:1fr}.card{padding:17px}}
 @media print{header,.noprint,h1,.intro,.status,.card:not(.printqr),.printqr h2,.printqr .note,.printqr .actions{display:none!important}body{background:white!important;color:#06162b}main{padding:0;max-width:none}.grid{display:block}.printqr{border:0;box-shadow:none;background:white;color:#06162b;display:block!important}.qrbox{background:white;border:0;color:#06162b;min-height:200mm;align-content:center}.qrbox p{color:#06162b}.qrbox canvas{width:118mm}.qrbox .valid{color:#06162b}}
 </style></head><body>
@@ -43,8 +43,16 @@ button,.button{background:#173c60;color:#f5faff;border:1px solid #5b7d97;padding
 <section class="card span2 noprint"><h2>Emissão manual — exceções</h2><p class="note">Você pode emitir um certificado para qualquer curso, inclusive depois de expiradas as 48 horas. O registro da emissão fica no painel.</p>
 <form id="manual-form"><div class="duo"><label>Nome completo do participante<input id="manual-name" autocomplete="name" minlength="5" maxlength="100" placeholder="Ex.: Wendell Soares" required></label><label>Data de realização (opcional)<input id="manual-date" type="date"></label></div><div class="actions"><button class="gold" type="submit">Registrar e gerar certificado em PDF</button></div></form>
 </section>
-<section class="card span2 noprint"><h2>Certificados registrados</h2><p class="note">Esta lista é administrativa e contém apenas os nomes informados durante a emissão; não é um cadastro prévio de participantes.</p><div class="table-wrap"><table><thead><tr><th>Participante</th><th>Formação</th><th>Tipo</th><th>Emissão</th><th>Verificar</th></tr></thead><tbody id="records"></tbody></table></div></section>
+<section class="card span2 noprint"><h2>Certificados registrados</h2><p class="note">Esta lista é administrativa e contém apenas os nomes informados durante a emissão; não é um cadastro prévio de participantes.</p><div class="table-wrap"><table><thead><tr><th>Participante</th><th>Formação</th><th>Tipo</th><th>Emissão</th><th>Verificar</th><th>Opções</th></tr></thead><tbody id="records"></tbody></table></div></section>
 </div></div>
+<dialog id="cert-edit-dialog" aria-labelledby="cert-edit-title"><h2 id="cert-edit-title">Corrigir certificado manual</h2>
+<p class="note">A correção atualiza o mesmo registro e seu código de validação. Reimprima o certificado e substitua a versão antiga.</p>
+<form id="cert-edit-form"><input id="cert-edit-id" type="hidden">
+<label>Nome completo<input id="cert-edit-name" required minlength="5" maxlength="100" autocomplete="off"></label>
+<label>Formação<select id="cert-edit-course" required></select></label>
+<label>Data de realização<input id="cert-edit-date" type="date" required></label>
+<div class="actions"><button class="gold" type="submit" id="cert-edit-save">Salvar correção</button><button type="button" id="cert-edit-cancel">Cancelar</button></div></form>
+</dialog>
 <div class="status noprint" id="status" role="status" aria-live="polite">Aguardando autenticação.</div>
 </main>
 <script src="/wshub/admin/qr-code.js"></script><script src="/wshub/assets/certificado-template.js"></script><script src="/wshub/admin/certificados.js"></script>
