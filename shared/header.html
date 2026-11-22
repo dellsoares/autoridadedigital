@@ -30,7 +30,14 @@
       </div>
     </div>
     <a data-nav-key="widgets" href="/#widgets">Widgets</a>
-    <a data-nav-key="corporate" href="/cursos/">Cursos</a>
+    <div class="nav-dropdown">
+<a data-nav-key="corporate" href="/cursos/">Cursos <span aria-hidden="true" class="nav-chevron">⌄</span></a>
+<div class="nav-submenu" aria-label="Cursos">
+<span class="nav-submenu-heading">Formação e aprendizagem</span>
+<a href="/cursos/">Cursos e treinamentos</a>
+<a href="/wshub/aluno/">Portal do aluno</a>
+</div>
+</div>
     <a data-nav-key="faq" href="/faq/">FAQ</a>
   </nav>
   <div class="header-actions">
@@ -64,7 +71,14 @@
     </div>
   </div>
   <a data-nav-key="widgets" href="/#widgets">Widgets <span>06</span></a>
-  <a data-nav-key="corporate" href="/cursos/">Cursos <span>07</span></a>
+  <div class="mobile-nav-group">
+<a data-nav-key="corporate" href="/cursos/">Cursos <span>07</span></a>
+<button aria-controls="mobile-cursos-submenu" aria-expanded="false" class="mobile-submenu-toggle" data-mobile-submenu-toggle type="button">Explorar cursos <span aria-hidden="true">⌄</span></button>
+<div class="mobile-submenu" hidden id="mobile-cursos-submenu">
+<a href="/cursos/">Cursos e treinamentos</a>
+<a href="/wshub/aluno/">Portal do aluno</a>
+</div>
+</div>
   <a data-nav-key="faq" href="/faq/">FAQ <span>08</span></a>
   <a data-nav-key="contact" href="/#contato">Contato <span>09</span></a>
 </nav>

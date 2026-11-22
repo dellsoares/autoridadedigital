@@ -396,3 +396,24 @@
 .corporate-page .footer-map-heading h2 {
   font-size: clamp(17.25px, 1.875vw, 23.25px);
 }
+
+/* WS Hub — seção adicional, isolada do restante da página */
+.ws-hub-feature{position:relative;overflow:hidden;padding:92px 0;background:radial-gradient(ellipse at 82% 38%,#123c68 0%,transparent 48%),linear-gradient(120deg,#051329,#081c39 68%,#07182e);border-bottom:1px solid #d7ac4e61;color:#f7f9fd}
+.ws-hub-feature:before{content:"";position:absolute;pointer-events:none;width:680px;height:330px;border:1px solid #d7ac4e24;border-radius:50%;right:-170px;top:30px;transform:rotate(-15deg)}
+.ws-hub-feature-grid{position:relative;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:5%}
+.ws-hub-feature-copy{position:relative;z-index:1}
+.ws-hub-eyebrow{border-left:3px solid #27d9df;padding-left:15px;color:#d5e4f0;font-size:10px;letter-spacing:.22em;font-weight:800}
+.ws-hub-feature-copy h2{font-size:clamp(58px,7.5vw,108px);line-height:1;letter-spacing:-.07em;margin:24px 0 23px;font-weight:850}
+.ws-hub-feature-copy h2 em{font-style:normal;color:#f7c65b}
+.ws-hub-feature-copy p{max-width:545px;font-size:clamp(14px,1.4vw,18px);line-height:1.7;color:#c8d7e8;margin-bottom:30px}
+.ws-hub-feature-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:36px;background:#f7c65b;color:#07172f;font-size:14px;font-weight:850;padding:18px 25px;border-radius:6px;box-shadow:0 10px 28px #0003;transition:transform .2s,background .2s}
+.ws-hub-feature-btn:hover{transform:translateY(-3px);background:#ffda7e;color:#07172f}
+.ws-hub-device{min-width:0;position:relative;padding:14px 0 28px;filter:drop-shadow(0 25px 27px #0008)}
+.ws-hub-laptop-display{position:relative;margin:0 auto;width:94%;border:10px solid #14283c;border-bottom-width:13px;border-radius:19px 19px 7px 7px;background:#020813;box-shadow:0 0 0 2px #8fa7bc,0 0 0 4px #09131e;overflow:hidden}
+.ws-hub-laptop-display img{display:block;width:100%;height:auto;aspect-ratio:1366/768;object-fit:cover;object-position:center top}
+.ws-hub-laptop-camera{position:absolute;top:-7px;left:50%;width:3px;height:3px;background:#7f98b3;border-radius:50%;z-index:1}
+.ws-hub-laptop-base{position:relative;width:100%;height:16px;margin:4px auto 0;border-radius:0 0 50% 50%/0 0 100% 100%;background:linear-gradient(90deg,#4d6a86 0%,#d1dce6 12%,#879eb3 40%,#d1dce6 55%,#47647f 94%,#25394e 100%);box-shadow:0 7px 8px #0006}
+.ws-hub-laptop-base:before{content:"";position:absolute;left:38%;right:38%;height:5px;top:0;background:#536d83;border-radius:0 0 8px 8px}
+@media(max-width:850px){.ws-hub-feature{padding:65px 0}.ws-hub-feature-grid{grid-template-columns:1fr;gap:35px}.ws-hub-feature-copy h2{font-size:70px}.ws-hub-device{max-width:640px;width:100%;margin:0 auto}}
+@media(max-width:500px){.ws-hub-feature{padding:55px 0}.ws-hub-eyebrow{font-size:9px}.ws-hub-feature-copy h2{font-size:62px}.ws-hub-feature-copy p{font-size:14px}.ws-hub-feature-btn{font-size:12px;padding:16px 18px}.ws-hub-laptop-display{border-width:6px;border-bottom-width:9px;border-radius:12px 12px 5px 5px}.ws-hub-laptop-base{height:10px}}
+@media(prefers-reduced-motion:reduce){.ws-hub-feature-btn{transition:none}}
