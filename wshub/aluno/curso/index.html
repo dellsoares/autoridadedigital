@@ -26,11 +26,38 @@ try{
  if(!DATA||!Array.isArray(DATA.aulas))throw Error('Conteúdo ainda não disponível.');
 }catch(err){$('gate').hidden=false;const p=document.querySelector('#gate p');if(p)p.textContent=err.message||'Verifique seu código de acesso.';return}
 document.title=DATA.titulo+' | WS Hub';
-$('app').hidden=false;const key='wshub:curso:'+DATA.slug+':';const completions=JSON.parse(localStorage.getItem(key+'progress')||'[]');const list=DATA.aulas||[];let current=0;const esc=x=>String(x??'');$('course-title').textContent=DATA.titulo;$('side-course').textContent=DATA.titulo;$('side-subtitle').textContent=DATA.subtitulo||'';$('course-objective').textContent=DATA.objetivo||'';
+$('app').hidden=false;const key='wshub:curso:'+DATA.slug+':';const completions=JSON.parse(localStorage.getItem(key+'progress')||'[]');const list=DATA.aulas||[];let current=0;
+// Progresso do aluno online permanente fica associado à inscrição no Cloudflare,
+// não apenas ao localStorage (que poderia pertencer a outro aluno no mesmo aparelho).
+const individualOnline=DATA.inscricaoIndividual?.tipo==='online';
+if(individualOnline){
+ try{
+  const r=await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/inscricoes/'+encodeURIComponent(slug)+'/aluno',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+  const d=await r.json();if(!r.ok)throw Error(d.erro||'Não foi possível carregar o progresso individual.');
+  const done=Array.isArray(d.aluno?.aulasConcluidas)?d.aluno.aulasConcluidas:[];
+  completions.splice(0,completions.length,...done.filter(i=>Number.isInteger(i)&&i>=0&&i<list.length));
+ }catch(err){completions.splice(0);console.warn('WS Hub — progresso individual indisponível:',err.message);}
+}
+const esc=x=>String(x??'');$('course-title').textContent=DATA.titulo;$('side-course').textContent=DATA.titulo;$('side-subtitle').textContent=DATA.subtitulo||'';$('course-objective').textContent=DATA.objetivo||'';
 const noteKey=i=>key+'nota:'+i;function progress(){const pct=list.length?Math.round(100*completions.length/list.length):0;$('bar').style.width=pct+'%';$('progress-text').textContent=`${completions.length} de ${list.length} aulas concluídas (${pct}%)`}
 function nav(){const parent=$('lesson-nav');parent.replaceChildren();list.forEach((l,i)=>{const b=document.createElement('button');b.type='button';b.className=i===current?'current':'';b.textContent=`${completions.includes(i)?'✓ ':''}${i+1}. ${l.titulo}`;b.addEventListener('click',()=>openLesson(i));parent.appendChild(b)})}
 function openLesson(i){current=Math.min(list.length-1,Math.max(0,i));$('info-panel').hidden=true;$('lesson-panel').hidden=false;const l=list[current];if(!l)return;$('lesson-kicker').textContent='Aula '+(current+1)+' de '+list.length;$('lesson-title').textContent=l.titulo;$('lesson-copy').textContent=l.conteudo||'Conteúdo ainda não informado.';$('activity').hidden=!l.atividade;$('activity-text').textContent=l.atividade||'';$('lesson-notes').value=localStorage.getItem(noteKey(current))||'';$('finish-lesson').textContent=completions.includes(current)?'Aula concluída ✓':'Marcar aula como concluída';$('next-lesson').hidden=current===list.length-1;nav();progress();showMajor(Math.min(current+1,4));}
-$('lesson-notes').addEventListener('input',e=>localStorage.setItem(noteKey(current),e.target.value));$('finish-lesson').addEventListener('click',()=>{if(!completions.includes(current))completions.push(current);localStorage.setItem(key+'progress',JSON.stringify(completions));nav();progress();$('finish-lesson').textContent='Aula concluída ✓';if(completions.length===list.length)showMajor(5)});$('next-lesson').addEventListener('click',()=>openLesson(current+1));
+$('lesson-notes').addEventListener('input',e=>localStorage.setItem(noteKey(current),e.target.value));$('finish-lesson').addEventListener('click',async()=>{
+ if(!completions.includes(current)){
+  if(individualOnline){
+   const b=$('finish-lesson');b.disabled=true;
+   try{
+    const r=await fetch('https://ws-hub-api.dell-soares.workers.dev/api/publico/inscricoes/'+encodeURIComponent(slug)+'/progresso',{method:'POST',headers:{'content-type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({indice:current})});
+    const d=await r.json();if(!r.ok)throw Error(d.erro||'Não foi possível registrar a aula.');
+   }catch(err){alert(err.message||'Erro ao salvar o progresso. Tente novamente.');return}
+   finally{b.disabled=false}
+  }
+  completions.push(current);
+ }
+ localStorage.setItem(key+'progress',JSON.stringify(completions));nav();progress();$('finish-lesson').textContent='Aula concluída ✓';
+ if(completions.length===list.length)showMajor(5);
+ if(individualOnline)window.dispatchEvent(new Event('wshub:student-progress'));
+});$('next-lesson').addEventListener('click',()=>openLesson(current+1));
 function showInfo(title,render){$('lesson-panel').hidden=true;$('info-panel').hidden=false;const root=$('info-panel');root.replaceChildren();const h=document.createElement('h2');h.textContent=title;root.append(h);render(root)}
 $('open-program').addEventListener('click',()=>showInfo('Conteúdo programático',root=>{const div=document.createElement('div');div.className='program-list';(DATA.modulos||[]).forEach((m,i)=>{const d=document.createElement('div');d.className='program-card';const strong=document.createElement('strong');strong.textContent=`${i+1}. ${m.titulo}${m.horas?' · '+m.horas:''}`;const p=document.createElement('p');p.textContent=m.descricao||m.foco||'';d.append(strong,p);if(m.topicos?.length){const ul=document.createElement('ul');m.topicos.forEach(s=>{const li=document.createElement('li');li.textContent=s;ul.append(li)});d.append(ul)}div.append(d)});root.append(div)}));
 $('open-calendar').addEventListener('click',()=>showInfo('Cronograma de encontros',root=>{const entries=DATA.cronograma||[];if(!entries.length){const p=document.createElement('p');p.textContent='As datas serão informadas pelo responsável pela formação.';root.append(p);return}entries.forEach((e,i)=>{const box=document.createElement('div');box.className='program-card';const h=document.createElement('strong');h.textContent=(e.titulo||'Encontro '+(i+1));const p=document.createElement('p');p.textContent=[e.data,e.horario].filter(Boolean).join(' · ');box.append(h,p);root.append(box)})}));
@@ -40,5 +67,5 @@ $('howto').addEventListener('click',()=>$('guide').showModal());$('guide-close')
 const messages=['Bem-vindo ao WS Hub. Seu aprendizado começa por aqui.','Comece com os fundamentos e registre o que fizer sentido para sua rotina.','Conecte os conteúdos com exemplos reais do seu trabalho.','Aplique as ideias em uma atividade prática.','Organize suas referências para continuar aprendendo.','Parabéns pelo percurso! Revise suas notas e mantenha o material por perto.'];let lastMajor=-1;function showMajor(n){if(lastMajor===n)return;lastMajor=n;$('major-text').textContent=messages[n];$('major-tip').hidden=true} $('major-toggle').addEventListener('click',()=>{$('major-tip').hidden=!$('major-tip').hidden});$('major-close').addEventListener('click',()=>$('major-tip').hidden=true);
 if(list.length){openLesson(0)}else{$('lesson-panel').hidden=true;showInfo('Em preparação',root=>{root.append(document.createTextNode('O conteúdo das aulas ainda não foi disponibilizado.'))})}progress();if(localStorage.getItem(key+'welcomed')!=='1'){$('welcome-message').textContent=DATA.boasVindas||`Esta formação foi organizada para você estudar e praticar com autonomia.`;$('welcome').showModal();$('welcome-start').addEventListener('click',()=>{localStorage.setItem(key+'welcomed','1');$('welcome').close()})}
 })();
-</script><script src="/wshub/assets/major-h-aluno.js"></script>
+</script><script src="/wshub/assets/major-h-aluno.js?v=5"></script>
 </body></html>

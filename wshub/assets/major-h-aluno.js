@@ -86,6 +86,6 @@ if(!document.querySelector('script[data-wshub-corporativo]')){
 }
 
 if(!document.querySelector('script[data-wshub-individual]')){
- const s=document.createElement('script');s.src='/wshub/assets/inscricao-aluno.js?v=1';s.defer=true;s.dataset.wshubIndividual='true';document.body.append(s);
+ const s=document.createElement('script');s.src='/wshub/assets/inscricao-aluno.js?v=2';s.defer=true;s.dataset.wshubIndividual='true';document.body.append(s);
 }
 })();
