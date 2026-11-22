@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#06162b">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Sincronizar Voz Ativa | Administração WS Hub</title>
+<link rel="icon" type="image/png" href="../assets/logo-wendell-soares.png">
+<style>
+:root{--navy:#06162b;--card:#0b2544;--line:#315277;--gold:#f3bd4b;--ink:#f4f8ff;--muted:#b9cce2;color-scheme:dark}
+*{box-sizing:border-box}body{min-height:100vh;margin:0;color:var(--ink);background:radial-gradient(ellipse at 83% -20%,#1a416f 0%,transparent 58%),var(--navy);font:15px/1.6 Inter,'Segoe UI',system-ui,sans-serif}
+header{border-bottom:1px solid #e3bd5e55;padding:18px max(22px,calc((100vw - 1000px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px}header a{color:#dbe9fb;text-decoration:none}header a:hover{color:var(--gold)}.brand{display:flex;align-items:center;gap:12px}.brand img{width:46px;height:46px}.brand strong{font-size:20px}.brand strong span{color:var(--gold)}.brand small{display:block;color:var(--muted);font-size:11px}
+main{max-width:760px;margin:48px auto;padding:0 18px}.panel{background:var(--card);border:1px solid #5376a066;border-top:3px solid var(--gold);border-radius:9px;padding:clamp(24px,5vw,38px);box-shadow:0 24px 75px #0005}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:800}h1{line-height:1.15;letter-spacing:-.03em;font-size:clamp(27px,4.7vw,38px);margin:12px 0}p{color:var(--muted)}.facts{display:flex;flex-wrap:wrap;gap:12px;margin:23px 0}.fact{background:#061a31;border:1px solid var(--line);border-radius:8px;padding:10px 14px;color:#dfeaf5;font-weight:650}.fact strong{color:var(--gold)}form{display:grid;gap:14px;max-width:440px;margin:22px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input{width:100%;min-height:47px;background:#06162b;border:1px solid #6080a6;border-radius:8px;color:#fff;padding:11px 13px;font:inherit}.field input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}button{border:0;border-radius:8px;min-height:48px;padding:10px 18px;font:700 15px inherit;cursor:pointer;background:var(--gold);color:#101d36;font-weight:800}button:hover{background:#ffda84}button:disabled{opacity:.6;cursor:wait}.small{font-size:13px}#result{padding:12px 14px;border-radius:8px;margin:15px 0;background:#071b34;border:1px solid #486b92;color:#e7f3ff;white-space:pre-wrap}#result.error{border-color:#c46d68;color:#ffd5d0}#result.ok{border-color:#57a88f;color:#dbfff1}.note{font-size:13px;max-width:560px}footer{max-width:760px;margin:24px auto 40px;padding:0 18px;color:#95acc8;font-size:12px}
+</style>
+<script src="../aluno/voz-ativa/assets/conteudo.js" defer></script>
+<script src="importar-voz-ativa.js" defer></script>
+</head>
+<body>
+<header><div class="brand"><img src="../assets/logo-wendell-soares.png" alt=""><div><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></div></div><a href="/wshub/admin/">Voltar ao painel</a></header>
+<main><section class="panel"><div class="eyebrow">Administração · Operação única</div><h1>Sincronizar Jornal Voz Ativa</h1><p>Importe o curso que já está publicado no GitHub para o painel administrativo e o banco Cloudflare. O curso NABOA não será alterado.</p>
+<div class="facts"><span class="fact"><strong>2</strong> encontros</span><span class="fact"><strong>8</strong> horas</span><span class="fact"><strong id="lesson-count">11</strong> aulas</span><span class="fact">Código definido por você</span></div>
+<form id="sync-form" autocomplete="off"><div class="field"><label for="admin-pass">Senha do painel administrativo</label><input id="admin-pass" type="password" autocomplete="current-password" placeholder="Senha do Cloudflare (se ainda não estiver conectado)"></div>
+<div class="field"><label for="course-code">Código da formação Voz Ativa</label><input id="course-code" type="text" autocomplete="off" autocapitalize="characters" maxlength="64" placeholder="Digite o código que você definiu" required></div>
+<button id="sync" type="submit">Sincronizar Voz Ativa</button></form>
+<div id="result" role="status" aria-live="polite">Pronto para verificar os dados publicados.</div><p class="note">O importador preserva os clientes, cursos e propostas já existentes. Se Voz Ativa já tiver sido cadastrada, completa os campos ausentes sem substituir aulas ou dados comerciais personalizados.</p>
+<p class="small"><a style="color:#f3bd4b" href="/wshub/admin/">Conferir cadastros no painel</a> · <a style="color:#f3bd4b" href="/wshub/aluno/">Testar área do aluno</a></p>
+</section></main><footer>WS Hub · Uso administrativo. Depois da sincronização, a manutenção do curso será feita pelo painel.</footer>
+</body></html>
