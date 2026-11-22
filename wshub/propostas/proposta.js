@@ -5,6 +5,85 @@
   const id = (query.get('ref') || 'silvia-naboa').trim();
   const proposals = window.WSHUB_PROPOSTAS || {};
   let proposal = Object.prototype.hasOwnProperty.call(proposals,id) ? proposals[id] : null;
+  // Registro complementar de proposta comercial: Jornal Voz Ativa.
+  if(id==='voz-ativa' && !proposal) proposal = {
+  "numero": "",
+  "titulo": "Jornal Voz Ativa",
+  "subtitulo": "SEO para jornalismo — otimização, inteligência artificial e alcance digital",
+  "chamada": "Capacitação objetiva e prática para a equipe editorial, com fundamentos de SEO, publicação otimizada e formatos interativos criados com IA.",
+  "cliente": "Jornal Voz Ativa",
+  "organizacao": "Jornal Voz Ativa",
+  "logo": "assets/logo-voz-ativa.png",
+  "objetivo": "Capacitar a equipe do Jornal Voz Ativa para aplicar técnicas de SEO à produção jornalística, melhorando a estrutura, a encontrabilidade e o potencial de alcance dos conteúdos publicados no portal.",
+  "encontros": 2,
+  "cargaHoraria": 8,
+  "modulos": [
+    {
+      "titulo": "Fundamentos de SEO aplicados ao jornalismo",
+      "horas": "4 horas",
+      "descricao": "SERPs, intenção de busca, palavras-chave, estrutura de notícias, links e oficina prática.",
+      "icone": "file"
+    },
+    {
+      "titulo": "SEO técnico, inteligência artificial e agilidade na redação",
+      "horas": "4 horas",
+      "descricao": "ALT, WebP, accordion, quiz, GitHub Pages, hard news e padronização editorial.",
+      "icone": "layers"
+    }
+  ],
+  "percurso": [
+    {
+      "titulo": "Fundamentos de SEO aplicados ao jornalismo",
+      "foco": "Estruturar notícias úteis e encontráveis sem alterar o sentido dos fatos.",
+      "topicos": [
+        "SEO jornalístico e SERPs (40 min)",
+        "Palavras-chave e intenção de busca (45 min)",
+        "Aplicação de SEO na notícia (65 min)",
+        "Links internos e externos (40 min)",
+        "Oficina prática (50 min)"
+      ],
+      "resultado": "Uma notícia analisada e otimizada com foco em busca e precisão editorial."
+    },
+    {
+      "titulo": "SEO técnico, inteligência artificial e agilidade na redação",
+      "foco": "Criar recursos visuais e interativos e consolidar um procedimento rápido de publicação.",
+      "topicos": [
+        "SEO para imagens (45 min)",
+        "Accordions com IA (35 min)",
+        "Quizzes com IA (40 min)",
+        "Publicação no GitHub (40 min)",
+        "SEO para hard news (45 min)",
+        "Oficina final e padronização (35 min)"
+      ],
+      "resultado": "Checklist de redação, modelos de interativos e protocolo para hard news."
+    }
+  ],
+  "metodologia": [
+    "Fundamentos e boas práticas de SEO aplicados a pautas e notícias.",
+    "Demonstrações de ferramentas e recursos de IA com validação humana.",
+    "Oficinas baseadas em matérias e documentos públicos históricos do Jornal Voz Ativa.",
+    "Modelos de accordion e quiz, com orientações para publicação em GitHub Pages."
+  ],
+  "beneficios": [
+    "Melhoria de títulos, subtítulos, URLs e imagens.",
+    "Pesquisa de intenção de busca e palavras-chave com critério editorial.",
+    "Mais agilidade para publicar sem comprometer a precisão jornalística.",
+    "Padronização por checklist e possibilidade de acompanhar resultados."
+  ],
+  "investimento": "R$ 1.000,00",
+  "investimentoAnterior": "R$ 2.400,00",
+  "observacaoInvestimento": "Condição promocional em razão do espaço já cedido em divulgação. Pagamento conforme proposta do Jornal, sem contraproposta.",
+  "condicoes": [
+    "2 encontros de 4 horas (8 horas totais), para até 5 participantes.",
+    "Apostila e caderno de laboratório digitais, cedidos integralmente após o treinamento.",
+    "Consultoria adicional de 3 horas, divididas em até 3 reuniões online, conforme decisão do Jornal.",
+    "Condição promocional ligada ao espaço já cedido em divulgação."
+  ],
+  "validade": "A combinar",
+  "contatoWhatsApp": "5531983073854",
+  "experienciaUrl": "",
+  "status": "rascunho"
+};
   // As novas propostas são servidas pela API sem republicar arquivos no GitHub.
   // A proposta original da Silvia permanece como fallback caso a rede esteja indisponível.
   try {
