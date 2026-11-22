@@ -1,0 +1,29 @@
+/* Major H · Assessor de aprendizagem | módulo padrão WS Hub */
+#ws-major-aluno{position:fixed;z-index:1200;right:20px;bottom:20px;font:400 14px/1.5 Inter,system-ui,-apple-system,'Segoe UI',sans-serif;color:#f8fbff}
+#ws-major-aluno *{box-sizing:border-box}
+#ws-major-aluno button{font:inherit;cursor:pointer}
+#ws-major-aluno .wma-launch{width:66px;height:66px;border:2px solid #eac36c;border-radius:50%;padding:5px;background:linear-gradient(140deg,#123554,#071831);box-shadow:0 10px 35px #0008,0 0 0 5px #e7b84814;display:grid;place-items:center;position:relative}
+#ws-major-aluno .wma-launch img{height:100%;width:100%;border-radius:50%;object-fit:contain;background:#0b2444}
+#ws-major-aluno .wma-launch:after{content:'';position:absolute;right:2px;bottom:4px;width:10px;height:10px;border-radius:50%;background:#6ce1af;border:2px solid #09203a}
+#ws-major-aluno .wma-launch:focus-visible,#ws-major-aluno .wma-close:focus-visible{outline:3px solid #f3bd4b;outline-offset:3px}
+#ws-major-aluno .wma-panel{position:absolute;right:0;bottom:81px;width:min(390px,calc(100vw - 27px));max-height:min(610px,calc(100dvh - 125px));display:flex;flex-direction:column;background:#071831;border:1px solid #4a7f9c;border-radius:18px;overflow:hidden;box-shadow:0 22px 70px #010812d9}
+#ws-major-aluno .wma-panel[hidden],#ws-major-aluno[hidden]{display:none!important}
+#ws-major-aluno .wma-head{display:flex;align-items:center;gap:12px;background:linear-gradient(115deg,#123a60,#09213b);padding:13px 15px;border-bottom:1px solid #32617b}
+#ws-major-aluno .wma-head img{width:48px;height:48px;object-fit:contain;background:#0b2a48;border-radius:50%;border:1px solid #789fb1;flex:none}
+#ws-major-aluno .wma-head div{flex:1;min-width:0;display:grid;gap:3px}
+#ws-major-aluno .wma-head strong{font-size:15px;color:#fff;font-weight:850}
+#ws-major-aluno .wma-head small{font-size:11px;color:#b9d5e8}
+#ws-major-aluno .wma-close{width:36px;height:36px;border:1px solid #5e7890;background:#193958;color:#fff;border-radius:8px;font-size:24px;line-height:1}
+#ws-major-aluno .wma-content{overflow-y:auto;overscroll-behavior:contain;padding:16px;background:radial-gradient(ellipse at right top,#25557a35,transparent 56%),#071831}
+#ws-major-aluno .wma-label{font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.06em;color:#f5ca68;margin-bottom:8px}
+#ws-major-aluno .wma-bubble{background:#102c4d;border:1px solid #426889;border-radius:5px 16px 16px 16px;padding:13px 14px;color:#e6f0fb;white-space:pre-line;font-size:13px;line-height:1.63}
+#ws-major-aluno .wma-bubble strong{color:#f4ce7d}
+#ws-major-aluno .wma-prompt{font-size:12px;color:#c6d9e9;line-height:1.5;margin:12px 0 0}
+#ws-major-aluno .wma-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+#ws-major-aluno .wma-actions button{background:#153b5f;color:#f9fcff;border:1px solid #6e9cb9;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:750}
+#ws-major-aluno .wma-actions button[aria-pressed=true]{background:#f2c467;color:#071831;border-color:#f2c467}
+#ws-major-aluno .wma-footer{border-top:1px solid #295473;padding:9px 16px;background:#0a223c;color:#9ab8ce;font-size:10px}
+#ws-major-aluno .wma-xp{color:#eec66c;font-weight:800}
+@media(max-width:600px){#ws-major-aluno{right:12px;bottom:12px}#ws-major-aluno .wma-launch{width:58px;height:58px}#ws-major-aluno .wma-panel{bottom:72px;width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 98px)}}
+@media(prefers-reduced-motion:reduce){#ws-major-aluno *{animation:none!important;transition:none!important}}
+@media print{#ws-major-aluno{display:none!important}}
