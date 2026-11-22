@@ -76,4 +76,12 @@ if(!document.querySelector('script[data-wshub-feedback]')){
  script.dataset.wshubFeedback='true';
  document.body.append(script);
 }
+
+if(!document.querySelector('script[data-wshub-certificado]')){
+ const s=document.createElement('script');s.src='/wshub/assets/certificado-curso.js?v=3';s.defer=true;s.dataset.wshubCertificado='true';document.body.append(s);
+}
+
+if(!document.querySelector('script[data-wshub-corporativo]')){
+ const s=document.createElement('script');s.src='/wshub/assets/corporativo-material.js?v=1';s.defer=true;s.dataset.wshubCorporativo='true';document.body.append(s);
+}
 })();

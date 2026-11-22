@@ -1,0 +1,1 @@
+QR Code implementation by Kazuhiko Arase, 2009. MIT License: https://opensource.org/licenses/MIT. Source reworked from qrcode-terminal (npm vendor/QRCode).
