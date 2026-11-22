@@ -1,0 +1,28 @@
+/* WS Hub · curso jovem v2: identidade escura institucional, navegação progressiva e Major H */
+[hidden], [data-ws-phase][hidden]{display:none!important}
+.page .topbar{background:#071a33;border-color:#244868;color:#d7edff}
+.page .top-kicker{color:#e4c06b}
+.page .score-chip{background:#103453;border-color:#4c7796;color:#e2efff}
+.page .badge-chip span,.page .score-chip:first-child span{color:#f3bd4b}
+.module-card{overflow:hidden}.ws-arte-thumb{display:block;width:calc(100% + 36px);height:125px;object-fit:cover;margin:12px -18px 18px;border-radius:6px}
+.ws-module-poster{margin:-12px 0 22px;border-radius:16px;overflow:hidden;border:1px solid #aac7e8;background:#0b2440;box-shadow:0 14px 28px #001d3435}
+.ws-module-poster img{display:block;width:100%;height:clamp(145px,20vw,240px);object-fit:cover}
+.ws-module-poster figcaption{padding:9px 15px;color:#e3efff;font-size:12px;background:#071b35}.ws-module-poster strong{color:#f5c45a}
+.ws-step-controls{margin:20px 0;border-radius:16px;background:linear-gradient(125deg,#0a2442,#103b5e);border:1px solid #4b7593;padding:19px;color:#f5faff;box-shadow:0 12px 32px #0015273a}
+.ws-step-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:15px;border-bottom:1px solid #3e6482}.ws-step-top strong{font-size:17px}
+.ws-step-dots{display:flex;gap:6px;flex-wrap:wrap}.ws-step-dots span{width:10px;height:10px;background:#33516b;border-radius:50%;border:1px solid #7197af}.ws-step-dots span.visited{background:#7db5da}.ws-step-dots span.active{background:#f3bd4b;box-shadow:0 0 0 4px #f3bd4b30;border-color:#f3bd4b}
+.ws-step-actions{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:16px}
+.ws-step-button{background:#0c3151;border:1px solid #698ca9;color:white;font-weight:800;min-height:42px;padding:9px 16px;border-radius:9px;cursor:pointer}.ws-step-button.gold{color:#06162b;background:#f3bd4b;border-color:#f3bd4b}.ws-step-button:disabled{opacity:.43;cursor:not-allowed}
+.ws-step-requirement{flex:1;min-width:190px;text-align:center;display:grid;justify-content:center;gap:4px}.ws-step-requirement label{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:750;cursor:pointer}.ws-step-requirement input{width:17px;height:17px;accent-color:#f3bd4b}.ws-step-requirement small{font-size:12px;color:#bed5eb}.ws-learning-save{font-size:12px;color:#a6eecb;margin:9px 0 0}
+.ws-major-coach{position:fixed;right:20px;bottom:18px;z-index:120}.ws-major-launch{width:64px;height:64px;padding:0;display:grid;place-items:center;background:#092c4c;border:2px solid #f3bd4b;border-radius:50%;box-shadow:0 10px 26px #00132577;cursor:pointer}.ws-major-launch img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.ws-major-panel{position:absolute;bottom:76px;right:0;width:min(340px,calc(100vw - 30px));background:#08233c;color:#fff;border:1px solid #f3bd4b;border-radius:14px;padding:16px;box-shadow:0 22px 40px #0014267a}.ws-major-head{display:flex;align-items:center;gap:10px}.ws-major-head img{width:43px;height:43px;border-radius:50%;object-fit:cover}.ws-major-head strong{font-size:16px}.ws-major-head small{display:block;color:#f3bd4b;font-size:10px}.ws-major-head button{margin-left:auto;border:0;background:#1a4669;color:white;cursor:pointer;padding:3px 9px;font-size:18px;border-radius:6px}.ws-major-panel p{font-size:13px;line-height:1.55;color:#d7e7f5;margin:13px 0 3px}
+/* A tela de abertura usa exatamente o avatar enviado, no círculo em destaque, com a identidade dos demais cursos WS Hub. */
+#ws-jovens-boas-vindas{width:min(660px,calc(100vw - 24px));border-radius:22px;background:radial-gradient(ellipse at 50% -35%,#22618d 0%,transparent 65%),linear-gradient(145deg,#0b2d51,#06162b);border:1px solid #c7a259;text-align:center;box-shadow:0 30px 85px #001021aa}
+#ws-jovens-boas-vindas .ws-jovens-modal{padding:clamp(24px,5vw,43px)}
+#ws-jovens-boas-vindas .ws-jovens-logo{width:128px;height:128px;margin:0 auto 18px;border:4px solid #f3bd4b;box-shadow:0 0 0 9px #39719a38,0 8px 30px #0007;object-fit:cover;border-radius:50%}
+#ws-jovens-boas-vindas .ws-kicker{font-size:12px;color:#f3bd4b;letter-spacing:.12em}
+#ws-jovens-boas-vindas h2{font-size:clamp(29px,4vw,39px);line-height:1.16;margin:15px 0;color:white}
+#ws-jovens-boas-vindas p{max-width:525px;margin:13px auto;color:#e1edf9}
+#ws-jovens-boas-vindas .ws-jovens-status{color:#f5cb6d!important;background:#143a5b;border:1px solid #37698d;border-radius:10px}
+#ws-jovens-boas-vindas .ws-btn{margin:18px auto 0;min-height:49px}
+@media(max-width:610px){.ws-major-coach{right:12px;bottom:14px}.ws-major-launch{width:53px;height:53px}.ws-major-launch img{width:46px;height:46px}.ws-major-panel{bottom:66px}.ws-arte-thumb{height:145px}.ws-step-actions{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.ws-step-requirement{grid-column:1/-1;grid-row:1;order:-1}.ws-step-actions .ws-step-button{width:100%}.ws-module-poster img{height:170px}}

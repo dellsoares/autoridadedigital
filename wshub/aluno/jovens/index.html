@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#08172d">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Curso digital interativo: Currículo e mídias digitais para jovens — como usar a favor da carreira profissional. Módulos, desafios e ferramentas práticas.">
-  <title>Currículo e mídias digitais para jovens | Curso interativo</title>
+  <title>Currículo e mídias digitais para jovens | WS Hub</title><link rel="icon" href="/wshub/assets/avatar-curso-jovens.webp">
   <style>
 :root{--navy:#09172b;--navy2:#11243e;--navy3:#172f4d;--ink:#10233c;--muted:#65758b;--line:#dfE7f0;--bg:#f4f7fb;--white:#fff;--blue:#277ab8;--cyan:#08a9be;--gold:#f3bd4b;--green:#10a885;--red:#d86161;--radius:22px;--shadow:0 14px 40px rgba(15,36,67,.06)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.65}a{color:#1560d5}a:hover{text-decoration:underline}:focus-visible{outline:3px solid #ffb93d;outline-offset:3px} .skip{position:absolute;left:-9999px;z-index:200;background:#fff;padding:10px}.skip:focus{left:10px;top:10px}.layout{min-height:100vh;display:grid;grid-template-columns:266px minmax(0,1fr)}
@@ -71,7 +71,7 @@ html:not(.ws-jovens-ready) body{visibility:hidden}
 /* Currículo e mídias digitais para jovens • HTML/JS local, sem bibliotecas e sem coleta de dados */
 'use strict';
 const COURSE_ID='curriculo-midias-digitais-jovens';
-const STORAGE_KEY='missao-futuro-curriculo-v1:'+new URLSearchParams(location.search).get('ref');
+let STORAGE_KEY='missao-futuro-curriculo-v2:'+new URLSearchParams(location.search).get('ref')+':aguardando';
 const RESOURCES=[
  {group:'Ferramentas',name:'Canva',about:'Modelos e editor de currículo',url:'https://www.canva.com/pt_br/curriculos/modelos/'},
  {group:'Ferramentas',name:'LinkedIn',about:'Perfil e contatos profissionais (16+)',url:'https://www.linkedin.com/'},
@@ -234,7 +234,7 @@ async function finishModule(){
  if(!state.completed.includes(id)){
    try{await window.WSJovensBridge.saveModule(id)}
    catch(err){notify(err.message||'Não foi possível salvar a missão. Tente novamente.');return}
-   state.completed.push(id);state.completed.sort();saveState();
+   state.completed.push(id);state.completed.sort();saveState();window.dispatchEvent(new CustomEvent('wshub:jovens:modulo-concluido',{detail:{index:id}}));
    notify(`Medalha desbloqueada: ${MODULES[id].title}! +${MODULES[id].reward} XP`);
  }
  navMenu();updateQuiz();
@@ -256,6 +256,12 @@ function privacy(){alert('As missões concluídas e o certificado são associado
 document.addEventListener('click',ev=>{const toggle=ev.target.closest('#toggleMenu');if(toggle){el('sidebar').classList.toggle('open');toggle.setAttribute('aria-expanded',String(el('sidebar').classList.contains('open')));return}const choice=ev.target.closest('[data-choice]');if(choice){answerChoice(Number(choice.dataset.choice));return}const action=ev.target.closest('[data-action]')?.dataset.action;if(!action)return;ev.preventDefault();if(action==='quiz-next'){quiz.index++;quiz.locked=false;if(quiz.index===MODULES[quiz.module].questions.length)finishModule();else updateQuiz();el('quizCard')?.scrollIntoView({behavior:'smooth',block:'start'})}else if(action==='quiz-replay'){quiz.index=0;quiz.locked=false;updateQuiz()}else if(action==='cv-build')updateResume();else if(action==='cv-print')printResume();else if(action==='cv-copy'){if(!currentResumeText)updateResume();copy(currentResumeText)}else if(action==='headline-build')buildHeadline();else if(action==='headline-copy'){if(!currentHeadline)buildHeadline();copy(currentHeadline)}else if(action==='email-build')buildEmail();else if(action==='email-copy'){if(!currentEmailText)buildEmail();copy(currentEmailText)}else if(action==='plan-print')showConquests();else if(action==='privacy')privacy();else if(action==='reset-progress')resetProgress();});
 document.addEventListener('change',ev=>{if(ev.target.matches('[data-plan]')){const n=Number(ev.target.dataset.plan);state.planDone=ev.target.checked?[...new Set([...state.planDone,n])]:state.planDone.filter(x=>x!==n);ev.target.closest('.plan-day').classList.toggle('checked',ev.target.checked);el('planProgress').textContent=`${state.planDone.length} de 7 ações marcadas`;saveState();if(state.planDone.length===7)notify('Seu plano de 7 dias está completo!')}});
 window.addEventListener('hashchange',openPage);window.addEventListener('wshub:jovens:sync',event=>{
+ const who=String(event.detail?.userKey||'').trim().toLowerCase();
+ if(who){
+  let n=2166136261;for(const c of who){n^=c.charCodeAt(0);n=Math.imul(n,16777619)}
+  STORAGE_KEY='missao-futuro-curriculo-v2:'+new URLSearchParams(location.search).get('ref')+':'+(n>>>0).toString(36);
+  try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');state.planDone=Array.isArray(saved.planDone)?[...new Set(saved.planDone.filter(x=>Number.isInteger(x)&&x>=0&&x<7))]:[]}catch(_e){state.planDone=[]}
+ }
  const done=Array.isArray(event.detail?.completed)?event.detail.completed:[];
  state.completed=[...new Set(done.filter(x=>Number.isInteger(x)&&x>=0&&x<7))].sort();
  saveState();openPage();
@@ -263,6 +269,8 @@ window.addEventListener('hashchange',openPage);window.addEventListener('wshub:jo
 openPage();
 
 </script>
-<script src="/wshub/assets/jovens-bridge.js?v=1"></script>
+<link rel="stylesheet" href="/wshub/assets/jovens-etapas.css?v=2">
+<script src="/wshub/assets/jovens-etapas.js?v=2"></script>
+<script src="/wshub/assets/jovens-bridge.js?v=2"></script>
 </body>
 </html>

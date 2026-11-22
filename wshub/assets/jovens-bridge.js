@@ -19,7 +19,7 @@ function open(d){if(!d)return;if(!d.open){try{d.showModal()}catch(_){d.setAttrib
 function close(d){if(!d)return;if(d.open){try{d.close()}catch(_){d.removeAttribute('open')}}}
 const name=()=>student?.nome||'aluno';
 function welcome(){
- const key='wshub:jovens:boas-vindas:'+slug+':'+name();
+ const key='wshub:jovens:boas-vindas:v2:'+slug+':'+name();
  if(sessionStorage.getItem(key))return;
  const d=dialog('ws-jovens-boas-vindas',
  `<img class="ws-jovens-logo" src="${avatar}" alt="Avatar da formação"><div class="ws-kicker">WS Hub · CVB-MG Júnior</div><h2>Olá, aluno.</h2>
@@ -99,7 +99,7 @@ async function init(){
   course=courseD.formacao;student=studentD.aluno;
   if(course.experiencia!=='jovens'||course.inscricaoIndividual?.tipo!=='online')throw Error('Esta formação não está vinculada ao ambiente dos jovens.');
   document.documentElement.classList.add('ws-jovens-ready');
-  window.dispatchEvent(new CustomEvent('wshub:jovens:sync',{detail:{completed:student.aulasConcluidas||[]}}));
+  window.dispatchEvent(new CustomEvent('wshub:jovens:sync',{detail:{completed:student.aulasConcluidas||[],userKey:student.email||''}}));
   syncButtons();
   welcome();
   if((student.aulasConcluidas||[]).length===7&&!student.feedbackConcluido){
@@ -113,7 +113,7 @@ async function init(){
 window.WSJovensBridge={slug,
  async saveModule(index){if(!student)throw Error('Carregando inscrição. Tente novamente.');
   const d=await request(apiAction('progresso'),'POST',{indice:index});
-  if(d.ok)await refresh();return d;
+  if(d.ok){await refresh();window.dispatchEvent(new CustomEvent('wshub:jovens:salvo'));}return d;
  },
  async completed(){await refresh();if((student.aulasConcluidas||[]).length===7&&!student.feedbackConcluido)open(ensureFeedback());}
 };
