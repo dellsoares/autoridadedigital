@@ -1,6 +1,6 @@
 ---
 title: 10 erros ao usar a IA e como corrigi-los | Wendell Soares
-slug: 10-erros-ao-usar-a-IA
+slug: 10-erros-ao-usar-a-ia
 description: Evite os 10 principais erros ao usar Inteligência Artificial. Veja
   como melhorar seus prompts na criação de imagens, textos e desenvolvimento de
   sites.
