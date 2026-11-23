@@ -168,3 +168,95 @@ html.ws-app-active,html.ws-app-active body{height:100%;height:100dvh;overflow:hi
 @media(max-width:360px){#ws-app-substatus{display:none}.ws-app-control-info{flex:1}#ws-app-state{font-size:11px}.ws-app-next{padding:11px 10px}}
 @media(prefers-reduced-motion:reduce){.ws-show-animate{animation:none!important}#ws-app-progress{transition:none!important}}
 @media print{html.ws-app-active,html.ws-app-active body,.ws-app-active .page,.ws-app-active .layout{height:auto;overflow:visible!important}.ws-app-active #conteudo{overflow:visible}.ws-app-screen{height:auto}.ws-app-scroll{overflow:visible}.ws-app-controls,.ws-app-head{display:none!important}}
+
+/* WS HUB — Missão Futuro, refinamento pedagógico v5. Mobile first. */
+:root{--ws-gold:#f3bd4b;--ws-gold-light:#ffe4a0;--ws-deep:#071c36;--ws-azure:#1a76b4}
+.ws-app-card{background:radial-gradient(ellipse at 85% -10%,#1d75ac75 0%,transparent 58%),linear-gradient(157deg,#135082,#0a345a 60%,#092b50);border-color:#327eaf}
+.ws-app-scroll{display:flex;flex-direction:column;align-items:stretch;min-height:0;scrollbar-gutter:stable}
+.ws-scene{flex-shrink:0}
+.ws-scene-focus{min-height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:clamp(9px,2vh,18px);max-width:620px;padding-block:8px}
+.ws-scene-focus .ws-scene-title{margin:0;max-width:580px}
+.ws-scene-focus p{font-size:clamp(15px,2vw,19px);line-height:1.66!important;max-width:610px;margin:0!important}
+.ws-thematic-icon,.ws-flash-icon,.ws-care-art{display:grid;place-items:center;flex:none;isolation:isolate;position:relative;background:radial-gradient(circle at 35% 24%,#2baee69c,transparent 56%),linear-gradient(145deg,#134f7d,#0a3458);border:1px solid #68c8e6;color:#fff;border-radius:27px;box-shadow:0 18px 44px #0012256a, inset 0 0 0 8px #ffffff07}
+.ws-thematic-icon{height:clamp(82px,14vh,119px);width:clamp(82px,14vh,119px);font-size:clamp(39px,7vh,56px);margin-bottom:5px}
+.ws-example{border-left:3px solid #f3bd4b!important;margin:9px 0 4px;padding:10px 13px!important;border-radius:0 10px 10px 0;background:#144f70!important;color:#f0f9ff!important;font-size:13px;line-height:1.6;box-shadow:inset 0 1px #ffffff0b}
+.ws-scene li{line-height:1.57;padding-left:4px}
+.ws-scene ul li,.ws-scene ol li{margin-bottom:11px}
+.ws-scene .callout ul{padding-left:22px;margin:12px 0 0}.ws-scene .callout li{color:#edfbff}
+.ws-scene .vs-grid .ws-reveal-target[hidden]{display:none!important}
+.ws-progressive-compare{grid-template-columns:1fr!important;max-width:610px;margin-bottom:12px!important}
+.ws-progressive-compare .vs-item{padding:clamp(16px,2.5vw,24px)!important;min-height:90px;display:flex;flex-direction:column;justify-content:center}
+.ws-reveal-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid #ffd987;background:linear-gradient(110deg,#f3bd4b,#ffdb88);color:#112944;border-radius:12px;padding:12px 17px;min-height:47px;font-size:14px;font-weight:850;max-width:100%;box-shadow:0 8px 23px #051a3333;cursor:pointer;transition:transform .18s}
+.ws-reveal-button:hover{transform:translateY(-1px)}.ws-reveal-button:focus-visible{outline:3px solid #65dff0;outline-offset:3px}
+.ws-reveal-target:not([hidden]){animation:ws-reveal-fade .33s ease both}
+@keyframes ws-reveal-fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.ws-scene-care,.ws-scene-flash{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:620px;gap:clamp(12px,2vh,22px);padding:12px 2px}
+.ws-scene-care h2,.ws-scene-flash h2{margin:0;color:#fff;line-height:1.24}
+.ws-care-art,.ws-flash-icon{width:clamp(100px,18vh,163px);height:clamp(100px,18vh,163px);border-radius:32px;font-size:clamp(51px,9vh,85px);margin:0 auto}
+.ws-care-art:before,.ws-flash-icon:before{content:'';position:absolute;inset:-12px;border:1px dashed #60c7e54d;border-radius:43px;pointer-events:none}
+.ws-care-copy,.ws-flash-question{font-size:clamp(17px,2.5vw,22px)!important;font-weight:650!important;line-height:1.48!important;color:#fff!important;margin:0!important;max-width:550px}
+.ws-care-foot{color:#a5d1e7;font-size:12px;line-height:1.5;max-width:380px}
+.ws-flash-answer{background:#155678;border:1px solid #3c9bc1;border-left:4px solid #f3bd4b;border-radius:14px;text-align:left;padding:15px 18px;width:100%;max-width:520px}
+.ws-flash-answer strong{color:#ffe095!important;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ws-flash-answer p{font-size:15px!important;color:#fff!important;margin:7px 0 0!important}
+.ws-app-controls{border-color:#4b8fac;background:linear-gradient(115deg,#0d385a,#092a48)}
+.ws-app-note{position:fixed;z-index:125;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(480px,calc(100vw - 26px));background:#f9dc90;border:1px solid #ffe7b1;border-radius:14px;padding:12px 16px;color:#162943;font-weight:750;font-size:13px;line-height:1.4;box-shadow:0 15px 50px #00112499;text-align:center}
+.ws-major-done{display:block;margin:12px 0 0;border:1px solid #ffdc84;border-radius:9px;background:#f3bd4b;color:#092642;padding:10px 12px;font-size:13px;font-weight:850;width:100%}
+.ws-major-launch[hidden]{display:none!important}
+/* Em quizzes: mudar a experiência visual para dourado e manter todo o texto escuro. */
+.ws-app-card.ws-mode-quiz{background:radial-gradient(ellipse at 94% -10%,#fff7d6 0,transparent 64%),linear-gradient(160deg,#f7cf70,#f3bd4b 66%,#e8aa39);border-color:#eac467}
+.ws-mode-quiz:before{border-color:#7b530d2b;box-shadow:0 0 0 38px #ffffff22,0 0 0 76px #ffffff16}
+.ws-mode-quiz .ws-app-card-top{background:#f7d88b;border-bottom-color:#c99c3e;color:#173451}
+.ws-mode-quiz #ws-app-count{color:#173451}
+.ws-mode-quiz .ws-app-scroll,.ws-mode-quiz .ws-app-scroll>.quiz,.ws-mode-quiz .ws-app-scroll>.quiz *,
+.ws-mode-quiz .ws-app-scroll .quiz-head,.ws-mode-quiz .ws-app-scroll .quiz-progress{color:#122f4d!important}
+.ws-mode-quiz .ws-app-scroll>.quiz h2{color:#082b4a!important}
+.ws-mode-quiz .ws-app-scroll>.quiz p{color:#25435b!important}
+.ws-mode-quiz .ws-app-scroll>.quiz .eyebrow{color:#214e71!important}
+.ws-mode-quiz .ws-app-scroll .quiz-question{background:#fcebb9;color:#173451!important;border:1px solid #c99d49;box-shadow:0 7px 17px #8055080b}
+.ws-mode-quiz .ws-app-scroll .option{background:#fff9e9;border:1px solid #bd9044;color:#142e49!important;box-shadow:0 3px 7px #a46b1209}
+.ws-mode-quiz .ws-app-scroll .option strong{color:#1b5275!important}
+.ws-mode-quiz .ws-app-scroll .option.correct{background:#d8f4e5;border-color:#278b69;color:#153f34!important}
+.ws-mode-quiz .ws-app-scroll .option.wrong{background:#ffe4e2;border-color:#b95355;color:#623b40!important}
+.ws-mode-quiz .ws-app-scroll .answer-note{background:#d2f2e1;border:1px solid #4e9879;color:#123e31!important}
+.ws-mode-quiz .ws-app-scroll .answer-note.wrong{background:#ffe4e2;border-color:#b95355;color:#622b37!important}
+.ws-mode-quiz .ws-app-scroll .answer-note p{color:#173d36!important}
+.ws-mode-quiz .ws-app-scroll .answer-note.wrong p{color:#643b42!important}
+.ws-mode-quiz .ws-app-scroll .button.yellow{background:#113a5b!important;border-color:#113a5b!important;color:#fff!important}
+.ws-mode-quiz .ws-app-scroll .quiz-finish,.ws-mode-quiz .ws-app-scroll .ending{background:#fff5d5;border:1px solid #c99d49;color:#183653!important}
+.ws-mode-quiz .ws-app-scroll .quiz-finish strong,.ws-mode-quiz .ws-app-scroll .ending h2{color:#122c4a!important}
+.ws-mode-quiz .ws-app-scroll .pill.gold{background:#174469;color:#fff!important}
+.ws-mode-quiz .ws-app-scroll .button.clear{background:#fff2ce;color:#173451!important;border:1px solid #bd9044}
+/* Laboratórios: indicação de campos, prévias e itens de lista. */
+.ws-app-scroll .lab input:focus,.ws-app-scroll .lab textarea:focus,.ws-app-scroll .lab select:focus{outline:2px solid #f3bd4b;outline-offset:1px}
+.ws-app-scroll>.lab .cv-preview{margin-bottom:20px}
+.ws-app-scroll .field:focus-within{color:#ffe4a0!important}
+.ws-app-scroll>.lab .form-grid{margin-bottom:16px}
+.ws-app-scroll .plan-day:has(input:checked){border-color:#3bceb2;background:#0c5a55}
+@media(max-width:580px){
+ .ws-scene-focus{padding:8px 1px;gap:clamp(10px,2.2vh,19px)}
+ .ws-thematic-icon{height:clamp(83px,15vh,115px);width:clamp(83px,15vh,115px);font-size:clamp(40px,7vh,54px)}
+ .ws-scene-focus .ws-scene-title{font-size:clamp(21px,6vw,28px)}
+ .ws-scene-focus p{font-size:15px!important;line-height:1.57!important}
+ .ws-scene-care,.ws-scene-flash{padding:9px 4px;gap:clamp(11px,1.9vh,19px)}
+ .ws-care-art,.ws-flash-icon{height:clamp(90px,17vh,145px);width:clamp(90px,17vh,145px);font-size:clamp(47px,8vh,74px)}
+ .ws-care-copy,.ws-flash-question{font-size:clamp(16px,4.5vw,20px)!important}
+ .ws-app-scroll{scrollbar-gutter:auto}
+ .ws-mode-quiz .ws-app-scroll .option{padding:12px 11px;font-size:13px}
+}
+@media(max-height:630px){.ws-scene-focus{justify-content:flex-start}.ws-scene-care,.ws-scene-flash{justify-content:flex-start}.ws-care-art,.ws-flash-icon{height:92px;width:92px;font-size:46px}}
+@media(prefers-reduced-motion:reduce){.ws-reveal-target:not([hidden]){animation:none!important}.ws-reveal-button{transition:none!important}}
+
+/* Introduções e missões ocupam o centro do cartão sem bloco vazio ao final. */
+.ws-scene-intro,.ws-scene-mission{min-height:100%;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:14px 0}
+.ws-scene-intro .ws-intro-illustration{margin-block:4px 2px;flex:none}
+.ws-scene-intro>.ws-scene-title,.ws-scene-mission>.ws-scene-title{margin-bottom:3px}
+.ws-scene-mission .ws-mission-symbol{font-size:clamp(50px,9vh,85px);line-height:1.2;margin:0 0 10px}
+.ws-scene-guide{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(11px,2vh,19px);max-width:600px;text-align:center}
+.ws-scene-guide .ws-scene-title{margin:0}.ws-guide-intro{font-size:15px!important;color:#cbe7f5!important;margin:0!important;max-width:500px}
+.ws-guide-visual{width:100%;max-width:510px;background:linear-gradient(155deg,#165a7e,#0e3c61);border:1px solid #57a1be;border-radius:18px;padding:clamp(15px,3vw,26px);box-shadow:0 10px 34px #0011222f}
+.ws-guide-icon{display:grid;place-items:center;font-size:48px;line-height:1.2;margin:0 auto 10px;width:82px;height:82px;border-radius:21px;border:1px solid #65c9df;background:#0b3656}
+.ws-guide-count{display:block;font-size:11px;font-weight:900;letter-spacing:.12em;color:#f5cc6a;text-transform:uppercase}
+.ws-guide-heading{color:white;font-size:19px;line-height:1.25;margin:8px 0}.ws-guide-copy{color:#ebf7ff!important;margin:0!important;font-size:14px!important}
+@media(max-height:650px){.ws-scene-intro,.ws-scene-mission,.ws-scene-guide{justify-content:flex-start}}
+@media(max-width:580px){.ws-guide-visual{padding:13px}.ws-guide-icon{height:67px;width:67px;font-size:40px}.ws-guide-heading{font-size:17px}}

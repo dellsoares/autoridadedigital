@@ -59,7 +59,7 @@ function ensureFeedback(){
    submitBusy=true;const btn=f.querySelector('button[type="submit"]');btn.disabled=true;err.hidden=true;
    try{
      await request(apiAction('feedback-final'),'POST',{respostas:values,nota:score});
-     await refresh();close(modal);await issue();
+     await refresh();close(modal);openCertificateName();
    }catch(e){err.hidden=false;err.textContent=e.message||'Erro ao registrar avaliação. Tente novamente.'}
    finally{btn.disabled=false;submitBusy=false}
  });
@@ -71,25 +71,31 @@ async function ensureTemplate(){
  if(!window.WSHubCertTemplate)throw Error('Modelo de certificado indisponível');return window.WSHubCertTemplate;
 }
 const btn=document.createElement('button');btn.type='button';btn.className='ws-jovens-cta';btn.hidden=true;btn.textContent='Meu certificado';document.body.append(btn);
-async function issue(){
- btn.disabled=true;btn.textContent='Preparando certificado…';
- try{
-   const d=await request(apiAction('certificado'),'POST',{});
-   const t=await ensureTemplate();await t.print(d.certificado,d.certificado.participante);
-   btn.textContent='Reimprimir certificado';student.certificadoEmitido=true;student.feedbackConcluido=true;
- }catch(e){btn.textContent='Emitir certificado';alert(e.message||'Não foi possível emitir. Tente novamente.');throw e}
- finally{btn.disabled=false}
+let nameDialog=null,printing=false;
+function openCertificateName(){if(!student)return;if(!student.feedbackConcluido){open(ensureFeedback());return}
+ if(nameDialog){const i=nameDialog.querySelector('#ws-cert-student');if(i)i.value=student.nome||'';open(nameDialog);return}
+ nameDialog=dialog('ws-jovens-cert-nome',`<h2>🎓 Seu certificado</h2><p>Antes de emitir, confira o nome que consta na sua inscrição. O documento oficial utilizará os dados validados pelo WS Hub.</p><form id="ws-cert-name-form"><label for="ws-cert-student"><strong>Nome para o certificado</strong></label><input id="ws-cert-student" name="nome" type="text" autocomplete="name" required maxlength="120" value="${ESC(student.nome||'')}"><p class="small">Se o nome cadastrado estiver incorreto, solicite a atualização no portal antes de emitir.</p><p class="ws-jovens-error" id="ws-cert-error" role="alert" hidden></p><div class="button-row"><button class="ws-btn" type="submit">Abrir o modelo do certificado</button><button type="button" class="button clear" id="ws-cert-cancel">Voltar</button></div></form>`);
+ nameDialog.querySelector('#ws-cert-cancel').addEventListener('click',()=>close(nameDialog));
+ nameDialog.querySelector('form').addEventListener('submit',async e=>{e.preventDefault();if(printing)return;const entered=nameDialog.querySelector('input').value.trim().replace(/\s+/g,' ');const registered=(student.nome||'').trim().replace(/\s+/g,' ');const err=nameDialog.querySelector('#ws-cert-error');if(entered.length<3){err.textContent='Confira seu nome antes de continuar.';err.hidden=false;return}if(registered&&entered.toLocaleLowerCase('pt-BR')!==registered.toLocaleLowerCase('pt-BR')){err.textContent='O nome precisa ser igual ao cadastro. Para corrigir, atualize a inscrição com a equipe responsável.';err.hidden=false;return}err.hidden=true;close(nameDialog);try{await issue()}catch(_){}});open(nameDialog);
 }
-btn.addEventListener('click',()=>{
- if(!student)return;
- if(!student.feedbackConcluido){open(ensureFeedback());return}
- issue().catch(()=>{});
-});
+async function issue(){if(printing)return;printing=true;btn.disabled=true;btn.textContent='Preparando certificado…';
+ try{const t=await ensureTemplate();if(typeof t.print!=='function')throw Error('O modelo publicado não oferece a emissão do certificado.');
+ const d=await request(apiAction('certificado'),'POST',{});
+ if(!d.certificado)throw Error('O WS Hub não retornou os dados do certificado.');
+ document.documentElement.classList.add('ws-cert-printing');
+ const stop=()=>document.documentElement.classList.remove('ws-cert-printing');
+ window.addEventListener('afterprint',stop,{once:true});setTimeout(stop,12000);
+ await t.print(d.certificado,d.certificado.participante);
+ student.certificadoEmitido=true;student.feedbackConcluido=true;btn.textContent='Abrir certificado';
+ }catch(e){document.documentElement.classList.remove('ws-cert-printing');btn.textContent='Abrir certificado';alert(e.message||'Não foi possível gerar o certificado. Tente novamente.');throw e}
+ finally{btn.disabled=false;printing=false}
+}
+btn.addEventListener('click',()=>openCertificateName());
 function syncButtons(){
  if(!student)return;
  const completed=(student.aulasConcluidas||[]).length>=7;
  btn.hidden=!completed;
- btn.textContent=student.certificadoEmitido?'Reimprimir certificado':student.feedbackConcluido?'Gerar certificado (PDF)':'Avaliar e emitir certificado';
+ btn.textContent=student.feedbackConcluido?'Abrir certificado oficial':'Avaliar e liberar certificado';
 }
 async function refresh(){
  const d=await request(apiAction('aluno'));
@@ -121,7 +127,8 @@ window.WSJovensBridge={slug,
   const d=await request(apiAction('progresso'),'POST',{indice:index});
   if(d.ok){await refresh();window.dispatchEvent(new CustomEvent('wshub:jovens:salvo'));}return d;
  },
- async completed(){await refresh();if((student.aulasConcluidas||[]).length===7&&!student.feedbackConcluido)open(ensureFeedback());}
+ async completed(){await refresh();if((student.aulasConcluidas||[]).length===7&&!student.feedbackConcluido)open(ensureFeedback());},
+ openCertificate(){openCertificateName();}
 };
 init();
 })();
