@@ -32,7 +32,8 @@ form.addEventListener('submit',async e=>{
    }
   }catch(_){}
   if(data.tipo==='individual' && data.materialDisponivel===false){location.assign('certificado/?ref='+encodeURIComponent(slug));return}
-  if(data.experiencia==='jovens'){location.assign('jovens/?ref='+encodeURIComponent(slug))}
+  if(slug==='ia-na-pratica' && data.experiencia==='jovens'){location.assign('ia-na-pratica/?ref='+encodeURIComponent(slug))}
+   else if(data.experiencia==='jovens'){location.assign('jovens/?ref='+encodeURIComponent(slug))}
   else if(slug==='naboa'){try{localStorage.setItem('wshub_naboa_access','1')}catch(_){}location.assign('naboa/')}
   else location.assign('curso/?ref='+encodeURIComponent(slug));
  }catch(err){
