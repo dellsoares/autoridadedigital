@@ -1,0 +1,8 @@
+IA NA PRÁTICA · VERSÃO WS HUB INTEGRADA
+
+Os arquivos desta pasta compõem o curso, com 7 missões, Major H original,
+10 ferramentas, biblioteca de prompts, avaliação final e certificado pelo
+mecanismo oficial do WS Hub (após o vínculo administrativo).
+
+Instruções de publicação e ativação no arquivo LEIA-ME-INTEGRACAO.txt
+na raiz do ZIP. Não substitua os outros cursos.

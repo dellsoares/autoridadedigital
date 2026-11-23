@@ -1,0 +1,47 @@
+IA NA PRÁTICA — BIBLIOTECA DE PROMPTS
+WS Hub · Sete prompts educativos · Use dados fictícios ou autorizados.
+
+1. Investigador de respostas
+PARA QUE SERVE: Ensina a pedir limites e verificações, não apenas uma resposta bonita.
+
+Explique em linguagem simples o que é inteligência artificial generativa para um estudante do Ensino Médio. Separe a resposta em: fatos amplamente aceitos, pontos que precisam de verificação e um exemplo prático. Não invente fontes. Ao final, sugira duas formas de conferir as informações.
+
+-------------------------------------------------------
+2. Entrevista reversa para comunicação
+PARA QUE SERVE: Evita respostas precipitadas e estimula clareza profissional.
+
+Sou jovem aprendiz em um escritório fictício. Preciso responder uma solicitação de cliente, mas talvez faltem informações. Antes de escrever, faça até quatro perguntas realmente necessárias. Depois, crie uma resposta profissional de até 90 palavras. Não invente prazos nem dados e destaque o que deve ser confirmado.
+
+-------------------------------------------------------
+3. Tutor socrático
+PARA QUE SERVE: Transforma a IA em parceira de prática, sem pular o raciocínio.
+
+Seja meu tutor de [ASSUNTO] no nível do Ensino Médio. Primeiro pergunte o que já sei. Depois proponha um problema de cada vez. Não entregue a resposta completa antes da minha tentativa. Dê uma pista quando eu errar, explique meu erro com respeito e finalize com três perguntas de revisão para amanhã.
+
+-------------------------------------------------------
+4. Supervisor simulado
+PARA QUE SERVE: Permite errar e corrigir em ambiente seguro, antes de lidar com clientes reais.
+
+Atue como meu supervisor em uma empresa fictícia. Sou jovem aprendiz. Crie uma situação realista de atendimento por e-mail, sem dados reais. Aguarde eu redigir a resposta. Depois avalie de 0 a 10 em clareza, cordialidade, precisão e objetividade, explicando cada nota. Não escreva a solução por mim antes da tentativa.
+
+-------------------------------------------------------
+5. Decisão por critérios
+PARA QUE SERVE: Ajuda a decidir com autonomia e evita seguir modismos.
+
+Preciso escolher uma ferramenta de IA para [TAREFA]. Compare três tipos de ferramenta considerando: adequação ao objetivo, necessidade de fontes, dados pessoais envolvidos, custo ou limitações, facilidade de conferir a resposta e alternativa sem IA. Não declare uma “vencedora” sem justificar os critérios.
+
+-------------------------------------------------------
+6. Revisor de riscos
+PARA QUE SERVE: Ensina a avaliar riscos antes de agir, em vez de remediá-los depois.
+
+Vou descrever um cenário fictício de uso de IA no estudo ou trabalho. Identifique possíveis riscos de privacidade, erros factuais, vieses, direitos autorais e exposição de terceiros. Sugira uma alternativa segura e diga quais perguntas devo fazer à escola ou à empresa antes de agir. Não peça dados pessoais.
+
+-------------------------------------------------------
+7. Plano completo de uso responsável
+PARA QUE SERVE: Reúne escolha de ferramenta, execução e responsabilidade.
+
+Sou estudante ou jovem aprendiz. Minha tarefa fictícia é [DESCREVA]. Antes de agir, faça três perguntas essenciais. Depois proponha um plano de ação curto com: ferramenta adequada e motivo, prompt inicial, forma de verificar fatos, riscos de privacidade e uma opção de fazer sem IA. Não invente informações nem use dados pessoais reais.
+
+-------------------------------------------------------
+Sempre confira as respostas e respeite regras de escola, trabalho e privacidade.
+https://wendellsoares.jor.br/
