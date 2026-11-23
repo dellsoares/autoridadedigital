@@ -30,5 +30,4 @@
 @media print{#ws-major-aluno{display:none!important}}
 
 #ws-major-aluno .wma-launch{isolation:isolate}
-#ws-major-aluno .wma-launch .wma-fallback{position:absolute;inset:0;display:grid;place-items:center;color:#f3bd4b;font-weight:900;font-size:25px;z-index:0}
 #ws-major-aluno .wma-launch img{position:relative;z-index:1;display:block}
