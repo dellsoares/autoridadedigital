@@ -77,6 +77,46 @@ body.page-hub .network .node[data-section="faq"]{top:calc(50% - var(--orb-y));le
 @media(max-width:740px){body.page-hub .network{--orb-top:137px;--orb-x:119px;--orb-y:68.5px}}
 @media(max-width:420px){body.page-hub .network{--orb-top:125px;--orb-x:108px;--orb-y:62.5px}}
 
+
+/* WS Hub — vitrine de projetos: estilos exclusivos da aba Experiências */
+body.page-hub .detail-grid.experiences-layout{grid-template-columns:minmax(0,1fr)}
+body.page-hub .experience-group{margin-top:23px}
+body.page-hub .experience-group-title{font-size:15px;font-weight:850;line-height:1.35;letter-spacing:-.01em;color:var(--gold);margin:0 0 11px}
+body.page-hub .experience-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+body.page-hub .experience-card{display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-height:192px;min-width:0;padding:19px 20px;border-radius:10px;border:1px solid rgba(136,193,233,.33);background:linear-gradient(155deg,rgba(17,55,92,.94),rgba(5,25,49,.94));transition:border-color .2s,box-shadow .2s,transform .2s}
+body.page-hub .experience-card:hover{border-color:rgba(245,196,90,.85);box-shadow:0 10px 26px rgba(0,10,25,.35);transform:translateY(-2px)}
+body.page-hub .experience-kind{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:var(--cyan)}
+body.page-hub .experience-card-title{font-size:18px;font-weight:850;line-height:1.3;letter-spacing:-.025em;margin:0}
+body.page-hub .experience-card-description{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 3px}
+body.page-hub .experience-card-actions{margin-top:auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+body.page-hub .experience-open{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 14px;border:1px solid var(--gold);border-radius:8px;background:var(--gold);color:#071831;font-size:13px;font-weight:850}
+body.page-hub .experience-open:hover{background:#ffe0a1}
+body.page-hub .experience-external{font-size:12px;font-weight:740;color:#d1e8fb;text-decoration:underline;text-underline-offset:3px}
+body.page-hub .experience-external:hover{color:var(--gold)}
+body.page-hub .experience-catalog-note{font-size:12px;line-height:1.6;color:var(--muted);margin:22px 0 0}
+body.page-hub dialog.experience-dialog{width:min(1180px,calc(100vw - 28px));max-width:none;height:min(900px,calc(100dvh - 28px));max-height:none;margin:auto;background:#06162b;color:var(--ink);padding:0;border:1px solid rgba(245,196,90,.72);border-radius:12px;overflow:hidden}
+body.page-hub dialog.experience-dialog[open]{display:flex;flex-direction:column}
+body.page-hub dialog.experience-dialog::backdrop{background:rgba(1,8,20,.88)}
+body.page-hub .experience-dialog-head{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#092443;padding:15px 19px;border-bottom:1px solid rgba(245,196,90,.45)}
+body.page-hub .experience-dialog-heading{min-width:0}
+body.page-hub .experience-dialog-heading span{display:block;color:var(--gold);font-size:10px;letter-spacing:.09em;font-weight:850}
+body.page-hub .experience-dialog-heading strong{display:block;font-size:18px;line-height:1.35;letter-spacing:-.025em}
+body.page-hub .experience-dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:9px}
+body.page-hub .experience-dialog-actions a,body.page-hub .experience-dialog-actions button{min-height:37px;border:1px solid rgba(245,196,90,.55);border-radius:8px;background:#102d4d;color:#f4d58e;padding:8px 11px;font-size:12px;font-weight:780;line-height:1.3;text-decoration:none;white-space:nowrap}
+body.page-hub .experience-dialog-actions button{background:var(--gold);color:#071831}
+body.page-hub .experience-dialog-caution{font-size:12px;line-height:1.45;color:#ffe1a0;background:#342809;padding:9px 18px;margin:0}
+body.page-hub .experience-dialog-frame{flex:1;min-height:0;background:#fff}
+body.page-hub .experience-dialog-frame iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+body.page-hub .experience-dialog-foot{font-size:11px;line-height:1.45;color:#d4e2ef;padding:10px 18px;background:#092443}
+@media(max-width:640px){
+ body.page-hub .experience-cards{grid-template-columns:1fr}
+ body.page-hub .experience-card{min-height:0;padding:17px}
+ body.page-hub dialog.experience-dialog{width:100vw;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0}
+ body.page-hub .experience-dialog-head{padding:12px;align-items:flex-start;flex-wrap:wrap}
+ body.page-hub .experience-dialog-heading strong{font-size:16px}
+ body.page-hub .experience-dialog-actions{width:100%;justify-content:space-between}
+ body.page-hub .experience-dialog-foot{padding:8px 12px}
+}
 </style>
 <link rel="stylesheet" href="assets/identidade.css">
 <style id="wshub-aluno-header-validado">
@@ -108,6 +148,16 @@ body.page-hub .top-actions a.nav-aluno:hover{background:#ffcf65;color:#06162b!im
 </div>
 <dialog id="proposal-dialog" aria-labelledby="dialog-heading"><div class="dialog-head"><strong id="dialog-heading">Solicitar proposta personalizada</strong><p>Conte um pouco sobre o projeto. A mensagem chegará ao contato profissional.</p></div><form action="https://formspree.io/f/xkjjdrae" method="POST" id="proposal-form"><div class="dialog-content"><input type="hidden" name="_subject" value="WS Hub | Solicitação de proposta personalizada"><input type="hidden" name="origem" value="WS Hub - Formulário de proposta"><label>Seu nome<input name="nome" autocomplete="name" required maxlength="100" placeholder="Como podemos chamar você?"></label><label>E-mail<input type="email" name="email" autocomplete="email" required maxlength="200" placeholder="seu@email.com"></label><label>Instituição ou empresa<input name="organizacao" maxlength="120" placeholder="Se houver"></label><label>Tipo de formação<select name="tipo"><option>Personalizada</option><option>Aberta ou turma</option><option>Online</option><option>Ainda não sei</option></select></label><label>O que você precisa?<textarea name="mensagem" required maxlength="1400" placeholder="Conte seu objetivo e o público que deseja atender."></textarea></label><p style="font-size:12px;color:#55677b;margin:0">O envio utiliza o formulário de contato já existente no site Wendell Soares.</p></div><div class="dialog-actions"><button type="button" data-close>Cancelar</button><button class="send" type="submit">Enviar solicitação</button></div></form></dialog>
 
+<dialog id="experience-dialog" class="experience-dialog" aria-labelledby="experience-dialog-title">
+ <div class="experience-dialog-head">
+  <div class="experience-dialog-heading"><span>WS HUB / EXPERIÊNCIAS</span><strong id="experience-dialog-title">Experiência interativa</strong></div>
+  <div class="experience-dialog-actions"><a id="experience-dialog-original" href="#" target="_blank" rel="noopener noreferrer">Abrir página original ↗</a><button type="button" data-close aria-label="Fechar experiência">Fechar ×</button></div>
+ </div>
+ <p id="experience-dialog-caution" class="experience-dialog-caution" hidden></p>
+ <div id="experience-dialog-frame" class="experience-dialog-frame"></div>
+ <div class="experience-dialog-foot">O projeto é carregado do site original. Caso não apareça aqui, utilize “Abrir página original”.</div>
+</dialog>
+
 <script>
 (()=>{'use strict';
  const areas={
@@ -115,7 +165,7 @@ body.page-hub .top-actions a.nav-aluno:hover{background:#ffcf65;color:#06162b!im
   propostas:{num:'02 · Projetos',title:'Propostas personalizadas',description:'Uma formação pode ser desenvolvida para o contexto, o público e os resultados de sua equipe. Conte a necessidade; a partir dela, elaboramos uma proposta dentro das nossas áreas de atuação.',features:['Diagnóstico de necessidades','Escopo e conteúdo sob medida','Objetivos, formato e condições'],sideTitle:'Qual é seu desafio?',sideText:'Você não precisa chegar com um curso pronto. Diga o que deseja desenvolver, para quem e o resultado esperado. Propostas individuais são enviadas diretamente ao destinatário.',primary:'Solicitar proposta personalizada',action:'solicitar'},
   aluno:{num:'03 · Aprendizagem',title:'Área do aluno',description:'Já participa de uma formação? Acesse o portal do aluno e informe o código recebido para encontrar seu ambiente de estudo, aulas e materiais.',features:['Acesso com código da formação','Aulas, exercícios e anotações','Materiais e calendário'],sideTitle:'Seu ambiente de estudo',sideText:'O acesso é feito pelo código informado ao participante. Os nomes das pessoas e as formações contratadas não são expostos nesta página.',primary:'Acessar portal do aluno',href:'aluno/'},
   ferramentas:{num:'04 · Utilidades',title:'Ferramentas digitais',description:'Geradores, conversores e outras ferramentas gratuitas do WS Tools conectadas ao trabalho diário. O catálogo é independente e já está disponível.',features:['Sem cadastro','Ferramentas online gratuitas','Recursos úteis para projetos e aulas'],sideTitle:'WS Tools',sideText:'Acesse o catálogo atual de ferramentas pelo endereço oficial. Não há duplicação dentro do WS Hub.',primary:'Acessar ferramentas',href:'https://dellsoares.github.io/tools/',external:true},
-  experiencias:{num:'05 · Interatividade',title:'Experiências interativas',description:'Quizzes, widgets, jogos e desafios poderão fazer parte das formações sempre que ajudarem a aprender e aplicar. Esta área será desenvolvida depois.',features:['Recursos interativos','Atividades aplicadas','Projetos em evolução'],sideTitle:'Outros recursos em breve',sideText:'Nenhuma experiência demonstrativa está sendo publicada nesta etapa.',primary:null},
+  experiencias:{num:'05 · Interatividade',title:'Experiências que saíram do papel',description:'Jogos, diagnósticos e soluções digitais desenvolvidos para desafios reais. Escolha uma experiência e conheça o projeto na prática, sem sair do WS Hub.',features:[],sideTitle:'Projetos reais',sideText:'As experiências são exibidas a partir dos sites originais, sem cópia do conteúdo.',primary:null},
   faq:{num:'06 · Orientações',title:'Perguntas frequentes',description:'Respostas sobre cursos, acesso, certificados e treinamentos personalizados.',features:[],sideTitle:'Central de dúvidas',sideText:'Encontre orientações de acesso, participação e aprendizagem.',primary:null}
  };
 const $=q=>document.querySelector(q),nav=$('.network'),core=$('#core'),nodes=[...document.querySelectorAll('.node')],tabs=[...document.querySelectorAll('.module-tab')],svg=$('#network-svg'),main=$('#detail-main'),aside=$('#detail-aside'),panel=$('#content-panel');let paths={},selected='cursos',ticket=0;
@@ -123,12 +173,67 @@ function center(el,base){const a=el.getBoundingClientRect(),b=base.getBoundingCl
 function draw(){const r=nav.getBoundingClientRect();if(!r.width)return;svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.replaceChildren();paths={};const c=center(core,nav);nodes.forEach((n,i)=>{const a=center(n,nav),dx=a.x-c.x,dy=a.y-c.y,L=Math.hypot(dx,dy)||1,bend=(i%2?1:-1)*Math.min(17,L*.068),mx=(a.x+c.x)/2-dy/L*bend,my=(a.y+c.y)/2+dx/L*bend;const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',`M${c.x} ${c.y} Q${mx} ${my} ${a.x} ${a.y}`);path.classList.toggle('active',n.dataset.section===selected);svg.append(path);paths[n.dataset.section]=path})}
 function element(tag,cls,txt){const n=document.createElement(tag);if(cls)n.className=cls;if(txt)n.textContent=txt;return n}
 function actionBtn(label,href,action,external,cls){const a=element(action?'button':'a','btn '+cls,label);if(action){a.type='button';a.addEventListener('click',()=>openDialog(action));}else{a.href=href;if(external){a.target='_blank';a.rel='noopener noreferrer'}}return a}
-function render(id,scroll=true){if(!areas[id])return;selected=id;const d=areas[id];const faqActive=id==='faq';panel.querySelector('.detail-grid').hidden=faqActive;$('#faq-content').hidden=!faqActive;nodes.forEach(n=>{const active=n.dataset.section===id;n.classList.toggle('active',active);n.setAttribute('aria-current',String(active));paths[n.dataset.section]?.classList.toggle('active',active)});tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===id)));if(faqActive){if(scroll){panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'','#faq')}openFaqTarget();return}main.replaceChildren();aside.replaceChildren();main.append(element('div','detail-kicker',d.num),element('h3','',d.title),element('p','description',d.description));const features=element('div','feature-list');d.features.forEach(f=>features.append(element('span','feature',f)));main.append(features);const actions=element('div','detail-actions');if(d.primary)actions.append(actionBtn(d.primary,d.href,d.action,d.external,'btn-gold'));if(d.secondary)actions.append(actionBtn(d.secondary,null,d.action,false,'btn-quiet'));if(actions.childNodes.length)main.append(actions);if(id==='cursos'){
+
+ // Catálogo editorial. Nenhum projeto é copiado para o repositório do WS Hub.
+ const experienceGroups=[
+  {title:'Jogos e experiências gamificadas',items:[
+   {type:'Voluntariado',title:'Na Rota, Na Boa',description:'Jogo interativo que apresenta possibilidades de atuação voluntária.',href:'https://portalnaboa.github.io/voluntariado/'},
+   {type:'Gamificação',title:'Modo Avião: agência em alerta',description:'Desafios, decisões e aprendizagem em uma experiência ambientada em uma agência.',href:'https://dellsoares.github.io/modo-aviao/'}
+  ]},
+  {title:'Diagnósticos e estratégia digital',items:[
+   {type:'Checklist',title:'Checklist de Autoridade Digital',description:'Avaliação interativa de 10 critérios de posicionamento, conteúdo e presença digital.',href:'https://dellsoares.github.io/marcaoverview/'},
+   {type:'Scanner',title:'Scanner WS',description:'Análise de URLs para identificar oportunidades de SEO, estrutura e desempenho.',href:'https://dellsoares.github.io/scanner-ws/'}
+  ]},
+  {title:'Soluções desenvolvidas para negócios',items:[
+   {type:'Sistema comercial',title:'Al Capone — Agendamento',description:'Aplicação real para escolha de serviços, profissionais e horários.',href:'https://dellsoares.github.io/alcapone-agendamento/',notice:'Sistema de agendamento real: evite confirmar agendamentos de teste.'}
+  ]}
+ ];
+ let lastExperienceTrigger=null;
+ function appendExperiences(root){
+  experienceGroups.forEach(group=>{
+   const section=element('section','experience-group');
+   section.append(element('h4','experience-group-title',group.title));
+   const cards=element('div','experience-cards');
+   group.items.forEach(item=>{
+    const card=element('article','experience-card');
+    card.append(element('span','experience-kind',item.type),element('h5','experience-card-title',item.title),element('p','experience-card-description',item.description));
+    const actions=element('div','experience-card-actions');
+    const open=element('button','experience-open','Experimentar');
+    open.type='button';open.setAttribute('aria-label','Experimentar '+item.title);open.addEventListener('click',()=>openExperience(item,open));
+    const original=element('a','experience-external','Site original ↗');
+    original.href=item.href;original.target='_blank';original.rel='noopener noreferrer';original.setAttribute('aria-label','Abrir '+item.title+' no site original em nova aba');
+    actions.append(open,original);card.append(actions);cards.append(card);
+   });
+   section.append(cards);root.append(section);
+  });
+  root.append(element('p','experience-catalog-note','Os projetos continuam hospedados nos endereços originais. Se algum site bloquear a exibição incorporada, utilize “Site original”.'));
+ }
+ function openExperience(item,trigger){
+  const dialog=$('#experience-dialog');
+  if(!dialog||typeof dialog.showModal!=='function'){window.open(item.href,'_blank','noopener,noreferrer');return}
+  $('#experience-dialog-title').textContent=item.title;
+  $('#experience-dialog-original').href=item.href;
+  const caution=$('#experience-dialog-caution');caution.hidden=!item.notice;caution.textContent=item.notice||'';
+  const frame=document.createElement('iframe');
+  frame.title='Experiência: '+item.title;
+  frame.loading='eager';frame.referrerPolicy='strict-origin-when-cross-origin';
+  frame.setAttribute('allowfullscreen','');frame.src=item.href;
+  $('#experience-dialog-frame').replaceChildren(frame);
+  lastExperienceTrigger=trigger;
+  dialog.showModal();
+ }
+ $('#experience-dialog').addEventListener('close',()=>{
+  // Remover o iframe interrompe mídia e execução de código do projeto incorporado.
+  $('#experience-dialog-frame').replaceChildren();
+  if(lastExperienceTrigger&&lastExperienceTrigger.isConnected)lastExperienceTrigger.focus();
+  lastExperienceTrigger=null;
+ });
+function render(id,scroll=true){if(!areas[id])return;selected=id;const d=areas[id];const faqActive=id==='faq';panel.querySelector('.detail-grid').hidden=faqActive;$('#faq-content').hidden=!faqActive;nodes.forEach(n=>{const active=n.dataset.section===id;n.classList.toggle('active',active);n.setAttribute('aria-current',String(active));paths[n.dataset.section]?.classList.toggle('active',active)});tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===id)));if(faqActive){if(scroll){panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'','#faq')}openFaqTarget();return}main.replaceChildren();aside.replaceChildren();main.append(element('div','detail-kicker',d.num),element('h3','',d.title),element('p','description',d.description));const features=element('div','feature-list');d.features.forEach(f=>features.append(element('span','feature',f)));main.append(features);if(id==='experiencias'){features.remove();appendExperiences(main)}const actions=element('div','detail-actions');if(d.primary)actions.append(actionBtn(d.primary,d.href,d.action,d.external,'btn-gold'));if(d.secondary)actions.append(actionBtn(d.secondary,null,d.action,false,'btn-quiet'));if(actions.childNodes.length)main.append(actions);if(id==='cursos'){
 const detail=document.createElement('details');detail.className='personalize-expand';
 const summary=document.createElement('summary');summary.textContent='Personalize sua formação';detail.append(summary);
 const body=element('div','personalize-body');body.append(element('p','', 'Precisa desenvolver uma habilidade específica na sua equipe? Primeiro conheça os cursos disponíveis. Se sua necessidade for diferente, conte o desafio, quem vai participar e o que espera alcançar. A partir disso, podemos propor uma formação sob medida, dentro das nossas áreas de atuação.'));
 const ask=element('button','btn btn-quiet','Descrever minha necessidade');ask.type='button';ask.addEventListener('click',()=>openDialog('solicitar'));body.append(ask);detail.append(body);main.append(detail);
-}main.append(element('span','soon-note',id==='cursos'?'Outras formações em breve':id==='experiencias'?'Em preparação':'Conhecimento, tecnologia e propósito.'));aside.append(element('span','corner',id==='experiencias'?'Próximas conexões':'Conheça mais'),element('strong','',d.sideTitle),element('p','',d.sideText));if(scroll){panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'','#'+id)}}
+}main.append(element('span','soon-note',id==='cursos'?'Outras formações em breve':id==='experiencias'?'Em preparação':'Conhecimento, tecnologia e propósito.'));aside.append(element('span','corner',id==='experiencias'?'Próximas conexões':'Conheça mais'),element('strong','',d.sideTitle),element('p','',d.sideText));const experienceActive=id==='experiencias';aside.hidden=experienceActive;panel.querySelector('.detail-grid').classList.toggle('experiences-layout',experienceActive);if(experienceActive)main.querySelector('.soon-note')?.remove();if(scroll){panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});history.replaceState(null,'','#'+id)}}
 function pulse(id){const p=paths[id];if(!p||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return Promise.resolve();let l;try{l=p.getTotalLength()}catch{return Promise.resolve()}const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');dot.setAttribute('r','4.5');dot.setAttribute('class','dot');svg.append(dot);return new Promise(resolve=>{const start=performance.now(),dur=390;function frame(now){const t=Math.min(1,(now-start)/dur);const point=p.getPointAtLength(l*(1-Math.pow(1-t,2)));dot.setAttribute('cx',point.x);dot.setAttribute('cy',point.y);if(t<1&&dot.isConnected)requestAnimationFrame(frame);else{dot.remove();resolve()}}requestAnimationFrame(frame)})}
 async function navigate(id){if(!areas[id])return;const now=++ticket;await pulse(id);if(now===ticket)render(id)}nodes.forEach(n=>n.addEventListener('click',e=>{e.preventDefault();navigate(n.dataset.section)}));tabs.forEach(t=>t.addEventListener('click',()=>navigate(t.dataset.tab)));window.addEventListener('hashchange',()=>{const id=sectionFromHash();if(id)render(id,false)});window.addEventListener('resize',()=>{clearTimeout(window.hubResize);window.hubResize=setTimeout(draw,110)},{passive:true});
 function openDialog(id){if(id!=='solicitar')return;const dialog=$('#proposal-dialog');if(dialog&&!dialog.open)dialog.showModal()}document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>btn.closest('dialog').close()));document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
