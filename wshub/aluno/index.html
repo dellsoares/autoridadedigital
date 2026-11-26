@@ -7,7 +7,131 @@
 .hub-entry-brand strong,.hub-entry-footer strong{color:#fff!important}
 .hub-entry-brand strong span,.hub-entry-footer strong span{color:#f3bd4b!important}
 .hub-entry-brand small,.hub-entry-footer small{color:white!important}
-</style></head><body><header class="topbar hub-entry-topbar"><div class="wrap topinner"><a class="brand hub-entry-brand" href="../" aria-label="WS Hub, início"><img src="../assets/logo-wendell-soares.png" alt="Astronauta, logomarca original do WS Hub" width="54" height="54"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></a><a class="top-back" href="../">Voltar ao WS Hub</a></div></header><main class="stage wrap"><section class="gate"><span class="eyebrow">Acesso do participante</span><h1>Seu ambiente de aprendizagem.</h1><p>Informe o código recebido para abrir sua formação, acessar aulas, exercícios e materiais digitais.</p><form id="entry"><div class="field"><label for="code">Código da formação</label><input id="code" name="codigo" type="password" placeholder="Digite seu código" autocomplete="off" required autocapitalize="characters"></div><div class="field" style="margin-top:14px"><label for="phone">Celular cadastrado (para código compartilhado)</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(31) 99999-9999"></div><button type="submit">Acessar formação</button><p id="error" class="error" hidden role="alert">Código não reconhecido. Confira o código enviado para sua formação.</p></form><p class="hint">Não sabe sua senha? <strong style="color:#f5c45a;font-weight:750">Entre em contato comigo para receber seu acesso.</strong></p></section></main><footer class="footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand hub-entry-footer"><img src="../assets/logo-wendell-soares.png" alt="" width="48" height="48"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></div><div class="footer-quote">Experiência compartilhada,<br>autoridade construída.</div><div class="footer-eco">Nossos treinamentos são 100% digitais.<br>Não utilizamos papel.</div></div><div class="footer-bottom"><span>WS Hub · Ambiente de aprendizagem</span><a href="https://wendellsoares.jor.br/">Site construído por Wendell Soares</a></div></div></footer><script>
+
+/* WS HUB: escolha de formações, sem alterar a autenticação anterior. */
+[hidden]{display:none!important}
+body{min-width:320px}
+.catalog-page{width:min(1190px,calc(100% - 38px));margin:0 auto;padding:66px 0 96px}
+.catalog-hero{display:flex;gap:28px;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.catalog-kicker{display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.catalog-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #f5c45a17}
+.catalog-hero h1{max-width:720px;font-size:clamp(33px,5.1vw,62px);letter-spacing:-.055em;line-height:1.09;margin:0 0 17px;font-weight:850}
+.catalog-hero h1 em{font-style:normal;color:var(--gold)}
+.catalog-lead{max-width:690px;margin:0;color:#c7d8e9;font-size:clamp(15px,1.4vw,17px);line-height:1.64}
+.catalog-meta{flex:none;display:flex;align-items:center;gap:10px;color:#c9deed;border:1px solid #486987;padding:12px 16px;border-radius:13px;background:#0e2945;font-size:13px;font-weight:700;white-space:nowrap}
+.catalog-meta strong{font-size:26px;line-height:1;color:var(--gold);font-weight:850}
+.course-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:17px}
+.course-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:302px;grid-column:span 2;text-align:left;color:#f4f9ff;text-decoration:none;appearance:none;cursor:pointer;padding:25px 24px 23px;margin:0;background:linear-gradient(155deg,#123253,#0a213d 73%);border:1px solid #3b5d7c;border-radius:17px;box-shadow:0 16px 33px #0002;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.course-card::after{content:"";position:absolute;z-index:-1;top:-78px;right:-67px;width:185px;height:185px;border-radius:50%;background:radial-gradient(circle,#f5c45a19,transparent 73%);pointer-events:none}
+.course-card:hover,.course-card:focus-visible{transform:translateY(-4px);border-color:#e9bb68;box-shadow:0 19px 40px #0005}
+.course-card:nth-child(4),.course-card:nth-child(5){grid-column:span 3;min-height:272px}
+.course-card.featured{background:linear-gradient(152deg,#133656,#092342 72%);border-color:#9d7e50}
+.course-card.featured::after{background:radial-gradient(circle,#f5c45a3d,transparent 71%)}
+.course-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:25px;width:100%}
+.course-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#2e5b71;border:1px solid #568498;color:#a0f0f0}
+.course-icon svg{width:26px;height:26px;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.course-card.featured .course-icon{background:#73552d6b;color:#ffd787;border-color:#a58858}
+.course-card.corporate .course-icon{background:#2c426d;color:#c3d6ff}
+.course-card .card-index{color:#a2bed4;font-size:12px;letter-spacing:.08em;font-weight:850}
+.course-type{display:block;font-weight:800;text-transform:uppercase;font-size:10px;letter-spacing:.12em;color:#9fe3e8;margin-bottom:9px}
+.course-card.featured .course-type{color:#ffdb9b}
+.course-title{display:block;max-width:370px;font-size:clamp(18px,1.9vw,22px);font-weight:820;letter-spacing:-.03em;line-height:1.25;margin-bottom:10px}
+.course-description{display:block;color:#c4d6e7;font-size:13px;line-height:1.52;margin:0 0 22px;max-width:440px}
+.course-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:18px;margin-top:auto;border-top:1px solid #ffffff24;width:100%;font-size:12px}
+.course-duration{color:#b7d1e1;font-weight:650}
+.course-action{display:inline-flex;align-items:center;gap:8px;color:#ffdd96;font-size:12px;font-weight:850}
+.course-action svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
+.course-card:hover .course-action svg{transform:translateX(3px)}
+.catalog-footer{margin-top:28px;border:1px solid #345672;border-radius:12px;padding:17px 20px;display:flex;gap:18px;justify-content:space-between;align-items:center;background:#091e38}
+.catalog-footer p{margin:0;color:#bed1e1;font-size:13px}
+.catalog-footer a{display:inline-flex;gap:8px;align-items:center;justify-content:center;white-space:nowrap;text-decoration:none;color:#071a32;background:var(--gold);padding:10px 17px;border-radius:8px;font-size:13px;font-weight:820}
+.catalog-footer a:hover{background:#ffdb8a}
+.catalog-footer a svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;flex:none}
+.login-back{display:inline-flex;align-items:center;color:#f5c45a;font-weight:760;font-size:13px;text-decoration:none;margin-top:6px}
+.login-back:hover{text-decoration:underline}
+.choice-dialog{width:min(520px,calc(100vw - 28px));max-width:520px;position:fixed;margin:auto;color:#f8fbff;background:linear-gradient(135deg,#112e4d,#08182e);border:1px solid #9a7c4f;border-radius:19px;box-shadow:0 25px 95px #000b;padding:30px 30px 28px}
+.choice-dialog::backdrop{background:rgba(2,9,24,.82);backdrop-filter:blur(6px)}
+.choice-dialog .modal-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.choice-dialog .modal-eyebrow{font-weight:850;font-size:11px;color:var(--gold);letter-spacing:.11em;text-transform:uppercase}
+.choice-dialog .modal-close{flex:none;background:#183b5a;color:#fff;border:1px solid #6589a6;padding:3px;width:36px;height:36px;min-height:36px;margin:0;border-radius:9px;font-size:24px;font-weight:500;line-height:1}
+.choice-dialog h2{font-size:clamp(25px,4vw,31px);line-height:1.2;letter-spacing:-.035em;margin:17px 0 10px}
+.choice-dialog .modal-copy{color:#c3d6e8;font-size:14px;line-height:1.62;margin:0 0 22px}
+.choice-dialog .modal-options{display:grid;gap:11px}
+.choice-dialog .modal-link{display:flex;align-items:center;justify-content:space-between;gap:15px;text-decoration:none;padding:16px 16px 15px;border-radius:11px;border:1px solid #547494;background:#143453;color:#fff;transition:background .16s ease,border-color .16s ease}
+.choice-dialog .modal-link:hover{background:#205075;border-color:#9dc8e3}
+.choice-dialog .modal-link.primary{border-color:#e6b75f;background:#f5c45a;color:#081b30}
+.choice-dialog .modal-link.primary:hover{background:#ffda82}
+.choice-dialog .modal-link strong{display:block;font-size:15px;line-height:1.25}
+.choice-dialog .modal-link small{display:block;font-size:12px;font-weight:500;line-height:1.45;margin-top:3px;opacity:.84}
+.choice-dialog .modal-link svg{flex:none;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.choice-dialog .modal-note{margin:17px 0 0;font-size:12px;color:#adc8dd;line-height:1.55}
+@media(max-width:930px){.catalog-page{padding-top:42px}.course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.course-card,.course-card:nth-child(4),.course-card:nth-child(5){grid-column:span 1;min-height:288px}.catalog-hero{align-items:flex-start}.catalog-meta{margin-top:10px}}
+@media(max-width:640px){.catalog-page{padding:35px 0 65px}.catalog-hero{display:block;margin-bottom:25px}.catalog-meta{display:inline-flex;margin-top:20px}.course-grid{grid-template-columns:minmax(0,1fr);gap:12px}.course-card,.course-card:nth-child(4),.course-card:nth-child(5){grid-column:1;min-height:244px;padding:21px}.course-card .card-top{margin-bottom:18px}.course-description{margin-bottom:20px}.catalog-footer{display:block}.catalog-footer a{display:flex;margin-top:13px}.choice-dialog{padding:23px 20px}.course-icon{width:47px;height:47px}}
+@media(prefers-reduced-motion:reduce){.course-card,.course-action svg,.choice-dialog .modal-link{transition:none}.course-card:hover,.course-card:focus-visible{transform:none}}
+</style></head><body><header class="topbar hub-entry-topbar"><div class="wrap topinner"><a class="brand hub-entry-brand" href="../" aria-label="WS Hub, início"><img src="../assets/logo-wendell-soares.png" alt="Astronauta, logomarca original do WS Hub" width="54" height="54"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></a><a class="top-back" href="../">Voltar ao WS Hub</a></div></header>
+<main class="catalog-page" id="catalog-page" aria-label="Escolha de cursos">
+  <section class="catalog-hero" aria-labelledby="catalog-heading">
+    <div>
+      <div class="catalog-kicker">WS Hub · Portal de aprendizagem</div>
+      <h1 id="catalog-heading">Qual será sua <em>próxima formação?</em></h1>
+      <p class="catalog-lead">Escolha seu curso para fazer uma inscrição ou continuar estudando. As formações institucionais têm acesso reservado aos participantes.</p>
+    </div>
+    <span class="catalog-meta" aria-label="Cinco formações disponíveis"><strong>05</strong> formações</span>
+  </section>
+  <section class="course-grid" aria-label="Cursos do WS Hub">
+    <button class="course-card " type="button" data-course="jovens" aria-haspopup="dialog" aria-controls="choice-dialog" aria-label="Escolher inscrição ou acesso: Currículo e mídias digitais para jovens">
+  <span class="card-top"><span class="course-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Zm4 3v5c3.3 3.3 8.7 3.3 12 0v-5M22 9v6"/></svg></span><span class="card-index">01 / 05</span></span>
+  <span class="course-type">Formação individual</span>
+  <span class="course-title">Currículo e mídias digitais para jovens</span>
+  <span class="course-description">Missão Futuro: currículo, comportamento digital e primeiros passos profissionais.</span>
+  <span class="course-bottom"><span class="course-duration">2 horas de formação</span><span class="course-action">Inscrição ou acesso <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+</button><button class="course-card " type="button" data-course="ia" aria-haspopup="dialog" aria-controls="choice-dialog" aria-label="Escolher inscrição ou acesso: IA na Prática: do Estudo ao Primeiro Emprego">
+  <span class="card-top"><span class="course-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 9.7 8.7 3 11l6.7 2.3L12 20l2.3-6.7L21 11l-6.7-2.3L12 2Z"/><path d="M20 18v4m-2-2h4M4 2v4M2 4h4"/></svg></span><span class="card-index">02 / 05</span></span>
+  <span class="course-type">Formação individual</span>
+  <span class="course-title">IA na Prática: do Estudo ao Primeiro Emprego</span>
+  <span class="course-description">Aprenda a usar inteligência artificial com critério, ética e aplicação prática.</span>
+  <span class="course-bottom"><span class="course-duration">2 horas de formação</span><span class="course-action">Inscrição ou acesso <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+</button><button class="course-card featured" type="button" data-course="politica" aria-haspopup="dialog" aria-controls="choice-dialog" aria-label="Escolher inscrição ou acesso: Autoridade Digital na Comunicação Política">
+  <span class="card-top"><span class="course-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16M5 20h14M7 11v7m5-7v7m5-7v7M2 9l10-6 10 6v2H2V9Z"/></svg></span><span class="card-index">03 / 05</span></span>
+  <span class="course-type">Formação individual</span>
+  <span class="course-title">Autoridade Digital na Comunicação Política</span>
+  <span class="course-description">Estratégia, narrativa, evidências e comunicação pública na prática.</span>
+  <span class="course-bottom"><span class="course-duration">15 horas de formação</span><span class="course-action">Inscrição ou acesso <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+</button><a class="course-card corporate" href="/wshub/aluno/?ref=voz-ativa" aria-label="SEO para Jornalismo · Voz Ativa: Entrar com código">
+  <span class="card-top"><span class="course-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h5v5H7zM15 8h3m-3 4h3M7 17h11"/></svg></span><span class="card-index">04 / 05</span></span>
+  <span class="course-type">Formação institucional</span>
+  <span class="course-title">SEO para Jornalismo · Voz Ativa</span>
+  <span class="course-description">Capacitação exclusiva do Jornal Voz Ativa, com aulas e laboratório editorial.</span>
+  <span class="course-bottom"><span class="course-duration">8 horas de formação</span><span class="course-action">Entrar com código <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+</a><a class="course-card corporate" href="/wshub/aluno/naboa/" aria-label="IA aplicada ao Portal NABOA: Acessar formação">
+  <span class="card-top"><span class="course-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-8m0 0C8 14 5 11 5 5c5 0 7 2 7 5m0 4c0-7 4-10 9-10 0 8-3 10-9 10Z"/></svg></span><span class="card-index">05 / 05</span></span>
+  <span class="course-type">Formação institucional</span>
+  <span class="course-title">IA aplicada ao Portal NABOA</span>
+  <span class="course-description">Ambiente de capacitação personalizado para a equipe do Portal NABOA.</span>
+  <span class="course-bottom"><span class="course-duration">16 horas de formação</span><span class="course-action">Acessar formação <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></span>
+</a>
+  </section>
+  <aside class="catalog-footer" aria-label="Acesso com código">
+    <p><strong style="color:#fff">Já recebeu seu código?</strong> Você também pode entrar diretamente pelo portal do aluno.</p>
+    <a href="/wshub/aluno/?modo=acesso">Digitar meu código <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+  </aside>
+</main>
+<main id="login-stage" class="stage wrap" hidden><section class="gate"><span class="eyebrow">Acesso do participante</span><h1>Seu ambiente de aprendizagem.</h1><p>Informe o código recebido para abrir sua formação, acessar aulas, exercícios e materiais digitais.</p><form id="entry"><div class="field"><label for="code">Código da formação</label><input id="code" name="codigo" type="password" placeholder="Digite seu código" autocomplete="off" required autocapitalize="characters"></div><div class="field" style="margin-top:14px"><label for="phone">Celular cadastrado (para código compartilhado)</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(31) 99999-9999"></div><button type="submit">Acessar formação</button><p id="error" class="error" hidden role="alert">Código não reconhecido. Confira o código enviado para sua formação.</p></form><p class="hint">Não sabe sua senha? <strong style="color:#f5c45a;font-weight:750">Entre em contato comigo para receber seu acesso.</strong></p></section><div style="text-align:center;margin-top:17px"><a class="login-back" href="/wshub/aluno/">← Escolher outro curso</a></div></main>
+<dialog id="choice-dialog" class="choice-dialog" aria-labelledby="choice-title" aria-describedby="choice-description">
+  <div class="modal-head"><span class="modal-eyebrow">Escolha como continuar</span><button class="modal-close" id="choice-close" type="button" aria-label="Fechar janela">×</button></div>
+  <h2 id="choice-title">Sua formação</h2>
+  <p class="modal-copy" id="choice-description">Escolha se deseja realizar a inscrição ou acessar sua formação.</p>
+  <div class="modal-options">
+    <a class="modal-link primary" id="choice-enroll" href="/wshub/inscricao/">
+      <span><strong>Quero me inscrever</strong><small>Preencher a inscrição e receber as instruções de acesso</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+    </a>
+    <a class="modal-link" id="choice-login" href="/wshub/aluno/?modo=acesso">
+      <span><strong>Já sou aluno</strong><small>Entrar com meu código de acesso</small></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+    </a>
+  </div>
+  <p class="modal-note">A inscrição pode depender da disponibilidade da formação. Se você já tem código, use a opção “Já sou aluno”.</p>
+</dialog>
+<footer class="footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand hub-entry-footer"><img src="../assets/logo-wendell-soares.png" alt="" width="48" height="48"><span><strong>WS <span>Hub</span></strong><small>Conhecimento, tecnologia e propósito.</small></span></div><div class="footer-quote">Experiência compartilhada,<br>autoridade construída.</div><div class="footer-eco">Nossos treinamentos são 100% digitais.<br>Não utilizamos papel.</div></div><div class="footer-bottom"><span>WS Hub · Ambiente de aprendizagem</span><a href="https://wendellsoares.jor.br/">Site construído por Wendell Soares</a></div></div></footer><script>
 (()=>{'use strict';
 const form=document.getElementById('entry'),field=document.getElementById('code'),error=document.getElementById('error'),button=form.querySelector('button');
 const API='https://ws-hub-api.dell-soares.workers.dev';
@@ -46,4 +170,44 @@ form.addEventListener('submit',async e=>{
 });
 field.addEventListener('input',()=>{error.hidden=true})
 })();
-</script></body></html>
+</script>
+<script>
+/* Apenas a tela inicial foi atualizada. A autenticação abaixo segue inalterada. */
+(()=>{'use strict';
+const params=new URLSearchParams(window.location.search);
+const showLogin=params.has('ref')||params.get('modo')==='acesso';
+const catalog=document.getElementById('catalog-page');
+const login=document.getElementById('login-stage');
+catalog.hidden=showLogin;
+login.hidden=!showLogin;
+const modal=document.getElementById('choice-dialog');
+const enroll=document.getElementById('choice-enroll');
+const access=document.getElementById('choice-login');
+const heading=document.getElementById('choice-title');
+const description=document.getElementById('choice-description');
+const close=document.getElementById('choice-close');
+const courses={
+ jovens:{title:'Currículo e mídias digitais para jovens',subtitle:'Missão Futuro',slug:'curriculo-e-midias-digitais-para-jovens'},
+ ia:{title:'IA na Prática: do Estudo ao Primeiro Emprego',subtitle:'Formação digital de 2 horas',slug:'ia-na-pratica'},
+ politica:{title:'Autoridade Digital na Comunicação Política',subtitle:'Formação digital de 15 horas',slug:'autoridade-digital'}
+};
+let previousTrigger=null;
+for(const button of document.querySelectorAll('[data-course]')){
+ button.addEventListener('click',()=>{
+  const entry=courses[button.dataset.course];if(!entry)return;
+  previousTrigger=button;
+  heading.textContent=entry.title;
+  description.textContent=entry.subtitle+'. Como deseja continuar?';
+  enroll.href='/wshub/inscricao/?ref='+encodeURIComponent(entry.slug);
+  access.href='/wshub/aluno/?ref='+encodeURIComponent(entry.slug);
+  if(typeof modal.showModal==='function'){modal.showModal();close.focus()}
+  else{modal.setAttribute('open','');close.focus()}
+ });
+}
+function closeModal(){if(typeof modal.close==='function')modal.close();else modal.removeAttribute('open');if(previousTrigger)previousTrigger.focus()}
+close.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+modal.addEventListener('close',()=>{if(previousTrigger)previousTrigger.focus()});
+})();
+</script>
+</body></html>
