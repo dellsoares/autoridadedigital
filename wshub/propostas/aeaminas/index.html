@@ -72,7 +72,42 @@
     .aeamg-case a:focus-visible,.aeamg-demo-link:focus-visible{outline:2px solid #e6a729;outline-offset:3px}
     @media(max-width:690px){.aeamg-case-grid,.aeamg-emphasis{grid-template-columns:1fr}}
     @media print{.aeamg-case{break-inside:avoid}.aeamg-emphasis{break-inside:avoid}}
-  </style>
+  
+  /* REFINAMENTO FINAL AEAMG — preserva estrutura, azul/dourado, tipografia e componentes originais. */
+  .primary-content .objective{background:linear-gradient(125deg,#edf4fc 0%,#f8fbff 100%);border:1px solid #dce9f5;border-left:4px solid #1e5488;border-radius:12px;padding:23px 24px}
+  .primary-content .syllabus .module-card:nth-child(odd){background:linear-gradient(160deg,#fff,#f3f7fc);border-color:#cbdcec}
+  .primary-content .syllabus .module-card:nth-child(even){background:linear-gradient(160deg,#f0f6fd,#fff);border-color:#cbdcec}
+  .primary-content .syllabus .module-card:hover{border-color:#a4bfd9}
+  .primary-content .methodology{background:#f5f9fe;border:1px solid #e0eaf4;border-radius:12px;padding:22px 24px}
+  .primary-content .benefits{background:linear-gradient(135deg,#eef4fb,#f9fbfe);border:1px solid #dce8f4;border-radius:12px;padding:22px 24px}
+  .primary-content .aeamg-cases{background:#eaf2fb;border:1px solid #d5e4f3;border-radius:12px;padding:22px 24px}
+  .aeamg-case{background:linear-gradient(160deg,#fff 60%,#f6f9fd);border-top:3px solid #1e5488}
+  .aeamg-case:nth-child(even){border-top-color:#e6a729}
+  .aeamg-case-links{display:flex;flex-wrap:wrap;align-items:center;gap:7px 15px;margin-top:auto}
+  .aeamg-case-links a{margin-top:0}
+  .aeamg-case-links a:last-child:not(:first-child){font-weight:650;color:#4f6881}
+  .aeamg-first-delivery{display:flex;align-items:center;gap:16px;background:#0b2850;color:#fff;border-radius:12px;padding:20px 23px;margin:15px 0 16px;border-bottom:3px solid #e6a729}
+  .aeamg-first-delivery-icon{flex:0 0 54px;width:54px;height:54px;border:1px solid #829cba;border-radius:12px;display:grid;place-items:center;font-weight:850;font-size:26px;color:#f1c36d}
+  .aeamg-first-delivery strong{display:block;font-size:16px;line-height:1.3;color:#fff}
+  .aeamg-first-delivery p{margin:6px 0 5px;font-size:13px;line-height:1.6;color:#e6edf7}
+  .aeamg-first-delivery small{display:block;color:#c4d4e7;font-size:11px;line-height:1.5}
+  .apcef-step:nth-child(1){background:#edf4fb;border-color:#c7daec}
+  .apcef-step:nth-child(2){background:#f7fafe;border-color:#cbddec}
+  .apcef-step:nth-child(3){background:#e9f1fa;border-color:#c7daec}
+  .aeamg-after{background:linear-gradient(135deg,#eaf2fb,#f7fafe);border:1px solid #cfdfef;border-radius:12px;padding:24px!important}
+  .aeamg-after>p{font-size:14px;line-height:1.7;color:#294766;margin:12px 0}
+  .aeamg-after-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:17px 0}
+  .aeamg-after-options>div{background:#fff;border:1px solid #d4e1ef;border-top:3px solid #e6a729;border-radius:9px;padding:15px 14px}
+  .aeamg-after-options>div:first-child{border-top-color:#205586}
+  .aeamg-after-options>div:nth-child(2){border-top-color:#5086b1}
+  .aeamg-after-options span{font-size:11px;color:#5f7d9a;letter-spacing:.1em;font-weight:800;display:block;margin-bottom:7px}
+  .aeamg-after-options strong{font-size:13px;color:#0b2850;display:block;margin-bottom:6px}
+  .aeamg-after-options p{font-size:12px;line-height:1.6;color:#45617a;margin:0}
+  .aeamg-after-end{padding-top:12px;border-top:1px solid #d2e1ef;font-size:12px!important}
+  @media(max-width:850px){.aeamg-after-options{grid-template-columns:1fr}}
+  @media(max-width:650px){.primary-content .objective,.primary-content .methodology,.primary-content .benefits,.primary-content .aeamg-cases,.aeamg-after{padding:17px!important}.aeamg-first-delivery{align-items:flex-start;padding:17px}.aeamg-first-delivery-icon{width:44px;height:44px;flex-basis:44px;font-size:22px}}
+  @media print{.aeamg-first-delivery{-webkit-print-color-adjust:exact;print-color-adjust:exact}.aeamg-after-options>div,.aeamg-after{break-inside:avoid}}
+</style>
 </head>
 <body class="page-proposta apcef-proposal">
 <a class="skip-link" href="#conteudo">Ir para o conteúdo da proposta</a>
@@ -120,7 +155,7 @@
 <span class="platform-stamp">Projeto em 9 meses<svg class="icon small"><use href="#i-shield"></use></svg></span>
 </div>
 <div class="experience-strip" id="experience-strip">
-<div><strong>Cinco soluções com entregas concretas</strong><span>Explore os detalhes, teste um guia demonstrativo e conheça projetos que já saíram do papel.</span></div>
+<div><strong>Cinco soluções com entregas concretas</strong><span>Teste a demonstração do Minha AEAMG, conheça cases reais e veja o cronograma de entregas.</span></div>
 <button aria-controls="program-dialog" aria-haspopup="dialog" class="experience-link" id="experience-link" type="button">Conhecer as cinco frentes<svg class="icon small"><use href="#i-book"></use></svg></button>
 </div>
 <div class="proposal-grid">
@@ -171,26 +206,36 @@
 <div class="section-head"><svg class="icon section-icon"><use href="#i-book"></use></svg><h2 id="heading-cases">Experiências que já saíram do papel</h2></div>
 <p>Projetos reais para visualizar o método e a qualidade das entregas. Os contextos são diferentes; o que importa aqui é a solução demonstrada.</p>
 <div class="aeamg-case-grid">
-<article class="aeamg-case"><span>01 / CONTEÚDO E BUSCAS</span><h3>Ângelo Oliveira</h3><p>Experiência digital voltada ao universo bancário, com conteúdo especializado, orientações e navegação intuitiva.</p><a href="https://psiangelooliveira.com.br/" rel="noopener noreferrer" target="_blank">Explorar projeto ↗</a></article>
-<article class="aeamg-case"><span>02 / IMPACTO SOCIAL</span><h3>NABOA</h3><p>Portal de iniciativas, projetos e informações sobre impacto socioambiental e voluntariado, com caminhos de descoberta por interesse.</p><a href="https://naboa.eco.br/" rel="noopener noreferrer" target="_blank">Explorar portal ↗</a></article>
-<article class="aeamg-case"><span>03 / APRENDIZAGEM DIGITAL</span><h3>WS Hub</h3><p>Ambiente digital de formação com trilhas educativas, atividades e recursos para estudar de forma autônoma.</p><a href="https://wendellsoares.jor.br/wshub/" rel="noopener noreferrer" target="_blank">Conhecer plataforma ↗</a></article>
+<article class="aeamg-case"><span>01 / EXPERIÊNCIAS LÚDICAS</span><h3>Ângelo Oliveira · Modo Avião</h3><p>Além da arquitetura e organização do site profissional, o espaço Modo Avião usa jogos, testes e experiências lúdicas para incentivar a interação e tornar a navegação mais envolvente.</p><div class="aeamg-case-links"><a href="https://psiangelooliveira.com.br/modo-aviao/" rel="noopener noreferrer" target="_blank">Explorar o Modo Avião ↗</a><a href="https://psiangelooliveira.com.br/" rel="noopener noreferrer" target="_blank">Ver também o site completo ↗</a></div></article>
+<article class="aeamg-case"><span>02 / JOGO DE ALINHAMENTO</span><h3>NABOA · Voluntariado</h3><p>Jogo interativo que ajuda cada pessoa a identificar interesses, aproximar-se de uma causa e descobrir possibilidades de participação voluntária. Um exemplo de como orientar escolhas por meio de uma experiência simples.</p><a href="https://portalnaboa.github.io/voluntariado/" rel="noopener noreferrer" target="_blank">Experimentar o jogo ↗</a></article>
+<article class="aeamg-case"><span>03 / APRENDIZAGEM DIGITAL</span><h3>WS Hub</h3><p>Trilhas autoinstrucionais, atividades e conteúdos organizados para tornar a capacitação digital acessível e independente de encontros presenciais.</p><a href="https://wendellsoares.jor.br/wshub/" rel="noopener noreferrer" target="_blank">Conhecer plataforma ↗</a></article>
 <article class="aeamg-case"><span>04 / ACERVO INTERATIVO</span><h3>Linha do tempo digital</h3><p>Este projeto foi desenvolvido em outro segmento, mas ilustra com clareza como uma linha do tempo digital pode organizar acontecimentos, imagens, marcos e registros históricos de forma acessível e intuitiva.</p><a href="https://vantuir.site/#ano-2025" rel="noopener noreferrer" target="_blank">Explorar exemplo interativo ↗</a></article>
 </div>
 </section><section aria-labelledby="heading-steps" class="content-section">
 <div class="section-head"><svg class="icon section-icon"><use href="#i-target"></use></svg><h2 id="heading-steps">Do planejamento à entrega: nove meses</h2></div>
-<div aria-label="Etapas de contratação e desenvolvimento" class="apcef-steps">
-<div class="apcef-step"><span>1º</span><strong>Meses 1 a 3</strong><p>Diagnóstico, padronização inicial, estrutura de navegação e protótipos. Relatório gerencial 01.</p></div>
-<div class="apcef-step"><span>2º</span><strong>Meses 4 a 6</strong><p>Implementações e conteúdos: guia do associado, materiais educativos e trilhas digitais. Relatório 02.</p></div>
-<div class="apcef-step"><span>3º</span><strong>Meses 7 a 9</strong><p>Acervo histórico, ajustes finais, testes e documentação. Relatório 03 e entrega formal.</p></div>
+<div class="aeamg-first-delivery"><div aria-hidden="true" class="aeamg-first-delivery-icon">30</div>
+<div><strong>Primeira entrega já no primeiro mês</strong><p>Um protótipo de navegação do <b>Minha AEAMG</b> com três caminhos reais, para a diretoria testar, comentar e aprovar — sem banco de dados, APIs ou novas integrações.</p><small>Marco previsto em até 30 dias após a contratação, o alinhamento inicial e o recebimento das informações essenciais.</small></div></div><div aria-label="Etapas de contratação e desenvolvimento" class="apcef-steps">
+<div class="apcef-step"><span>1º</span><strong>Meses 1 a 3</strong><p>Diagnóstico e prioridades. Até o 30º dia após o início e a disponibilização dos conteúdos necessários: protótipo navegável do Minha AEAMG, com três jornadas. Relatório gerencial 01 no mês 3.</p></div>
+<div class="apcef-step"><span>2º</span><strong>Meses 4 a 6</strong><p>Aprimoramento do guia, SEO/Google e conteúdos ilustrados, além das trilhas autoinstrucionais. Relatório gerencial 02 no mês 6.</p></div>
+<div class="apcef-step"><span>3º</span><strong>Meses 7 a 9</strong><p>Organização do acervo, linha do tempo, testes e documentação final. Relatório gerencial 03, conferência e entrega formal no mês 9.</p></div>
 </div>
 <div class="apcef-notice"><strong>Modelo de contratação:</strong> escopo fechado e entregas aprovadas. Manutenção posterior somente se desejada. Acesso a sistemas, Perfil da Empresa no Google, conteúdo histórico e aprovações dependem da AEAMG e dos administradores responsáveis.</div>
+</section><section aria-labelledby="heading-after" class="content-section aeamg-after">
+<div class="section-head"><svg class="icon section-icon"><use href="#i-shield"></use></svg><h2 id="heading-after">E após os nove meses?</h2></div>
+<p><strong>O projeto termina com uma entrega definitiva.</strong> A AEAMG recebe os produtos, materiais e a documentação previstos no escopo aprovado, acompanhados da conferência final de resultados. A continuidade é uma escolha, nunca uma condição para concluir a contratação.</p>
+<div class="aeamg-after-options">
+<div><span>01</span><strong>Encerrar e utilizar</strong><p>A associação segue usando as soluções entregues, com autonomia e orientações documentadas.</p></div>
+<div><span>02</span><strong>Solicitar ajustes pontuais</strong><p>Atualizações, novas páginas ou materiais podem ser contratados sob demanda, sem mensalidade obrigatória.</p></div>
+<div><span>03</span><strong>Contratar acompanhamento</strong><p>Se houver interesse, um plano separado poderá incluir manutenção, atualização de conteúdos e monitoramento periódico.</p></div>
+</div>
+<p class="aeamg-after-end"><strong>Sem renovação automática.</strong> Eventuais hospedagem, domínio ou serviços de terceiros permanecem sujeitos às condições dos respectivos fornecedores.</p>
 </section><section aria-labelledby="heading-expertise" class="content-section aeamg-authority"><div class="section-head"><svg class="icon section-icon"><use href="#i-shield"></use></svg><h2 id="heading-expertise">Estratégia que conecta comunicação e tecnologia</h2></div><p><strong>Wendell Soares</strong> é jornalista, escritor e estrategista digital, com pós-graduação em Estratégia SEO/GEO e Marketing Digital. Seus projetos reúnem conteúdo, arquitetura de informação, presença nas buscas e experiências interativas. <a href="https://wendellsoares.jor.br/" rel="noopener noreferrer" target="_blank">Conheça o portfólio completo ↗</a></p></section>
 </div>
 <aside aria-label="Informações e condições da proposta" class="proposal-aside">
 <div class="client-identity"><svg class="icon section-icon"><use href="#i-users"></use></svg><div class="client-copy"><span class="sidebar-label">Para</span><strong>AEAMG</strong><span>Associação dos Economiários Aposentados de Minas Gerais</span></div><img alt="Logotipo fornecido da AEAMG" class="client-logo" height="225" id="client-logo" src="logo-aeaminas.jpg" width="225"/></div>
 <div class="aside-divider"></div>
 <section aria-labelledby="heading-investment" class="aside-block investment"><div class="aside-title"><svg class="icon"><use href="#i-tag"></use></svg><h2 id="heading-investment">Investimento</h2></div><div class="investment-prices"><strong class="investment-value" id="investment-value">Preço a combinar</strong></div><span class="investment-note">Investimento definido após escolha das frentes, quantidades finais e validação do cronograma.</span></section>
-<section aria-labelledby="heading-conditions" class="conditions"><div class="aside-title"><svg class="icon"><use href="#i-coins"></use></svg><h2 id="heading-conditions">Condições</h2></div><ul id="conditions-list"><li>Projeto-base de nove meses, com início, entregas e encerramento formal.</li><li>Três conferências e relatórios gerenciais trimestrais, realizados remotamente.</li><li>Uma ou mais frentes contratáveis, com quantidades e limites definidos em contrato.</li><li>Manutenção opcional; sem integrações complexas nem produção presencial.</li></ul></section>
+<section aria-labelledby="heading-conditions" class="conditions"><div class="aside-title"><svg class="icon"><use href="#i-coins"></use></svg><h2 id="heading-conditions">Condições</h2></div><ul id="conditions-list"><li>Projeto-base de nove meses, com início, entregas e encerramento formal.</li><li>Três conferências e relatórios gerenciais trimestrais, realizados remotamente.</li><li>Uma ou mais frentes contratáveis, com quantidades e limites definidos em contrato.</li><li>Após nove meses, entrega e encerramento. Manutenção ou novas etapas só se desejadas.</li></ul></section>
 <section aria-labelledby="heading-validity" class="aside-block validity" id="validity-section"><div class="aside-title"><svg class="icon"><use href="#i-cal"></use></svg><h2 id="heading-validity">Próximo passo</h2></div><p>Reunião remota para alinhar prioridades e definir o orçamento do projeto.</p></section>
 <div aria-label="Ações da proposta" class="proposal-actions">
 <button class="action action-primary" id="approve-action" type="button"><svg class="icon"><use href="#i-check"></use></svg><span>Conversar sobre a proposta</span></button>
