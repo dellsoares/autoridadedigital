@@ -63,8 +63,6 @@ Antes de publicar dezenas de artigos, eu revisaria cinco elementos: nome e espec
 
 É aqui que o **SEO tradicional continua indispensável**. Descoberta, rastreamento, indexação e qualidade de conteúdo não desapareceram porque a interface de pesquisa ficou mais conversacional. O Google, inclusive, orienta proprietários de sites a priorizar fundamentos de SEO e conteúdo original ao trabalhar a presença nas experiências de busca com IA.
 
-![](/assets/posts/chatgpt/como-aparecer-nas-respostas-do-chst-gpt-e-outrass-ias-tutorial-compactada-ws-tools.webp)
-
 ![](/assets/posts/chatgpt/7-pilares-paras-aparecer-nas-respostas-de-ias-compactada-ws-tools.webp)
 
 ## Verifique se os sistemas conseguem acessar suas páginas
