@@ -150,58 +150,51 @@
 
 <!-- Intro da home: estilos isolados para preservar o layout original -->
 <style id="ws-site-intro-styles">
+  /* Intro isolada da interface original */
   #ws-site-intro[hidden] { display: none !important; }
   #ws-site-intro {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483000;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-    isolation: isolate;
-    background: #061326 url('/assets/simbolo-astronauta-512.webp') center / 112px no-repeat;
-    opacity: 1;
-    transition: opacity .5s ease;
+    position: fixed; inset: 0; z-index: 2147483000;
+    width: 100%; height: 100vh; height: 100dvh;
+    overflow: hidden; background: #061326 url('/assets/simbolo-astronauta-512.webp') center / 112px no-repeat;
+    opacity: 1; transition: opacity .5s ease;
   }
   #ws-site-intro.ws-site-intro-closing { opacity: 0; pointer-events: none; }
   #ws-site-intro-video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
   }
+  /* Controle discreto: somente uma seta, com rótulo acessível. */
   #ws-site-intro-skip {
-    position: absolute;
-    z-index: 2;
+    position: absolute; z-index: 2;
     top: max(18px, env(safe-area-inset-top, 0px));
-    right: max(18px, env(safe-area-inset-right, 0px));
-    padding: 11px 16px;
-    border: 1px solid rgba(255,255,255,.58);
-    border-radius: 999px;
-    background: rgba(3,17,34,.72);
-    color: #fff;
-    font: 700 13px/1.35 system-ui, sans-serif;
-    letter-spacing: .015em;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    right: max(20px, env(safe-area-inset-right, 0px));
+    display: grid; place-items: center;
+    width: 34px; height: 34px; padding: 0;
+    border: 0; background: transparent; box-shadow: none;
+    color: rgba(255,255,255,.74);
+    font: 400 27px/1 system-ui, sans-serif;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+    transition: color .2s ease, transform .2s ease;
   }
-  #ws-site-intro-skip:hover, #ws-site-intro-skip:focus-visible {
-    border-color: #f8d379;
-    color: #f8d379;
-    outline-offset: 4px;
-  }
+  #ws-site-intro-skip:hover { color: #f8d379; transform: translateX(2px); }
+  #ws-site-intro-skip:focus-visible { color: #fff; outline: 2px solid #f8d379; outline-offset: 4px; border-radius: 3px; }
   html.ws-site-intro-lock, html.ws-site-intro-lock body { overflow: hidden !important; }
+  /* Evita composição/efeitos da página sob o vídeo; preserva dimensões e HTML. */
+  html.ws-site-intro-lock body > :not(#ws-site-intro):not(script) { visibility: hidden !important; }
+  /* O Major H só pode surgir quando a intro estiver completamente encerrada,
+     inclusive durante o fade, quando o restante do site já está sendo revelado. */
+  html.ws-site-intro-major-h-hidden body :is(
+    [id*="major-h"], [class*="major-h"],
+    [id*="majorH"], [class*="majorH"],
+    [id*="majorh"], [class*="majorh"],
+    [id^="mh-"], [class*="mh-fab"], [class*="mh-chat"],
+    [class*="mh-widget"], [id*="ws-chat"], [class*="ws-chat"]
+  ) { visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
   @media (max-width: 700px) {
     #ws-site-intro-video { object-position: 50% 50%; }
-    #ws-site-intro-skip { font-size: 12px; padding: 11px 14px; }
+    #ws-site-intro-skip { top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); }
   }
-  @media (prefers-reduced-motion: reduce) {
-    #ws-site-intro { transition: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { #ws-site-intro { transition: none; } }
 </style>
 
 </head>
@@ -209,7 +202,7 @@
 <!-- Intro cinematográfica da home: primeira visita por sessão, com opção de pular -->
 <div id="ws-site-intro" role="dialog" aria-modal="true" aria-label="Abertura do site" hidden>
   <video id="ws-site-intro-video" muted playsinline webkit-playsinline preload="none" aria-hidden="true"></video>
-  <button id="ws-site-intro-skip" type="button">Pular introdução <span aria-hidden="true">↗</span></button>
+  <button id="ws-site-intro-skip" type="button" aria-label="Pular introdução" title="Pular introdução"><span aria-hidden="true">→</span></button>
 </div>
 <script id="ws-site-intro-script">
 (() => {
@@ -218,7 +211,7 @@
   const skip = document.getElementById('ws-site-intro-skip');
   if (!intro || !video || !skip) return;
 
-  const sessionKey = 'ws-home-intro-seen-v1';
+  const sessionKey = 'ws-home-intro-seen-v2';
   const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   if (reducedMotion || connection?.saveData || /^(slow-2g|2g)$/.test(connection?.effectiveType || '')) return;
@@ -227,32 +220,37 @@
     if (sessionStorage.getItem(sessionKey)) return;
     sessionStorage.setItem(sessionKey, '1');
   } catch (_) {
-    // Se o armazenamento estiver bloqueado, não interrompe a navegação.
-    return;
+    return; // Não bloqueia a navegação caso o navegador restrinja o armazenamento.
   }
 
   let closed = false;
-  let playTimer;
-  let startTimer;
+  let begun = false;
+  let totalTimer, startTimer, stallTimer;
+  const clearTimers = () => {
+    clearTimeout(totalTimer);
+    clearTimeout(startTimer);
+    clearTimeout(stallTimer);
+  };
   const onKeydown = (e) => { if (e.key === 'Escape') finish(); };
   const onPageHide = () => finish(true);
 
   function finish(immediate = false) {
     if (closed) return;
     closed = true;
-    clearTimeout(playTimer);
-    clearTimeout(startTimer);
+    clearTimers();
     document.removeEventListener('keydown', onKeydown);
     window.removeEventListener('pagehide', onPageHide);
     video.pause();
+    // Revela a página para o fade, mas mantém o Major H escondido.
+    document.documentElement.classList.remove('ws-site-intro-lock');
     intro.classList.add('ws-site-intro-closing');
 
     const remove = () => {
       const hadFocus = intro.contains(document.activeElement);
       intro.hidden = true;
-      document.documentElement.classList.remove('ws-site-intro-lock');
       video.removeAttribute('src');
       video.load();
+      document.documentElement.classList.remove('ws-site-intro-major-h-hidden');
       if (hadFocus) document.querySelector('.logo-lockup')?.focus({ preventScroll: true });
     };
     if (immediate || window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) remove();
@@ -264,16 +262,27 @@
   window.addEventListener('pagehide', onPageHide);
   video.addEventListener('ended', () => finish(), { once: true });
   video.addEventListener('error', () => finish(), { once: true });
-  video.addEventListener('playing', () => clearTimeout(startTimer), { once: true });
+  video.addEventListener('playing', () => {
+    begun = true;
+    clearTimeout(startTimer);
+    clearTimeout(stallTimer);
+  });
+  video.addEventListener('waiting', () => {
+    // Se travar depois de começar, não deixa uma imagem congelada ocupando a tela.
+    if (begun) {
+      clearTimeout(stallTimer);
+      stallTimer = window.setTimeout(() => finish(), 1500);
+    }
+  });
 
+  document.documentElement.classList.add('ws-site-intro-major-h-hidden');
   document.documentElement.classList.add('ws-site-intro-lock');
   intro.hidden = false;
   skip.focus({ preventScroll: true });
-
-  // O vídeo só começa a baixar quando realmente exibimos a intro.
   video.muted = true;
-  video.src = '/assets/intro-video-compatibilidade.mp4';
-  playTimer = window.setTimeout(() => finish(), 9500);
+  // Nova codificação com 30fps constantes; ?v=2 invalida o cache do MP4 antigo.
+  video.src = '/assets/intro-video-compatibilidade.mp4?v=2';
+  totalTimer = window.setTimeout(() => finish(), 9500);
   startTimer = window.setTimeout(() => finish(), 3500);
   try {
     const promise = video.play();
